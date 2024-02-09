@@ -1,30 +1,33 @@
+import React from "react";
 import { client } from "../../tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
-import { useRouter } from "next/router";
-
-// export async function generateStaticParams() {
-//   const posts = await await client.queries.postConnection();
- 
-//   return {
-//     posts: posts.data,
-//   }
-// }
+import { cache } from 'react'
 
 export default function Page(params) {
-
-  // const router = useRouter();
-  // if (router.isFallback)  return <div>Loading...</div>;
-
-  // // data passes though in production mode and data is updated to the sidebar data in edit-mode
+ 
   // const { data } = useTina({
   //   query: props.query,
   //   variables: props.variables,
   //   data: props.data,
   // });
 
-
   return <>
-    <h1>Hello, Nexter.js!</h1>
+    <h1>Hello, SlugPage!</h1>
     { JSON.stringify(params) }
   </>
+}
+
+
+export async function generateStaticParams() {
+  // const pageListResponse = await client.queries.pageConnection();
+  // const pageList =  pageListResponse.data.pageConnection.edges?.map((page) => {
+  //   return {
+      
+  //       slug: page?.node?._sys.filename, 
+  //       description: page?.node?.meta?.description
+  //   }
+  // })
+  // console.log('HERE:' + JSON.stringify(pageList))
+  // return pageList
+  return [{"params":{"slug":"homae"},"searchParams":{}}]
 }
