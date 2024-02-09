@@ -29,5 +29,5 @@ export async function generateStaticParams() {
   // })
   // console.log('HERE:' + JSON.stringify(pageList))
   // return pageList
-  return [{"params":{"slug":"homae"},"searchParams":{}}]
+  return [{"params":{"slug":"homeo"},"searchParams":{}}]
 }
