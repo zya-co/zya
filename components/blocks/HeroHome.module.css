@@ -1,0 +1,94 @@
+.pre {
+  white-space: pre-wrap;
+  width: 100%;
+  max-width: 30em;
+  line-height: 2;
+  position: fixed;
+
+}
+.heroHome {
+  background-color: var(--color-mineral-white);
+  overflow: auto;
+  position: relative;
+}
+.heroHeadline {
+  text-align: center;
+  font-size: var(--size-h1);
+  color: #FFC2A7;
+  mix-blend-mode: difference;
+  margin: 0;
+}
+.heroHeadlineCopy {
+  text-align: center;
+  font-size: var(--size-h1);
+  color: var(--color-fuchsia);
+  mix-blend-mode: hue;
+  margin: 0;
+  display: none;
+}
+.heroSubhead {
+  text-align: center;
+  font-size: var(--size-subhead);
+  color: var(--color-morpho-teal);
+  width: 100%;
+}
+.shape {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 50vh;
+}
+.shape path {
+  width: 100%;
+}
+.shape1 {
+  height: 1.56vw;
+}
+.shape2 {
+  height: 6.48vw;
+}
+.shape3 {
+  height: 26.4vw;
+}
+.shapecontainer {
+  width: 100vw;
+  overflow: hidden;
+}
+.shape4 {
+  height: 105vw;
+  margin-left: -2.5vw;
+}
+.heroContentWrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+.heroContent {
+  flex: 0 0 calc(50% - 2 * var(--spacing-s));
+  gap: var(--spacing-s);
+  padding: var(--spacing-s);
+}
+.heroContent h4 {
+  color: var(--color-fuchsia);
+  font-size: var(--size-subhead);
+  margin: 0;
+}
+.heroContent h4 + h2 {
+  margin-top: 0.25em;
+}
+.heroContent h2 {
+  color: var(--color-mineral-white);
+  font-size: var(--size-h2);
+  margin-bottom: 0.5em;
+}
+.heroContent p {
+  color: var(--color-mineral-white);
+  max-width: 20em;
+}
+.heroContent1 {
+  margin-top: calc(-1.5 * var(--size-subhead));
+}
+.heroContent2 {
+  margin-top: calc(1.5 * var(--size-subhead));
+}

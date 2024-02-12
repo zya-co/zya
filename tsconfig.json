@@ -12,7 +12,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -21,12 +21,18 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "@/fonts": ["./styles/fonts"]
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "**/*.ts",
+    "**/*.ts", 
+    "tina/config.tsx", 
+    "typings.d.tsx",
+    "**/*"
   ],
   "exclude": [
     "node_modules"

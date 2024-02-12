@@ -1,0 +1,40 @@
+import React from "react";
+import { useTina } from "tinacms/dist/react";
+import { client } from "../tina/__generated__/client";
+import { Blocks } from "../components/Blocks";
+import { Navigation } from '../components/Navigation'
+
+
+export default function Home(props) {
+  // data passes through in production mode and data is updated to the sidebar data in edit-mode
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
+
+  return (
+    <>
+      <Navigation props={props.nav} />
+      <Blocks blocks={data.page.blocks} />
+    </>
+  );
+}
+
+export const getStaticProps = async () => {
+  const { data, query, variables } = await client.queries.page({
+    relativePath: "home.mdx",
+  });
+
+  const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
+
+  return {
+    props: {
+      data,
+      query,
+      variables,
+      nav: mainNav
+      //myOtherProp: 'some-other-data',
+    },
+  };
+};

@@ -1,0 +1,33 @@
+:root {
+  --color-earth-gray: #7B766E;
+  --color-morpho-teal: #00394C;
+  --color-mineral-white: #FFFBF3;
+  --color-lichen: #FBFF3E;
+  --color-fuchsia: #E681FF;
+  --color-beatle: #340E32;
+  --color-amber: #CA8F1B;
+  --size-h1: 11.25vw;
+  --size-h2: 6.95vw;
+  --size-h3: 4.29vw;
+  --size-subhead: 2.65vw;
+  --size-body: 1.64vw;
+  --spacing-s: 1.875vw;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: var(--font-aeonik);
+  font-size: var(--size-body);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-haben);
+  font-feature-settings: 'ss07' on, 'ss09' on, 'ss04' on, 'ss06' on, 'ss01' on;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 90%;
+}

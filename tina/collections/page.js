@@ -1,16 +1,7 @@
 /**
  * @type {import('tinacms').Collection}
  */
-// import { aboutBlock } from './pageblocks/aboutBlock';
-// import { heroBlock } from './pageblocks/heroBlock';
-// import { navBlock } from './pageblocks/navBlock';
-// import { secondaryNavBlock } from './pageblocks/secondaryNavBlock';
-// import { peopleBlock } from './pageblocks/peopleBlock';
-// import { platformBlock } from './pageblocks/platformBlock';
-// import { workBlock } from './pageblocks/workBlock';
-// import { partnershipsBlock } from './pageblocks/partnershipsBlock';
-// import { longTextBlock } from './pageblocks/longTextBlock';
-// import { footerBlock } from './pageblocks/footerBlock';
+import { heroHome } from './pageblocks/heroHome';
 
 export default {
   label: 'Page Content',
@@ -43,24 +34,15 @@ export default {
         },
       ],
     },
-    // {
-    //   type: 'object',
-    //   list: true,
-    //   name: 'blocks',
-    //   label: 'Sections',
-    //   templates: [ 
-    //     navBlock, 
-    //     heroBlock, 
-    //     aboutBlock, 
-    //     secondaryNavBlock, 
-    //     peopleBlock, 
-    //     platformBlock, 
-    //     partnershipsBlock, 
-    //     workBlock, 
-    //     longTextBlock,
-    //     footerBlock 
-    //   ],
-    // },
+    {
+      type: 'object',
+      list: true,
+      name: 'blocks',
+      label: 'Sections',
+      templates: [ 
+        heroHome 
+      ],
+    },
   ],
   ui: {
     router: ({ document }) => {
