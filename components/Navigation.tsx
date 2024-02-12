@@ -1,9 +1,9 @@
+import React from 'react';
 import styles from './Navigation.module.css';
 import { useRef } from 'react';
 import NavigationHover from './NavigationHover';
 
 export const Navigation = (props) => {
-
   
   const container = useRef<HTMLDivElement | null>(null);
   NavigationHover(container);
