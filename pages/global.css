@@ -12,6 +12,7 @@
   --size-subhead: 2.65vw;
   --size-body: 1.64vw;
   --spacing-s: 1.875vw;
+  --spacing-col: 7.9vw;
 }
 html, body {
   margin: 0;
@@ -21,6 +22,7 @@ html, body {
 p {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
+  letter-spacing: -0.02em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -30,4 +32,16 @@ h1, h2, h3, h4, h5 {
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 90%;
+}
+h1 {
+  font-size: var(--size-h1);
+}
+h2 {
+  font-size: var(--size-h2);
+}
+h3 {
+  font-size: var(--size-h3);
+}
+h4 {
+  font-size: var(--size-subhead);
 }

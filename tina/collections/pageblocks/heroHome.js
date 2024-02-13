@@ -1,3 +1,5 @@
+import { cta } from '../embeds/cta'
+
 export const heroHome = {
   name: 'heroHome',
   label: 'Hero Homepage',
@@ -26,11 +28,13 @@ export const heroHome = {
       type: 'rich-text',
       name: 'heroContentOne',
       label: 'Content 1',
+      templates: [ cta ]
     },
     {
       type: 'rich-text',
       name: 'heroContentTwo',
-      label: 'Content 2'
+      label: 'Content 2',
+      templates: [ cta ]
     }
   ],
   ui: {

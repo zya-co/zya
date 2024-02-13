@@ -8,7 +8,7 @@
 }
 .heroHome {
   background-color: var(--color-mineral-white);
-  overflow: auto;
+  overflow: hidden;
   position: relative;
 }
 .heroHeadline {
@@ -62,7 +62,6 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  align-items: center;
 }
 .heroContent {
   flex: 0 0 calc(50% - 2 * var(--spacing-s));
@@ -86,9 +85,12 @@
   color: var(--color-mineral-white);
   max-width: 20em;
 }
+.heroContent :last-child {
+  margin-bottom: 0;
+}
 .heroContent1 {
-  margin-top: calc(-1.5 * var(--size-subhead));
+  margin-top: calc(20vh - 0.66 * var(--size-subhead));
 }
 .heroContent2 {
-  margin-top: calc(1.5 * var(--size-subhead));
+  margin-top: calc(20vh + 0.66 * var(--size-subhead));
 }

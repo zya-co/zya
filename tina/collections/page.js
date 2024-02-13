@@ -2,6 +2,7 @@
  * @type {import('tinacms').Collection}
  */
 import { heroHome } from './pageblocks/heroHome';
+import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
 
 export default {
   label: 'Page Content',
@@ -40,7 +41,8 @@ export default {
       name: 'blocks',
       label: 'Sections',
       templates: [ 
-        heroHome 
+        heroHome,
+        contentFullSizeImgBg 
       ],
     },
   ],

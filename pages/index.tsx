@@ -1,11 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import { Blocks } from "../components/Blocks";
-import { Navigation } from '../components/Navigation'
+import { Navigation } from '../components/navigation/Navigation'
 
 
 export default function Home(props) {
+
+  const [navColor, setNavColor] = useState('dark') 
+
   // data passes through in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
@@ -15,7 +19,7 @@ export default function Home(props) {
 
   return (
     <>
-      <Navigation props={props.nav} />
+      <Navigation navData={props.nav} color={navColor} />
       <Blocks blocks={data.page.blocks} />
     </>
   );

@@ -11,6 +11,10 @@
 }
 .mainNav__logo {
   color: var(--color-morpho-teal);
+  transition: color 0.3s ease;
+}
+.mainNav[data-isLight="true"] .mainNav__logo {
+  color: var(--color-mineral-white);
 }
 .mainNav__linkList__link, 
 .mainNav__cta {
@@ -18,6 +22,10 @@
   color: var(--color-morpho-teal);
   padding: calc( 2 * var(--spacing-s) ) var(--spacing-s);
   position: relative;
+  transition: color 0.3s ease;
+}
+.mainNav[data-isLight="true"] .mainNav__linkList__link {
+  color: var(--color-mineral-white);
 }
 .mainNav__cta:before {
   content: '';
@@ -29,4 +37,8 @@
   background-color: var(--color-fuchsia);
   z-index: -1;
   border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+.mainNav[data-isLight="true"] .mainNav__cta:before {
+  background-color: var(--color-lichen);
 }
