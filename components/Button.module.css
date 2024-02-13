@@ -27,13 +27,13 @@
   background-color: var(--color-fuchsia);
   color: var(--color-morpho-teal);
 }
-.button__fuchsia:hover {
+.button:hover, .button__fuchsia:hover {
   background-color: var(--color-lichen);
 }
 .button__lichen {
   background-color: var(--color-lichen);
   color: var(--color-morpho-teal);
 }
-.button__fuchsia:hover {
+.button__lichen:hover {
   background-color: var(--color-mineral-white);
 }

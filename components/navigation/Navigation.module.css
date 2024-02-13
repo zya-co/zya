@@ -39,6 +39,12 @@
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
+.mainNav__cta:hover:before {
+  background-color: var(--color-lichen);
+}
 .mainNav[data-isLight="true"] .mainNav__cta:before {
   background-color: var(--color-lichen);
+}
+.mainNav[data-isLight="true"] .mainNav__cta:hover:before {
+  background-color: var(--color-mineral-white);
 }
