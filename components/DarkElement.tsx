@@ -14,12 +14,15 @@ export default function DarkElement(props) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const elem = entry.target as HTMLElement;
+        const nav = document.querySelector('.mainNav') as HTMLElement;
         if (entry.isIntersecting) {
-          // alert('intersecting: '+ props.color)
-          document.querySelector('.mainNav')?.setAttribute('data-isLight', 'true')
+          setTimeout(() => {
+              nav?.setAttribute('data-isLight', 'true')
+          }, 50)
         } else {
-          // alert('not intersecting: ' + props.color)
-          document.querySelector('.mainNav')?.removeAttribute('data-isLight')
+          nav?.removeAttribute('data-isLight')
+          
+          //nav?.removeAttribute('data-isLight')
         }
       });
     }, options);
