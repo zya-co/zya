@@ -12,29 +12,32 @@
   --size-subhead: 2.65vw;
   --size-body: 1.64vw;
   --spacing-s: 1.875vw;
-  --spacing-col: 7.9vw;
+  --spacing-col: 6vw;
 }
 html, body {
   margin: 0;
   padding: 0;
 }
 
-p {
+p, li, input, textarea, button {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
   letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-haben);
-  font-feature-settings: 'ss07' on, 'ss09' on, 'ss04' on, 'ss06' on, 'ss01' on;
+  font-feature-settings: 'liga', 'kern', 'onum';
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.05em;
-  line-height: 90%;
+  line-height: .9;
+  margin-bottom: .5em;
 }
 h1 {
   font-size: var(--size-h1);
+  margin-bottom: .33em;
 }
 h2 {
   font-size: var(--size-h2);
@@ -44,4 +47,7 @@ h3 {
 }
 h4 {
   font-size: var(--size-subhead);
+}
+h4 + h1 {
+  margin-top: .25em;
 }

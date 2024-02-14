@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { maxHeaderSize } from "http";
 
 export default function HeroHomeAnimation(container) {
 
@@ -9,9 +8,8 @@ export default function HeroHomeAnimation(container) {
 
   useGSAP(() => {
     
-    let fullHeight = document.querySelector('.heroHome')?.getBoundingClientRect().height || 0;
-   
     const parent = document.querySelector('.heroHome') as HTMLElement;
+    let fullHeight = parent?.getBoundingClientRect().height || 0;
     parent.style.height = `${fullHeight}px`;
     const h1coords = document.querySelector('.headline1')?.getBoundingClientRect() || {top: 0, height: 0};
 
@@ -33,10 +31,9 @@ export default function HeroHomeAnimation(container) {
 
     const tl = gsap.timeline({ 
       scrollTrigger: {
-        trigger: '.heroHome',
+        trigger: parent,
         start: 'top top',
         end: `+=${fullHeight + 0.25 * window.innerHeight}px`,
-        pin: true,
         scrub: true,
         // markers: true,
       },

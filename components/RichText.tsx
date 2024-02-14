@@ -26,13 +26,13 @@ export default function RichText(props) {
   }
 
   return (
-    <div className="richText">
+    <>
       <TinaMarkdown 
         content={props.content} 
         components={
           {Cta, enzyme}
         }
       />
-    </div>
+    </>
   )
 }

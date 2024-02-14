@@ -1,9 +1,38 @@
 .contentTextAndImage {
   overflow: auto;
+  position: relative;
 }
 .bg__mineralWhite {
   background-color: var(--color-mineral-white);
 }
 .bg__earthGray {
   background-color: var(--color-earth-gray);
+}
+.imageRightBorder .content {
+  position: relative;
+  z-index: 1;
+  padding: var(--size-h1) 0 var(--size-h1) calc(var(--spacing-col) + var(--spacing-s));
+  width: calc( 10 * var(--spacing-col) );
+}
+.imageRightBorder .content > :first-child {
+  margin-top: 0;
+}
+.imageRightBorder .content p {
+  max-width: calc( 5 * var(--spacing-col));
+}
+.imageRightBorder .image {
+  position: absolute;
+  top: var(--size-h1);
+  right: 0;
+  width: calc(var(--spacing-col) * 7 + var(--spacing-s));
+  height: calc(100% - var(--size-h1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  z-index: 0;
+}
+.imageRightBorder .image img {
+  object-fit: cover;
+  object-position: right top;
 }
