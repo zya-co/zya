@@ -9,6 +9,11 @@ module.exports = {
   },
   transpilePackages: ['gsap'],
   images: {
-    domains: ['assets.tina.io'],
+    // domains: ['assets.tina.io'],
+    remotePatterns: [
+      {
+        hostname: 'assets.tina.io',
+      },
+    ],
   },
 }

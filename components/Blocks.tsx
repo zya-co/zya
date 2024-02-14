@@ -2,6 +2,8 @@ import React from 'react'
 import { HeroHome } from './blocks/HeroHome'
 import ContentFullSizeImgBg from './blocks/ContentFullSizeImgBg'
 import ContentTextAndImage from './blocks/ContentTextAndImage'
+import HomeFounders from './blocks/HomeFounders'
+
 export const Blocks = (props) => {
   return (
     <>
@@ -24,6 +26,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <ContentTextAndImage data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksHomeFounders":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <HomeFounders data={block} />
               </React.Fragment>
             )
         }

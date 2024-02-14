@@ -4,6 +4,7 @@
 import { heroHome } from './pageblocks/heroHome';
 import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
 import { contentTextAndImg } from './pageblocks/contentTextAndImg';
+import { homeFounders } from './pageblocks/homeFounders';
 
 export default {
   label: 'Page Content',
@@ -44,7 +45,8 @@ export default {
       templates: [ 
         heroHome,
         contentFullSizeImgBg,
-        contentTextAndImg
+        contentTextAndImg,
+        homeFounders
       ],
     },
   ],

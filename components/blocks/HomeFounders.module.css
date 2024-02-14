@@ -1,0 +1,72 @@
+.homeFounders {
+  background-color: var(--color-earth-gray);
+  overflow: auto;
+  color: var(--color-mineral-white);
+  padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col));
+}
+.intro {
+  max-width: calc(10 * var(--spacing-col));
+}
+.intro h4 {
+  max-width: calc(6 * var(--spacing-col));
+}
+.quote {
+  color: var(--color-lichen);
+  max-width: calc(12 * var(--spacing-col));
+}
+.founders {
+  position: relative;
+  margin-bottom: var(--size-h1);
+}
+.founder {
+  width: calc(6 * var(--spacing-col));
+  position: relative;
+}
+.founder:first-child {
+  margin-top: var(--size-h1);
+  margin-left: calc(1.5 * var(--spacing-col));
+  position: relative;
+  z-index: 1;
+}
+.founder:last-child {
+  position: absolute;
+  left: calc(6 * var(--spacing-col));
+  top: calc( -1.25 * var(--size-h1) );
+  z-index: 0;
+}
+.founderImage {
+  width: 100%;
+  height: calc(6 * var(--spacing-col));
+  position: relative;
+  margin-bottom: var(--size-body);
+}
+.founder:last-child .founderInfo {
+  margin-left: calc(1.5 * var(--spacing-col));
+}
+.founderInfo sub {
+  vertical-align: baseline;
+  font-size: 0.7em;
+  margin-left: .33em;
+}
+.founderInfo__name {
+  margin: 0;
+  font-size: var(--size-h3);
+}
+.founderInfo__jobTitle {
+  color: var(--color-lichen);
+  margin: 0;
+}
+.signoff {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.signoff__text {
+  max-width: calc(9 * var(--spacing-col));
+}
+.signoff__text :last-child {
+  margin-bottom: 0;
+}
+.signoff__button {
+  margin-bottom: .33em;
+}
