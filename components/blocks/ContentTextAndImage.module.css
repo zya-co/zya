@@ -1,0 +1,9 @@
+.contentTextAndImage {
+  overflow: auto;
+}
+.bg__mineralWhite {
+  background-color: var(--color-mineral-white);
+}
+.bg__earthGray {
+  background-color: var(--color-earth-gray);
+}

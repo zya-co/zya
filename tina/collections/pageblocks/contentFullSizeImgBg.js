@@ -1,4 +1,5 @@
 import { cta } from "../embeds/cta";
+import { enzyme } from "../embeds/enzyme";
 
 export const contentFullSizeImgBg = {
   name: 'contentFullSizeImgBg',
@@ -42,25 +43,7 @@ export const contentFullSizeImgBg = {
       type: 'rich-text',
       name: 'content',
       label: 'Content',
-      templates: [
-        cta,
-        {
-          name: 'enzyme',
-          label: 'Enzyme',
-          fields: [
-            {
-              type: 'image',
-              name: 'image',
-              label: 'Image'
-            },
-            {
-              type: 'string',
-              name: 'alt',
-              label: 'Alt Text'
-            }
-          ]
-        }
-      ]
+      templates: [ cta, enzyme ]
     }, 
     {
       type: 'object',

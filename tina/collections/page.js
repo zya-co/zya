@@ -3,6 +3,7 @@
  */
 import { heroHome } from './pageblocks/heroHome';
 import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
+import { contentTextAndImg } from './pageblocks/contentTextAndImg';
 
 export default {
   label: 'Page Content',
@@ -42,7 +43,8 @@ export default {
       label: 'Sections',
       templates: [ 
         heroHome,
-        contentFullSizeImgBg 
+        contentFullSizeImgBg,
+        contentTextAndImg
       ],
     },
   ],

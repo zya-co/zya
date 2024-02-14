@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeroHome } from './blocks/HeroHome'
 import ContentFullSizeImgBg from './blocks/ContentFullSizeImgBg'
-
+import ContentTextAndImage from './blocks/ContentTextAndImage'
 export const Blocks = (props) => {
   return (
     <>
@@ -18,6 +18,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <ContentFullSizeImgBg data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksContentTextAndImg":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <ContentTextAndImage data={block} />
               </React.Fragment>
             )
         }
