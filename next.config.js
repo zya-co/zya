@@ -8,4 +8,7 @@ module.exports = {
     ]
   },
   transpilePackages: ['gsap'],
+  images: {
+    domains: ['assets.tina.io'],
+  },
 }
