@@ -3,6 +3,7 @@ import { HeroHome } from './blocks/HeroHome'
 import ContentFullSizeImgBg from './blocks/ContentFullSizeImgBg'
 import ContentTextAndImage from './blocks/ContentTextAndImage'
 import HomeFounders from './blocks/HomeFounders'
+import HeroMission from './blocks/HeroMission'
 
 export const Blocks = (props) => {
   return (
@@ -32,6 +33,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <HomeFounders data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksHeroMission":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <HeroMission data={block} />
               </React.Fragment>
             )
         }

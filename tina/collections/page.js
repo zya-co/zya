@@ -5,6 +5,7 @@ import { heroHome } from './pageblocks/heroHome';
 import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
 import { contentTextAndImg } from './pageblocks/contentTextAndImg';
 import { homeFounders } from './pageblocks/homeFounders';
+import { heroMission } from './pageblocks/heroMission';
 
 export default {
   label: 'Page Content',
@@ -44,9 +45,10 @@ export default {
       label: 'Sections',
       templates: [ 
         heroHome,
+        heroMission,
         contentFullSizeImgBg,
         contentTextAndImg,
-        homeFounders
+        homeFounders,
       ],
     },
   ],
