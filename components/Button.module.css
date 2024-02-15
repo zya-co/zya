@@ -2,6 +2,7 @@
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
   border-radius: 0.4vw;
+  border: none;
   padding: 1em 1.15em;
   text-decoration: none;
   display: inline-block;
@@ -15,7 +16,7 @@
   display: inline-block;
   width: 1.1em;
   height: 1em;
-  background-image: url("data:image/svg+xml,%3Csvg width='23' height='20' viewBox='0 0 23 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.069 8.87249C16.8253 8.87249 17.2058 7.958 16.6709 7.42316L11.7889 2.54108L13.4786 0.851377L19.6252 6.99796C21.2829 8.65573 21.2829 11.3435 19.6252 13.0013L13.4786 19.1479L11.7889 17.4582L16.6697 12.5773C17.2046 12.0425 16.8258 11.128 16.0694 11.128H1.47942C1.25425 11.128 1.0383 11.0385 0.879084 10.8793L0.600346 10.6006C0.268791 10.269 0.268791 9.73145 0.600345 9.3999L0.879084 9.12116C1.0383 8.96194 1.25627 8.87249 1.48144 8.87249C7.19376 8.87249 10.7572 8.87249 16.069 8.87249Z' fill='%2300394C'/%3E%3C/svg%3E%0A");
+  background-image: var(--arrow);
   background-size: contain;
   background-repeat: no-repeat; 
   background-position: left 50%;
@@ -36,4 +37,27 @@
 }
 .button__lichen:hover {
   background-color: var(--color-mineral-white);
+}
+.button__morphoTeal {
+  background-color: var(--color-morpho-teal);
+  color: var(--color-mineral-white);
+}
+.button__morphoTeal:before {
+  background-image: var(--arrow-white);
+}
+.button__morphoTeal:hover:before {
+  background-image: var(--arrow);
+}
+.button__morphoTeal:hover {
+  background-color: var(--color-mineral-white);
+  color: var(--color-morpho-teal);
+}
+.button__mini {
+  font-size: 0.9vw;
+}
+
+@media (max-width: 640px) {
+  .button__mini {
+    font-size: 1em
+  }
 }

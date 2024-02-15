@@ -4,6 +4,7 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import { Blocks } from "../components/Blocks";
 import { Navigation } from '../components/navigation/Navigation'
+import { Footer } from "../components/footer/Footer";
 
 
 export default function Home(props) {
@@ -21,6 +22,7 @@ export default function Home(props) {
     <>
       <Navigation navData={props.nav} color={navColor} />
       <Blocks blocks={data.page.blocks} />
+      <Footer navData={props.nav} />
     </>
   );
 }

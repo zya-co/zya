@@ -1,0 +1,179 @@
+@media (min-width: 641px) {
+  .footer {
+    background-color: var(--color-lichen);
+    padding: var(--spacing-s);
+  }
+  .contactform__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: calc( 2 * var(--spacing-col));
+    padding: var(--spacing-col);
+  }
+  .contactform__title {
+    flex-basis: calc( 6 * var(--spacing-col));
+    margin: 0;
+  }
+  .contactform__form{
+    flex-basis: calc( 6 * var(--spacing-col));
+  }
+  .contactform__form input[type="text"],
+  .contactform__form input[type="email"],
+  .contactform__form textarea {
+    width: 100%;
+    padding: 0.25em 0;
+    margin-bottom: var(--spacing-s);
+    border: none;
+    border-bottom: 1px solid var(--color-morpho-teal);
+    background-color: transparent;
+    font-family: var(--font-aeonik);
+    font-size: var(--size-subhead);
+    font-feature-settings: 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+    color: var(--color-morpho-teal);
+  }
+  .contactform__form input[type="text"],
+  .contactform__form input[type="email"] {
+    max-width: calc( 4 * var(--spacing-col));
+  }
+  .contactform__field__row__label span {
+    font-family: var(--font-aeonik);
+    font-size: var(--size-body);
+    display: block;
+  }
+  .contactform__field__row__ppcheck {
+    font-family: var(--font-aeonik);
+    font-size: 1.2vw;
+  }
+  .contactform__field__row__ppcheck {
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+  }
+  .contactform__field__row__ppcheck a {
+    text-decoration: underline;
+    color: var(--color-morpho-teal);
+  }
+  .contactform__field__row__ppcheck input {
+    width: auto;
+  }
+  .contactform__field__row__buttonrow {
+    display: flex;
+    align-items: center;
+    gap: 5em;
+  }
+
+  .footer__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-col);
+    font-family: var(--font-aeonik);
+  }
+  .footer__navlink {
+    text-decoration: none;
+    color: var(--color-morpho-teal);
+  }
+  .footer__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-morpho-teal);
+    padding: calc( .75 * var(--spacing-col) );
+  }
+  .footer__legal {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-s);
+    font-family: var(--font-aeonik);
+    font-size: 0.9vw;
+    color: var(--color-morpho-teal); 
+    opacity: 0.2;
+  }
+  .footer__legal__text {
+    display: flex;
+    gap: var(--spacing-col);
+  }
+  .footer__legal__text a {
+    text-decoration: none;
+    color: var(--color-morpho-teal);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    background-color: var(--color-lichen);
+    padding: var(--spacing-s);
+  }
+  .contactform__wrapper {
+    display: block;
+  }
+  .contactform__title {
+    margin: .66em 0;
+  }
+  .contactform__form input[type="text"],
+  .contactform__form input[type="email"],
+  .contactform__form textarea {
+    width: 100%;
+    max-width: calc( 7 * var(--spacing-col));
+    padding: 0.25em 0;
+    margin-bottom: var(--spacing-s);
+    border: none;
+    border-bottom: 1px solid var(--color-morpho-teal);
+    background-color: transparent;
+    font-family: var(--font-aeonik);
+    font-size: var(--size-subhead);
+    font-feature-settings: 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+    color: var(--color-morpho-teal);
+  }
+  .contactform__field__row__label span {
+    font-family: var(--font-aeonik);
+    font-size: var(--size-body);
+    display: block;
+  }
+  .contactform__field__row__buttonrow {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .contactform__field__row__ppcheck {
+    font-family: var(--font-aeonik);
+  }
+  .contactform__field__row__ppcheck {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+  }
+  .contactform__field__row__ppcheck a {
+    text-decoration: underline;
+    color: var(--color-morpho-teal);
+  }
+  .contactform__field__row__ppcheck input {
+    width: auto;
+  }
+
+  .footer__nav {
+    display: none;
+  }
+  .footer__logo {
+    display: none;
+  }
+  .footer__legal {
+    padding: var(--spacing-s) 0;
+    font-family: var(--font-aeonik);
+    font-size: 1em;
+    color: var(--color-morpho-teal); 
+    opacity: 0.2;
+  }
+  .footer__legal__text {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__legal__text a {
+    text-decoration: none;
+    color: var(--color-morpho-teal);
+  }
+  .footer__legal__claim {
+    display: none; 
+  }
+}
