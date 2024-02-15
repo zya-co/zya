@@ -4,17 +4,16 @@ import Image from 'next/image'
 import { tinaField } from 'tinacms/dist/react'
 
 export default function ContentTextAndImage(props) {
-  let classNames = styles.contentTextAndImage
-  if (props.data.bgColor === 'mineral-white') {
-    classNames += ' ' + styles.bg__mineralWhite
-  }
-  if (props.data.bgColor === 'earth-gray') {
-    classNames += ' ' + styles.bg__earthGray
-  }
+  const classNames = [
+    styles.contentTextAndImage,
+    props.data.bgColor === 'mineral-white' && styles.bg__mineralWhite,
+    props.data.bgColor === 'earth-gray' && styles.bg__earthGray,
+    props.data.bgColor === 'beatle' && styles.bg__beatle,
+    props.data.variant === 'imageRightBorder' && styles.imageRightBorder,
+    props.data.variant === 'imageRightWithGap' && styles.imageRightWithGap,
+  ].filter(Boolean).join(' ')
 
-  if (props.data.variant === 'imageRightBorder') {
-    classNames += ' ' + styles.imageRightBorder
-
+  if (props.data.variant === 'imageRightBorder' || props.data.variant === 'imageRightWithGap'){
     return (
       <div className={classNames}>
         <div className={styles.content} data-tina-field={tinaField(props.data, "content")}>

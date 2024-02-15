@@ -8,19 +8,23 @@
 .bg__earthGray {
   background-color: var(--color-earth-gray);
 }
-.imageRightBorder .content {
+.bg__beatle {
+  background-color: var(--color-beatle);
+  color: var(--color-fuchsia);
+}
+.contentTextAndImage .content {
   position: relative;
   z-index: 1;
   padding: var(--size-h1) 0 var(--size-h1) calc(var(--spacing-col) + var(--spacing-s));
   width: calc( 10 * var(--spacing-col) );
 }
-.imageRightBorder .content > :first-child {
+.contentTextAndImage .content > :first-child {
   margin-top: 0;
 }
-.imageRightBorder .content p {
+.contentTextAndImage .content p {
   max-width: calc( 5 * var(--spacing-col));
 }
-.imageRightBorder .image {
+.contentTextAndImage .image {
   position: absolute;
   top: var(--size-h1);
   right: 0;
@@ -32,7 +36,10 @@
   margin: 0;
   z-index: 0;
 }
-.imageRightBorder .image img {
+.contentTextAndImage .image img {
   object-fit: cover;
   object-position: right top;
+}
+.imageRightWithGap .image {
+  right: calc(var(--spacing-s) + var(--spacing-col));
 }

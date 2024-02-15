@@ -36,6 +36,10 @@ export const contentTextAndImg = {
         { 
           value: 'imageRightWithGap', 
           label: 'Image on right with gap' 
+        },
+        {
+          value: 'imageLeftBorder',
+          label: 'Image on left border'
         }
       ]
     },
