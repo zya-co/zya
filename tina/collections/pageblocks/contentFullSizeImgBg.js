@@ -22,23 +22,6 @@ export const contentFullSizeImgBg = {
         }
       ]
     },
-    // {
-    //   type: 'object',
-    //   name: 'enzyme',
-    //   label: 'Enzyme image',
-    //   fields: [
-    //     {
-    //       type: 'image',
-    //       name: 'image',
-    //       label: 'Image'
-    //     },
-    //     {
-    //       type: 'string',
-    //       name: 'alt',
-    //       label: 'Alt Text'
-    //     }
-    //   ]
-    // },
     {
       type: 'rich-text',
       name: 'content',

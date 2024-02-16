@@ -39,7 +39,6 @@ p, li, input, textarea, button {
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
-
 h1, h2, h3, h4, h5 {
   font-family: var(--font-haben);
   /* font-feature-settings: 'liga', 'kern', 'onum'; */

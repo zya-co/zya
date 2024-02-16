@@ -20,7 +20,7 @@
 }
 .content h1, .content h2, .content h3 {
   color: var(--color-lichen);
-  max-width: 7em;
+  max-width: calc( 13 * var(--spacing-col));
 }
 .content h4 {
   color: var(--color-mineral-white);

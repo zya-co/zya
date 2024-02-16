@@ -12,8 +12,8 @@ export default function ContentFullSizeImgBg(props) {
       <div className={styles.contentFullSizeImgBg}>
         <figure data-tina-field={tinaField(props.data, 'bgImage')} className={styles.backgroundImageWrapper}>
           <Image
-            src={props.data.bgImage.image}
-            alt={props.data.bgImage.alt}
+            src={props.data.bgImage?.image}
+            alt={props.data.bgImage?.alt}
             fill={true}
             sizes="100vw"
             className={styles.backgroundImage}
@@ -22,9 +22,13 @@ export default function ContentFullSizeImgBg(props) {
         <div className={styles.content} data-tina-field={tinaField(props.data, 'content')}>
           <RichText content={props.data.content} />
         </div>
-        <Button href={props.data.button.link} color={props.data.button.color} className={styles.button} data-tina-field={tinaField(props.data, 'button')}>
-          {props.data.button.label}
-        </Button>
+        {
+          props.data.button && (
+            <Button href={props.data.button?.link} color={props.data.button?.color} className={styles.button} data-tina-field={tinaField(props.data, 'button')}>
+              {props.data.button?.label}
+            </Button>
+          )
+        }
       </div>
     </DarkElement>
   )

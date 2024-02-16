@@ -6,6 +6,7 @@ import ContentText from './blocks/ContentText'
 import HomeFounders from './blocks/HomeFounders'
 import HeroMission from './blocks/HeroMission'
 import HeroApproach from './blocks/HeroApproach'
+import Comparison from './blocks/Comparison'
 
 export const Blocks = (props) => {
   return (
@@ -53,6 +54,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <HeroApproach data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksComparison":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Comparison data={block} />
               </React.Fragment>
             )
         }

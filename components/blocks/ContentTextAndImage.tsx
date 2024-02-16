@@ -21,7 +21,7 @@ export default function ContentTextAndImage(props) {
     props.data.vAlignment === 'bottom' && styles.alignment__bottom,
   ].filter(Boolean).join(' ')
 
-    if (props.data.bgColor === 'beatle' || props.data.bgColor === 'earth-gray') {
+    if (props.data.bgColor === 'beatle' || props.data.bgColor === 'earth-gray' || props.data.bgColor === 'morpho-teal') {
       return (
         <DarkElement>
           <div className={classNames}>

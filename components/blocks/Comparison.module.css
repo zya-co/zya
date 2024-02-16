@@ -1,0 +1,74 @@
+.comparison {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+}
+.comparisonItem {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.comparisonItem:first-child {
+  flex-basis: calc( var(--spacing-s) + 4 * var(--spacing-col) );
+  background-color: #FFF;
+  padding: 0 var(--spacing-s) var(--size-h1) calc( var(--spacing-s) + var(--spacing-col) );
+}
+.comparisonItem:nth-child(2) {
+  flex-basis: calc( 5 * var(--spacing-col) );
+  background-color: var(--color-mineral-white);
+  padding: 0 var(--spacing-s) var(--size-h1) var(--spacing-col);
+}
+.comparisonItem:nth-child(3) {
+  flex-basis: calc( var(--spacing-s) + 7 * var(--spacing-col) );
+  background-color: var(--color-fuchsia);
+  padding: 0 var(--spacing-col) var(--size-h1) var(--spacing-col);
+}
+.comparisonItem h3 {
+  padding-top: var(--spacing-col);
+  max-width: 4em;
+}
+.comparisonItem:nth-child(3) h3{
+  font-size: var(--size-h2);
+}
+.comparisonContentList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.comparisonContentListItem {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.comparisonContentListItem__Yes:before  {
+  flex: 0 0 var(--size-body);
+  content: '';
+  height: var(--size-body);
+  position: relative;
+  display: inline-block;
+  mask-image: url("data:image/svg+xml,%3Csvg width='31' height='23' viewBox='0 0 31 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.043 19.776L28.4213 0.980469L30.4969 3.12253L13.6912 21.4643C12.278 23.0066 9.84257 22.9935 8.44617 21.4359L0.90332 13.0224L3.08774 11.0972L11.043 19.776Z' fill='%23E681FF'/%3E%3C/svg%3E%0A");
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: var(--color-fuchsia);
+}
+.comparisonContentListItem__No:before  {
+  flex: 0 0 var(--size-body);
+  content: '';
+  height: var(--size-body);
+  position: relative;
+  display: inline-block;
+  mask-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.26944 8.70381C7.4497 9.86663 7.46386 11.7661 6.30104 12.9463L0.514163 18.8201L2.66926 21.007L8.45914 15.0877C9.62064 13.9002 11.526 13.8826 12.7092 15.0484L18.5271 20.7802L20.714 18.6251L14.8275 12.8673C13.643 11.7087 13.6221 9.80937 14.7806 8.62492L20.4862 2.79175L18.4796 0.584961L12.6229 6.52954C11.4631 7.7068 9.56956 7.72432 8.38813 6.56872L2.49878 0.808125L0.291992 2.81477L6.26944 8.70381Z' fill='%23340E32'/%3E%3C/svg%3E%0A");
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: var(--color-morpho-teal);
+}
+.comparisonItem:nth-child(3) .comparisonContentListItem__Yes:before  { 
+  background-color: var(--color-morpho-teal); 
+}

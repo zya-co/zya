@@ -18,7 +18,7 @@ export default function DarkElement(props) {
         if (entry.isIntersecting) {
           setTimeout(() => {
               nav?.setAttribute('data-isLight', 'true')
-          }, 50)
+          }, 10)
         } else {
           nav?.removeAttribute('data-isLight')
           

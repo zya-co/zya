@@ -8,6 +8,7 @@ import { homeFounders } from './pageblocks/homeFounders';
 import { heroMission } from './pageblocks/heroMission';
 import { heroApproach } from './pageblocks/heroApproach';
 import { contentText } from './pageblocks/contentText';
+import { comparison } from './pageblocks/comparison';
 
 export default {
   label: 'Page Content',
@@ -53,6 +54,7 @@ export default {
         contentTextAndImg,
         contentText,
         homeFounders,
+        comparison
       ],
     },
   ],
