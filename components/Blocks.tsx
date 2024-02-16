@@ -7,6 +7,8 @@ import HomeFounders from './blocks/HomeFounders'
 import HeroMission from './blocks/HeroMission'
 import HeroApproach from './blocks/HeroApproach'
 import Comparison from './blocks/Comparison'
+import HeroTeam from './blocks/HeroTeam'
+import AdvisoryTeam from './blocks/AdvisoryTeam'
 
 export const Blocks = (props) => {
   return (
@@ -60,6 +62,18 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <Comparison data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksHeroTeam":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <HeroTeam data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksAdvisoryTeam":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <AdvisoryTeam data={block} />
               </React.Fragment>
             )
         }

@@ -9,6 +9,8 @@ import { heroMission } from './pageblocks/heroMission';
 import { heroApproach } from './pageblocks/heroApproach';
 import { contentText } from './pageblocks/contentText';
 import { comparison } from './pageblocks/comparison';
+import { heroTeam } from './pageblocks/heroTeam';
+import { advisoryTeam } from './pageblocks/advisoryTeam';
 
 export default {
   label: 'Page Content',
@@ -50,11 +52,13 @@ export default {
         heroHome,
         heroMission,
         heroApproach,
+        heroTeam,
         contentFullSizeImgBg,
         contentTextAndImg,
         contentText,
         homeFounders,
-        comparison
+        comparison,
+        advisoryTeam,
       ],
     },
   ],

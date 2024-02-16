@@ -61,6 +61,8 @@ h3 {
 }
 h4 {
   font-size: var(--size-subhead);
+  font-family: var(--font-aeonik);
+  letter-spacing: -0.03em;
   line-height: 1;
   font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
 }

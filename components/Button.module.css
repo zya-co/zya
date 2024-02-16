@@ -3,26 +3,26 @@
   font-size: var(--size-body);
   border-radius: 0.4vw;
   border: none;
-  padding: 1em 1.15em;
+  padding: 1em 1.15em 1em 3.65em;
   text-decoration: none;
   display: inline-block;
   margin: 1em 0;
   background-color: var(--color-fuchsia);
   color: var(--color-morpho-teal);
   transition: background-color 0.3s ease;
+  position: relative;
 }
 .button:before {
   content: '';
-  display: inline-block;
+  position: absolute;
+  left: 1em;
+  top: 0;
   width: 1.1em;
-  height: 1em;
+  height: 100%;
   background-image: var(--arrow);
   background-size: contain;
   background-repeat: no-repeat; 
   background-position: left 50%;
-  position: relative;
-  top: 0.1em;
-  margin-right: 1.5em;
 }
 .button__fuchsia {
   background-color: var(--color-fuchsia);
@@ -54,6 +54,27 @@
 }
 .button__mini {
   font-size: 0.9vw;
+  position: relative;
+  padding: .8em 3.15em .8em 1.15em;
+}
+.button__mini:before {
+  content: none;
+}
+.button__mini:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: .5em;
+  top: 0;
+  width: 1.75em;
+  height: 100%;
+  background-image: var(--arrow);
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: 50% 40%;
+  transform: rotate(-45deg);
+  top: 0.1em;
+  margin-left: 1em;
 }
 
 @media (max-width: 640px) {
