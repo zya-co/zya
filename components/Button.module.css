@@ -19,10 +19,11 @@
   top: 0;
   width: 1.1em;
   height: 100%;
-  background-image: var(--arrow);
-  background-size: contain;
-  background-repeat: no-repeat; 
-  background-position: left 50%;
+  mask-image: var(--arrow);
+  mask-size: contain;
+  mask-repeat: no-repeat; 
+  mask-position: left 50%;
+  background-color: var(--color-morpho-teal);
 }
 .button__fuchsia {
   background-color: var(--color-fuchsia);
@@ -58,22 +59,12 @@
   padding: .8em 3.15em .8em 1.15em;
 }
 .button__mini:before {
-  content: none;
-}
-.button__mini:after {
-  content: '';
-  display: inline-block;
-  position: absolute;
+  left: auto;
   right: .5em;
   top: 0;
   width: 1.75em;
-  height: 100%;
-  background-image: var(--arrow);
-  background-size: contain;
-  background-repeat: no-repeat; 
-  background-position: 50% 40%;
+  mask-position: 50% 50%;
   transform: rotate(-45deg);
-  top: 0.1em;
   margin-left: 1em;
 }
 

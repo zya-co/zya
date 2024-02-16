@@ -86,7 +86,6 @@
   .footer__legal {
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-s);
     font-family: var(--font-aeonik);
     font-size: 0.9vw;
     color: var(--color-morpho-teal); 

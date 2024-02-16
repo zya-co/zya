@@ -9,6 +9,7 @@ import HeroApproach from './blocks/HeroApproach'
 import Comparison from './blocks/Comparison'
 import HeroTeam from './blocks/HeroTeam'
 import AdvisoryTeam from './blocks/AdvisoryTeam'
+import Affiliation from './blocks/Affiliation'
 
 export const Blocks = (props) => {
   return (
@@ -74,6 +75,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <AdvisoryTeam data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksAffiliation":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Affiliation data={block} />
               </React.Fragment>
             )
         }

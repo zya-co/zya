@@ -11,6 +11,7 @@ import { contentText } from './pageblocks/contentText';
 import { comparison } from './pageblocks/comparison';
 import { heroTeam } from './pageblocks/heroTeam';
 import { advisoryTeam } from './pageblocks/advisoryTeam';
+import { affiliation } from './pageblocks/affiliation';
 
 export default {
   label: 'Page Content',
@@ -59,6 +60,7 @@ export default {
         homeFounders,
         comparison,
         advisoryTeam,
+        affiliation
       ],
     },
   ],

@@ -17,7 +17,6 @@
   }
   .founders {
     position: relative;
-    margin-bottom: var(--size-h1);
   }
   .founder {
     width: calc(6 * var(--spacing-col));

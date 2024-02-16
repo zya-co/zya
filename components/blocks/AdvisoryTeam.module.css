@@ -2,7 +2,7 @@
   background-color: var(--color-earth-gray);
   color: var(--color-mineral-white);
   overflow: hidden;
-  padding: 0 calc( var(--spacing-s) + var(--spacing-col));
+  padding: 0 calc( var(--spacing-s) + var(--spacing-col)) var(--size-h1) calc( var(--spacing-s) + var(--spacing-col));
 }
 .introHead {
   max-width: calc( 10 * var(--spacing-col));

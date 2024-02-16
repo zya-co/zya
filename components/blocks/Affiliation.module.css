@@ -1,0 +1,60 @@
+.affiliation {
+  background-color: var(--color-mineral-white);
+  color: var(--color-morpho-teal);
+  overflow: hidden;
+  padding: var(--size-h1) calc( var(--spacing-s) + var(--spacing-col)) var(--size-h1) calc( var(--spacing-s) + var(--spacing-col));
+}
+.affilationHead {
+  max-width: calc( 9 * var(--spacing-col) );
+}
+.collaborators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: var(--spacing-col) 0;
+}
+.collaborator {
+  flex: 0 0 calc( 4 * var(--spacing-col) );
+  margin-bottom: var(--spacing-col);
+}
+.collaboratorLogo {
+  position: relative;
+  width: auto;
+  height: var(--spacing-col);
+}
+.collaboratorLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+.collaboratorInfo__name {
+  margin: .25em 0;
+}
+.collaboratorInfo__description {
+  margin: 0;
+}
+.collaboratorButton:hover {
+  background-color: var(--color-earth-gray);
+  color: var(--color-mineral-white);
+}
+.collaboratorButton:hover:before {
+  background-color: var(--color-mineral-white);
+}
+.backers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--spacing-col);
+}
+.backer {
+  position: relative;
+  flex: 0 1 calc( 2 * var(--spacing-col));
+  height: var(--spacing-col);
+}
+.backer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
