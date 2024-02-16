@@ -1,0 +1,25 @@
+.contentText {
+  overflow: auto;
+  padding: 0 calc(var(--spacing-col) + var(--spacing-s));
+}
+.bg__mineralWhite {
+  background-color: var(--color-mineral-white);
+}
+.bg__morphoTeal {
+  background-color: var(--color-morpho-teal);
+}
+.bg__beatle {
+  background-color: var(--color-beatle);
+}
+.text__mineralWhite {
+  color: var(--color-mineral-white);
+}
+.text__morphoTeal {
+  color: var(--color-morpho-teal);
+}
+.text__beatle {
+  color: var(--color-beatle);
+}
+.text__fuchsia {
+  color: var(--color-fuchsia);
+}

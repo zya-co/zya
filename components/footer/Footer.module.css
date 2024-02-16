@@ -3,13 +3,15 @@
     background-color: var(--color-lichen);
     color: var(--color-morpho-teal);
     padding: var(--spacing-s);
+    position: relative;
+    z-index: 101;
   }
   .contactform__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: calc( 2 * var(--spacing-col));
-    padding: var(--spacing-col);
+    padding: calc( 2 * var(--spacing-col)) var(--spacing-col) var(--spacing-col) var(--spacing-col);
   }
   .contactform__title {
     flex-basis: calc( 6 * var(--spacing-col));
@@ -79,7 +81,7 @@
     justify-content: center;
     align-items: center;
     color: var(--color-morpho-teal);
-    padding: calc( .75 * var(--spacing-col) );
+    padding: calc( .75 * var(--spacing-col) ) 0 calc( .33 * var(--spacing-col) ) 0 ;
   }
   .footer__legal {
     display: flex;

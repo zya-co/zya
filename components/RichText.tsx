@@ -24,13 +24,25 @@ export default function RichText(props) {
       </div>
     )
   }
+  const spacer = (props) => {
+    const classNames = [
+      styles.spacer,
+      props.height === 'small' && styles.spacerSmall,
+      props.height === 'medium' && styles.spacerMedium,
+      props.height === 'large' && styles.spacerLarge,
+    ].filter(Boolean).join(' ')
+
+    return (
+      <div className={classNames}></div>
+    )
+  }
 
   return (
     <>
       <TinaMarkdown 
         content={props.content} 
         components={
-          {Cta, enzyme}
+          {Cta, enzyme, spacer}
         }
       />
     </>

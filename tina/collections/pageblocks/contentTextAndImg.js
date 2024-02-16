@@ -11,6 +11,10 @@ export const contentTextAndImg = {
       label: 'Background Color',
       options: [
         { 
+          value: 'morpho-teal', 
+          label: 'Morpho Teal (Dark Blue)' 
+        },
+        { 
           value: 'mineral-white', 
           label: 'Mineral White' 
         },
@@ -40,6 +44,26 @@ export const contentTextAndImg = {
         {
           value: 'imageLeftBorder',
           label: 'Image on left border'
+        }
+      ]
+    },
+    {
+      type: 'string',
+      name: 'vAlignment',
+      label: 'Vertical Alignment',
+      description: 'Set the vertical alignment of the content to image',
+      options: [
+        { 
+          value: 'top', 
+          label: 'Top' 
+        },
+        { 
+          value: 'center', 
+          label: 'Center' 
+        },
+        {
+          value: 'bottom',
+          label: 'Bottom'
         }
       ]
     },

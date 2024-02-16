@@ -3,3 +3,12 @@
   width: 150px;
   height: 300px;
 }
+.spacerSmall {
+  height: var(--spacing-s);
+}
+.spacerMedium {
+  height: var(--spacing-col);
+}
+.spacerLarge {
+  height: var(--size-h1);
+}
