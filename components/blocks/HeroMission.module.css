@@ -32,6 +32,7 @@
   width: calc(6 * var(--spacing-col));
   flex-basis: calc(6 * var(--spacing-col));
   aspect-ratio: 1.06;
+  margin-bottom: var(--size-h1);
 }
 .heroMission__content__body {
   flex-basis: calc( 5 * var(--spacing-col) );

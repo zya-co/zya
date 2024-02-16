@@ -57,6 +57,12 @@ export const contentTextAndImg = {
           type: 'string',
           name: 'alt',
           label: 'Alt Text'
+        },
+        {
+          type: 'string',
+          name: 'aspectRatio',
+          label: 'Aspect Ratio',
+          description: 'Aspect ratio of the image. For example 16/9 or 1/1',
         }
       ]
     },

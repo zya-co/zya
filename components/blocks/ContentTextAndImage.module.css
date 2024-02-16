@@ -12,6 +12,10 @@
   background-color: var(--color-beatle);
   color: var(--color-fuchsia);
 }
+.bg__beatle p {
+  color: var(--color-mineral-white);
+
+}
 .contentTextAndImage .content {
   position: relative;
   z-index: 1;
@@ -29,17 +33,39 @@
   top: var(--size-h1);
   right: 0;
   width: calc(var(--spacing-col) * 7 + var(--spacing-s));
-  height: calc(100% - var(--size-h1));
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 0 var(--size-h1) 0;
+  border-radius: 6px 0 0 6px;
   z-index: 0;
+  overflow: hidden;
 }
 .contentTextAndImage .image img {
   object-fit: cover;
-  object-position: right top;
+  object-position: center;
 }
 .imageRightWithGap .image {
   right: calc(var(--spacing-s) + var(--spacing-col));
+  border-radius: 6px;
+}
+
+.imageLeftBorder {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+.imageLeftBorder .content {
+  padding: 0 calc(var(--spacing-col) + var(--spacing-s)) 0 var(--size-h1);
+}
+.imageLeftBorder .image {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 6px 0 0;
+  flex: 0 0 calc(var(--spacing-s) + 7 * var(--spacing-col));
 }

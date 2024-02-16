@@ -1,6 +1,7 @@
 @media (min-width: 641px) {
   .footer {
     background-color: var(--color-lichen);
+    color: var(--color-morpho-teal);
     padding: var(--spacing-s);
   }
   .contactform__wrapper {
