@@ -1,7 +1,13 @@
 .enzyme {
   position: relative;
-  width: 150px;
-  height: 300px;
+  width: 11.7vw;
+  height: 23.4vw;
+}
+@media (max-width: 640px) {
+  .enzyme {
+     width: 22.6vw;
+    height: 45.2vw;
+  }
 }
 .spacerSmall {
   height: var(--spacing-s);

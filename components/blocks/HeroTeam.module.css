@@ -1,61 +1,101 @@
-.heroTeam {
-  background-color: var(--color-earth-gray);
-  color: var(--color-mineral-white);
-  overflow: hidden;
-  padding: calc( var(--spacing-s) + var(--spacing-col) );
+@media (max-width: 640px) {
+  .heroTeam {
+    background-color: var(--color-earth-gray);
+    color: var(--color-mineral-white);
+    overflow: hidden;
+    padding: var(--spacing-s);
+  }
+  .intro {
+    margin-top: calc(var(--heroTopSpace) - var(--spacing-s));
+  }
+  .founders {
+    position: relative;
+    margin: calc( 3 * var(--size-h1)) 0;
+  }
+  .founder {
+    position: relative;
+  }
+  .founderImage {
+    position: relative;
+    width: calc( 7 * var(--spacing-col));
+    height: calc(7 * var(--spacing-col));
+    margin: 1em auto;
+  }
+  .founderInfo sub {
+    vertical-align: baseline;
+    font-size: 0.7em;
+    margin-left: .33em;
+  }
+  .founderInfo__name {
+    margin: 0;
+    font-size: var(--size-h3);
+  }
+  .founderInfo__jobTitle {
+    color: var(--color-fuchsia);
+    margin: 0;
+  }
 }
-.inroHeadColumns {
-  display: flex;
-  gap: var(--spacing-col);
-}
-.inroHeadColumn {
-  flex: 0 0 calc( 5 * var(--spacing-col) );
-}
-.founders {
-  position: relative;
-  margin-bottom: var(--size-h1);
-}
-.founder {
-  width: calc(6 * var(--spacing-col));
-  position: relative;
-}
-.founder:first-child {
-  margin-top: var(--size-h1);
-  margin-left: calc(1.5 * var(--spacing-col));
-  position: relative;
-  z-index: 1;
-}
-.founder:last-child {
-  position: absolute;
-  left: calc(6 * var(--spacing-col));
-  top: calc( -1.25 * var(--size-h1) );
-  z-index: 0;
-}
-.founderImage {
-  width: 100%;
-  height: calc(6 * var(--spacing-col));
-  position: relative;
-  margin-bottom: var(--size-body);
-}
-.founder:last-child .founderInfo {
-  margin-left: calc(1.5 * var(--spacing-col));
-}
-.founder:last-child .founderButton {
-  margin-left: calc(1.5 * var(--spacing-col));
-}
-.founderInfo sub {
-  vertical-align: baseline;
-  font-size: 0.7em;
-  margin-left: .33em;
-}
-.founderInfo__name {
-  margin: 0;
-  font-size: var(--size-h3);
-}
-.founderInfo__jobTitle {
-  color: var(--color-fuchsia);
-  margin: 0;
-}
-.founderBio {
- max-width: calc( 5 * var(--spacing-col) );
+
+@media (min-width: 641px) {
+  .heroTeam {
+    background-color: var(--color-earth-gray);
+    color: var(--color-mineral-white);
+    overflow: hidden;
+    padding: calc( var(--spacing-s) + var(--spacing-col) );
+  }
+  .inroHeadColumns {
+    display: flex;
+    gap: var(--spacing-col);
+  }
+  .inroHeadColumn {
+    flex: 0 0 calc( 5 * var(--spacing-col) );
+  }
+  .founders {
+    position: relative;
+    margin-bottom: var(--size-h1);
+  }
+  .founder {
+    width: calc(6 * var(--spacing-col));
+    position: relative;
+  }
+  .founder:first-child {
+    margin-top: var(--size-h1);
+    margin-left: calc(1.5 * var(--spacing-col));
+    position: relative;
+    z-index: 1;
+  }
+  .founder:last-child {
+    position: absolute;
+    left: calc(6 * var(--spacing-col));
+    top: calc( -1.25 * var(--size-h1) );
+    z-index: 0;
+  }
+  .founderImage {
+    width: 100%;
+    height: calc(6 * var(--spacing-col));
+    position: relative;
+    margin-bottom: var(--size-body);
+  }
+  .founder:last-child .founderInfo {
+    margin-left: calc(1.5 * var(--spacing-col));
+  }
+  .founder:last-child .founderButton {
+    margin-left: calc(1.5 * var(--spacing-col));
+  }
+  .founderInfo sub {
+    vertical-align: baseline;
+    font-size: 0.7em;
+    margin-left: .33em;
+  }
+  .founderInfo__name {
+    margin: 0;
+    font-size: var(--size-h3);
+  }
+  .founderInfo__jobTitle {
+    color: var(--color-fuchsia);
+    margin: 0;
+  }
+  .founderBio {
+   max-width: calc( 5 * var(--spacing-col) );
+  }
 }

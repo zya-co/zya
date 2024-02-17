@@ -5,7 +5,12 @@ export default function DarkElement(props) {
   const container = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const header = document.querySelector('.mainNav') as HTMLElement;
+
+    function isMobile() {
+      return window.innerWidth < 641;
+    }
+
+    const header = isMobile() ? document.querySelector('.mobileHeader') as HTMLElement : document.querySelector('.mainNav') as HTMLElement;
     const options = {
       rootMargin: `${header?.offsetHeight * -0.5}px 0px ${ -1 * (window.innerHeight - 0.5 * header?.offsetHeight) }px 0px`,
       threshold: 0

@@ -10,13 +10,13 @@ export default function HeroTeam(props) {
   return (
     <DarkElement>
       <section className={styles.heroTeam}>
-        <div className={styles.intro}>
+        <div className={styles.intro} data-tina-field={tinaField(props.data.introHead)}>
           <RichText content={props.data.introHead} />
           <div className={styles.inroHeadColumns}>
-            <div className={styles.inroHeadColumn}>
+            <div className={styles.inroHeadColumn} data-tina-field={tinaField(props.data, 'introLeft')}>
               <RichText content={props.data.introLeft} />
             </div>
-            <div className={styles.inroHeadColumn}>
+            <div className={styles.inroHeadColumn} data-tina-field={tinaField(props.data, 'introRight')}>
             <RichText content={props.data.introRight} />
             </div>
           </div>

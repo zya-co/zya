@@ -12,6 +12,12 @@
   transition: background-color 0.3s ease;
   position: relative;
 }
+@media (max-width: 640px) {
+  .button {
+    border-radius:.25em;
+    padding: .6em .5em .6em 1.5em;
+  }
+}
 .button:before {
   content: '';
   position: absolute;
@@ -24,6 +30,12 @@
   mask-repeat: no-repeat; 
   mask-position: left 50%;
   background-color: var(--color-morpho-teal);
+}
+@media (max-width: 640px) {
+  .button:before {
+    left: .4em;
+    width: 0.8em;
+  }
 }
 .button__fuchsia {
   background-color: var(--color-fuchsia);
@@ -58,6 +70,13 @@
   position: relative;
   padding: .8em 3.15em .8em 1.15em;
 }
+@media (max-width: 640px) {
+  .button__mini {
+    font-size: 0.9em;
+    border-radius:.25em;
+    padding: .6em 1.5em .6em .5em;
+  }
+}
 .button__mini:before {
   left: auto;
   right: .5em;
@@ -67,9 +86,9 @@
   transform: rotate(-45deg);
   margin-left: 1em;
 }
-
 @media (max-width: 640px) {
-  .button__mini {
-    font-size: 1em
+  .button__mini:before {
+    right: .4em;
+    width: 0.8em;
   }
 }

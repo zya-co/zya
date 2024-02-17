@@ -1,40 +1,84 @@
-.contentFullSizeImgBg {
-  position: relative;
-  overflow: auto;
-  padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col) );
-  box-sizing: border-box;
+@media (max-width: 640px) {
+  .contentFullSizeImgBg {
+    position: relative;
+    overflow: auto;
+    padding: var(--size-h1) calc(var(--spacing-s) );
+    box-sizing: border-box;
+  }
+  .backgroundImageWrapper {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .backgroundImage {
+    object-fit: cover;
+    z-index: -1;
+  }
+  .content h1, .content h2 {
+    font-size: var(--size-h1);
+  }
+  .content h1, .content h2, .content h3 {
+    color: var(--color-lichen);
+    max-width: calc( 13 * var(--spacing-col));
+    margin-bottom: calc( 2 * var(--size-h1) );
+  }
+  .content h4 {
+    color: var(--color-mineral-white);
+    max-width: 29em;
+  }
+  .content ul,
+  .content ol,
+  .content li, 
+  .content p {
+    color: var(--color-mineral-white);
+    max-width: 15em;
+  }
 }
-.backgroundImageWrapper {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-.backgroundImage {
-  object-fit: cover;
-  z-index: -1;
-}
-.content h1, .content h2, .content h3 {
-  color: var(--color-lichen);
-  max-width: calc( 13 * var(--spacing-col));
-}
-.content h4 {
-  color: var(--color-mineral-white);
-  max-width: 29em;
-}
-.content ul,
-.content ol,
-.content li, 
-.content p {
-  color: var(--color-mineral-white);
-  max-width: 15em;
-}
-.button {
-  position: absolute;
-  bottom: var(--size-h1);
-  right: calc(var(--spacing-s) + var(--spacing-col));
+
+@media (min-width: 641px) {
+  .contentFullSizeImgBg {
+    position: relative;
+    overflow: auto;
+    padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col) );
+    box-sizing: border-box;
+  }
+  .backgroundImageWrapper {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .backgroundImage {
+    object-fit: cover;
+    z-index: -1;
+  }
+  .content h1, .content h2, .content h3 {
+    color: var(--color-lichen);
+    max-width: calc( 13 * var(--spacing-col));
+  }
+  .content h4 {
+    color: var(--color-mineral-white);
+    max-width: 29em;
+  }
+  .content ul,
+  .content ol,
+  .content li, 
+  .content p {
+    color: var(--color-mineral-white);
+    max-width: 15em;
+  }
+  .button {
+    position: absolute;
+    bottom: var(--size-h1);
+    right: calc(var(--spacing-s) + var(--spacing-col));
+  }
 }

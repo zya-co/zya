@@ -1,15 +1,16 @@
 import styles from './Affiliation.module.css'
 import Image from 'next/image';
 import Button from '../Button';
+import { tinaField } from 'tinacms/dist/react';
 
 export default function Affiliation(props) {
   return (
     <section className={styles.affiliation}>
-      <h3 className={styles.affilationHead}>{props.data.affilationHead}</h3>
+      <h3 className={styles.affilationHead} data-tina-field={tinaField(props.data, 'affilationHead')}>{props.data.affilationHead}</h3>
       <div className={styles.collaborators}>
         {props.data.collaborators?.map((collaborator, index) => { 
           return (
-            <div key={index} className={styles.collaborator}>
+            <div key={index} className={styles.collaborator} data-tina-field={tinaField(collaborator)}>
               { collaborator.collaboratorLogo && (
                 <div className={styles.collaboratorLogo}>
                   <Image
@@ -33,10 +34,11 @@ export default function Affiliation(props) {
           );
         })}
       </div>
+      <h3 className={styles.backersHead} data-tina-field={tinaField(props.data, 'backersHead')}>{props.data.backerHead}</h3>
       <div className={styles.backers}>
         {props.data.backers?.map((backer, index) => { 
           return (
-            <div key={index} className={styles.backer}>
+            <div key={index} className={styles.backer} data-tina-field={tinaField(backer)}>
               { backer.backerLogo && (
                 <div className={styles.backerLogo}>
                   <Image

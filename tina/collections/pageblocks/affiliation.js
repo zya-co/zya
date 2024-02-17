@@ -55,6 +55,11 @@ export const affiliation = {
       },
     },
     {
+      type: 'string',
+      name: 'backerHead',
+      label: 'Backer Headline'
+    },
+    {
       type: 'object',
       name: 'backers',
       label: 'Backers',

@@ -1,9 +1,9 @@
 @media (max-width: 640px) {
   .homeFounders {
     background-color: var(--color-earth-gray);
-    overflow: auto;
+    overflow: hidden;
     color: var(--color-mineral-white);
-    padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col));
+    padding: var(--size-h1) var(--spacing-s);
     position: relative;
   }
   .intro {
@@ -15,34 +15,48 @@
   .quote {
     color: var(--color-lichen);
     max-width: calc(12 * var(--spacing-col));
+    font-size: var(--size-h3);
+    margin: 2.5em 0;
   }
   .founders {
     position: relative;
+    left: calc(-1 * var(--spacing-s));
+    width: 100vw;
+    overflow: hidden;
   }
   .founder {
-    width: calc(6 * var(--spacing-col));
+    width: calc(7 * var(--spacing-col));
     position: relative;
   }
   .founder:first-child {
-    margin-top: var(--size-h1);
-    margin-left: calc(1.5 * var(--spacing-col));
+    margin-top: calc(2 * var(--size-h1) );
+    margin-left: calc(-1.25 * var(--spacing-col));
     position: relative;
     z-index: 1;
   }
   .founder:last-child {
     position: absolute;
-    left: calc(6 * var(--spacing-col));
-    top: calc( -1.25 * var(--size-h1) );
+    left: calc( 3.75 * var(--spacing-col));
+    top: 0;
     z-index: 0;
   }
   .founderImage {
     width: 100%;
-    height: calc(6 * var(--spacing-col));
+    height: calc(7 * var(--spacing-col));
     position: relative;
     margin-bottom: var(--size-body);
   }
+  .founder:first-child .founderInfo {
+    position: absolute;
+    bottom: 0;
+    left: calc( 4 * var(--spacing-col));
+    width: 100%;
+  }
   .founder:last-child .founderInfo {
-    margin-left: calc(1.5 * var(--spacing-col));
+    position: absolute;
+    top: 1em;
+    width: 100%;
+    right: calc( 3.75 * var(--spacing-col) - var(--spacing-s));
   }
   .founderInfo sub {
     vertical-align: baseline;
@@ -58,9 +72,7 @@
     margin: 0;
   }
   .signoff {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    margin: calc( 2 * var(--size-h1)) 0;
   }
   .signoff__text {
     max-width: calc(9 * var(--spacing-col));

@@ -1,10 +1,95 @@
+@media (max-width: 640px) {
+  .footer {
+    background-color: var(--color-lichen);
+    padding: var(--spacing-s);
+    position: relative;
+    z-index: 211;
+  }
+  .contactform__wrapper {
+    display: block;
+  }
+  .contactform__title {
+    margin: .66em 0;
+  }
+  .contactform__form input[type="text"],
+  .contactform__form input[type="email"],
+  .contactform__form textarea {
+    width: 100%;
+    max-width: calc( 7 * var(--spacing-col));
+    padding: 0.25em 0;
+    margin-bottom: var(--spacing-s);
+    border: none;
+    border-bottom: 1px solid var(--color-morpho-teal);
+    background-color: transparent;
+    font-family: var(--font-aeonik);
+    font-size: var(--size-h3);
+    font-feature-settings: 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+    color: var(--color-morpho-teal);
+  }
+  .contactform__field__row__label span {
+    font-family: var(--font-aeonik);
+    font-size: var(--size-body);
+    display: block;
+  }
+  .contactform__field__row__buttonrow {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .contactform__field__row__ppcheck {
+    font-family: var(--font-aeonik);
+    font-size: 3.5vw;
+  }
+  .contactform__field__row__ppcheck {
+    display: inline-flex;
+    align-items: center;
+    gap: .25em;
+  }
+  .contactform__field__row__ppcheck a {
+    text-decoration: underline;
+    color: var(--color-morpho-teal);
+    font-size: 3.5vw;
+  }
+  .contactform__field__row__ppcheck input {
+    width: auto;
+  }
+
+  .footer__nav {
+    display: none;
+  }
+  .footer__logo {
+    display: none;
+  }
+  .footer__legal {
+    padding: var(--spacing-s) 0;
+    font-family: var(--font-aeonik);
+    font-size: 1em;
+    color: var(--color-morpho-teal); 
+    opacity: 0.2;
+  }
+  .footer__legal__text {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--size-s);
+  }
+  .footer__legal__text a {
+    text-decoration: none;
+    color: var(--color-morpho-teal);
+    font-size: var(--size-s);
+  }
+  .footer__legal__claim {
+    display: none; 
+  }
+}
+
 @media (min-width: 641px) {
   .footer {
     background-color: var(--color-lichen);
     color: var(--color-morpho-teal);
     padding: var(--spacing-s);
     position: relative;
-    z-index: 101;
+    z-index: 211;
   }
   .contactform__wrapper {
     display: flex;
@@ -55,6 +140,7 @@
   .contactform__field__row__ppcheck a {
     text-decoration: underline;
     color: var(--color-morpho-teal);
+    font-size: 1.2vw;
   }
   .contactform__field__row__ppcheck input {
     width: auto;
@@ -104,84 +190,5 @@
     text-decoration: none;
     color: var(--color-morpho-teal);
     font-size: var(--size-s);
-  }
-}
-
-@media (max-width: 640px) {
-  .footer {
-    background-color: var(--color-lichen);
-    padding: var(--spacing-s);
-  }
-  .contactform__wrapper {
-    display: block;
-  }
-  .contactform__title {
-    margin: .66em 0;
-  }
-  .contactform__form input[type="text"],
-  .contactform__form input[type="email"],
-  .contactform__form textarea {
-    width: 100%;
-    max-width: calc( 7 * var(--spacing-col));
-    padding: 0.25em 0;
-    margin-bottom: var(--spacing-s);
-    border: none;
-    border-bottom: 1px solid var(--color-morpho-teal);
-    background-color: transparent;
-    font-family: var(--font-aeonik);
-    font-size: var(--size-subhead);
-    font-feature-settings: 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
-    color: var(--color-morpho-teal);
-  }
-  .contactform__field__row__label span {
-    font-family: var(--font-aeonik);
-    font-size: var(--size-body);
-    display: block;
-  }
-  .contactform__field__row__buttonrow {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 1em;
-  }
-  .contactform__field__row__ppcheck {
-    font-family: var(--font-aeonik);
-  }
-  .contactform__field__row__ppcheck {
-    display: inline-flex;
-    align-items: center;
-    gap: .25em;
-  }
-  .contactform__field__row__ppcheck a {
-    text-decoration: underline;
-    color: var(--color-morpho-teal);
-  }
-  .contactform__field__row__ppcheck input {
-    width: auto;
-  }
-
-  .footer__nav {
-    display: none;
-  }
-  .footer__logo {
-    display: none;
-  }
-  .footer__legal {
-    padding: var(--spacing-s) 0;
-    font-family: var(--font-aeonik);
-    font-size: 1em;
-    color: var(--color-morpho-teal); 
-    opacity: 0.2;
-  }
-  .footer__legal__text {
-    display: flex;
-    justify-content: space-between;
-  }
-  .footer__legal__text a {
-    text-decoration: none;
-    color: var(--color-morpho-teal);
-  }
-  .footer__legal__claim {
-    display: none; 
   }
 }

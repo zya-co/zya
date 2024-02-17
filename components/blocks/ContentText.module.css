@@ -1,34 +1,73 @@
-.contentText {
-  overflow: auto;
-  padding: 0 calc(var(--spacing-col) + var(--spacing-s));
+@media (max-width: 640px) {
+  .contentText {
+    overflow: auto;
+    padding: 0 var(--spacing-s);
+  }
+  .bg__mineralWhite {
+    background-color: var(--color-mineral-white);
+  }
+  .bg__morphoTeal {
+    background-color: var(--color-morpho-teal);
+  }
+  .bg__beatle {
+    background-color: var(--color-beatle);
+  }
+  .text__mineralWhite {
+    color: var(--color-mineral-white);
+  }
+  .text__morphoTeal {
+    color: var(--color-morpho-teal);
+  }
+  .text__beatle {
+    color: var(--color-beatle);
+  }
+  .text__fuchsia {
+    color: var(--color-fuchsia);
+  }
+  .contentText__content {
+    max-width: calc( 7.5 * var(--spacing-col) );
+  }
+  .contentText__content p,
+  .contentText__content ul,
+  .contentText__content ol,
+  .contentText__content table {
+    max-width: calc( 7.5 * var(--spacing-col) );
+  }
 }
-.bg__mineralWhite {
-  background-color: var(--color-mineral-white);
-}
-.bg__morphoTeal {
-  background-color: var(--color-morpho-teal);
-}
-.bg__beatle {
-  background-color: var(--color-beatle);
-}
-.text__mineralWhite {
-  color: var(--color-mineral-white);
-}
-.text__morphoTeal {
-  color: var(--color-morpho-teal);
-}
-.text__beatle {
-  color: var(--color-beatle);
-}
-.text__fuchsia {
-  color: var(--color-fuchsia);
-}
-.variant__twoThirds .contentText__content {
-  max-width: calc( 11 * var(--spacing-col) );
-}
-.variant__twoThirds .contentText__content p,
-.variant__twoThirds .contentText__content ul,
-.variant__twoThirds .contentText__content ol,
-.variant__twoThirds .contentText__content table {
-  max-width: calc( 8 * var(--spacing-col) );
+
+@media (min-width: 641px) {
+  .contentText {
+    overflow: auto;
+    padding: 0 calc(var(--spacing-col) + var(--spacing-s));
+  }
+  .bg__mineralWhite {
+    background-color: var(--color-mineral-white);
+  }
+  .bg__morphoTeal {
+    background-color: var(--color-morpho-teal);
+  }
+  .bg__beatle {
+    background-color: var(--color-beatle);
+  }
+  .text__mineralWhite {
+    color: var(--color-mineral-white);
+  }
+  .text__morphoTeal {
+    color: var(--color-morpho-teal);
+  }
+  .text__beatle {
+    color: var(--color-beatle);
+  }
+  .text__fuchsia {
+    color: var(--color-fuchsia);
+  }
+  .variant__twoThirds .contentText__content {
+    max-width: calc( 11 * var(--spacing-col) );
+  }
+  .variant__twoThirds .contentText__content p,
+  .variant__twoThirds .contentText__content ul,
+  .variant__twoThirds .contentText__content ol,
+  .variant__twoThirds .contentText__content table {
+    max-width: calc( 8 * var(--spacing-col) );
+  }
 }

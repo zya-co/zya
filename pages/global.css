@@ -21,22 +21,24 @@
 @media (max-width: 640px) {
  :root {
   --size-h1: 14vw;
-  --size-h2: 14vw;
+  --size-h2: 8.65vw;
   --size-h3: 8.65vw;
   --size-subhead: 5.3vw;
   --size-body: 5.3vw;
   --size-s: 3vw;
   --spacing-s: 5vw;
   --spacing-col: 11.25vw;
+  --heroTopSpace: calc(2 * var(--size-h1) + 2 * var(--spacing-s));
  } 
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  color: var(--color-morpho-teal);
 }
 
-p, li, input, textarea, button, td, th, label, select, option, a {
+p, li, input, textarea, button, td, th, label, select, option {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
   letter-spacing: -0.02em;
@@ -100,6 +102,11 @@ h4 {
   letter-spacing: -0.03em;
   line-height: 1;
   font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+}
+@media (max-width: 640px) {
+  h4 {
+    line-height: 1.2;
+  }
 }
 h4 + h1 {
   margin-top: .25em;
