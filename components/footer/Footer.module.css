@@ -64,6 +64,9 @@
     align-items: center;
     gap: 5em;
   }
+  .contactform__submit__button:before {
+    transform: rotate(0deg);
+  }
 
   .footer__nav {
     display: flex;
@@ -75,6 +78,7 @@
   .footer__navlink {
     text-decoration: none;
     color: var(--color-morpho-teal);
+    font-size: var(--size-s);
   }
   .footer__logo {
     display: flex;
@@ -94,10 +98,12 @@
   .footer__legal__text {
     display: flex;
     gap: var(--spacing-col);
+    font-size: var(--size-s);
   }
   .footer__legal__text a {
     text-decoration: none;
     color: var(--color-morpho-teal);
+    font-size: var(--size-s);
   }
 }
 

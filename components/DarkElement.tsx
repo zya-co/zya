@@ -15,12 +15,15 @@ export default function DarkElement(props) {
       entries.forEach((entry) => {
         const elem = entry.target as HTMLElement;
         const nav = document.querySelector('.mainNav') as HTMLElement;
+        const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
         if (entry.isIntersecting) {
           setTimeout(() => {
               nav?.setAttribute('data-isLight', 'true')
+              mobileHeader?.setAttribute('data-isLight', 'true')
           }, 10)
         } else {
           nav?.removeAttribute('data-isLight')
+          mobileHeader?.removeAttribute('data-isLight')
           
           //nav?.removeAttribute('data-isLight')
         }

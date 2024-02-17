@@ -20,17 +20,17 @@ export const Footer = (props) => {
             <div className={styles.contactform__field__row}>
               <label htmlFor="name" className={styles.contactform__field__row__label}>
                 <span>Name</span>
-                <input type="text" name="name" />
+                <input type="text" name="name" id="name" autoComplete='true' />
               </label>
               <label htmlFor="email" className={styles.contactform__field__row__label}>
                 <span>Email</span>
-                <input type="email" name="email" required />
+                <input type="email" name="email" id="email" autoComplete='true' required />
               </label>
             </div>
             <div className={styles.contactform__field__row}>
               <label htmlFor="message" className={styles.contactform__field__row__label}>
                 <span>Message</span>
-                <textarea name="message" rows={3} required></textarea>
+                <textarea name="message" id="message" rows={3} required></textarea>
               </label>
             </div>
             <div className={styles.contactform__field__row__buttonrow}>
@@ -39,6 +39,7 @@ export const Footer = (props) => {
                 text="Send"
                 color="morpho-teal"
                 variant="mini"
+                className={styles.contactform__submit__button}
               />
               <label htmlFor="agree" className={styles.contactform__field__row__ppcheck}><input type="checkbox" name="agree" id="agree" required /> <span>Agree to our <Link href='/privacy-policy'>privacy policy</Link></span></label>
             </div>

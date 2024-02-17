@@ -44,10 +44,10 @@
   color: var(--color-mineral-white);
 }
 .button__morphoTeal:before {
-  background-image: var(--arrow-white);
+  background-color: var(--color-mineral-white);
 }
 .button__morphoTeal:hover:before {
-  background-image: var(--arrow);
+  background-color: var(--color-morpho-teal);
 }
 .button__morphoTeal:hover {
   background-color: var(--color-mineral-white);

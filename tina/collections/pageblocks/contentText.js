@@ -51,6 +51,21 @@ export const contentText = {
       ]
     },
     {
+      type: 'string',
+      name: 'variant',
+      label: 'Variant',
+      options: [
+        {
+          label: 'Default',
+          value: 'default'
+        },
+        {
+          label: 'Two Thirds Width',
+          value: 'twoThirds'
+        }
+      ]
+    },
+    {
       type: 'rich-text',
       name: 'content',
       label: 'Content',

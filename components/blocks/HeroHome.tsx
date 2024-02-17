@@ -17,10 +17,16 @@ export const HeroHome = (props) => {
   return (
   <>
     <div className={`heroHome ${styles.heroHome}`} ref={container}>
-      <div className='heroHomeInside'>
-        <h1 className={`headline1 ${styles.heroHeadline}`}>{data.heroHead.heroHeadline}</h1>
-        <h1 className={`headline2 ${styles.heroHeadlineCopy}`} aria-hidden="true">{data.heroHead.heroHeadline}</h1>
-        <p className={`heroSubhead ${styles.heroSubhead}`}>{data.heroHead.heroSubhead}</p>
+      <div className={`heroHomeInside ${styles.heroHomeInside}`}>
+        <h1 className={`headline1 ${styles.heroHeadline}`} data-tina-field={tinaField(data.heroHead, 'heroHeadline')}>
+          {data.heroHead.heroHeadline}
+        </h1>
+        <h1 className={`headline2 ${styles.heroHeadlineCopy}`} aria-hidden="true" data-tina-field={tinaField(data.heroHead, 'heroHeadline')}>
+          {data.heroHead.heroHeadline}
+        </h1>
+        <p className={`heroSubhead ${styles.heroSubhead}`} data-tina-field={tinaField(data.heroHead, 'heroSubhead')}>
+          {data.heroHead.heroSubhead}
+        </p>
         <svg className={`shape1 shape ${styles.shape} ${styles.shape1}`} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="10.1484" cy="10.8657" rx="10.1411" ry="10.1343" transform="rotate(-180 10.1484 10.8657)" fill="#00394C"/>
         </svg>

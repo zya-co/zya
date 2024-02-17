@@ -3,9 +3,25 @@ import { useGSAP } from "@gsap/react";
 
 export default function NavigationHover(container){
 
-  
   useGSAP(() => {
     
+    function handleResize() {
+      gsap.set('.mainNavHoverCircleGroup', {
+        position: 'absolute',
+        left: circleGroupCoords().x,
+        top: circleGroupCoords().y,
+        autoAlpha: 0,
+        width: circleGroupCoords().width,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        pointerEvents: 'none',
+        zIndex: -1
+      })
+    }
+    
+    window.addEventListener('resize', handleResize)
+
     // add circles and style them with gsap
     const circleGroup = document.createElement('div');
     circleGroup.classList.add('mainNavHoverCircleGroup');
@@ -20,21 +36,26 @@ export default function NavigationHover(container){
     const circWidthVw = 2.3
     const circdist = 45
     const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
-    const navBarHeight = document.querySelector('.mainNav')?.getBoundingClientRect().height || 0
+    const navBarHeight = () => { return document.querySelector('.mainNav')?.getBoundingClientRect().height || 0 }
+
+    const circleGroupCoords = () => { 
+      let coords = {x: window.innerWidth/2, y: `${0.5 * navBarHeight()}`, height: 0, width: (maxgroupWidth/100*window.innerWidth)};
+      return coords;
+    };
 
     gsap.set('.mainNavHoverCircleGroup', {
       position: 'absolute',
-      left: '50vw',
-      top: `${0.5 * navBarHeight}px`,
+      left: circleGroupCoords().x,
+      top: circleGroupCoords().y,
       autoAlpha: 0,
-      width: `${maxgroupWidth}vw`,
+      width: circleGroupCoords().width,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       pointerEvents: 'none',
       zIndex: -1
     })
-    const circleGroupCoords = document.querySelector('.mainNavHoverCircleGroup')?.getBoundingClientRect() || {x: 0, y: 0, height: 0, width: 0};
+
     gsap.set('.mainNavHoverCircle', {
       backgroundColor: 'var(--color-fuchsia)',
       width: `${circWidthVw}vw`, 
@@ -91,30 +112,49 @@ export default function NavigationHover(container){
 
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
     const links = document.querySelectorAll('.mainNav__linkList__link')
+    const currentUri = window.location.href;
+    let currentLink = -1;
+    function getcurrentLinkRect(){
+      return links[currentLink].getBoundingClientRect()
+    }
 
-    links.forEach((link, i) => {
+    links.forEach((link: HTMLAnchorElement, i) => {
+      const linkRect = () => { return link.getBoundingClientRect() }
+      const linkAnimLabel = i === 0 ? 'two' : i === 1 ? 'four' : i === 2 ? 'six' : 'null'
+      
+      if (link.href === currentUri) {
+        currentLink = i;
+        gsap.set('.mainNavHoverCircleGroup', {
+          x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
+          autoAlpha: 1,
+        })
+        tlMorph.seek(linkAnimLabel)
+      }
       link.addEventListener('mouseenter', (e) => {
-        const linkRect = link.getBoundingClientRect()
         gsap.to('.mainNavHoverCircleGroup', {
-          x: `${linkRect.x - circleGroupCoords.x + 0.5 * linkRect.width - 0.5 * circleGroupCoords.width}px`,
+          x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
           duration: 0.5,
           autoAlpha: 1,
           ease: 'power2.out'
         })
-        tlMorph.tweenTo(i === 0 ? 'two' : i === 1 ? 'four' : i === 2 ? 'six' : 'null', {
+        tlMorph.tweenTo(linkAnimLabel, {
           duration: 0.5,
           ease: 'power2.out'
         })
       })
       link.addEventListener('mouseleave', (e) => {
-        gsap.to('.mainNavHoverCircleGroup', {
-          x : 0,
-          autoAlpha: 0,
-          duration: 0.5
-        })
-        tlMorph.tweenTo('null', {
-          duration: 0.5
-        })
+        if (link.href === currentUri) {
+          return
+        } else {
+          gsap.to('.mainNavHoverCircleGroup', {
+            x : currentLink === -1 ? 0 : getcurrentLinkRect().x - circleGroupCoords().x + 0.5 * getcurrentLinkRect().width - 0.5 * circleGroupCoords().width,
+            autoAlpha: currentLink === -1 ? 0 : 1,
+            duration: 0.5
+          })
+          tlMorph.tweenTo(currentLink === 0 ? 'two' : currentLink === 1 ? 'four' : currentLink === 2 ? 'six' : 'null', {
+            duration: 0.5
+          })
+        }
       })
     })
     

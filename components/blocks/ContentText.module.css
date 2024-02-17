@@ -23,3 +23,12 @@
 .text__fuchsia {
   color: var(--color-fuchsia);
 }
+.variant__twoThirds .contentText__content {
+  max-width: calc( 11 * var(--spacing-col) );
+}
+.variant__twoThirds .contentText__content p,
+.variant__twoThirds .contentText__content ul,
+.variant__twoThirds .contentText__content ol,
+.variant__twoThirds .contentText__content table {
+  max-width: calc( 8 * var(--spacing-col) );
+}

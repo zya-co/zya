@@ -40,7 +40,7 @@ export default function ContentTextAndImage(props) {
                     <Image 
                       src={props.data.image.image}
                       fill={true}
-                      sizes='(min-width: 640px) 45vw, 100vw'
+                      sizes='(min-width: 641px) 45vw, 100vw'
                       alt={props.data.image.alt}
                     />
                 </figure>
@@ -67,7 +67,7 @@ export default function ContentTextAndImage(props) {
                 <Image 
                   src={props.data.image.image}
                   fill={true}
-                  sizes='(min-width: 640px) 45vw, 100vw'
+                  sizes='(min-width: 641px) 45vw, 100vw'
                   alt={props.data.image.alt}
                 />
             </figure>

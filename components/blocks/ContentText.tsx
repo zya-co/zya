@@ -15,6 +15,7 @@ export default function ContentText(props) {
     props.data.textColor === 'morpho-teal' && styles.text__morphoTeal,
     props.data.textColor === 'fuchsia' && styles.text__fuchsia,
     props.data.textColor === 'beatle' && styles.text__beatle,
+    props.data.variant === 'twoThirds' && styles.variant__twoThirds,
   ].filter(Boolean).join(' ')
 
   if ( props.data.bgColor === 'beatle' || props.data.bgColor === 'morpho-teal' ) {

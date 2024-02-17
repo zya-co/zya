@@ -8,16 +8,17 @@ export default function HeroHomeAnimation(container) {
 
   useGSAP(() => {
     
+
     const parent = document.querySelector('.heroHome') as HTMLElement;
     let fullHeight = parent?.getBoundingClientRect().height || 0;
     parent.style.height = `${fullHeight}px`;
     const h1coords = document.querySelector('.headline1')?.getBoundingClientRect() || {top: 0, height: 0};
 
-    gsap.set('.heroHomeInside', { overflow: 'hidden'})
+    gsap.set('.heroHomeInside', { autoAlpha: 1, overflow: 'hidden'})
     gsap.set('.headline1, .headline2, .heroSubhead, .shape, .heroContentWrapper', { position: 'fixed', y: '100vh' } )
     gsap.set('.heroContentWrapper', { y: '0' } )
-    gsap.set('.headline1', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, zIndex: 2, mixBlendMode: 'difference'});
-    gsap.set('.headline2', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, zIndex: 3, mixBlendMode: 'hue' });
+    gsap.set('.headline1', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, mixBlendMode: 'difference'});
+    gsap.set('.headline2', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, mixBlendMode: 'hue' });
     gsap.set('.heroSubhead', { y: '70vh'})
     gsap.set('.shape', { zIndex: 1 });
     gsap.set('.shape1', { y: '90vh'})
