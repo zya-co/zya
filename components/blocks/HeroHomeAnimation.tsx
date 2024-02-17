@@ -8,6 +8,7 @@ export default function HeroHomeAnimation(container) {
 
   useGSAP(() => {
     
+    let isMobile = window.innerWidth < 641;
 
     const parent = document.querySelector('.heroHome') as HTMLElement;
     let fullHeight = parent?.getBoundingClientRect().height || 0;
@@ -17,9 +18,9 @@ export default function HeroHomeAnimation(container) {
     gsap.set('.heroHomeInside', { autoAlpha: 1, overflow: 'hidden'})
     gsap.set('.headline1, .headline2, .heroSubhead, .shape, .heroContentWrapper', { position: 'fixed', y: '100vh' } )
     gsap.set('.heroContentWrapper', { y: '0' } )
-    gsap.set('.headline1', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, mixBlendMode: 'difference'});
-    gsap.set('.headline2', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/2}`, mixBlendMode: 'hue' });
-    gsap.set('.heroSubhead', { y: '70vh'})
+    gsap.set('.headline1', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/1.5}`, mixBlendMode: 'difference'});
+    gsap.set('.headline2', { display: 'block', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/1.5}`, mixBlendMode: 'hue' });
+    gsap.set('.heroSubhead', { y: `${window.innerHeight/2 + h1coords.height/2}`})
     gsap.set('.shape', { zIndex: 1 });
     gsap.set('.shape1', { y: '90vh'})
     gsap.set('.heroContent1, .heroContent2', { zIndex: 4, autoAlpha: 0, yPercent: 100 });
@@ -34,7 +35,8 @@ export default function HeroHomeAnimation(container) {
       scrollTrigger: {
         trigger: parent,
         start: 'top top',
-        end: `+=${fullHeight + 0.25 * window.innerHeight}px`,
+        // end: `+=${fullHeight + 0.25 * window.innerHeight}px`,
+        end: 'bottom top',
         scrub: true,
         // markers: true,
       },
@@ -98,6 +100,10 @@ export default function HeroHomeAnimation(container) {
       ease: 'power2.in',
       duration: 1,
     }, 'shape3-=.25')
+    tl.to('.heroHome', {
+      backgroundColor: 'var(--color-morpho-teal)',
+      duration: .5
+    }, 'shape3+=.25')
     tl.set('.heroHomeInside', {
       backgroundColor: 'var(--color-morpho-teal)',
       height: '100%',
@@ -120,6 +126,9 @@ export default function HeroHomeAnimation(container) {
         })
       }
     }, 'shape3+=0.75')
+    tl.set('.heroContentWrapper', {
+      backgroundColor: 'var(--color-morpho-teal)',
+    })
     tl.set('.shape4', {
       display: 'none',
     })
@@ -137,10 +146,10 @@ export default function HeroHomeAnimation(container) {
     // tl.addLabel('content');
 
     tl.to('.heroContentWrapper', {
-      y: '-125vh',
+      yPercent: -100,
       duration: 1,
       ease: 'none',
-    }, 'shape4+=.25')
+    }, 'shape4')
 
     tl.addLabel('end');
   
