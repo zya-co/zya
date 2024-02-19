@@ -18,7 +18,7 @@ export default function AdvisoryTeam(props) {
                     <Image
                       src={advisor.image}
                       alt={`Portrait of ${advisor.name}`}
-                      sizes='(min-width: 641px) 45vw, 100vw'
+                      sizes='(min-width: 641px) 17vw, 33vw'
                       fill={true}
                     />
                   </div>

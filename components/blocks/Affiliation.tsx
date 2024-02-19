@@ -16,7 +16,7 @@ export default function Affiliation(props) {
                   <Image
                     src={collaborator.collaboratorLogo}
                     alt={`Logo of ${collaborator.name}`}
-                    sizes='(min-width: 641px) 45vw, 100vw'
+                    sizes='(min-width: 641px) 14vw, 30vw'
                     fill={true}
                   />
                 </div>
@@ -44,7 +44,7 @@ export default function Affiliation(props) {
                   <Image
                     src={backer.backerLogo}
                     alt={`Logo of ${backer.name}`}
-                    sizes='(min-width: 641px) 45vw, 100vw'
+                    sizes='(min-width: 641px) 14vw, 24vw'
                     fill={true}
                   />
                 </div>

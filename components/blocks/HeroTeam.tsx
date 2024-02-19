@@ -32,7 +32,7 @@ export default function HeroTeam(props) {
                         <Image 
                           src={founder.image} 
                           alt={founder.name} 
-                          sizes='(min-width: 641px) 45vw, 100vw'
+                          sizes='(min-width: 641px) 45vw, 90vw'
                           fill={true}
                         />
                       </div>
