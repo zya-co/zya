@@ -5,6 +5,7 @@ import { Blocks } from "../components/Blocks";
 import { Navigation } from '../components/navigation/Navigation'
 import { Footer } from "../components/footer/Footer";
 import { Layout } from "../components/Layout";
+import { HeroHome } from "../components/blocks/HeroHome";
 // import { ScrollSmooth } from "../components/ScrollSmooth";
 
 export default function Home(props) {

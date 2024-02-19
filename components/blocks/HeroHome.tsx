@@ -20,14 +20,11 @@ export const HeroHome = (props) => {
       <div className={`scrollIndicator ${styles.scrollIndicator}`}>
         <svg width="28" height="44" viewBox="0 0 28 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="28" y="0.168945" width="43" height="28" rx="8" transform="rotate(90 28 0.168945)" fill="#E681FF"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8456 31.2354C14.8456 31.8027 15.5315 32.088 15.9326 31.6869L19.5942 28.0253L20.8615 29.2926L16.2515 33.9025C15.0082 35.1459 12.9924 35.1459 11.749 33.9025L7.1391 29.2926L8.40638 28.0253L12.067 31.6859C12.4682 32.0871 13.154 31.803 13.154 31.2357L13.154 20.2932C13.154 20.1243 13.2211 19.9624 13.3405 19.843L13.5496 19.6339C13.7982 19.3852 14.2014 19.3852 14.4501 19.6339L14.6591 19.843C14.7785 19.9624 14.8456 20.1259 14.8456 20.2947C14.8456 24.579 14.8456 27.2516 14.8456 31.2354Z" fill="#340E32"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M14.8456 31.2354C14.8456 31.8027 15.5315 32.088 15.9326 31.6869L19.5942 28.0253L20.8615 29.2926L16.2515 33.9025C15.0082 35.1459 12.9924 35.1459 11.749 33.9025L7.1391 29.2926L8.40638 28.0253L12.067 31.6859C12.4682 32.0871 13.154 31.803 13.154 31.2357L13.154 20.2932C13.154 20.1243 13.2211 19.9624 13.3405 19.843L13.5496 19.6339C13.7982 19.3852 14.2014 19.3852 14.4501 19.6339L14.6591 19.843C14.7785 19.9624 14.8456 20.1259 14.8456 20.2947C14.8456 24.579 14.8456 27.2516 14.8456 31.2354Z" fill="#340E32"/>
         </svg>
       </div>
       <div className={`heroHomeInside ${styles.heroHomeInside}`}>
         <h1 className={`headline1 ${styles.heroHeadline}`} data-tina-field={tinaField(data.heroHead, 'heroHeadline')}>
-          {data.heroHead.heroHeadline}
-        </h1>
-        <h1 className={`headline2 ${styles.heroHeadlineCopy}`} aria-hidden="true" data-tina-field={tinaField(data.heroHead, 'heroHeadline')}>
           {data.heroHead.heroHeadline}
         </h1>
         <p className={`heroSubhead ${styles.heroSubhead}`} data-tina-field={tinaField(data.heroHead, 'heroSubhead')}>

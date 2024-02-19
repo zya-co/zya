@@ -11,24 +11,12 @@
   }
   .heroHeadline {
     font-size: var(--size-h1);
-    color: #FFC2A7;
-    mix-blend-mode: difference;
+    color: var(--color-beatle);
     margin: 0 var(--spacing-s);
     position: relative;
-    z-index: 102;
-  }
-  .heroHeadlineCopy {
-    font-size: var(--size-h1);
-    color: var(--color-fuchsia);
-    mix-blend-mode: hue;
-    margin: 0 var(--spacing-s);
-    /* display: none; */
-    position: relative;
-    z-index: 103;
   }
   .heroSubhead {
     position: relative;
-    z-index: 102;
     font-size: var(--size-subhead);
     color: var(--color-morpho-teal);
     width: 100%;
@@ -38,7 +26,7 @@
     display: block;
     margin: 0 auto;
     width: 100%;
-    margin-bottom: 50vh;
+    /* margin-bottom: 50vh; */
   }
   .shape path {
     width: 100%;
@@ -57,7 +45,8 @@
     overflow: hidden;
   }
   .shape4 {
-    height: 125vw;
+    width: 125vw;
+    height: auto;
     margin-left: -12.5vw;
   }
   .heroContentWrapper {
@@ -83,13 +72,6 @@
   }
   .heroContent p {
     color: var(--color-mineral-white);
-    max-width: 20em;
-  }
-  .heroContent :last-child {
-    margin-bottom: 0;
-  }
-  .heroContent1 {
-    margin-bottom: 3em;
   }
 }
 
@@ -107,27 +89,18 @@
   .heroHeadline {
     text-align: center;
     font-size: var(--size-h1);
-    color: #FFC2A7;
-    mix-blend-mode: difference;
+    color: var(--color-beatle);
     margin: 0;
     position: relative;
-    z-index: 102;
-  }
-  .heroHeadlineCopy {
-    text-align: center;
-    font-size: var(--size-h1);
-    color: var(--color-fuchsia);
-    mix-blend-mode: hue;
-    margin: 0;
-    display: none;
-    position: relative;
-    z-index: 103;
   }
   .heroSubhead {
     text-align: center;
     font-size: var(--size-subhead);
     color: var(--color-morpho-teal);
     width: 100%;
+    padding: 0 calc( 5 * var(--spacing-col) );
+    box-sizing: border-box;
+    margin: 0 auto;
     position: relative;
     z-index: 102;
   }
@@ -154,8 +127,9 @@
     overflow: hidden;
   }
   .shape4 {
-    height: 105vw;
-    margin-left: -2.5vw;
+    height: auto;
+    width: 80vw;
+    margin-left: 10vw;
   }
   .heroContentWrapper {
     display: flex;

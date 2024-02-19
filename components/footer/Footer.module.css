@@ -3,7 +3,7 @@
     background-color: var(--color-lichen);
     padding: var(--spacing-s);
     position: relative;
-    z-index: 211;
+    z-index: 1;
   }
   .contactform__wrapper {
     display: block;

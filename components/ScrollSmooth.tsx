@@ -8,10 +8,12 @@ export const ScrollSmooth = (props) => {
   useGSAP(()=> {
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
     
-    ScrollSmoother.create({
+    let smoother = ScrollSmoother.create({
       smooth: 1,
       effects: true,
     });  
+
+
   })
 
   const meta = {
@@ -23,7 +25,7 @@ export const ScrollSmooth = (props) => {
   return (
     <>
       <div id="smooth-wrapper">
-        <div id="smooth-content">
+        <div id="smooth-content" style={{'willChange': 'transform'}}>
           {props.children}
         </div>
       </div>
