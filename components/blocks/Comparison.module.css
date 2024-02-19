@@ -106,7 +106,7 @@
     display: flex;
     gap: .5em;
     align-items: center;
-    margin-bottom: 1em;
+    min-height: 2.5em;
   }
   .comparisonContentListItem__Yes:before  {
     flex: 0 0 var(--size-body);
