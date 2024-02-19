@@ -62,13 +62,13 @@
     margin-top: var(--size-h1);
     margin-left: calc(1.5 * var(--spacing-col));
     position: relative;
-    z-index: 1;
+    z-index: 0;
   }
   .founder:last-child {
     position: absolute;
     left: calc(6 * var(--spacing-col));
     top: calc( -1.25 * var(--size-h1) );
-    z-index: 0;
+    z-index: 1;
   }
   .founderImage {
     width: 100%;
