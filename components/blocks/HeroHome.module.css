@@ -22,7 +22,7 @@
     color: var(--color-fuchsia);
     mix-blend-mode: hue;
     margin: 0 var(--spacing-s);
-    display: none;
+    /* display: none; */
     position: relative;
     z-index: 103;
   }
@@ -160,7 +160,12 @@
   .heroContentWrapper {
     display: flex;
     height: 100vh;
+    align-items: center;
     width: 100%;
+  }
+  .heroContentContent {
+    display: flex;
+    padding-top: var(--size-subhead);
   }
   .heroContent {
     flex: 0 0 calc(50% - 2 * var(--spacing-s));
@@ -187,10 +192,11 @@
   .heroContent :last-child {
     margin-bottom: 0;
   }
-  .heroContent1 {
+  /* .heroContent1 {
     margin-top: calc(20vh - 0.66 * var(--size-subhead));
-  }
+  } */
   .heroContent2 {
-    margin-top: calc(20vh + 0.66 * var(--size-subhead));
+    /* margin-top: calc(20vh + 0.66 * var(--size-subhead)); */
+    margin-top: calc( 1.2 * var(--size-subhead));
   }
 }

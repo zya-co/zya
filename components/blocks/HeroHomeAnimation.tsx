@@ -23,7 +23,8 @@ export default function HeroHomeAnimation(container) {
     gsap.set('.heroSubhead', { y: `${window.innerHeight/2 + h1coords.height/2}`})
     gsap.set('.shape', { zIndex: 1 });
     gsap.set('.shape1', { y: '90vh'})
-    gsap.set('.heroContent1, .heroContent2', { zIndex: 4, autoAlpha: 0, yPercent: 100 });
+    gsap.set('.heroContent1, .heroContent2', { zIndex: 4, autoAlpha: 0, yPercent: 10 });
+    gsap.set('.scrollIndicator', { position: 'fixed', y: '85svh', left: 'var(--spacing-s)'})
     
     const els = {};
     const elsArray = document.querySelectorAll('.headline1, .headline2, .heroSubhead, .shape1, .shape2, .shape3, .shape4');
@@ -45,9 +46,9 @@ export default function HeroHomeAnimation(container) {
 
     tl.addLabel('start');
     
-    tl.to('.heroSubhead', {
-      y: els['headline1'].top + ( 0.5 * els['headline1'].height ) + 'px',
-      duration: 1,
+    tl.to('.heroSubhead, .scrollIndicator', {
+      y: els['headline1'].top + ( 0.9 * els['headline1'].height ) + 'px',
+      duration: .5,
       autoAlpha: 0,
     })
     
@@ -73,6 +74,7 @@ export default function HeroHomeAnimation(container) {
     tl.to('.shape3', {
       y: els['headline1'].bottom - 0.18 * els['headline1'].height + 'px',
       duration: .75,
+      ease: 'none',
       rotate: 45,
     }, 'shape2-=.25')
 
@@ -95,7 +97,7 @@ export default function HeroHomeAnimation(container) {
     }, 'shape3' )
     tl.to('.shape4', {
       y: 0.5 * ( window.innerHeight - els['shape4'].height ) + 'px',
-      scale: 2.8,
+      scale: isMobile ? 6 : 2.8,
       rotate: -30,
       ease: 'power2.in',
       duration: 1,
@@ -108,26 +110,34 @@ export default function HeroHomeAnimation(container) {
       backgroundColor: 'var(--color-morpho-teal)',
       height: '100%',
       width: '100%',
-      onComplete: () => {
-        gsap.to('.heroContent1, .heroContent2', {
-          autoAlpha: 1,
-          yPercent: 0,
-          ease: 'power2.out',
-          stagger: 0.1,
-          duration: .5,
-        })
-      },
-      onReverseComplete: () => {
-        gsap.to('.heroContent1, .heroContent2', {
-          autoAlpha: 0,
-          yPercent: 100,
-          ease: 'power2.out',
-          duration: .5,
-        })
-      }
+      // onComplete: () => {
+      //   gsap.to('.heroContent1, .heroContent2', {
+      //     autoAlpha: 1,
+      //     yPercent: 0,
+      //     ease: 'power4.out',
+      //     stagger: 0.1,
+      //     duration: .5,
+      //   })
+      // },
+      // onReverseComplete: () => {
+      //   gsap.to('.heroContent1, .heroContent2', {
+      //     autoAlpha: 0,
+      //     yPercent: 10,
+      //     ease: 'power2.out',
+      //     duration: .5,
+      //     overwrite: true,
+      //   })
+      // }
     }, 'shape3+=0.75')
     tl.set('.heroContentWrapper', {
       backgroundColor: 'var(--color-morpho-teal)',
+    })
+    tl.to('.heroContent1, .heroContent2', {
+      autoAlpha: 1,
+      yPercent: 0,
+      ease: 'power4.out',
+      stagger: 0.1,
+      duration: .5,
     })
     tl.set('.shape4', {
       display: 'none',

@@ -20,6 +20,7 @@
     margin-bottom: var(--spacing-s);
     border: none;
     border-bottom: 1px solid var(--color-morpho-teal);
+    border-radius: 0;
     background-color: transparent;
     font-family: var(--font-aeonik);
     font-size: var(--size-h3);

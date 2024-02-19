@@ -18,7 +18,7 @@ export const Layout = (props) => {
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.metaimg} />
       </Head>
-      {props.children}
+          {props.children}
     </>
   )
 }
