@@ -81,7 +81,7 @@ export const Navigation = (props) => {
             </a>
           )
         })}
-        <a className={styles.mainNav__cta} href={ctaData.link}>
+        <a className={styles.mainNav__cta} href={ctaData.link} onClick={() => setNavOpen(false)}>
           {ctaData.label}
         </a>
       </div>
