@@ -11,7 +11,7 @@
   }
   .heroHeadline {
     font-size: var(--size-h1);
-    color: var(--color-beatle);
+    color: #CBECC1;
     margin: 0 var(--spacing-s);
     position: relative;
   }
@@ -89,7 +89,7 @@
   .heroHeadline {
     text-align: center;
     font-size: var(--size-h1);
-    color: var(--color-beatle);
+    color: #CBECC1;
     margin: 0;
     position: relative;
   }
@@ -166,11 +166,7 @@
   .heroContent :last-child {
     margin-bottom: 0;
   }
-  /* .heroContent1 {
-    margin-top: calc(20vh - 0.66 * var(--size-subhead));
-  } */
   .heroContent2 {
-    /* margin-top: calc(20vh + 0.66 * var(--size-subhead)); */
     margin-top: calc( 1.2 * var(--size-subhead));
   }
 }

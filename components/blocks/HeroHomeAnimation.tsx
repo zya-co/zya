@@ -28,7 +28,7 @@ export default function HeroHomeAnimation(container) {
     gsap.set('.heroSubhead, .shape', { position: 'fixed', y: '100vh' } )
     gsap.set('.heroContentWrapper', { position: 'absolute', bottom: '0' } )
     gsap.set('.headline1', { 
-      display: 'block', position: 'fixed', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/1.5}`
+      display: 'block', position: 'fixed', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/1.5}`, zIndex: 3, mixBlendMode: 'difference'
     });
     gsap.set('.heroSubhead', { y: `${window.innerHeight/2 + h1coords.height/2}`})
     gsap.set('.shape', { zIndex: 2 });
