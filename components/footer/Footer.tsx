@@ -12,7 +12,7 @@ export const Footer = (props) => {
   });
 
   return (
-      <div className={styles.footer}>
+      <div className={styles.footer} id="contact">
         <div className={styles.contactform__wrapper}>
           <h1 className={styles.contactform__title}>Contact Us</h1>
           <form name="contact" method="POST" data-netlify="true" className={styles.contactform__form}>
