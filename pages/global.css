@@ -36,6 +36,8 @@ html, body {
   margin: 0;
   padding: 0;
   color: var(--color-morpho-teal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p, li, input, textarea, button, td, th, label, select, option {
