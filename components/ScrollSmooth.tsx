@@ -11,6 +11,7 @@ export const ScrollSmooth = (props) => {
     let smoother = ScrollSmoother.create({
       smooth: 1,
       effects: true,
+      normalizeScroll: true,
     });  
 
 
