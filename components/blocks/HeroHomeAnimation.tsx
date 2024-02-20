@@ -61,7 +61,7 @@ export default function HeroHomeAnimation(container) {
     tl.addLabel('start');
     
     tl.to('.heroSubhead, .scrollIndicator', {
-      yPercent: -100,
+      yPercent: -50,
       duration: .5,
       autoAlpha: 0,
     })
@@ -108,8 +108,8 @@ export default function HeroHomeAnimation(container) {
       scale: isMobile ? 6 : 3.5,
       rotate: -30,
       ease: 'power2.in',
-      duration: .5,
-    }, 'shape3+=.5')
+      duration: .25,
+    }, 'shape3+=.25')
     tl.to('.heroContentWrapper', {
       zIndex: 5,
       duration: 1,
@@ -118,7 +118,7 @@ export default function HeroHomeAnimation(container) {
       backgroundColor: 'var(--color-morpho-teal)',
       height: '100%',
       width: '100%',
-    }, 'shape3+=1')
+    }, 'shape3+=.5')
     tl.set('.heroContentWrapper', {
       yPercent: 0,
       backgroundColor: 'var(--color-morpho-teal)',
@@ -129,7 +129,7 @@ export default function HeroHomeAnimation(container) {
       ease: 'power4.out',
       stagger: 0.1,
       duration: .5,
-    })
+    } , 'shape3+=.5')
     tl.set('.shape4', {
       display: 'none',
     })

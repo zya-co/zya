@@ -14,6 +14,13 @@ export const ScrollSmooth = (props) => {
       normalizeScroll: true,
     });  
 
+    gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
+      link.addEventListener("click", (e) => {
+        var id = (e.target as HTMLAnchorElement)?.getAttribute("href");
+        smoother.scrollTo(id, true, "top top");
+        e.preventDefault();
+      });
+    });
 
   })
 

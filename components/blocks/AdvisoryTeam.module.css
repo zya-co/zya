@@ -62,9 +62,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-col);
+    width: calc( 14 * var(--spacing-col));
   }
   .advisor {
-    flex: 0 0 calc( 4 * var(--spacing-col)); 
+    flex: 0 0 calc( 4 * var(--spacing-col) - 1px); 
   }
   .advisorImage {
     position: relative;

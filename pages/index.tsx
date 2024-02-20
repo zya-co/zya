@@ -5,7 +5,7 @@ import { Blocks } from "../components/Blocks";
 import { Navigation } from '../components/navigation/Navigation'
 import { Footer } from "../components/footer/Footer";
 import { Layout } from "../components/Layout";
-// import { ScrollSmooth } from "../components/ScrollSmooth";
+import { ScrollSmooth } from "../components/ScrollSmooth";
 
 export default function Home(props) {
 
@@ -23,10 +23,10 @@ export default function Home(props) {
       metaimg={data.page.meta?.image}
     >
       <Navigation navData={props.nav} current={props.data.page._sys.filename} />
-      {/* <ScrollSmooth> */}
+      <ScrollSmooth>
         <Blocks blocks={data.page.blocks} />
         <Footer navData={props.nav} />
-      {/* </ScrollSmooth> */}
+      </ScrollSmooth>
     </Layout>
   );
 }

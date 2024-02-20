@@ -25,7 +25,7 @@ export default function ContentTextAndImage(props) {
       return (
         <DarkElement>
           <div className={classNames}>
-            <div className={styles.content} data-tina-field={tinaField(props.data, "content")} data-speed="1.1">
+            <div className={styles.content} data-tina-field={tinaField(props.data, "content")}>
               <RichText content={props.data.content} />
             </div>
             { props.data.image && (
