@@ -7,13 +7,13 @@ export default function HeroMission(props) {
   return (
     <>
       <section className={styles.heroMission}>
-        <div className={styles.heroMission__headline} data-tina-field={tinaField(props.data, 'head')}>
+        <div className={styles.heroMission__headline} data-tina-field={tinaField(props.data, 'head')} data-speed="0.9">
           <RichText content={props.data.head} />
         </div>
         <div className={styles.heroMission__content}>
           {
             props.data.image && (
-              <figure className={styles.heroMission__content__image} data-tina-field={tinaField(props.data, 'image')}>
+              <figure className={styles.heroMission__content__image} data-tina-field={tinaField(props.data, 'image')} data-speed="1.1">
                 <Image 
                   src={props.data.image.src} 
                   alt={props.data.image.alt} 
