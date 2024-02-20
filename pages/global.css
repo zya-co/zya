@@ -43,7 +43,7 @@ html, body {
 p, li, input, textarea, button, td, th, label, select, option {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1.2;
 }
 p a,
