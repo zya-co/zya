@@ -16,6 +16,7 @@ export default function Button(props) {
     return (
       <button
         className={classNames.join(' ')}
+        type='submit'
       >
         {props.text}
       </button>
