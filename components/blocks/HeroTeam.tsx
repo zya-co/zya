@@ -45,12 +45,14 @@ export default function HeroTeam(props) {
                       <RichText content={founder.bio} />
                     </div>
                   </div>
-                  <Button
-                    href={founder.button?.link}
-                    color='fuchsia'
-                    className={styles.founderButton}
-                    variant="mini"
-                  >{ founder.button?.label || 'Connect' }</Button>
+                  <div data-tina-field={tinaField(founder, 'button')}>
+                    <Button
+                      href={founder.button?.link}
+                      color='fuchsia'
+                      className={styles.founderButton}
+                      variant="mini"
+                    >{ founder.button?.label || 'Connect' }</Button>
+                  </div>
                 </div>
               );
             }
