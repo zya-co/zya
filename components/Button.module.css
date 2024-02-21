@@ -1,6 +1,7 @@
 .button {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
+  font-weight: 400;
   border-radius: 0.4vw;
   border: none;
   padding: .8em 1.15em .8em 3.65em;
