@@ -93,6 +93,7 @@
   .comparisonItem h3 {
     padding-top: var(--spacing-col);
     max-width: 4em;
+    margin-bottom: calc( 0.5 * var(--size-h3));
   }
   .comparisonItem:nth-child(3) h3{
     font-size: var(--size-h2);
