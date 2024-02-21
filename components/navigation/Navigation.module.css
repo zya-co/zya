@@ -88,7 +88,7 @@
   }
   .mobileNavFooter {
     position: absolute;
-    bottom: var(--spacing-s);
+    bottom: calc( 100vh - 100svh );
     left: 0;
     padding: var(--spacing-s);
   }
