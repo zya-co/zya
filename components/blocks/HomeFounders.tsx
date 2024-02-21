@@ -12,7 +12,6 @@ export default function HomeFounders(props) {
         <div className={styles.intro} data-tina-field={tinaField(props.data, 'intro')}>
           <RichText content={props.data.intro} />
         </div>
-        <h2 className={styles.quote} data-tina-field={tinaField(props.data, 'quote')}>{props.data.quote}</h2>
         <div className={styles.founders}>
           {props.data.founders.map((founder, index) => { 
             if (index < 2) {
@@ -36,6 +35,7 @@ export default function HomeFounders(props) {
             }
           })}
         </div>
+        <h2 className={styles.quote} data-tina-field={tinaField(props.data, 'quote')}>{props.data.quote}</h2>
         <div className={styles.signoff} data-tina-field={tinaField(props.data, 'signoff')}>
           <div className={styles.signoff__text}>
             <RichText content={props.data.signoff.text} />
