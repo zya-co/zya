@@ -34,4 +34,8 @@ export default defineConfig({
       navigation as any,
     ],
   },
+  cmsCallback: (cms) => {
+    cms.flags.set('branch-switcher', true)
+    return cms
+  }
 });

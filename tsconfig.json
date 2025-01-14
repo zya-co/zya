@@ -23,14 +23,17 @@
     ],
     "strictNullChecks": true,
     "paths": {
-      "@/fonts": ["./styles/fonts"]
-    }
+      "@/fonts": [
+        "./styles/fonts"
+      ]
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "**/*.ts", 
-    "tina/config.tsx", 
+    "**/*.ts",
+    "tina/config.tsx",
     "typings.d.tsx",
     "**/*"
   ],
