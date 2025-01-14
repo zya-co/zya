@@ -11,11 +11,22 @@ export const Footer = (props) => {
     }
   });
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target) as any;
+    await fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    });
+    // Success and error handling ...
+  };
+
   return (
       <div className={styles.footer} id="contact">
         <div className={styles.contactform__wrapper}>
           <h1 className={styles.contactform__title}>Contact us</h1>
-          <form name="contact" method="POST" data-netlify="true" className={styles.contactform__form}>
+          <form name="contact" method="POST" onSubmit={handleFormSubmit} className={styles.contactform__form}>
             <input type="hidden" name="form-name" value="contact" />
             <div className={styles.contactform__field__row}>
               <label htmlFor="name" className={styles.contactform__field__row__label}>
