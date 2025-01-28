@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export default function DarkElement(props) {
+export default function DarkElement({children, ignore = false, ...props}) {
 
   const container = useRef<HTMLDivElement | null>(null);
 
@@ -29,8 +29,6 @@ export default function DarkElement(props) {
         } else {
           nav?.removeAttribute('data-isLight')
           mobileHeader?.removeAttribute('data-isLight')
-          
-          //nav?.removeAttribute('data-isLight')
         }
       });
     }, options);
@@ -44,9 +42,18 @@ export default function DarkElement(props) {
     }
   })
 
-  return (
-    <div ref={container}>
-      {props.children}
-    </div>
-  )
+  if (ignore) {
+    return (
+      <>
+        {children}
+      </>
+    )
+  } 
+  else {
+    return (
+      <div ref={container}>
+        {children}
+      </div>
+    )
+  }
 }

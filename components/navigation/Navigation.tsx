@@ -74,7 +74,8 @@ export const Navigation = (props) => {
           return (
             <a 
               key={'link_' + i} 
-              className={`mainNav__linkList__link ${styles.mainNav__linkList__link} ${navitem.link === '/'+currentSlug && styles.currentLink}`} href={navitem.link}
+              className={`mainNav__linkList__link ${styles.mainNav__linkList__link} ${navitem.link === '/'+currentSlug && styles.currentLink}`} 
+              href={navitem.link}
               onClick={() => setNavOpen(false)}
             >
               {navitem.label}

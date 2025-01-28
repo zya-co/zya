@@ -24,7 +24,7 @@ export default function Home(props) {
     >
       <Navigation navData={props.nav} current={props.data.page._sys.filename} />
       <ScrollSmooth>
-        <Blocks blocks={data.page.blocks} />
+        <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
         <Footer navData={props.nav} />
       </ScrollSmooth>
     </Layout>
@@ -36,6 +36,37 @@ export const getStaticProps = async () => {
     relativePath: "home.mdx",
   });
 
+  const pagesResponse = await client.queries.blogpostConnection();
+  let latestBlogPosts = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
+    return {
+      title: edge?.node?.meta?.title,
+      description: edge?.node?.meta?.description,
+      image: edge?.node?.meta?.image,
+      category: edge?.node?.meta?.category,
+      author: edge?.node?.meta?.author,
+      date: edge?.node?.meta?.date,
+      filename: edge?.node?._sys.filename,
+    };
+  });
+
+  
+  latestBlogPosts?.sort((a, b) => {
+    if (a.date && b.date) {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    } else if (a.date) {
+      return -1;
+    } else if (b.date) {
+      return 1;
+    } else if (a.filename && b.filename) {
+      return a.filename.localeCompare(b.filename);
+    }
+    else {
+      return 0;
+    }
+  });
+  
+  latestBlogPosts = latestBlogPosts?.slice(0, 3);
+
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
 
   return {
@@ -43,8 +74,8 @@ export const getStaticProps = async () => {
       data,
       query,
       variables,
-      nav: mainNav
-      //myOtherProp: 'some-other-data',
+      nav: mainNav,
+      latestposts: latestBlogPosts,
     },
   };
 };

@@ -1,5 +1,3 @@
-import { button } from "../embeds/button"
-
 export const homeFounders = {
   name: 'homeFounders',
   label: 'Home Founders Block',
@@ -48,6 +46,35 @@ export const homeFounders = {
           type: 'string',
           name: 'imageAlt',
           label: 'Image Alt Text'
+        },
+        {
+          label: 'Expandable Content',
+          name: 'expandableContent',
+          type: 'object',
+          fields: [
+            {
+              type: 'rich-text',
+              name: 'content',
+              label: 'Content',
+            },
+            {
+              label: 'CTA',
+              name: 'cta',
+              type: 'object',
+              fields: [
+                {
+                  type: 'string',
+                  name: 'label',
+                  label: 'Label'
+                },
+                {
+                  type: 'string',
+                  name: 'link',
+                  label: 'Link'
+                }
+              ]
+            }
+          ]
         }
       ],
       ui: {
@@ -57,19 +84,6 @@ export const homeFounders = {
           }
         }
       },
-    },
-    {
-      type: 'object',
-      name: 'signoff',
-      label: 'Signoff',
-      fields: [
-        {
-          type: 'rich-text',
-          name: 'text',
-          label: 'Text'
-        },
-        button
-      ]
     }
   ]
 }

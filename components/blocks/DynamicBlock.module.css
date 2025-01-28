@@ -1,0 +1,166 @@
+@media (max-width: 640px) {
+  .dynamicBlock {
+    position: relative;
+    overflow: hidden;
+    /* display: flex;
+    flex-wrap: wrap; */
+    padding:  var(--padding-top-m) 
+              var(--padding-right-m) 
+              var(--padding-bottom-m) 
+              var(--padding-left-m);
+  }
+  .bgImage {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .bgImageImg {
+    object-fit: cover;
+  }
+  .richtext {
+    /* margin: var(--marginTop) auto var(--marginBottom) auto; */
+    margin-top: var( --marginTop-m, var(--marginTop) );
+    margin-right: var(--marginRight-m, auto);
+    margin-bottom: var( --marginBottom-m, var(--marginBottom) );
+    margin-left: var(--marginLeft-m, auto);
+
+    & * {
+      margin-top: 0;
+    }
+  }
+  .richtext_rightAligned {
+    text-align: right;
+  }
+  .richtext_centerAligned {
+    text-align: center;
+  }
+  .richtext:has( > :global(h4:last-child) ) + .richtext > h2:first-child ,
+  .richtext:has( > :global(h4:last-child) ) + .flexBreak + .richtext > h2:first-child ,
+  .richtext:has( > :global(h4 + p:empty:last-child) ) + .flexBreak + .richtext > h2:first-child {
+    margin-top: 0.25em;
+  }
+  .imageBlock {
+    width: var(--width, 100%);
+    flex-basis: var(--width, 100%);
+    margin: var(--marginTop-m) var(--marginRight-m) var(--marginBottom-m) var(--marginLeft-m);
+  }
+  .imageBlock img{
+    width: 100%;
+    height: auto;
+  }
+  .bgGraphic {
+    position: relative;
+    padding: 0;
+    margin: var(--marginTop-m) var(--marginRight-m) var(--marginBottom-m) calc( var(--marginLeft-m));
+    top: 0;
+    left: 0;
+    width: var(--width-m, 100%);
+    height: auto;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .bgGraphicImg {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (min-width: 640.1px) {
+  .dynamicBlock {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    padding:  var(--padding-top, 0) 
+              var(--padding-right, 0) 
+              var(--padding-bottom, 0) 
+              var(--padding-left, 0);
+  }
+  .bgImage {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .bgImageImg {
+    object-fit: cover;
+  }
+  .richtext_rightAligned {
+    text-align: right;
+  }
+  .richtext_centerAligned {
+    text-align: center;
+  }
+  .richtext_leftBottomAligned {
+    text-align: left;
+    align-self: flex-end;
+  }
+  .richtext_rightBottomAligned {
+    text-align: right;
+    align-self: flex-end;
+  }
+  .richtext {
+    width: var(--width, 100%);
+    flex-basis: var(--width, 100%);
+    break-after: var(--breakAfter, auto);
+    margin: var(--marginTop) var(--marginRight) var(--marginBottom) var(--marginLeft);
+
+    & * {
+      margin-top: 0;
+    }
+  
+    & :global(:first-child) {
+      margin-top: 0;
+    }
+    & :global(:last-child) {
+      margin-bottom: 0;
+    }
+    & :global(p):empty {
+      display: none;
+      position: absolute;
+    }
+  }
+  .richtext:has( > :global(h4:last-child) ) + .richtext > h2:first-child ,
+  .richtext:has( > :global(h4:last-child) ) + .flexBreak + .richtext > h2:first-child ,
+  .richtext:has( > :global(h4 + p:empty:last-child) ) + .flexBreak + .richtext > h2:first-child {
+    margin-top: 0.25em;
+  }
+  .imageBlock {
+    width: var(--width, 100%);
+    flex-basis: var(--width, 100%);
+    margin: var(--marginTop) var(--marginRight) var(--marginBottom) var(--marginLeft);
+  }
+  .imageBlock img{
+    width: 100%;
+    height: auto;
+  }
+  .flexBreak {
+    flex-basis: 100%;
+    height: 0;
+  }
+  .bgGraphic {
+    position: absolute;
+    padding: 0;
+    margin: var(--marginTop-d) var(--marginRight-d) var(--marginBottom-d) calc(var(--spacing-s) + var(--marginLeft-d));
+    top: 0;
+    left: 0;
+    width: var(--width-d, 100%);
+    height: auto;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .bgGraphicImg {
+    width: 100%;
+    height: auto;
+  }
+}

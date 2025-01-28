@@ -12,9 +12,11 @@ import { comparison } from './pageblocks/comparison';
 import { heroTeam } from './pageblocks/heroTeam';
 import { advisoryTeam } from './pageblocks/advisoryTeam';
 import { affiliation } from './pageblocks/affiliation';
+import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock';
+import { latestBlogPostsSchema } from '../../components/blocks/LatestBlogPosts';
 
 export default {
-  label: 'Page Content',
+  label: 'Pages',
   name: 'page',
   path: 'content/page',
   format: 'mdx',
@@ -60,7 +62,9 @@ export default {
         homeFounders,
         comparison,
         advisoryTeam,
-        affiliation
+        affiliation,
+        dynamicBlockSchema,
+        latestBlogPostsSchema
       ],
     },
   ],

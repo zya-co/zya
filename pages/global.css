@@ -40,6 +40,24 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Maybe look for a better way to check if we're in TinaCMS */
+body.__tina-quick-editing-enabled:before {
+  content: "";
+  position: fixed;
+  z-index: 999999;
+  pointer-events: none;
+  top: 0;
+  left: var(--spacing-s);
+  right: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  opacity: 0.8;
+  background-size: var(--spacing-col) 20px;
+  background-image:  repeating-linear-gradient(to right, #FF0000, #FF0000 1px, transparent 1px, transparent);
+}
+
+
 p, li, input, textarea, button, td, th, label, select, option {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
@@ -49,8 +67,10 @@ p, li, input, textarea, button, td, th, label, select, option {
 p a,
 li a,
 td a {
-  color: var(--color-morpho-teal);
+  color: inherit;
   text-decoration: underline;
+  text-underline-offset: .2em;
+  text-decoration-thickness: 1px;
 }
 ul, ol {
   padding: 0 0 0 3em;

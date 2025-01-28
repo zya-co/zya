@@ -10,6 +10,8 @@ import Comparison from './blocks/Comparison'
 import HeroTeam from './blocks/HeroTeam'
 import AdvisoryTeam from './blocks/AdvisoryTeam'
 import Affiliation from './blocks/Affiliation'
+import {DynamicBlock} from './blocks/DynamicBlock'
+import LatestBlogPosts from './blocks/LatestBlogPosts'
 
 export const Blocks = (props) => {
   return (
@@ -81,6 +83,24 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <Affiliation data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksDynamicBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <DynamicBlock data={block} />
+              </React.Fragment>
+            )
+          case "BlogpostBlocksDynamicBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <DynamicBlock data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksLatestBlogPosts":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <LatestBlogPosts data={block} posts={props.latestposts ? props.latestposts : []} />
               </React.Fragment>
             )
         }

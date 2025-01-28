@@ -25,6 +25,10 @@ export const button = {
         { 
           value: 'lichen', 
           label: 'Lichen (yellow)' 
+        },
+        {
+          value: 'mineral-white',
+          label: 'Mineral White'
         }
       ]
     }

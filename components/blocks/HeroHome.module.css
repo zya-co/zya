@@ -3,6 +3,7 @@
     background-color: var(--color-mineral-white);
     overflow: hidden;
     position: relative;
+    min-height: 400vh;
   }
   .heroHomeInside {
     opacity: 0;
@@ -15,11 +16,19 @@
     margin: 0 var(--spacing-s);
     position: relative;
   }
+  .heroHeadlineEyebrow {
+    display: block;
+    text-align: left;
+    font-size: var(--size-h3);
+    letter-spacing: -0.05em;
+    margin-bottom: .4em;
+    mix-blend-mode: normal;
+  }
   .heroSubhead {
     position: relative;
     font-size: var(--size-subhead);
     color: var(--color-morpho-teal);
-    width: 100%;
+    width: var(100% - 2 * var(--spacing-s));
     margin: 0 var(--spacing-s);
   }
   .shape {
@@ -92,6 +101,14 @@
     color: #CBECC1;
     margin: 0;
     position: relative;
+  }
+  .heroHeadlineEyebrow {
+    display: block;
+    text-align: center;
+    font-size: var(--size-h3);
+    letter-spacing: -0.05em;
+    margin-bottom: .15em;
+    mix-blend-mode: normal;
   }
   .heroSubhead {
     text-align: center;

@@ -2,8 +2,11 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 export const ScrollSmooth = (props) => {
+
+  const smoothRef = useRef(null);
 
   useGSAP(()=> {
     gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
@@ -22,17 +25,11 @@ export const ScrollSmooth = (props) => {
       });
     });
 
-  })
-
-  const meta = {
-    title: props.title || 'Zya Enzymes',
-    description: props.description || 'The transformative power of enzymes',
-    metaimg: props.metaimg || '/favicon.ico'
-  }
-
+  }, {scope: smoothRef});
+  
   return (
     <>
-      <div id="smooth-wrapper">
+      <div id="smooth-wrapper" ref={smoothRef}>
         <div id="smooth-content" style={{'willChange': 'transform'}}>
           {props.children}
         </div>

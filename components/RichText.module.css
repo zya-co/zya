@@ -9,12 +9,73 @@
     height: 45.2vw;
   }
 }
+.spacer {
+  height: var(--height-m, 0);
+  @media (min-width: 640.1px) {
+    height: var(--height-d, 0);
+  }
+}
 .spacerSmall {
-  height: var(--spacing-s);
+  height: var(--height-m, var(--spacing-s));
+  @media (min-width: 640.1px) {
+    height: var(--height-d, var(--spacing-s));
+  }
 }
 .spacerMedium {
-  height: var(--spacing-col);
+  height: var(--height-m, var(--spacing-col));
+  @media (min-width: 640.1px) {
+    height: var(--height-d, var(--spacing-col));
+  }
 }
 .spacerLarge {
-  height: var(--size-h1);
+  height: var(--height-m, var(--spacing-h1));
+  @media (min-width: 640.1px) {
+    height: var(--height-d, var(--spacing-h1));
+  }
+}
+.enzymeCenterAligned {
+  margin-left: auto;
+  margin-right: auto;
+}
+.enzymeRightAligned {
+  margin-left: auto;
+}
+@media (min-width: 640.1px) {
+  .cols2 {
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    
+    & > div {
+      flex: 0 0 calc(50% - 1em);
+    }
+  }
+}
+.customImage {
+  width: var(--width-d, 100%);
+  height: var(--height-d, auto);
+  position: relative;
+  margin: 0;
+
+  &.customImageCenterAligned {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.customImageRightAligned {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+  }
+}
+@media (max-width: 640px) {
+  .customImage {
+    width: var(--width-m, 100%);
+    height: var(--height-m, auto);
+  }
 }
