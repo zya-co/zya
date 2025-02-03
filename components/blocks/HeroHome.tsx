@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './HeroHome.module.css'
@@ -10,10 +10,11 @@ import DarkElement from "../DarkElement";
 export const HeroHome = (props) => {
   
   const container = useRef<HTMLDivElement | null>(null);
+  
   HeroHomeAnimation(container)
 
   const data = props.data
-  // console.log(data)
+  
   return (
   <>
     <div className={`heroHome ${styles.heroHome}`} ref={container}>

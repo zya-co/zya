@@ -4,13 +4,11 @@ import { useGSAP } from "@gsap/react";
 
 export default function HeroHomeAnimation(container) {
 
-  
+  gsap.registerPlugin(ScrollTrigger);
+
   useGSAP(() => {
-
+    
     setTimeout(() => {
-
-      gsap.registerPlugin(ScrollTrigger);
-      
       let isMobile = window.innerWidth < 641;
 
       const parent = document.querySelector('.heroHome') as HTMLElement;
@@ -28,17 +26,12 @@ export default function HeroHomeAnimation(container) {
       parent.style.height = `${window.innerHeight - windowContentDiff }px`;
 
       gsap.set('.heroHomeInside', { autoAlpha: 1, overflow: 'hidden'})
-      gsap.set('.heroSubhead, .shape1, .shape2, .shape3, .shape4', { position: 'fixed', y: '100vh' } )
+      gsap.set('.heroSubhead, .shape', { position: 'fixed', y: '100vh' } )
       gsap.set('.heroContentWrapper', { position: 'absolute', bottom: '0' } )
       gsap.set('.headline1', { 
-        display: 'block', 
-        position: 'fixed', 
-        autoAlpha: 1, 
-        y: `${window.innerHeight/2 - h1coords.height/1.33}`, 
-        zIndex: 3, 
-        mixBlendMode: 'difference'
+        display: 'block', position: 'fixed', autoAlpha: 1, y: `${window.innerHeight/2 - h1coords.height/1.5}`, zIndex: 3, mixBlendMode: 'difference'
       });
-      gsap.set('.heroSubhead', { y: `${window.innerHeight/2 + h1coords.height/2.5}`})
+      gsap.set('.heroSubhead', { y: `${window.innerHeight/2 + h1coords.height/2}`})
       gsap.set('.shape', { zIndex: 2 });
       gsap.set('.shape1', { position: 'fixed', top: `${0.2 * window.innerHeight}`, y: `${0.75 * window.innerHeight}`})
       gsap.set('.shape2', { position: 'fixed', top: `${0.2 * window.innerHeight + shapeBetween + shape1rect.height}`, y: `${0.75 * window.innerHeight}`})
@@ -161,9 +154,7 @@ export default function HeroHomeAnimation(container) {
       // }, 'shape4')
 
       tl.addLabel('end');
-
     }, 100);
-  
   }, { scope: container }); // <-- scope is for selector text (optional)
 
 }

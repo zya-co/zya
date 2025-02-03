@@ -8,6 +8,11 @@ export const advisoryTeam = {
       label: 'Headline'
     },
     {
+      type: 'string',
+      name: 'advisorySubhead',
+      label: 'Subhead'
+    },
+    {
       type: 'object',
       name: 'advisors',
       label: 'Advisors',
@@ -32,6 +37,14 @@ export const advisoryTeam = {
           type: 'string',
           name: 'otherTitle',
           label: 'Other Titles'
+        },
+        {
+          name: 'bio',
+          label: 'Bio',
+          type: 'string',
+          ui: {
+            component: 'textarea'
+          }
         },
         {
           type: 'object',

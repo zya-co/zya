@@ -49,6 +49,7 @@ export default function RichText(props) {
       </figure>
     )
   }
+
   const spacer = (props) => {
     const classNames = [
       styles.spacer,
@@ -67,12 +68,26 @@ export default function RichText(props) {
     )
   }
 
+  const inlineFormat = (props) => {
+    return (
+      <span
+        className={styles.inlineFormat}
+        style={{
+          color: props.color ? 'var(--color-'+props.color+')' : 'inherit',
+          textDecoration: props.underlined ? 'underline' : 'none',
+        }}
+      >
+        {props.text}
+      </span>
+    )
+  }
+
   return (
     <>
       <TinaMarkdown 
         content={props.content} 
         components={
-          {Cta, enzyme, spacer, customImage}
+          {Cta, enzyme, spacer, customImage, inlineFormat}
         }
       />
     </>

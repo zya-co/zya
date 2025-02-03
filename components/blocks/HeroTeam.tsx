@@ -45,18 +45,35 @@ export default function HeroTeam(props) {
                       <RichText content={founder.bio} />
                     </div>
                   </div>
-                  <div data-tina-field={tinaField(founder, 'button')}>
-                    <Button
-                      href={founder.button?.link}
-                      color='fuchsia'
-                      className={styles.founderButton}
-                      variant="mini"
-                    >{ founder.button?.label || 'Connect' }</Button>
+                  <div className={styles.founderButtons}>
+                    <div data-tina-field={tinaField(founder, 'button')}>
+                      <Button
+                        href={founder.button?.link}
+                        color='lichen'
+                        className={styles.founderButton}
+                        variant="arrowRightMini"
+                      >{ founder.button?.label || 'Connect' }</Button>
+                    </div>
+                    <div data-tina-field={tinaField(founder, 'biolink')}>
+                      <Button
+                        href={founder.biolink?.link}
+                        color='mineral-white'
+                        className={styles.biolinkButton}
+                        variant="arrowRightMini"
+                      >{ founder.biolink?.label || 'Science bio' }</Button>
+                    </div>
                   </div>
                 </div>
               );
             }
           })}
+        </div>
+        <div data-tina-field={tinaField(props.data, 'cta')}>
+          <Button
+            href={props.data.cta?.link}
+            color='lichen'
+            className={styles.ctaButton}
+          >{ props.data.cta?.label || 'Learn more about the founders' }</Button>
         </div>
       </section>
     </DarkElement>

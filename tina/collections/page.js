@@ -14,6 +14,7 @@ import { advisoryTeam } from './pageblocks/advisoryTeam';
 import { affiliation } from './pageblocks/affiliation';
 import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock';
 import { latestBlogPostsSchema } from '../../components/blocks/LatestBlogPosts';
+import { media_ArticlesBlockSchema } from '../../components/blocks/Media_Articles';
 
 export default {
   label: 'Pages',
@@ -64,7 +65,8 @@ export default {
         advisoryTeam,
         affiliation,
         dynamicBlockSchema,
-        latestBlogPostsSchema
+        latestBlogPostsSchema,
+        media_ArticlesBlockSchema
       ],
     },
   ],

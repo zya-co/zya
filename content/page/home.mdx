@@ -160,6 +160,8 @@ blocks:
         margins:
           top: 0.5
           left: 1
+        marginsMobile:
+          top: 1
         width: 5
         breakAfter: false
         scrollSpeed: 0.9
@@ -216,14 +218,19 @@ blocks:
       - image: /media/Fibonacci Scale Skipping 5.svg
         breakAfter: true
         margins:
-          marginsMobile:
+          marginsDesktop:
             left: 3
-        width: 2
+          marginsMobile:
+            top: -3
+            left: 6.5
+        widthResponsive:
+          widthDesktop: 2
+          widthMobile: 2
         _template: imageBlock
       - color: mineral-white
         richtext: "#### Zya is supported by expert advisors, world-class scientists and investors.\_\n\n#### Meet the team pioneering the transformation of everyday foods for better nutrition.\_\n"
         margins:
-          bottom: 0.5
+          bottom: 0
           left: 1
         width: 7
         _template: textBlock
@@ -231,6 +238,8 @@ blocks:
           <Cta color="mineral-white" label="Learn more about the Zya Team"
           link="/team" />
         alignment: right_bottom
+        marginsMobile:
+          top: 1
         width: 7
         _template: textBlock
     _template: dynamicBlock
@@ -238,6 +247,9 @@ blocks:
       padding:
         top: 3
         bottom: 1.5
+      paddingMobile:
+        top: 1
+        bottom: 2
     background:
       bgColor: mineral-white
     blocks:
@@ -261,38 +273,48 @@ blocks:
           top: 0.8
           bottom: 0.8
           left: 1
+        marginsMobile:
+          top: 1
         _template: textBlock
       - richtext: >
           <customImage image="/media/media-logos/Wired.svg" alignment="left"
-          marginBottom={0.33} heightDesktop={0.6} alt="Wired Logo" />
+          marginBottom={0.33} heightDesktop={0.6} alt="Wired Logo"
+          widthMobile={5} />
 
 
           <Cta label="Read" link="https://wired.com" variant="arrowRightMini" />
         margins:
           bottom: 1
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 4
         _template: textBlock
       - richtext: >
           <customImage image="/media/media-logos/grocer.svg" marginBottom={0.33}
-          heightDesktop={0.6} />
+          heightDesktop={0.6} widthMobile={5} />
 
 
           <Cta label="Read" variant="arrowRightMini" />
         margins:
           bottom: 1
           left: 1
+        marginsMobile:
+          top: 1
         width: 4
         _template: textBlock
       - richtext: >
           <customImage image="/media/media-logos/Forbes.svg" marginBottom={0.33}
-          heightDesktop={0.6} />
+          heightDesktop={0.6} widthMobile={5} />
 
 
           <Cta label="Read" variant="arrowRightMini" />
         margins:
+          top: 0
           bottom: 1
           left: 1
+        marginsMobile:
+          top: 1
         width: 4
         _template: textBlock
     _template: dynamicBlock

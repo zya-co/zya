@@ -79,3 +79,8 @@
     height: var(--height-m, auto);
   }
 }
+.inlineFormat {
+  display: inline-block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}

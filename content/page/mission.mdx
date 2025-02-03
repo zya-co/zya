@@ -48,25 +48,30 @@ blocks:
         margins:
           marginsDesktop:
             left: 1
-        width: 7
+        widthResponsive:
+          widthDesktop: 7
         _template: imageBlock
       - color: mineral-white
         richtext: "We believe that improved dietary choices should be a seamless part of life, not a compromise. Current food solutions often rely on synthetic methods and reformulated recipes, leading to consumer uncertainty and dissatisfaction.\_\n\nZya shifts the narrative from synthetic interventions to natural, science-driven transformations. By harnessing the inherent capability of enzymes, we empower the consumer to make better choices, whilst championing their taste preferences.\n"
         margins:
           top: 1
           left: 2
+        marginsMobile:
+          top: 0.5
         width: 5
         _template: textBlock
     _template: dynamicBlock
   - spacing:
       padding:
         bottom: 2
+      paddingMobile:
+        bottom: 1.5
     background:
       darkMode: true
       bgColor: beatle
     blocks:
       - color: fuchsia
-        richtext: "#### The problem with reformulated solutions:\n\n## Over-engineered products that don’t feel or taste right\_ \n"
+        richtext: "#### The problem with reformulated solutions:\n\n## Over-engineered products that don’t feel or taste right\_\n"
         margins:
           top: 1
           bottom: 1
@@ -74,67 +79,128 @@ blocks:
         width: 10
         breakAfter: true
         _template: textBlock
-      - image: /media/cereal-misson.jpg
+      - image: /media/Kid Eating Cereal.webp
         margins:
           marginsDesktop:
             left: -0.5
-        width: 8.5
+        widthResponsive:
+          widthDesktop: 8.5
         _template: imageBlock
       - color: mineral-white
-        richtext: "The market is saturated with ‘better-for-you’ options that fall short on flavor and rely heavily on fake ingredient substitutions. \n\nThis creates a dilemma where more nutritious choices are often less appealing in both form and taste. \n\nOn top of this, current nutritional offers are riddled with false claims and synthetic solutions, with conflicting information about what’s good for us. The result? Nutrition that fails to engage and benefit the wider public.\_\_\n"
+        richtext: "The market is saturated with ‘better-for-you’ options that fall short on flavor and rely heavily on fake ingredient substitutions.\n\nThis creates a dilemma where more nutritious choices are often less appealing in both form and taste.\n\nOn top of this, current nutritional offers are riddled with false claims and synthetic solutions, with conflicting information about what’s good for us. The result? Nutrition that fails to engage and benefit the wider public.\_\_\n"
         margins:
           top: 1
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 5
         _template: textBlock
     _template: dynamicBlock
-  - head: >
-      # From micro actions comes macro impact
+  - background:
+      bgGraphic:
+        image: /media/fibonacci-graphics/Fibonacci Scale Skipping 1.svg
+        layoutMobile:
+          width: 3
+          margins:
+            bottom: 0.5
+            left: 2.5
+        layoutDesktop:
+          width: 9
+          margins:
+            top: 7
+            left: 10
+        scrollSpeed: 0.9
+      bgColor: mineral-white
+    blocks:
+      - color: beatle
+        richtext: |
+          #### A new approach:
+
+          # From micro enzymes to macro impact
+        margins:
+          top: 1.5
+          left: 1
+        width: 12
+        _template: textBlock
+      - color: beatle
+        richtext: "<inlineFormat text=\"Enzymes\" underlined={true} /> are nature’s powerful change agents. Their unique ability to catalyze reactions can be harnessed not just in food production, but at the point of digestion. At Zya, we harness these micro enzymes to create macro impacts. By introducing specific enzyme ingredients into food products, we can transform nutritional profiles while preserving taste.\_\n"
+        margins:
+          left: 1
+        width: 6
+        breakAfter: true
+        _template: textBlock
+      - color: beatle
+        richtext: >
+          <inlineFormat text="Example:" color="fuchsia" />
 
 
-      #### At Zya, we want to make it easier for everyone to benefit from better
-      nutrition, while enjoying the everyday foods they love.
-    image:
-      src: /media/mission-01.jpg
-      alt: a cafe called Klippkroog
-    body: >
-      Current nutritional offers are riddled with false claims and synthetic
-      solutions, while healthier choices are often out of reach for most
-      consumers.
-
-
-      However, improved nutrition is a social good: giving better quality of
-      life to individuals and reducing pressures on health and social care for
-      wider society.
-    _template: heroMission
-  - bgColor: beatle
-    variant: imageRightWithGap
-    image:
-      image: /media/Squoosh E3f46ce6e451a8d201a39634f91c037a.jpg
-      alt: ocean
-      aspectRatio: 539/707
-    content: >
-      <enzyme image="/media/Fibonacci Scale Skipping 5-pink.svg" alt="fibonacci
-      scale" />
-
-
-      ## Micro shifts that ripple into macro transformations - for individuals
-      and society.
-    _template: contentTextAndImg
-  - bgColor: beatle
-    variant: imageLeftBorder
-    vAlignment: top
-    image:
-      image: /media/cereal-misson.jpg
-      alt: eating a bowl of cereal
-      aspectRatio: 717/627
-    content: >
-      Our approach focuses on small, incremental changes accumulating across an
-      individual’s diet.
-
-
-      While our enzymes may be small, their total impact over a lifetime will
-      have a transformative effect on people’s health and quality of life.
-    _template: contentTextAndImg
+          Our enzyme, Convero, changes the way sugar interacts with the body by
+          converting up to 30% of consumed sugar into dietary fiber. This
+          results in less sugar uptake and fiber intake that feeds the
+          microbiome.
+        margins:
+          top: 1
+          left: 1
+        marginsMobile:
+          top: 1
+        width: 5.5
+        breakAfter: true
+        backgroundColor: white
+        _template: textBlock
+      - color: beatle
+        richtext: "#### Replacing fad diets for real lasting impact:\n\n# Why taste and habits matter\n\nDid you know that 90% of consumers rank taste as their top purchase motivator? That’s why, at Zya, we prioritise transforming how food is digested—without ever compromising on taste. After all, taste matters. It’s one of the biggest reasons people fail to stick to diets.\L\n\nThe truth is, diets aren’t always the solution you think they are: 95% of all diets fail, with most people either unable to stick to them or regaining the weight they lost.\n"
+        margins:
+          top: 4.5
+          left: 1
+        marginsMobile:
+          top: 1
+        width: 8
+        _template: textBlock
+    _template: dynamicBlock
+  - items:
+      - title: "Cereal \Lbar"
+        content:
+          - label: Satisfying taste and texture
+            value: 'yes'
+          - label: High in sugar
+            value: 'no'
+      - title: "Cereal\Lbar with sweetener"
+        content:
+          - label: Unsatisfactory taste and requires reformulation
+            value: 'no'
+          - label: Less sugar
+            value: 'yes'
+      - title: "Cereal \Lbar with\LConvero"
+        content:
+          - label: Satisfying taste and texture
+            value: 'yes'
+          - label: "Converts sugar to \Lfiber after eating"
+            value: 'yes'
+    _template: comparison
+  - spacing:
+      paddingMobile:
+        top: 2
+        bottom: 1.5
+    background:
+      bgColor: fuchsia
+    blocks:
+      - color: beatle
+        richtext: >
+          ## At Zya, we are using creative bioscience to apply the same
+          transformative principle to other nutrients.
+        margins:
+          top: 2
+          left: 1
+        width: 13
+        _template: textBlock
+      - richtext: >
+          <Cta color="mineral-white" label="Discover Convero" link="/convero"
+          variant="arrowRight" />
+        margins:
+          top: 1
+          bottom: 1.5
+          left: 1
+        _template: textBlock
+    _template: dynamicBlock
 ---
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
-import RichText from '../RichText';
 import { Template } from 'tinacms';
 import { tinaField } from 'tinacms/dist/react';
 import styles from './DynamicBlock.module.css';
 import { margins, width, spacing, scrollDelay, scrollSpeed } from './DynamicBlock_Schema_Fields';
-import {imageBlock, textBlock} from './DynamicBlock_Schema_Blocks';
+import {imageBlock, textBlock, textWithPlus, container} from './DynamicBlock_Schema_Blocks';
 import DarkElement from '../DarkElement';
 import TextBlock from './DynamicBlock_Blocks/TextBlock';
 import ImageBlock from './DynamicBlock_Blocks/ImageBlock';
+import TextWithPlus from './DynamicBlock_Blocks/TextWithPlus';
+import Container from './DynamicBlock_Blocks/Container';
 
 export function DynamicBlock({data}) {
 
@@ -91,6 +92,14 @@ export function DynamicBlock({data}) {
               
               return <ImageBlock block={block} i={i} key={i+data.__typename} />
 
+            case "BlogPostBlocksDynamicBlockBlocksTextWithPlus":
+              
+              return <TextWithPlus data={block} key={i+data.__typename} />
+
+            case "PageBlocksDynamicBlockBlocksContainer":
+              
+              return <Container data={block} key={i+data.__typename} />
+
             case "PageBlocksDynamicBlockBlocksTextBlock":
               
               return <TextBlock data={block} i={i} key={i+data.__typename} />
@@ -98,7 +107,14 @@ export function DynamicBlock({data}) {
             case "PageBlocksDynamicBlockBlocksImageBlock":
               
               return <ImageBlock block={block} i={i} key={i+data.__typename} />
+
+            case "PageBlocksDynamicBlockBlocksTextWithPlus":
+              
+              return <TextWithPlus data={block} key={i+data.__typename} />
             
+            case "PageBlocksDynamicBlockBlocksContainer":
+              
+              return <Container data={block} key={i+data.__typename} />
 
             default:
               return null
@@ -190,7 +206,9 @@ export const dynamicBlockSchema: Template = {
       list: true,
       templates: [
         imageBlock as any,
-        textBlock as any
+        textBlock as any,
+        textWithPlus as any,
+        container as any
       ],
     }
   ],

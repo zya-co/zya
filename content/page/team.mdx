@@ -5,27 +5,109 @@ meta:
     At University Niels and Josh saw how bright ideas could get stuck in labs.
     So, they started working on a way of applying science outside their studies.
 blocks:
-  - introHead: |
-      ### The Zya ecosystem
+  - spacing:
+      padding:
+        top: 3
+        bottom: 3
+      paddingMobile:
+        top: 2
+        bottom: 1
+    background:
+      darkMode: true
+      bgImage: /media/plants-bg-02.webp
+      bgGraphic:
+        image: ''
+      bgColor: ''
+    blocks:
+      - color: mineral-white
+        richtext: |
+          #### Meet the team—
 
-      # The founders
+          # Science, innovation, and collaboration
+        margins:
+          right: 1
+          bottom: 3
+          left: 1
+        scrollSpeed: 0.9
+        scrollDelay: 0
+        _template: textBlock
+      - color: mineral-white
+        richtext: >
+          ## Building a foundation for better nutrition through strategic
+          partnerships and expertise
+        margins:
+          left: 1
+        marginsMobile:
+          top: 1
+        width: 10
+        _template: textBlock
+      - color: mineral-white
+        richtext: >
+          Zya’s ecosystem is built on a blend of scientific rigor, innovative
+          thinking, and collaborative partnerships. Our commitment to enhancing
+          everyday nutrition extends beyond our team to a network of experts,
+          researchers, and advisors who contribute their unique knowledge to
+          drive our vision forward.
+        margins:
+          top: 3.5
+        marginsMobile:
+          top: 1
+        width: 4
+        scrollSpeed: 1.1
+        _template: textBlock
+    _template: dynamicBlock
+  - spacing:
+      padding:
+        top: 0.5
+        right: 1
+        bottom: 1.5
+        left: 1
+      paddingMobile:
+        top: 1
+        bottom: 1
+    background:
+      bgColor: lichen
+    blocks:
+      - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 8.svg
+        breakAfter: true
+        margins:
+          marginsDesktop:
+            top: 0
+            left: 0
+        widthResponsive:
+          widthDesktop: 2
+          widthMobile: 2
+        _template: imageBlock
+      - color: morpho-teal
+        richtext: "## “We wanted to create a company where bioscience isn’t just trapped in a lab but translates into practical impactful solutions.”\_\n"
+        margins:
+          top: 1.5
+          right: 0
+          left: 0
+        _template: textBlock
+    _template: dynamicBlock
+  - introHead: |
+      #### Visionaries with a purpose:
+
+      # Meet the founders
     introLeft: >
-      #### At university Niels and Josh saw how bright ideas could get stuck in
-      labs. So, they started working on a way of applying science outside their
-      studies.
-    introRight: >
-      #### Eventually this became Zya—a way for them to bring the power of
-      natural enzymes to help improve everyday nutrition.
+      #### Zya was founded by two scientists, Dr. Joshua Sauer and Dr. Niels
+      Wicke, both with deep expertise in biochemistry and biotechnology.
+    introRight: "#### Their shared goal is to bridge the gap between advanced bioscience and everyday health, making better nutrition accessible to all.\_\n"
     founders:
       - name: Joshua Sauer
         academicTitle: PhD
         jobTitle: Co-Founder & CEO
         bio: >
-          Josh is motivated to make better nutrition accessible to everyone.
-          With a vision for a healthier and tastier future, Josh is dedicated to
-          bridging the gap between cutting-edge bioscience and people’s everyday
-          lives. He holds a chemistry degree and a bioscience PhD from the
-          University of Oxford.
+          #### Josh is driven by a passion to make nutrition healthier, tastier,
+          and accessible to all.
+
+
+          His mission is to connect groundbreaking bioscience innovations with
+          everyday life, ensuring they create real, tangible benefits for
+          people. With a chemistry degree and a PhD in bioscience from the
+          University of Oxford, Josh combines technical expertise with a
+          visionary approach to nutrition.
         button:
           link: 'https://www.linkedin.com/in/josh-sauer-phd/'
         image: /media/founders/josh-masked.png
@@ -33,12 +115,7 @@ blocks:
       - name: Niels Wicke
         academicTitle: PHD
         jobTitle: Co-Founder & CSO
-        bio: >
-          Niels firmly believes that science is a team sport. During his PhD at
-          the University of Oxford he worked on functional proteins in the gut
-          and became fascinated by the outsized impact of tiny molecular
-          changes. At Zya, Niels leads the R\&D program and coordinates Zya’s
-          research partners.
+        bio: "#### Niels sees science as a collaborative effort, where teamwork unlocks the greatest breakthroughs.\n\nDuring his PhD at the University of Oxford, he explored functional proteins in the gut and developed a deep appreciation for how small molecular changes can create significant impacts. At Zya, Niels leads the R\\&D program and oversees collaborations with research partners, driving innovation from concept to reality.\_\n"
         button:
           label: Connect
           link: 'https://www.linkedin.com/in/niels-wicke/'
@@ -46,11 +123,13 @@ blocks:
         imageAlt: Niels Wicke
     _template: heroTeam
   - advisoryHead: Our advisory team
+    advisorySubhead: "Guiding Zya with expertise and insight.\_"
     advisors:
       - name: Tony Kilbourn
         image: /media/advisors/advisor-1.jpg
         title: NED
         otherTitle: 'Former Marketing Director at Mars, GSK '
+        bio: "Judy Taylor is a seasoned qualitative researcher and strategist with over 30 years of experience helping businesses shape impactful strategies and long-term growth. As co-founder of Leapfrog Research and Planning Ltd, she built a global agency with offices in the UK and US, guiding it to successful acquisition by Cello Group in 2012. Judy has partnered with major brands like GSK, BBC, Tesco, and Oxford Said Business School, delivering insights that drive differentiation. Her work on GSK’s “Sensodyne Repair and Protect” earned global recognition, doubling its forecasted market share across 31 countries and winning “Most Innovative Product of the Year.”\_"
         button:
           label: Connect
           link: 'https://www.linkedin.com/in/tonykilbourn/'
@@ -89,6 +168,50 @@ blocks:
         button:
           link: 'https://www.linkedin.com/in/jacquiechick/'
     _template: advisoryTeam
+  - spacing:
+      padding:
+        top: 2
+        bottom: 2
+        left: 1
+      paddingMobile:
+        top: 1
+    background:
+      bgColor: mineral-white
+    blocks:
+      - richtext: "#### Collaborative effort:\n\n# Innovation thrives on partnerships\_\n"
+        width: 14
+        _template: textBlock
+      - richtext: >
+          #### At Zya, we believe that collaboration is key to accelerating
+          progress. Our partnerships span various sectors, including research
+          institutions, food manufacturers, and industry leaders.
+        margins:
+          top: 1
+        width: 7
+        breakAfter: true
+        _template: textBlock
+      - richtext: "These collaborations allow us to refine and scale our technology, ensuring it meets the diverse needs of consumers and aligns with industry standards.\_\n"
+        margins:
+          top: 0.5
+        width: 5
+        breakAfter: true
+        _template: textBlock
+      - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 9.svg
+        margins:
+          marginsDesktop:
+            top: 3.5
+        widthResponsive:
+          widthDesktop: 3
+          widthMobile: 3
+        scrollSpeed: 1.1
+        _template: imageBlock
+      - richtext: "## Our work with research organisations and universities ensures that our enzyme innovations remain at the cutting edge of science.\_\n"
+        margins:
+          top: 2.5
+          left: 2
+        width: 9.5
+        _template: textBlock
+    _template: dynamicBlock
   - affilationHead: >-
       We collaborate with world-leading scientists to push the boundaries of
       innovation.
@@ -132,5 +255,127 @@ blocks:
       - backerLogo: /media/Exerte Partners_BLACK.png
         backerName: experte
     _template: affiliation
+  - spacing:
+      padding:
+        top: 2
+        bottom: 2
+      paddingMobile:
+        top: 1
+    background:
+      darkMode: true
+      bgColor: earth-gray
+    blocks:
+      - color: mineral-white
+        richtext: |
+          #### From concept to market:
+
+          ## Translating research into real-world applications
+        margins:
+          bottom: 1.5
+          left: 1
+        width: 8
+        _template: textBlock
+      - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 10.svg
+        margins:
+          marginsMobile:
+            bottom: 0.5
+            left: 1.5
+        widthResponsive:
+          widthDesktop: 7
+          widthMobile: 5
+        scrollSpeed: 0.9
+        scrollDelay: 0
+        _template: imageBlock
+      - image: /media/Cookies (1).webp
+        margins:
+          marginsDesktop:
+            left: -1
+        widthResponsive:
+          widthDesktop: 8
+        scrollSpeed: 1.1
+        _template: imageBlock
+      - color: mineral-white
+        richtext: >
+          ### Our ecosystem is designed not just for innovation but for
+          practical application.
+
+
+          We work closely with CPG companies to ensure that our enzyme
+          solutions, like Convero, seamlessly integrate into existing products,
+          adding nutritional value while preserving taste and consumer appeal.
+        margins:
+          top: 0
+          left: 2
+        marginsMobile:
+          top: 1
+          bottom: 1
+        width: 6
+        _template: textBlock
+      - blocks:
+          - color: earth-gray
+            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements?\n\nContact us to collaborate and be \Lpart of this transformative journey.\_\n"
+            width: 6
+            _template: textBlock
+          - richtext: |
+              <Cta label="Reach out" color="lichen" />
+            alignment: right_bottom
+            margins:
+              bottom: 0
+              left: 0
+            marginsMobile:
+              top: 1
+              bottom: -0.5
+            width: 3
+            _template: textBlock
+        background:
+          bgColor: mineral-white
+        spacing:
+          padding:
+            top: 0.5
+            right: 0.5
+            bottom: 0.5
+            left: 0.5
+        margins:
+          marginsDesktop:
+            bottom: 2
+            left: 3
+        widthResponsive:
+          widthDesktop: 10
+        _template: container
+      - color: mineral-white
+        richtext: "#### Our vision for growth:\n\n## Expanding our ecosystem for global impact\_\_\n\n#### The Zya ecosystem is continually evolving to include more partners and collaborators who share our vision of better nutrition through bioscience.\n"
+        margins:
+          left: 1
+        marginsMobile:
+          top: 1
+          bottom: 0
+          left: 0
+        width: 7.5
+        breakAfter: true
+        _template: textBlock
+      - color: mineral-white
+        richtext: "We aim to extend our reach globally, making enzyme-powered nutrition a standard in food products worldwide.\_\n\nEvery partnership strengthens our mission, driving a future where nutrition is built into the foods people already know and love.\_\n\nZya is always looking to expand its network of partners and collaborators who share our commitment to making nutrition more accessible and impactful.\n"
+        alignment: left_bottom
+        margins:
+          top: 1
+          left: 1
+        marginsMobile:
+          left: 0
+        width: 5
+        _template: textBlock
+      - image: /media/Cityscape (1).webp
+        margins:
+          marginsDesktop:
+            top: -2.5
+            right: -2
+            left: 4
+          marginsMobile:
+            top: 1
+            bottom: 1
+        widthResponsive:
+          widthDesktop: 8
+        scrollSpeed: 0.9
+        _template: imageBlock
+    _template: dynamicBlock
 ---
 

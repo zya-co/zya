@@ -3,7 +3,7 @@
     background-color: var(--color-mineral-white);
     overflow: hidden;
     position: relative;
-    min-height: 400vh;
+    /* min-height: 400vh; */
   }
   .heroHomeInside {
     opacity: 0;

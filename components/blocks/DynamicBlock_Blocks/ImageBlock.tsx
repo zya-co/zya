@@ -17,7 +17,8 @@ export default function ImageBlock({ block, i }) {
         '--marginTop-m': block.margins?.marginsMobile?.top ? `calc(var(--spacing-col) * ${block.margins.marginsMobile.top})` : '0',
         '--marginRight-m': block.margins?.marginsMobile?.right ? `calc(var(--spacing-col) * ${block.margins.marginsMobile.right})` : '0',
         '--marginBottom-m': block.margins?.marginsMobile?.bottom ? `calc(var(--spacing-col) * ${block.margins.marginsMobile.bottom})` : '0',
-        '--width': block.width ? `calc(var(--spacing-col) * ${block.width})` : '100%',
+        '--width': block.widthResponsive?.widthDesktop ? `calc(var(--spacing-col) * ${block.widthResponsive.widthDesktop})` : '100%',
+        '--width-m': block.widthResponsive?.widthMobile ? `calc(var(--spacing-col) * ${block.widthResponsive.widthMobile})` : '100%',
       } as React.CSSProperties }
       data-speed={`clamp(${block.scrollSpeed})`}
       data-lag={`clamp(${block.scrollDelay})`}

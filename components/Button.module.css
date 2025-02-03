@@ -6,7 +6,9 @@
   border: none;
   padding: .8em 1.15em .8em 3.65em;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin: 1em 0;
   background-color: var(--color-fuchsia);
   color: var(--color-morpho-teal);

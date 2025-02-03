@@ -11,6 +11,7 @@ export default function TextBlock({ data, i }) {
     data.alignment === 'right_bottom' && styles.richtext_rightBottomAligned,
     styles[`richtext_width_${data.width}`],      
     data.breakAfter && styles.richtext_breakAfter,        
+    data.backgroundColor && styles[`richtext_bg_${data.backgroundColor}`],
   ].filter(Boolean).join(' ')
   
   const textBlockElements = [

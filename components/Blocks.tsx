@@ -12,6 +12,7 @@ import AdvisoryTeam from './blocks/AdvisoryTeam'
 import Affiliation from './blocks/Affiliation'
 import {DynamicBlock} from './blocks/DynamicBlock'
 import LatestBlogPosts from './blocks/LatestBlogPosts'
+import Media_Articles from './blocks/Media_Articles'
 
 export const Blocks = (props) => {
   return (
@@ -101,6 +102,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <LatestBlogPosts data={block} posts={props.latestposts ? props.latestposts : []} />
+              </React.Fragment>
+            )
+          case "PageBlocksMediaArticles":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Media_Articles data={block} />
               </React.Fragment>
             )
         }

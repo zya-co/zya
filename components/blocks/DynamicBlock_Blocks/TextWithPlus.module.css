@@ -1,0 +1,109 @@
+@media (max-width: 640px) {
+
+  .textWithPlus {
+      margin: var(--marginTop-m) var(--marginRight-m) var(--marginBottom-m) var(--marginLeft-m);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 2;
+  }
+  .text {
+    color: var(--color-mineral-white);
+    margin-bottom: 0;
+  }
+  .toggleWrapper {
+    display: block;
+    position: relative;
+    overflow: visible;
+    margin: 0;
+  }
+  .textWithPlus.afterInlineRight .toggleWrapper,
+  .textWithPlus.afterInlineLeft .toggleWrapper {
+    display: inline;
+    margin-left: 1rem;
+  }
+  .toggle {
+    background-color: var(--color-lichen);
+    border: none;
+    width: var(--size-subhead);
+    height: var(--size-subhead);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+  .collapsableTextWrapper {
+    position: relative;
+    left: 0;
+    height: 0;
+    margin-top: calc(0.25 * var(--spacing-s));
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .collapsableText {
+    background-color: var(--color-lichen);
+    color: var(--color-beatle);
+    width: 100%;
+    padding: var(--spacing-s) var(--spacing-s) calc(1.75 * var(--spacing-s)) var(--spacing-s);
+    border-radius: 6px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+}
+
+
+@media (min-width: 640.1px) {
+  .textWithPlus {
+    margin: var(--marginTop-d) var(--marginRight-d) var(--marginBottom-d) var(--marginLeft-d);
+    width: var(--width, 100%);
+    position: relative;
+    z-index: 2;
+  }
+  .text {
+    color: var(--color-mineral-white);
+    margin-bottom: 0;
+  }
+  .toggleWrapper {
+    display: block;
+    position: relative;
+    overflow: visible;
+    top: -.333em;
+  }
+  .textWithPlus.afterInlineRight .toggleWrapper,
+  .textWithPlus.afterInlineLeft .toggleWrapper {
+    display: inline;
+    top: -.075em;
+    margin-left: 1rem;
+  }
+  .toggle {
+    background-color: var(--color-lichen);
+    width: var(--size-subhead);
+    height: var(--size-subhead);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: none;
+  }
+  .collapsableTextWrapper {
+    position: absolute;
+    left: 0;
+    height: 0;
+    margin-top: calc(0.25 * var(--spacing-s));
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .textWithPlus.afterInlineLeft .collapsableTextWrapper {
+    left: auto;
+    right: 0;
+  }
+  .collapsableText {
+    background-color: var(--color-lichen);
+    color: var(--color-beatle);
+    width: calc(5 * var(--spacing-col));
+    padding: var(--spacing-s) var(--spacing-s) calc(1.75 * var(--spacing-s)) var(--spacing-s);
+    border-radius: 6px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}

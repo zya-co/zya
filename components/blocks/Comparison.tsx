@@ -4,7 +4,7 @@ import { tinaField } from 'tinacms/dist/react';
 export default function Comparison(props) {
   return (
     <section className={styles.comparison}>
-      { props.data.items.map((item, i) => {
+      { props.data.items?.map((item, i) => {
         return (
           <div key={i} className={styles.comparisonItem} >
             <h3 data-tina-field={tinaField(item, 'title')}>{item.title}</h3>

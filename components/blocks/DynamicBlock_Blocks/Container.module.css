@@ -1,13 +1,18 @@
 @media (max-width: 640px) {
-  .dynamicBlock {
+  .dynamicBlockContainer {
     position: relative;
     overflow: hidden;
-    /* display: flex;
-    flex-wrap: wrap; */
+    box-sizing: border-box;
     padding:  var(--padding-top-m) 
               var(--padding-right-m) 
               var(--padding-bottom-m) 
               var(--padding-left-m);
+    margin:   var(--margin-top-m, 0) 
+              var(--margin-right-m, 0) 
+              var(--margin-bottom-m, 0) 
+              var(--margin-left-m, 0);
+    width: var(--width-m, 100%);
+    border-radius: 6px;
   }
   .bgImage {
     position: absolute;
@@ -24,7 +29,6 @@
     object-fit: cover;
   }
   .richtext {
-    /* margin: var(--marginTop) auto var(--marginBottom) auto; */
     margin-top: var( --marginTop-m, var(--marginTop) );
     margin-right: var(--marginRight-m, auto);
     margin-bottom: var( --marginBottom-m, var(--marginBottom) );
@@ -90,15 +94,22 @@
   }
 }
 @media (min-width: 640.1px) {
-  .dynamicBlock {
+  .dynamicBlockContainer {
     position: relative;
     overflow: hidden;
     display: flex;
+    box-sizing: border-box;
     flex-wrap: wrap;
     padding:  var(--padding-top, 0) 
               var(--padding-right, 0) 
               var(--padding-bottom, 0) 
               var(--padding-left, 0);
+    margin:   var(--margin-top-d, 0) 
+              var(--margin-right-d, 0) 
+              var(--margin-bottom-d, 0) 
+              var(--margin-left-d, 0);
+    width: var(--width-d, 100%);
+    border-radius: 6px;
   }
   .bgImage {
     position: absolute;

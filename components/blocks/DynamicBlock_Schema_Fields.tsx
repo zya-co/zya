@@ -426,7 +426,7 @@ export const marginResponsive = {
 }
 
 export const margins = {
-  label: 'Margins',
+  label: 'Margins Desktop',
   name: 'margins',
   type: 'object',
   fields: [

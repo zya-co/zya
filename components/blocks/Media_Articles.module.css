@@ -1,0 +1,55 @@
+.articles {
+  width: 100vw;
+  overflow: scroll;
+}
+.articlesContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: calc(0.5 * var(--spacing-col));
+  padding: var(--spacing-s) var(--spacing-s) var(--spacing-s) calc(var(--spacing-s) + 2 * var(--spacing-col));
+}
+.article {
+  flex: 0 0 calc( 5 * var(--spacing-col) );
+  box-sizing: border-box;
+  padding: calc( 0.5 * var(--spacing-col));
+  background-color: var(--color-fuchsia);
+  color: var(--color-morpho-teal);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.article:nth-child(2n) {
+  background-color: var(--color-beatle);
+  color: var(--color-fuchsia);
+}
+.articleQuote {
+  font-size: var(--size-subhead);
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: .3em;
+  line-height: 1;
+}
+.articleDescription {
+  margin-bottom: 3em;
+}
+.articlefooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.articleSourceLogo {
+  width: calc( 1.5 * var(--spacing-col));
+  height: calc( 0.5 * var(--spacing-col));
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: left bottom;
+  background-color: var(--color-morpho-teal);
+}
+.article:nth-child(2n) .articleSourceLogo {
+  background-color: var(--color-fuchsia);
+}
+.cta {
+  margin: 0;
+}
