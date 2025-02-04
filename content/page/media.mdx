@@ -2,15 +2,20 @@
 meta:
   title: Media
 blocks:
-  - blocks:
+  - spacing:
+      paddingMobile:
+        top: 2.5
+    blocks:
       - richtext: |
           #### Media—
         margins:
           top: 2
+          bottom: 0.5
           left: 1
         _template: textBlock
       - richtext: "# Zya in the spotlight.\_\n"
         margins:
+          bottom: 1
           left: 1
         width: 8
         _template: textBlock
@@ -26,7 +31,10 @@ blocks:
           ## Our journey, recognized by leaders in the industry.
         margins:
           top: 0.5
+          bottom: 0.5
           left: 2
+        marginsMobile:
+          top: 1
         width: 12
         _template: textBlock
       - richtext: "Zya’s groundbreaking work with enzymes and nutritional transformation has caught the attention of top media outlets and industry publications. Here’s what they’re saying:\_\n"

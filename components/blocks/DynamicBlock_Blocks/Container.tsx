@@ -119,9 +119,6 @@ export default function Container({data}) {
               return null
           }}
         })}
-          {/* <pre>
-            {JSON.stringify(data, null, 2)}
-          </pre> */}
       </div>
     </DarkElement>
   )

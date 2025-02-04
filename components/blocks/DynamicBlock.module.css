@@ -137,11 +137,12 @@
     & * {
       margin-top: 0;
     }
-
     & :global(h4 + h1) {
       margin-top: 0.25em;
     }
-  
+    & :global(h4 + h2) {
+      margin-top: 0.5em;
+    }
     & :global(:first-child) {
       margin-top: 0;
     }
@@ -151,6 +152,9 @@
     & :global(p):empty {
       display: none;
       position: absolute;
+    }
+    & *:has( + :global(p:empty:last-child) ) {
+      margin-bottom: 0;
     }
   }
   .richtext:has( > :global(h4:last-child) ) + .richtext > h2:first-child ,

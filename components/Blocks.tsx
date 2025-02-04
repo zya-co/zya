@@ -13,6 +13,9 @@ import Affiliation from './blocks/Affiliation'
 import {DynamicBlock} from './blocks/DynamicBlock'
 import LatestBlogPosts from './blocks/LatestBlogPosts'
 import Media_Articles from './blocks/Media_Articles'
+import HeroConvero from './blocks/HeroConvero'
+import Conversion_Graphic from './blocks/Conversion_Graphic'
+import { Footer } from './footer/Footer'
 
 export const Blocks = (props) => {
   return (
@@ -110,6 +113,25 @@ export const Blocks = (props) => {
                 <Media_Articles data={block} />
               </React.Fragment>
             )
+          case "PageBlocksHeroConvero":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <HeroConvero data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksConversionGraphic":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Conversion_Graphic data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksFooter":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Footer data={block} navdata={props.navdata} />
+              </React.Fragment>
+            )
+          
         }
       }) 
       : null

@@ -3,14 +3,8 @@
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    padding:  var(--padding-top-m) 
-              var(--padding-right-m) 
-              var(--padding-bottom-m) 
-              var(--padding-left-m);
-    margin:   var(--margin-top-m, 0) 
-              var(--margin-right-m, 0) 
-              var(--margin-bottom-m, 0) 
-              var(--margin-left-m, 0);
+    padding: var(--padding-top-m) var(--padding-right-m) var(--padding-bottom-m) var(--padding-left-m);
+    margin: var(--margin-top-m) var(--margin-right-m) var(--margin-bottom-m) var(--margin-left-m);
     width: var(--width-m, 100%);
     border-radius: 6px;
   }
@@ -110,6 +104,7 @@
               var(--margin-left-d, 0);
     width: var(--width-d, 100%);
     border-radius: 6px;
+    align-self: flex-start;
   }
   .bgImage {
     position: absolute;

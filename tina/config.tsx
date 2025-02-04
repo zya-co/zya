@@ -33,7 +33,7 @@ export default defineConfig({
     collections: [
       page as any,
       navigation as any,
-      blogpost as any,
+      blogpost as any, 
     ],
   },
   search: {

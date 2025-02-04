@@ -24,7 +24,7 @@ export default function Page(props) {
   >
       <Navigation navData={props.nav} current={props.data.blogpost._sys.filename} />
       <ScrollSmooth>
-        <Blocks blocks={data.blogpost.blocks} />
+        <Blocks blocks={data.blogpost.blocks} navData={props.nav} />
         <pre>{JSON.stringify(data.blogpost.blocks, null, 2)}</pre>
         <Footer navData={props.nav} />
       </ScrollSmooth>

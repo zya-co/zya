@@ -15,6 +15,9 @@ import { affiliation } from './pageblocks/affiliation';
 import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock';
 import { latestBlogPostsSchema } from '../../components/blocks/LatestBlogPosts';
 import { media_ArticlesBlockSchema } from '../../components/blocks/Media_Articles';
+import { heroConveroBlockSchema } from '../../components/blocks/HeroConvero';
+import { conversionGraphicSchema } from '../../components/blocks/Conversion_Graphic';
+import { footerSchema } from '../../components/footer/Footer';
 
 export default {
   label: 'Pages',
@@ -66,7 +69,10 @@ export default {
         affiliation,
         dynamicBlockSchema,
         latestBlogPostsSchema,
-        media_ArticlesBlockSchema
+        media_ArticlesBlockSchema,
+        heroConveroBlockSchema,
+        conversionGraphicSchema,
+        footerSchema,
       ],
     },
   ],
@@ -78,7 +84,6 @@ export default {
       else {
         return `/${document._sys.filename}`;
       }
-      return undefined;
     },
   },
 };

@@ -10,8 +10,8 @@ import DarkElement from "../DarkElement";
 export const HeroHome = (props) => {
   
   const container = useRef<HTMLDivElement | null>(null);
-  
-  HeroHomeAnimation(container)
+
+  HeroHomeAnimation(container.current)
 
   const data = props.data
   

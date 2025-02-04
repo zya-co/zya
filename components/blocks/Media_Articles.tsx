@@ -11,17 +11,33 @@ export default function Media_Articles({data}) {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     
+    function getDistance() {
+      const articles = gsap.utils.toArray(`.${styles.article}`) as HTMLElement[];
+      const distanceFirstToLastX = articles[articles.length - 1].offsetLeft - articles[0].offsetLeft;
+      return distanceFirstToLastX;
+    }
+    let distanceFirstToLastX = getDistance();
+
     let tl = gsap.timeline({ paused: true });
     tl.to(smoothRef.current, {
-      xPercent: -50,
-      duration: 1,
+      x: -distanceFirstToLastX,
+      duration: 8,
     });
+    
+    window.addEventListener('resize', () => {
+      distanceFirstToLastX = getDistance();
+      tl.to(smoothRef.current, {
+        x: -distanceFirstToLastX,
+        duration: 8,
+      });
+    });
+    
 
     ScrollTrigger.create({
       trigger: smoothRef.current,
-      start: '100% 100%',
-      end: '100% 50%',
-      markers: true,
+      start: '100% 80%',
+      end: `+=${distanceFirstToLastX}`,
+      // markers: true,
       animation: tl,
       scrub: true,
       pin: true,

@@ -35,14 +35,20 @@ export const width = {
   name: 'width',
   type: 'number',
   ui: {
-    parse: (val) => Number(val),
+    parse: (val) => parseFloat(val),
     // wrapping our component in wrapFieldsWithMeta renders our label & description.
     component: wrapFieldsWithMeta(({ field, input, meta }) => {
       return (
         <div>
-          <input type="range" min="0" max="16" step=".5" {...input} style={{width: '100%'}}/>
-          <br />
-          Value: {input.value}
+          <input
+            type="number"
+            min="0"
+            max="18"
+            step=".5"
+            placeholder='0'
+            style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+            {...input}
+          />&nbsp;Columns
         </div>
       )
     })
@@ -59,14 +65,20 @@ export const widthResponsive = {
       name: 'widthDesktop',
       type: 'number',
       ui: {
-        parse: (val) => Number(val),
+        parse: (val) => parseFloat(val),
         // wrapping our component in wrapFieldsWithMeta renders our label & description.
         component: wrapFieldsWithMeta(({ field, input, meta }) => {
           return (
             <div>
-              <input type="range" min="0" max="16" step=".5" {...input} style={{width: '100%'}}/>
-              <br />
-              Value: {input.value}
+              <input
+                type="number"
+                min="0"
+                max="18"
+                step=".5"
+                placeholder='0'
+                style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                {...input}
+              />&nbsp;Columns
             </div>
           )
         })
@@ -77,14 +89,20 @@ export const widthResponsive = {
       name: 'widthMobile',
       type: 'number',
       ui: {
-        parse: (val) => Number(val),
+        parse: (val) => parseFloat(val),
         // wrapping our component in wrapFieldsWithMeta renders our label & description.
         component: wrapFieldsWithMeta(({ field, input, meta }) => {
           return (
             <div>
-              <input type="range" min="0" max="16" step=".5" {...input} style={{width: '100%'}}/>
-              <br />
-              Value: {input.value}
+              <input
+                type="number"
+                min="0"
+                max="18"
+                step=".5"
+                placeholder='0'
+                style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                {...input}
+              />&nbsp;Columns
             </div>
           )
         })
@@ -279,9 +297,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -297,9 +321,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -315,9 +345,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -333,9 +369,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                 <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                           <br />
-                           Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -358,9 +400,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -376,9 +424,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -394,9 +448,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })
@@ -412,9 +472,15 @@ export const marginResponsive = {
             component: wrapFieldsWithMeta(({ field, input, meta }) => {
               return (
                 <div>
-                  <input type="range" min="-16" max="16" step=".5" {...input} style={{width: '100%'}}/>
-                  <br />
-                  Value: {input.value}
+                  <input
+                    type="number"
+                    min="-8"
+                    max="16"
+                    step=".5"
+                    placeholder='0'
+                    style={{ padding: '0.25rem 0rem 0.25rem 1rem' }}
+                    {...input}
+                  />&nbsp;Columns
                 </div>
               )
             })

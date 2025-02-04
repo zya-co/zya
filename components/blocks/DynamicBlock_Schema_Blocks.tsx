@@ -136,7 +136,20 @@ export const container = {
   label: 'Container',
   name: 'container',
   type: 'object',
+  ui: {
+    itemProps: (item) => {
+      return {
+        label: item.name ? item.name : 'Unnamed Container',
+      }
+    }
+  },
   fields: [
+    {
+      label: 'Name',
+      name: 'name',
+      description: 'So you can identify it in the list',
+      type: 'string'
+    },
     {
       label: 'Inner Blocks',
       name: 'blocks',

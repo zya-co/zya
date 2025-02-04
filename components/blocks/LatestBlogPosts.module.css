@@ -95,15 +95,78 @@
         padding: 0;
         margin: 0;
       }
-
       & .footer {
         padding: 0;
       }
-
     }
     & .post:nth-child(2) {
       background-color: var(--color-beatle);
       color: var(--color-fuchsia);
+    }
+  }
+  .showMoreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--color-fuchsia);
+    margin: calc( 0.5 * var(--spacing-col)) auto;
+    text-align: center;
+    cursor: pointer;
+  }
+  .morePosts {
+    margin-top: calc(0.5 * var(--spacing-col));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc(0.4 * var(--spacing-col));
+
+    &[data-collapsed="false"] {
+      animation: morePostsIn 0.5s ease-in-out;
+    }
+    
+    & .post {
+      width: 100%;
+      height: auto;
+      padding: calc(0.4 * var(--spacing-col));
+      background-color: #FFF;
+      color: var(--color-morpho-teal);
+      box-sizing: border-box;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: calc(0.4 * var(--spacing-col));
+
+      & .title {
+        padding: 0;
+        margin: 0;
+      }
+      & .footer {
+        padding: 0;
+      }
+      & .readbutton {
+        background-color: var(--color-fuchsia);
+      }
+    }
+    & .post:nth-child(3n+3) {
+      background-color: var(--color-fuchsia);
+      color: var(--color-beatle);
+
+      & .readbutton {
+        background-color: var(--color-mineral-white);
+      }
+    }
+    & .post:nth-child(3n+2) {
+      background-color: var(--color-beatle);
+      color: var(--color-fuchsia);
+      
+      & .readbutton {
+        background-color: var(--color-mineral-white);
+      }
     }
   }
   .cta_gotoblog {
@@ -119,7 +182,7 @@
   }
   .intro {
     max-width: calc(8 * var(--spacing-col));
-    margin-bottom: calc(1.25 * var(--spacing-col));
+    margin-bottom: calc(.5 * var(--spacing-col));
     
     & :global(p) {
       max-width: calc(6.25 * var(--spacing-col));
@@ -131,7 +194,7 @@
       margin-bottom: 0;
     }
   }
-  .posts {
+  .posts, .morePosts {
     display: flex;
     gap: calc(0.5 * var(--spacing-col));
   }
@@ -188,7 +251,7 @@
   }
   .author, .category {
     font-family: var(--font-aeonik);
-    font-size: var(--size-s);
+    font-size: 0.9vw;
     padding: .65em 1em;
     border: 1px solid;
     border-radius: 6px;
@@ -228,8 +291,89 @@
       color: var(--color-fuchsia);
     }
   }
+  .showMoreButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--color-fuchsia);
+    margin: calc( 0.5 * var(--spacing-col)) auto;
+    text-align: center;
+    cursor: pointer;
+  }
+  .morePosts {
+    margin-top: calc(.5 * var(--spacing-col));
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(0.5 * var(--spacing-col));
+
+    &[data-collapsed="false"] {
+      animation: morePostsIn 0.5s ease-in-out;
+    }
+    
+    & .post {
+      flex: 0 0 calc(5 * var(--spacing-col));
+      width: 100%;
+      height: auto;
+      /* aspect-ratio: 2.238; */
+      padding: calc(0.4 * var(--spacing-col));
+      background-color: #FFF;
+      color: var(--color-morpho-teal);
+      box-sizing: border-box;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: calc(0.4 * var(--spacing-col));
+
+      & .title {
+        padding: 0;
+        margin: 0;
+      }
+      & .footer {
+        padding: 0;
+      }
+      & .readbutton {
+        background-color: var(--color-fuchsia);
+      }
+    }
+    & .post:nth-child(3n+1) {
+      background-color: var(--color-fuchsia);
+      color: var(--color-beatle);
+
+      & .readbutton {
+        background-color: var(--color-mineral-white);
+      }
+    }
+    & .post:nth-child(2n+2) {
+      background-color: var(--color-beatle);
+      color: var(--color-fuchsia);
+
+      & .readbutton {
+        background-color: var(--color-mineral-white);
+      }
+    }
+    & .post:nth-child(4n+3),
+    & .post:nth-child(4n+2){
+      flex: 0 0 calc(8.5 * var(--spacing-col));
+    }
+  }
   .cta_gotoblog {
     align-self: flex-start;
     margin: 0;
+  }
+}
+
+@keyframes morePostsIn {
+  from {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
