@@ -27,6 +27,7 @@
   --size-subhead: 5.3vw;
   --size-body: 5.3vw;
   --size-s: 3vw;
+  --size-xs: 2vw;
   --spacing-s: 5vw;
   --spacing-col: 11.25vw;
   --heroTopSpace: calc(2 * var(--size-h1) + 2 * var(--spacing-s));
