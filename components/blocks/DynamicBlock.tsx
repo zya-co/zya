@@ -29,6 +29,7 @@ export function DynamicBlock({data}) {
   return (
     <DarkElement ignore={!data.background?.darkMode}>
       <div 
+        id={data.anchor || ''}
         className={`${styles.dynamicBlock}`}
         style={{
           backgroundColor: data.background?.bgColor ? 'var(--color-'+data.background.bgColor+')' : 'transparent',
@@ -50,6 +51,7 @@ export function DynamicBlock({data}) {
               alt="Atmospheric background image" 
               fill={true}
               sizes="100vw"
+              priority={data.background.bgImgPriority}
               className={styles.bgImageImg}
             />
           </figure>
@@ -132,6 +134,11 @@ export const dynamicBlockSchema: Template = {
   name: 'dynamicBlock',
   label: 'Dynamic Block',
   fields: [
+    {
+      label: 'Anchor',
+      name: 'anchor',
+      type: 'string',
+    },
     spacing as any,
     {
       name: 'background',
@@ -149,6 +156,11 @@ export const dynamicBlockSchema: Template = {
           label: 'Background Image',
           type: 'image',
           description: 'This is for atmospheric background photographs'
+        },
+        {
+          name: 'bgImgPriority',
+          label: 'Enable preloading of Background Image?',
+          type: 'boolean',
         },
         {
           name: 'bgGraphic',

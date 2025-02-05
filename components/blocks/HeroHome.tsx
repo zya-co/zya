@@ -3,20 +3,24 @@ import { useRef, useEffect } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './HeroHome.module.css'
-import HeroHomeAnimation from './HeroHomeAnimation';
+import heroHomeAnimation from './HeroHomeAnimation';
 import RichText from '../RichText';
 import DarkElement from "../DarkElement";
+import { useGSAP } from "@gsap/react";
 
 export const HeroHome = (props) => {
   
   const container = useRef<HTMLDivElement | null>(null);
 
-  HeroHomeAnimation(container.current)
-
+  useGSAP(() => {
+    if (container.current) {
+      heroHomeAnimation(container.current);
+    }
+  }, {scope: container, dependencies: [container]});
+  
   const data = props.data
   
   return (
-  <>
     <div className={`heroHome ${styles.heroHome}`} ref={container}>
       <div className={`heroHomeInside ${styles.heroHomeInside}`}>
       <div className={`scrollIndicator ${styles.scrollIndicator}`}>
@@ -69,6 +73,5 @@ export const HeroHome = (props) => {
           </div>
         </DarkElement>
     </div>
-  </>
   )
 }

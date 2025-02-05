@@ -16,6 +16,7 @@ import Media_Articles from './blocks/Media_Articles'
 import HeroConvero from './blocks/HeroConvero'
 import Conversion_Graphic from './blocks/Conversion_Graphic'
 import { Footer } from './footer/Footer'
+import { ContactFormBlock } from './blocks/ContactFormBlock'
 
 export const Blocks = (props) => {
   return (
@@ -129,6 +130,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <Footer data={block} navdata={props.navdata} />
+              </React.Fragment>
+            )
+          case "PageBlocksContactFormBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <ContactFormBlock data={block} />
               </React.Fragment>
             )
           

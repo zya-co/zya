@@ -3,9 +3,9 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import { Blocks } from "../components/Blocks";
 import { Navigation } from '../components/navigation/Navigation'
-import { Footer } from "../components/footer/Footer";
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
+import FooterLinks from "../components/footer/FooterLinks";
 
 export default function Home(props) {
 
@@ -25,7 +25,8 @@ export default function Home(props) {
       <Navigation navData={props.nav} current={props.data.page._sys.filename} />
       <ScrollSmooth>
         <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
-        <Footer navData={props.nav} />
+        {/* <Footer navData={props.nav} /> */}
+        <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>
     </Layout>
   );
@@ -65,9 +66,10 @@ export const getStaticProps = async () => {
     }
   });
   
-  latestBlogPosts = latestBlogPosts?.slice(0, 3);
+  // latestBlogPosts = latestBlogPosts?.slice(0, 3);
 
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
+  const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
 
   return {
     props: {
@@ -75,6 +77,7 @@ export const getStaticProps = async () => {
       query,
       variables,
       nav: mainNav,
+      footerNav: footerNav,
       latestposts: latestBlogPosts,
     },
   };

@@ -19,6 +19,7 @@ export default function TextBlock({ data, i }) {
         key={i+data.__typename}
         data-tina-field={tinaField(data)}
         className={classNames}
+        id={data.anchor || null}
         style={{
           color: data.color ? 'var(--color-'+data.color+')' : 'inherit',
           '--marginLeft': data.margins?.left ? `calc(var(--spacing-col) * ${data.margins.left})` : '0',

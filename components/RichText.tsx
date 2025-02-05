@@ -59,8 +59,10 @@ export default function RichText(props) {
     ].filter(Boolean).join(' ')
     
     const colsHeightStyles = {
-      '--height-m': props.colHeightMobile ? `calc(var(--spacing-col) * ${props.colHeightMobile})` : '0',
-      '--height-d': props.colHeightDesktop ? `calc(var(--spacing-col) * ${props.colHeightDesktop})` : '0',
+      '--height-m': props.colHeightMobile > 0 ? `calc(var(--spacing-col) * ${props.colHeightMobile})` : '0',
+      '--height-d': props.colHeightDesktop > 0 ? `calc(var(--spacing-col) * ${props.colHeightDesktop})` : '0',
+      '--marginBottom-m': props.colHeightMobile && props.negativeSpaceMobile ? `calc(var(--spacing-col) * ${props.colHeightMobile} * -2)` : '0',
+      '--marginBottom-d': props.colHeightDesktop && props.negativeSpaceDesktop ? `calc(var(--spacing-col) * ${props.colHeightDesktop} * -2)` : '0',
     } as React.CSSProperties
 
     return (

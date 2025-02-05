@@ -83,6 +83,9 @@ blocks:
         margins:
           marginsDesktop:
             left: -0.5
+          marginsMobile:
+            top: 1
+            bottom: 1
         widthResponsive:
           widthDesktop: 8.5
         _template: imageBlock
@@ -109,7 +112,7 @@ blocks:
           margins:
             top: 7
             left: 10
-        scrollSpeed: 0.9
+        scrollSpeed: 0
       bgColor: mineral-white
     blocks:
       - color: beatle
@@ -120,10 +123,12 @@ blocks:
         margins:
           top: 1.5
           left: 1
+        marginsMobile:
+          top: 1
         width: 12
         _template: textBlock
       - color: beatle
-        richtext: "<inlineFormat text=\"Enzymes\" underlined={true} /> are nature’s powerful change agents. Their unique ability to catalyze reactions can be harnessed not just in food production, but at the point of digestion. At Zya, we harness these micro enzymes to create macro impacts. By introducing specific enzyme ingredients into food products, we can transform nutritional profiles while preserving taste.\_\n"
+        richtext: "[Enzymes](/convero) are nature’s powerful change agents. Their unique ability to catalyze reactions can be harnessed not just in food production, but at the point of digestion. At Zya, we harness these micro enzymes to create macro impacts. By introducing specific enzyme ingredients into food products, we can transform nutritional profiles while preserving taste.\_\n"
         margins:
           left: 1
         width: 6
@@ -146,6 +151,14 @@ blocks:
         width: 5.5
         breakAfter: true
         backgroundColor: white
+        _template: textBlock
+      - richtext: |
+          <Cta label="Discover Convero" link="/convero" variant="arrowRight" />
+        margins:
+          top: 2
+          left: 1
+        marginsMobile:
+          top: 1.5
         _template: textBlock
       - color: beatle
         richtext: "#### Replacing fad diets for real lasting impact:\n\n# Why taste and habits matter\n\nDid you know that 90% of consumers rank taste as their top purchase motivator? That’s why, at Zya, we prioritise transforming how food is digested—without ever compromising on taste. After all, taste matters. It’s one of the biggest reasons people fail to stick to diets.\L\n\nThe truth is, diets aren’t always the solution you think they are: 95% of all diets fail, with most people either unable to stick to them or regaining the weight they lost.\n"
@@ -200,7 +213,210 @@ blocks:
           top: 1
           bottom: 1.5
           left: 1
+        marginsMobile:
+          top: 1
         _template: textBlock
     _template: dynamicBlock
+  - spacing:
+      padding:
+        bottom: 2
+    background:
+      darkMode: true
+      bgColor: beatle
+    blocks:
+      - color: mineral-white
+        richtext: |
+          #### A shift toward sustainable health:
+
+          # A lasting impact on personal and societal health
+        margins:
+          top: 1.5
+          right: 1.5
+          bottom: 1.5
+          left: 1
+        marginsMobile:
+          top: 1
+        _template: textBlock
+      - color: mineral-white
+        richtext: >
+          #### The impact of enzyme-powered nutrition extends beyond an
+          individual’s wellbeing.
+
+
+          By making better food choices more appealing and accessible, we
+          contribute to the collective well-being of society.  Better nutrition
+          can help reduce pressure on health and social care systems.
+        margins:
+          right: 0
+          bottom: 1
+          left: 1
+        marginsMobile:
+          bottom: 1
+        width: 5
+        _template: textBlock
+      - blocks:
+          - richtext: |
+              The societal impact of sugar overconsumption:
+            margins:
+              left: 0
+            _template: textBlock
+          - image: /media/circle_mineral-white.svg
+            margins:
+              marginsDesktop:
+                top: 0.5
+                right: 0.25
+                left: 0.25
+            widthResponsive:
+              widthDesktop: 0.25
+              widthMobile: 0.5
+            _template: imageBlock
+          - richtext: >
+              Obesity costs the US Healthcare system approximately $173 billion
+              a year. In 2021/22, diabetes cost the UK almost £14 billion, an
+              amount that is continuing to increase year to year.
+            margins:
+              top: 0.5
+            marginsMobile:
+              top: -0.6
+              left: 1
+            width: 5
+            _template: textBlock
+          - image: /media/circle_mineral-white.svg
+            margins:
+              marginsDesktop:
+                top: 0.5
+                right: 0.25
+                left: 0.25
+            widthResponsive:
+              widthDesktop: 0.25
+              widthMobile: 0.5
+            _template: imageBlock
+          - richtext: "Sticking to recommended sugar intake levels could save your country billions.\LOur micro enzymes empower nutritional shifts that ripple into macro transformations for individuals and society.\_\_\n"
+            margins:
+              top: 0.5
+            marginsMobile:
+              top: -0.6
+              left: 1
+            width: 5
+            _template: textBlock
+        background:
+          bgColor: fuchsia
+        spacing:
+          padding:
+            top: 0.5
+            right: 2
+            bottom: 0.5
+            left: 1
+          paddingMobile:
+            top: 0.5
+            right: 0.5
+            bottom: 0.5
+            left: 0.5
+        margins:
+          marginsDesktop:
+            right: -1
+            left: 2
+          marginsMobile:
+            top: 0
+            right: 0
+            left: 0
+        widthResponsive:
+          widthDesktop: 9
+        _template: container
+      - image: /media/Squoosh E3f46ce6e451a8d201a39634f91c037a.jpg
+        margins:
+          marginsDesktop:
+            top: 2
+            bottom: 0
+            left: -0.5
+          marginsMobile:
+            top: 1
+            bottom: 1
+        widthResponsive:
+          widthDesktop: 7
+        _template: imageBlock
+      - name: 'Quote from Founders:'
+        blocks:
+          - color: mineral-white
+            richtext: |
+              #### Quote from Founders:
+            _template: textBlock
+          - color: fuchsia
+            richtext: >
+              ### ”We believe that small, meaningful changes in individual
+              nutrition can create a profound ripple effect on societal health.
+              The key lies in making these changes simple, accessible, and
+              sustainable.”
+            margins:
+              top: 0.75
+            _template: textBlock
+        margins:
+          marginsDesktop:
+            top: 2
+            left: 1.5
+          marginsMobile:
+            bottom: 1
+        widthResponsive:
+          widthDesktop: 7
+        verticalAlignment: flex-end
+        _template: container
+    _template: dynamicBlock
+  - background:
+      bgColor: mineral-white
+    blocks:
+      - color: beatle
+        richtext: |
+          #### From vision to reality:
+
+          # Innovating today for a healthier tomorrow
+        margins:
+          top: 2
+          right: 2
+          left: 1
+        marginsMobile:
+          top: 1
+        _template: textBlock
+      - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 15.svg
+        margins:
+          marginsDesktop:
+            top: 0.5
+            left: 1
+        widthResponsive:
+          widthDesktop: 2
+          widthMobile: 2
+        _template: imageBlock
+      - color: beatle
+        richtext: "We aim to move beyond conventional methods and embrace bioscience’s full potential. We envision a future where nutritional enhancements are part of the foods we already enjoy, driving a subtle but powerful change in how society approaches health. By adding micro quantities of these naturally-derived enzymes to foods, we can retain preferred taste profiles while improving nutrition, all without recipe reformulation.\_\_\_\n"
+        margins:
+          top: 1
+          bottom: 3
+          left: 5
+        marginsMobile:
+          top: 0.5
+          bottom: 1
+        width: 7
+        _template: textBlock
+    _template: dynamicBlock
+  - spacing:
+      padding:
+        top: 4.5
+        right: 2.5
+        bottom: 3
+        left: 1
+    background:
+      bgImage: /media/Blur Ivan Rohovchenko.webp
+    blocks:
+      - color: fuchsia
+        richtext: "## The future of nutrition \Lis here, and it starts with the natural, transformative power of [enzymes](/convero).\_\n"
+        marginsMobile:
+          top: 1.5
+          right: 1
+          bottom: 1.5
+        _template: textBlock
+    _template: dynamicBlock
+  - extraText: >
+      Want to know more about our revolutionary use of enzymes and how it can
+      improve the nutritional value of your products?
+    _template: footer
 ---
 

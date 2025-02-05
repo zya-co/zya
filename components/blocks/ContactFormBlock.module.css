@@ -1,5 +1,5 @@
 @media (max-width: 640px) {
-  .footer {
+  .contactform__wrapper {
     background-color: var(--color-lichen);
     padding: var(--spacing-s);
     position: relative;
@@ -65,13 +65,9 @@
   .footer__legal {
     padding: var(--spacing-s) 0;
     font-family: var(--font-aeonik);
-    font-size: var(--size-s);
+    font-size: 1em;
     color: var(--color-morpho-teal); 
     opacity: 0.2;
-    text-align: center;
-  }
-  .footer__legal__copyright {
-    margin-bottom: 1em;
   }
   .footer__legal__text {
     display: flex;
@@ -92,19 +88,16 @@
 }
 
 @media (min-width: 641px) {
-  .footer {
+  .contactform__wrapper {
     background-color: var(--color-lichen);
     color: var(--color-morpho-teal);
-    padding: var(--spacing-s);
     position: relative;
     z-index: 211;
-  }
-  .contactform__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: calc( 2 * var(--spacing-col));
-    padding: calc( 2 * var(--spacing-col)) var(--spacing-col) var(--spacing-col) var(--spacing-col);
+    padding: var(--spacing-s);
   }
   .contactform__title {
     font-size: var(--size-h2);
@@ -112,7 +105,9 @@
     margin: 0;
   }
   .contactform__form{
-    flex-basis: calc( 6 * var(--spacing-col));
+    flex: 0 0 calc( 6 * var(--spacing-col));
+    margin-left: var(--spacing-col);
+    margin-bottom: var(--spacing-col);
   }
   .contactform__form input[type="text"],
   .contactform__form input[type="email"],
@@ -170,8 +165,7 @@
   }
   .footer__nav {
     display: flex;
-    justify-content: space-between;
-    flex: 0 0 calc( 10 * var(--spacing-col));
+    justify-content: flex-start;
     align-items: flex-start;
     gap: var(--spacing-col);
     font-family: var(--font-aeonik);
@@ -184,9 +178,6 @@
   .footer__nav__column__header {
     font-size: var(--size-s);
     margin-top: 0;
-    & a {
-      text-decoration: none;
-    }
   }
   .footer__navlink {
     text-decoration: none;
@@ -214,20 +205,14 @@
   }
   .footer__legal {
     display: flex;
-    justify-content: flex-start;
-    gap: var(--spacing-col);
+    justify-content: space-between;
     font-family: var(--font-aeonik);
-    font-size: var(--size-s);
+    font-size: 0.9vw;
     color: var(--color-morpho-teal); 
     opacity: 0.2;
   }
-  .footer__legal__copyright {
-    flex: 1 1 calc( 2 * var(--spacing-col));
-  }
   .footer__legal__text {
-    flex: 1 1 calc( 14 * var(--spacing-col));
     display: flex;
-    justify-content: space-between;
     gap: var(--spacing-col);
     font-size: var(--size-s);
   }

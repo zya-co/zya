@@ -23,13 +23,25 @@ export default function ImageBlock({ block, i }) {
       data-speed={`clamp(${block.scrollSpeed})`}
       data-lag={`clamp(${block.scrollDelay})`}
     >
-      <Image 
-        src={block.image} 
-        alt="Decorative image" 
-        width={400} 
-        height={400}
-        sizes={`${6.015625 * block.width}vw`}
-      />
+      {block.link ?
+        <a href={block.link} target="_blank">
+          <Image 
+            src={block.image} 
+            alt={block.alt || 'Sorry no alt text provided'} 
+            width={400} 
+            height={400}
+            sizes={`${6.015625 * block.width}vw`}
+          />
+        </a>
+        :
+        <Image 
+          src={block.image} 
+          alt={block.alt || 'Sorry no alt text provided'} 
+          width={400} 
+          height={400}
+          sizes={`${6.015625 * block.width}vw`}
+        />
+      }
     </div>
   ]
   if (block.breakAfter) {

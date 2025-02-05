@@ -47,7 +47,17 @@ export const imageBlock = {
       label: 'Image',
       type: 'image',
       description: 'This is for images that can appear on the left or right of text blocks'
-    },            
+    },        
+    {
+      name: 'alt',
+      label: 'Alt Text',
+      type: 'string',
+    },   
+    {
+      name: 'link',
+      label: 'Link',
+      type: 'string',
+    },
     {
       label: 'Break after?',
       name: 'breakAfter',
@@ -64,6 +74,11 @@ export const textBlock = {
   name: 'textBlock',
   label: 'Text Block',
   fields: [
+    {
+      name: 'anchor',
+      label: 'Anchor',
+      type: 'string',
+    },
     {
       label: 'Color theme',
       name: 'color',
@@ -226,6 +241,16 @@ export const container = {
     spacing as any,
     marginResponsive as any,
     widthResponsive as any,
+    {
+      name: 'verticalAlignment',
+      label: 'Vertical Alignment',
+      type: 'string',
+      options: [
+        { label: 'Top', value: 'flex-start' },
+        { label: 'Center', value: 'center' },
+        { label: 'Bottom', value: 'flex-end' },
+      ]
+    },
     scrollSpeed as any,
     scrollDelay as any
   ]

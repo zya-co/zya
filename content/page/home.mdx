@@ -70,7 +70,7 @@ blocks:
           left: 1
         width: 12
         breakAfter: true
-        scrollSpeed: 1.15
+        scrollSpeed: 0
         _template: textBlock
       - color: lichen
         richtext: |
@@ -80,7 +80,7 @@ blocks:
           bottom: 0.5
           left: 1
         width: 12
-        scrollSpeed: 1.1
+        scrollSpeed: 0
         _template: textBlock
       - color: mineral-white
         richtext: "We’re inspired by the extraordinary powers of natural enzymes.\n\nBy harnessing these transformative powers, we change how our body interacts with food, allowing us to retain the enjoyment of eating while enhancing nutritional value.\_\n"
@@ -97,8 +97,9 @@ blocks:
         width: 4
         scrollSpeed: 1.05
         _template: textBlock
-      - richtext: |
-          <Cta label="Our Approach" color="lichen" variant="" />
+      - richtext: >
+          <Cta label="Our Approach" color="lichen" variant="" link="/approach"
+          />
         alignment: left_bottom
         margins:
           bottom: 0
@@ -113,7 +114,10 @@ blocks:
       image: /media/home-sugar-to-fiber.jpeg
       alt: A bowl of fruit
     content: >
-      # From sugar to fiber with Convero
+      #### Our first ingredient - Convero
+
+
+      # Now with Convero: from Sugar to Fiber
 
 
       We discovered an enzyme with remarkable power: [Convero](/convero). This
@@ -121,7 +125,7 @@ blocks:
       That’s less ‘bad’ and more ‘good for all of us.
 
 
-      <Cta label="Discover Convero" />
+      <Cta label="Discover Convero" link="/convero" />
     _template: contentTextAndImg
   - spacing:
       padding:
@@ -194,7 +198,7 @@ blocks:
             research partners.
           cta:
             label: Discover more
-            link: /team
+            link: /our-founders
     _template: homeFounders
   - spacing:
       padding:
@@ -261,7 +265,7 @@ blocks:
           left: 1
         width: 8
         _template: textBlock
-      - richtext: "Zya’s innovation has caught the eye of industry leaders and journalists alike. Read more about how Zya and Convero are shaping the future of nutrition.\_\n\n<spacer colHeightDesktop={0.8} colHeightMobile={0.5} />\n\n<Cta label=\"More of Zya in the news\" link=\"/news\" />\n"
+      - richtext: "Zya’s innovation has caught the eye of industry leaders and journalists alike. Read more about how Zya and Convero are shaping the future of nutrition.\_\n\n<spacer colHeightDesktop={0.8} colHeightMobile={0.5} />\n\n<Cta label=\"More of Zya in the news\" link=\"/media\" />\n"
         alignment: left_bottom
         margins:
           left: 1
@@ -282,7 +286,9 @@ blocks:
           widthMobile={5} />
 
 
-          <Cta label="Read" link="https://wired.com" variant="arrowRightMini" />
+          <Cta label="Read"
+          link="https://www.wired.com/story/startup-sugar-fiber-enzyme-zya/"
+          variant="arrowRightMini" />
         margins:
           bottom: 1
           left: 1
@@ -295,7 +301,9 @@ blocks:
           heightDesktop={0.6} widthMobile={5} />
 
 
-          <Cta label="Read" variant="arrowRightMini" />
+          <Cta label="Read" variant="arrowRightMini"
+          link="https://www.theguardian.com/society/2024/feb/24/sugar-elimination-stomach-sponge-fibre-enzymes-monch-monch"
+          />
         margins:
           bottom: 1
           left: 1
@@ -308,7 +316,9 @@ blocks:
           heightDesktop={0.6} widthMobile={5} />
 
 
-          <Cta label="Read" variant="arrowRightMini" />
+          <Cta label="Read" variant="arrowRightMini"
+          link="https://www.forbes.com/sites/juergeneckhardt/2024/12/12/fiber-is-key-to-health-clever-new-tech-wants-to-help-you-get-enough/"
+          />
         margins:
           top: 0
           bottom: 1
@@ -326,5 +336,8 @@ blocks:
       to make everyday foods better. In our blog section you’ll find news about
       Zya, our technology, and our recent innovations.
     _template: latestBlogPosts
+  - extraText: "#### Join us in transforming \Lthe future of nutrition.\n\nReach out today to explore partnerships, learn more about our innovations, or see how Zya can benefit your brand.\n"
+    hideContactForm: false
+    _template: footer
 ---
 

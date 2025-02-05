@@ -11,8 +11,10 @@
 }
 .spacer {
   height: var(--height-m, 0);
+  margin-bottom: var(--marginBottom-m, 0);
   @media (min-width: 640.1px) {
     height: var(--height-d, 0);
+    margin-bottom: var(--marginBottom-d, 0);
   }
 }
 .spacerSmall {

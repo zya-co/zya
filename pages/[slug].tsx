@@ -5,6 +5,7 @@ import { Blocks } from "../components/Blocks";
 import { Navigation } from '../components/navigation/Navigation'
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
+import FooterLinks from "../components/footer/FooterLinks";
 
 export default function Page(props) {
 
@@ -26,6 +27,7 @@ export default function Page(props) {
         <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
         {/* {JSON.stringify(data, null, 2)} */}
         {/* <Footer navData={props.nav} /> */}
+        <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>
     </Layout>
   );
@@ -80,6 +82,8 @@ export const getStaticProps = async ({ params }) => {
   });
   
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
+  const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
+
 
   return {
     props: {
@@ -87,6 +91,7 @@ export const getStaticProps = async ({ params }) => {
       query,
       variables,
       nav: mainNav,
+      footerNav: footerNav,
       latestposts: latestBlogPosts,
     },
   };

@@ -24,17 +24,25 @@ export const spacer = {
     //   ]
     // }, 
     {
-      name: 'colHeightMobile',
-      type: 'number',
-      label: 'Height Mobile',
-      
-    },
-    {
       name: 'colHeightDesktop',
       type: 'number',
       label: 'Height Desktop',
-      
-    }
+    },
+    {
+      name: 'negativeSpaceDesktop',
+      label: 'Negative Space Desktop?',
+      type: 'boolean',
+    },
+    {
+      name: 'colHeightMobile',
+      type: 'number',
+      label: 'Height Mobile',
+    },
+    {
+      name: 'negativeSpaceMobile',
+      label: 'Negative Space Mobile?',
+      type: 'boolean',
+    },
   ]
 }
 

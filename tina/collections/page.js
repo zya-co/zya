@@ -18,6 +18,7 @@ import { media_ArticlesBlockSchema } from '../../components/blocks/Media_Article
 import { heroConveroBlockSchema } from '../../components/blocks/HeroConvero';
 import { conversionGraphicSchema } from '../../components/blocks/Conversion_Graphic';
 import { footerSchema } from '../../components/footer/Footer';
+import { contactFormBlockSchema } from '../../components/blocks/ContactFormBlock';
 
 export default {
   label: 'Pages',
@@ -73,6 +74,7 @@ export default {
         heroConveroBlockSchema,
         conversionGraphicSchema,
         footerSchema,
+        contactFormBlockSchema,
       ],
     },
   ],

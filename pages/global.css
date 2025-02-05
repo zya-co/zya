@@ -12,6 +12,7 @@
   --size-subhead: 2.65vw;
   --size-body: 1.64vw;
   --size-s: 1.17vw;
+  --size-xs: 0.78vw;
   --spacing-s: 1.875vw;
   --spacing-col: 6.015625vw;
 
@@ -69,11 +70,12 @@ p, li, input, textarea, button, td, th, label, select, option {
 }
 p a,
 li a,
-td a {
+td a,
+h1 a, h2 a, h3 a, h4 a, h5 a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: .2em;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: .05em;
 }
 ul, ol {
   padding: 0 0 0 3em;
@@ -104,7 +106,8 @@ td {
 h1, h2, h3, h4, h5 {
   font-family: var(--font-haben);
   /* font-feature-settings: 'liga', 'kern', 'onum'; */
-  font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+  /* font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on; */
+  font-feature-settings: 'ss01' on, 'ss04' on, 'ss06' on, 'ss07' on, 'ss09' on;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.05em;
@@ -127,6 +130,12 @@ h4 {
   letter-spacing: -0.03em;
   line-height: 1;
   font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on;
+}
+h5 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--size-xs);
+  letter-spacing: 0;
 }
 @media (max-width: 640px) {
   h4 {

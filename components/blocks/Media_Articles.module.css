@@ -1,6 +1,7 @@
 .articles {
   width: 100vw;
   overflow: scroll;
+  background-color: var(--color-mineral-white);
 }
 .articlesContainer {
   width: 100%;

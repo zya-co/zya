@@ -15,6 +15,7 @@ blocks:
     background:
       darkMode: true
       bgImage: /media/plants-bg-02.webp
+      bgImgPriority: true
       bgGraphic:
         image: ''
       bgColor: ''
@@ -28,7 +29,7 @@ blocks:
           right: 1
           bottom: 3
           left: 1
-        scrollSpeed: 0.9
+        scrollSpeed: 0
         scrollDelay: 0
         _template: textBlock
       - color: mineral-white
@@ -53,7 +54,7 @@ blocks:
         marginsMobile:
           top: 1
         width: 4
-        scrollSpeed: 1.1
+        scrollSpeed: 0
         _template: textBlock
     _template: dynamicBlock
   - spacing:
@@ -84,6 +85,8 @@ blocks:
           top: 1.5
           right: 0
           left: 0
+        marginsMobile:
+          top: 0.5
         _template: textBlock
     _template: dynamicBlock
   - introHead: |
@@ -110,6 +113,9 @@ blocks:
           visionary approach to nutrition.
         button:
           link: 'https://www.linkedin.com/in/josh-sauer-phd/'
+        biolink:
+          label: Science bio
+          link: /our-founders#joshua
         image: /media/founders/josh-masked.png
         imageAlt: Joshua Sauer
       - name: Niels Wicke
@@ -119,8 +125,14 @@ blocks:
         button:
           label: Connect
           link: 'https://www.linkedin.com/in/niels-wicke/'
+        biolink:
+          label: Science bio
+          link: /our-founders#niels
         image: /media/founders/niels-masked-newcrop.png
         imageAlt: Niels Wicke
+    cta:
+      label: Learn more about the founders
+      link: /our-founders
     _template: heroTeam
   - advisoryHead: Our advisory team
     advisorySubhead: "Guiding Zya with expertise and insight.\_"
@@ -129,7 +141,7 @@ blocks:
         image: /media/advisors/advisor-1.jpg
         title: NED
         otherTitle: 'Former Marketing Director at Mars, GSK '
-        bio: "Judy Taylor is a seasoned qualitative researcher and strategist with over 30 years of experience helping businesses shape impactful strategies and long-term growth. As co-founder of Leapfrog Research and Planning Ltd, she built a global agency with offices in the UK and US, guiding it to successful acquisition by Cello Group in 2012. Judy has partnered with major brands like GSK, BBC, Tesco, and Oxford Said Business School, delivering insights that drive differentiation. Her work on GSK’s “Sensodyne Repair and Protect” earned global recognition, doubling its forecasted market share across 31 countries and winning “Most Innovative Product of the Year.”\_"
+        bio: "Tony Kilbourn is a strategic marketing and innovation expert with extensive experience in developing go-to-market strategies that showcase business opportunities to partners and investors. He has successfully commercialized products across the pharmaceutical, medical device, consumer healthcare, and food sectors, with a current focus on digital health and med tech. Combining a blue-chip career at GSK and Mars with hands-on roles at Gama Healthcare and Infirst Healthcare, Tony also shares his expertise by teaching New Product Development and mentoring young entrepreneurs. With international experience spanning the US, Europe, and Asia Pacific, he holds a Natural Science degree from Cambridge and an MBA from INSEAD.\_\_"
         button:
           label: Connect
           link: 'https://www.linkedin.com/in/tonykilbourn/'
@@ -137,6 +149,7 @@ blocks:
         image: /media/Gary Frost_Square.png
         title: Advisor
         otherTitle: Chair of Dietetics & Nutrition at Imperial College London
+        bio: "Professor Gary Frost, Head of Nutrition Research at Imperial College London and Director of the Imperial Centre for Translational Nutrition and Food Research, is a renowned expert in nutritional science with over four decades of groundbreaking work. His research has shaped understanding of how food impacts metabolism, from pioneering low glycemic diets to studying dietary carbohydrates like inulin fiber and their roles in body composition, appetite regulation, and elderly nutrition. Professor Frost’s contributions continue to redefine the relationship between food, public health, and longevity.\_\_"
         button:
           label: Connect
           link: 'https://www.linkedin.com/in/gary-frost-4087b816/'
@@ -144,6 +157,7 @@ blocks:
         image: /media/advisors/Squoosh Image.jpg
         title: Advisor
         otherTitle: 'Former VP of Global Marketing at Bunge, Cargill'
+        bio: "Vanessa Tierie brings over 30 years of expertise across the global food value chain, with leadership roles at Cargill, Bunge, Jacobs Douwe Egberts, and Eden Vale. Her deep understanding of how customer needs align with consumer desires has driven successful category growth and brand development worldwide. Now a senior advisor in the Agri-food space, Vanessa specializes in commercializing distinctive technologies for startups and scale-ups through impactful business development, marketing, and sales strategies. As a mentor and expert judge for programs like Mass Challenge and EIT Food, she empowers founders to unlock their full potential with pragmatic, agile guidance.\_\_\_"
         button:
           label: ''
           link: 'https://www.linkedin.com/in/vanessa-ballard-00b8442/'
@@ -151,12 +165,14 @@ blocks:
         image: /media/Jacob Afriat_square.png
         title: Advisor
         otherTitle: Former Director at Danone Manifesto Ventures
+        bio: "Jacob Afriat brings a wealth of experience in driving innovation and growth in the food and sustainability sectors. As a former Director at Danone Manifesto Ventures, the $500M+ venture arm of Danone S.A., Jacob played a pivotal role in supporting transformative startups for the world’s largest B Corp ($30Bn in revenue). He co-founded Symbrosia, a CleanTech startup pioneering methane reduction using seaweed, and actively mentors future innovators through programs like IndieBio, Big Idea Ventures, and Techstars – Farm to Fork. Jacob holds an MBA from INSEAD and a degree in Finance from YU, combining strategic insight with a passion for impactful change.\_\_\_"
         button:
           link: 'https://www.linkedin.com/in/jacob-afriat/'
       - name: Judy Taylor
         image: /media/advisors/Figma Image 606x868.jpg
         title: Advisor
         otherTitle: 'Consumer Researcher & Strategist. Past clients include: GSK, Tesco'
+        bio: "Judy Taylor is a seasoned qualitative researcher and strategist with over 30 years of experience helping businesses shape impactful strategies and long-term growth. As co-founder of Leapfrog Research and Planning Ltd, she built a global agency with offices in the UK and US, guiding it to successful acquisition by Cello Group in 2012. Judy has partnered with major brands like GSK, BBC, Tesco, and Oxford Said Business School, delivering insights that drive differentiation. Her work on GSK’s “Sensodyne Repair and Protect” earned global recognition, doubling its forecasted market share across 31 countries and winning “Most Innovative Product of the Year.”\_"
         button:
           link: 'https://www.linkedin.com/in/judy-taylor-8859822/'
       - name: Jacquie Chick
@@ -165,8 +181,14 @@ blocks:
         otherTitle: >-
           Brand Planner & Strategist. Past clients include: Unilever, Kraft
           Heinz, Kellogg's
+        bio: "Jacquie Chick is a global communications expert with over 30 years of experience specializing in consumer strategy and brand transformation. As a seasoned Consultant Planner, she has helped brands navigate market complexities with insight-led strategies that build momentum through clear, compelling ideas. Jacquie has worked with major clients like Unilever, Heinz, Kellogg’s, and McVities, crafting brand visions, communication strategies, and innovation plans that elevate product stories into powerful brand promises. Her work consistently drives effective marketing strategies and shapes industry-leading identities across diverse sectors.\_\_"
         button:
           link: 'https://www.linkedin.com/in/jacquiechick/'
+      - name: Kevin Powell
+        image: /media/advisors/Figma Image 1429x1898.webp
+        title: Advisor
+        otherTitle: "Former global innovation leader at Gillette/P&G, who now helps startups create consumer-centric innovations.\_\_"
+        bio: "Dr. Kevin Powell is a global leader in consumer-centric innovation, with a career spanning deep tech for aerospace and transformative roles in FMCG. At Gillette/P&G, he mastered the art of understanding consumers’ needs to drive product innovation, leading global teams across brands like Gillette, Venus, Pantene, Oreo, and Cadbury to deliver billions in incremental revenue. Now focused on supporting entrepreneurs, Kevin applies proven strategies such as growth-culture building, brand innovation, and rapid learning experiments to help businesses excel by prioritizing consumer value.\_\_"
     _template: advisoryTeam
   - spacing:
       padding:
@@ -200,6 +222,8 @@ blocks:
         margins:
           marginsDesktop:
             top: 3.5
+          marginsMobile:
+            left: 2.5
         widthResponsive:
           widthDesktop: 3
           widthMobile: 3
@@ -283,7 +307,7 @@ blocks:
         widthResponsive:
           widthDesktop: 7
           widthMobile: 5
-        scrollSpeed: 0.9
+        scrollSpeed: 0
         scrollDelay: 0
         _template: imageBlock
       - image: /media/Cookies (1).webp
@@ -292,7 +316,7 @@ blocks:
             left: -1
         widthResponsive:
           widthDesktop: 8
-        scrollSpeed: 1.1
+        scrollSpeed: 0
         _template: imageBlock
       - color: mineral-white
         richtext: >
@@ -317,7 +341,7 @@ blocks:
             width: 6
             _template: textBlock
           - richtext: |
-              <Cta label="Reach out" color="lichen" />
+              <Cta label="Reach out" color="lichen" link="/contact" />
             alignment: right_bottom
             margins:
               bottom: 0
@@ -331,6 +355,11 @@ blocks:
           bgColor: mineral-white
         spacing:
           padding:
+            top: 0.5
+            right: 0.5
+            bottom: 0.5
+            left: 0.5
+          paddingMobile:
             top: 0.5
             right: 0.5
             bottom: 0.5
@@ -374,8 +403,11 @@ blocks:
             bottom: 1
         widthResponsive:
           widthDesktop: 8
-        scrollSpeed: 0.9
+        scrollSpeed: 0
         _template: imageBlock
     _template: dynamicBlock
+  - extraText: |
+      If you’re interested in contributing to this vision, let’s connect.
+    _template: footer
 ---
 

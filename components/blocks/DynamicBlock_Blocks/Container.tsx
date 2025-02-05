@@ -41,12 +41,13 @@ export default function Container({data}) {
           '--margin-right-d': data.margins?.marginsDesktop?.right ? `calc(var(--spacing-col) * ${data.margins.marginsDesktop.right})` : '0',
           '--margin-bottom-d': data.margins?.marginsDesktop?.bottom ? `calc(var(--spacing-col) * ${data.margins.marginsDesktop.bottom})` : '0',
           '--margin-left-d': data.margins?.marginsDesktop?.left ? `calc(var(--spacing-col) * ${data.margins.marginsDesktop.left})` : '0',
-          '--margin-top-m': data.margins?.marginsMobile ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.top})` : '0',
-          '--margin-right-m': data.margins?.marginsMobile ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.right})` : '0',
-          '--margin-bottom-m': data.margins?.marginsMobile ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.bottom})` : '0',
-          '--margin-left-m': data.margins?.marginsMobile ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.left})` : '0',
+          '--margin-top-m': data.margins?.marginsMobile?.top ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.top})` : '0',
+          '--margin-right-m': data.margins?.marginsMobile?.right ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.right})` : '0',
+          '--margin-bottom-m': data.margins?.marginsMobile?.bottom ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.bottom})` : '0',
+          '--margin-left-m': data.margins?.marginsMobile?.left ? `calc(var(--spacing-col) * ${data.margins.marginsMobile.left})` : '0',
           '--width-d': data.widthResponsive?.widthDesktop ? `calc(var(--spacing-col) * ${data.widthResponsive.widthDesktop})` : '100%',
           '--width-m': data.widthResponsive?.widthMobile ? `calc(var(--spacing-col) * ${data.widthResponsive.widthMobile})` : '100%',
+          'alignSelf': data.verticalAlignment ? data.verticalAlignment : 'flex-start',
         } as React.CSSProperties }
         data-tina-field={tinaField(data)}
       >

@@ -4,6 +4,7 @@ import { client } from "../../tina/__generated__/client";
 import { Blocks } from "../../components/Blocks";
 import { Navigation } from '../../components/navigation/Navigation'
 import { Footer } from "../../components/footer/Footer";
+import FooterLinks from "../../components/footer/FooterLinks";
 import { Layout } from "../../components/Layout";
 import { ScrollSmooth } from "../../components/ScrollSmooth";
 
@@ -25,8 +26,9 @@ export default function Page(props) {
       <Navigation navData={props.nav} current={props.data.blogpost._sys.filename} />
       <ScrollSmooth>
         <Blocks blocks={data.blogpost.blocks} navData={props.nav} />
-        <pre>{JSON.stringify(data.blogpost.blocks, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(data.blogpost.blocks, null, 2)}</pre> */}
         <Footer navData={props.nav} />
+        <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>
     </Layout>
   );
@@ -52,13 +54,15 @@ export const getStaticProps = async ({ params }) => {
   });
 
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
+  const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
 
   return {
     props: {
       data,
       query,
       variables,
-      nav: mainNav
+      footerNav: footerNav,
+      nav: mainNav,
     },
   };
 };
