@@ -38,7 +38,7 @@ export default function TextWithPlus({ data }) {
       <h2 className={styles.text}>
         {data.text}
         <div className={styles.toggleWrapper}>
-          <button className={styles.toggle} onClick={toggleCollapsed}>
+          <a className={styles.toggle} onClick={toggleCollapsed}>
             {isCollapsed &&
               <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 14.958V9.73707C7 8.75452 7.79651 7.95801 8.77906 7.95801H14" stroke="currentColor" strokeWidth="1.48255"/>
@@ -50,7 +50,7 @@ export default function TextWithPlus({ data }) {
                 <path d="M23.5234 1.94043H11.8037H-0.000347137" stroke="currentColor" strokeWidth="2.5"/>
               </svg>          
             }
-          </button>
+          </a>
           <div className={styles.collapsableTextWrapper} ref={collapsableTextWrapRef}>
             <p className={styles.collapsableText} ref={collapsableTextRef}>{data.collapsableText}</p>
           </div>

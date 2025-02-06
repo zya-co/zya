@@ -3,7 +3,7 @@
     background-color: var(--color-earth-gray);
     color: var(--color-mineral-white);
     overflow: hidden;
-    padding: 0 var(--spacing-s) var(--size-h1) var(--spacing-s);
+    padding: 0 var(--spacing-s) calc( 4 * var(--size-h1) ) var(--spacing-s);
   }
   .introHead {
     max-width: calc( 10 * var(--spacing-col));
@@ -60,6 +60,7 @@
   }
   .advisorInfo__bio__toggle {
       background-color: var(--color-lichen);
+      color: var(--color-morpho-teal);
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -102,7 +103,11 @@
     background-color: var(--color-earth-gray);
     color: var(--color-mineral-white);
     overflow: hidden;
-    padding: 0 calc( var(--spacing-s) + var(--spacing-col)) var(--size-h1) calc( var(--spacing-s) + var(--spacing-col));
+    padding: 
+      0 
+      calc( var(--spacing-s) + var(--spacing-col)) 
+      calc( 2 * var(--size-h1) )
+      calc( var(--spacing-s) + var(--spacing-col));
   }
   .introHead {
     max-width: calc( 10 * var(--spacing-col));
@@ -174,6 +179,7 @@
     font-size: 0.9vw;
     position: relative;
     z-index: 4;
+    cursor: pointer;
 }
 .advisorInfo__bio__toggle__open {
   background-color: transparent;
