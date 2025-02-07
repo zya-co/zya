@@ -2,4 +2,5 @@
   width: 100vw;
   margin: calc(-1 * var(--spacing-s));
   height: auto;
+  display: block;
 }
