@@ -201,14 +201,15 @@ blocks:
       - name: CTA
         blocks:
           - color: earth-gray
-            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements? \n\nContact us to collaborate and be \Lpart of this transformative journey.\_\_\n"
+            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements?\n\nContact us to collaborate and be \Lpart of this transformative journey.\_\_\n"
             width: 6
             _template: textBlock
           - richtext: |
               <Cta label="Reach out" link="/contact" color="lichen" />
             alignment: right_bottom
             marginsMobile:
-              bottom: -0.5
+              top: 0.5
+              bottom: 0
             width: 3
             _template: textBlock
         background:
@@ -222,7 +223,7 @@ blocks:
           paddingMobile:
             top: 0.5
             right: 0.5
-            bottom: 0
+            bottom: 0.5
             left: 0.5
         margins:
           marginsDesktop:
@@ -253,11 +254,15 @@ blocks:
           institutions, food manufacturers, and industry leaders.
         margins:
           top: 1
+        marginsMobile:
+          top: 0.5
         width: 7
         breakAfter: true
         _template: textBlock
       - richtext: "These collaborations allow us to refine and scale our technology, ensuring it meets the diverse needs of consumers and aligns with industry standards.\_\n"
         margins:
+          top: 0.5
+        marginsMobile:
           top: 0.5
         width: 5
         breakAfter: true
@@ -267,11 +272,13 @@ blocks:
           marginsDesktop:
             top: 3.5
           marginsMobile:
-            left: 2.5
+            top: 1
+            bottom: 0.5
+            left: 2.75
         widthResponsive:
           widthDesktop: 3
-          widthMobile: 3
-        scrollSpeed: 1.1
+          widthMobile: 2.5
+        scrollSpeed: 0
         _template: imageBlock
       - richtext: "## Our work with research organisations and universities ensures that our enzyme innovations remain at the cutting edge of science.\_\n"
         margins:
@@ -346,6 +353,7 @@ blocks:
       - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 10.svg
         margins:
           marginsMobile:
+            top: 0.5
             bottom: 0.5
             left: 1.5
         widthResponsive:
@@ -391,8 +399,8 @@ blocks:
               bottom: 0
               left: 0
             marginsMobile:
-              top: 1
-              bottom: -0.5
+              top: 0.5
+              bottom: 0
             width: 3
             _template: textBlock
         background:
@@ -434,6 +442,7 @@ blocks:
           top: 1
           left: 1
         marginsMobile:
+          top: 0.5
           left: 0
         width: 5
         _template: textBlock

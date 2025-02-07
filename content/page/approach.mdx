@@ -39,6 +39,8 @@ blocks:
         margins:
           top: 0.5
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 7
         breakAfter: true
         _template: textBlock
@@ -47,6 +49,8 @@ blocks:
         margins:
           top: 1.5
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 5
         _template: textBlock
     _template: dynamicBlock
@@ -63,16 +67,21 @@ blocks:
       - color: mineral-white
         richtext: "#### Put simply, enzymes are proteins. But with real life superpowers.\_\_\n\nThey are the natural masters of catalysis, metamorphosis and essential to every cell, in all forms of life. They propel reactions and enable the absorption of critical nutrients.\_\n"
         margins:
-          top: 1.5
+          top: 2
           right: 3
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 4
         _template: textBlock
       - image: /media/Ocean Masked.webp
         margins:
+          marginsDesktop:
+            top: 1
           marginsMobile:
-            bottom: 0
-            left: 3
+            top: 0.5
+            bottom: 0.5
+            left: 0
         widthResponsive:
           widthDesktop: 7
           widthMobile: 5
@@ -100,9 +109,9 @@ blocks:
           marginsDesktop:
             left: 0.5
           marginsMobile:
-            top: -1.5
-            bottom: -2
-            left: -0.5
+            top: 0.5
+            bottom: -0.25
+            left: 0
         widthResponsive:
           widthDesktop: 8
           widthMobile: 5.5
@@ -128,7 +137,8 @@ blocks:
             top: 1
             left: 1
           marginsMobile:
-            bottom: -1.5
+            top: 0
+            bottom: 0
             left: 0
         width: 9
         _template: textWithPlus
@@ -138,8 +148,10 @@ blocks:
             top: 3.5
             left: -2
           marginsMobile:
+            top: 0.5
             right: 0
-            left: 3
+            bottom: 0
+            left: 0
         widthResponsive:
           widthDesktop: 7
           widthMobile: 5
@@ -160,11 +172,15 @@ blocks:
           right: 1.5
           bottom: 1.5
           left: 1
+        marginsMobile:
+          top: 0.5
         _template: textBlock
       - color: mineral-white
         richtext: "#### As biological catalysts, enzymes are facilitators\Lof reactions.\n\nMeaning that just one enzyme, all by itself, can repeatedly enable the same reaction to happen over, and over again, millions of times (per second).\n\n<customImage image=\"/media/fibonacci-graphics/Fibonacci Scale Skipping 7.svg\" widthMobile={2} widthDesktop={2} marginTop={1} marginBottom={0.5} />\n"
         margins:
           left: 1
+        marginsMobile:
+          top: 0.5
         width: 4.5
         _template: textBlock
       - color: mineral-white
@@ -235,6 +251,7 @@ blocks:
           bottom: 0
           left: 1
         marginsMobile:
+          top: 0.5
           bottom: 1
           left: 0
         width: 6
@@ -266,7 +283,8 @@ blocks:
       - image: /media/Cereal Mission Masked.webp
         margins:
           marginsMobile:
-            bottom: 0.5
+            top: 1
+            bottom: 1
             left: 1
         widthResponsive:
           widthDesktop: 7
@@ -317,7 +335,7 @@ blocks:
         widthResponsive:
           widthDesktop: 4
           widthMobile: 2.5
-        scrollSpeed: 0.9
+        scrollSpeed: 0
         _template: imageBlock
       - color: mineral-white
         richtext: "#### In summary, enzymes are the unsung heroes of biology, driving everything from cell metabolism to environmental sustainability.\_\_\n\nAt Zya, we believe in the power of small, natural changes to create macro impacts on health and well-being. By leveraging enzymes, we aim to make nutritional transformation accessible and seamless, fitting into everyday lifestyles without compromising taste or enjoyment.\_\n\n<spacer colHeightMobile={0} colHeightDesktop={1.5} />\n\n<Cta label=\"Our Mission\" link=\"/mission\" color=\"mineral-white\" />\n"

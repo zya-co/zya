@@ -15,13 +15,16 @@ export default function AdvisoryTeam({advisor}) {
 
     if (bioRef.current && button.current) {
       const bio = bioRef.current as HTMLDivElement;
+      const bioparent = bio.parentElement as HTMLDivElement;
       const thebutton = button.current as HTMLButtonElement;
       const text = bio.querySelector('.advisorInfo__bio__content__text') as HTMLParagraphElement;
 
       if (!isCollapsed) {
         bio.style.height = bio.scrollHeight + 'px';
         bio.style.width = text.getBoundingClientRect().width + 'px';
+        bioparent.style.marginBottom = bio.scrollHeight + 'px';
       } else {
+        bioparent.style.marginBottom = '0px';
         bio.style.height = thebutton.getBoundingClientRect().height + 'px';
         bio.style.width = thebutton.getBoundingClientRect().width + 'px';
       }
@@ -61,7 +64,16 @@ export default function AdvisoryTeam({advisor}) {
       <div className={styles.advisorInfo__contact}>
         { advisor.bio !=  '' && 
           <div className={styles.advisorInfo__bio}>
-            <button ref={button} className={isCollapsed ? `${styles.advisorInfo__bio__toggle}` : `${styles.advisorInfo__bio__toggle} ${styles.advisorInfo__bio__toggle__open}`} onClick={toggleCollapsed}>
+            <button 
+              ref={button} 
+              className={
+                isCollapsed ? 
+                `${styles.advisorInfo__bio__toggle}` 
+                : 
+                `${styles.advisorInfo__bio__toggle} ${styles.advisorInfo__bio__toggle__open}
+              `} 
+              onClick={toggleCollapsed}
+            >
               {isCollapsed &&
                 <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 14.958V9.73707C7 8.75452 7.79651 7.95801 8.77906 7.95801H14" stroke="currentColor" strokeWidth="1.48255"/>
