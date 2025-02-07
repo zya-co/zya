@@ -1,5 +1,6 @@
 .hero {
   color: var(--color-beatle);
+  background-color: var(--color-mineral-white);
   height: 100vh;
   overflow: hidden;
 }
@@ -15,7 +16,6 @@
   position: relative;
   z-index: 100;
   color: var(--color-beatle);
-  mix-blend-mode: plus-lighter;
 }
 .enzymes {
   display: flex;
@@ -38,8 +38,13 @@
   visibility: hidden;
   background-color: var(--color-beatle);
   color: var(--color-fuchsia);
-  padding: calc(var(--spacing-s) + var(--spacing-col));
+  padding: var(--spacing-s) ;
   box-sizing: border-box;
+}
+@media (min-width: 640.1px) {
+  .hero_payofftext {
+    padding: calc(var(--spacing-s) + var(--spacing-col));
+  }
 }
 .hero_payofftext_main {
   margin-bottom: calc( 1.5 * var(--spacing-col));

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function ImageBlock({ block, i }) {
   const imageBlockelements = [
-    <div 
+    <figure 
       key={i+block.__typename}
       data-tina-field={tinaField(block)}
       className={styles.imageBlock}
@@ -19,6 +19,7 @@ export default function ImageBlock({ block, i }) {
         '--marginBottom-m': block.margins?.marginsMobile?.bottom ? `calc(var(--spacing-col) * ${block.margins.marginsMobile.bottom})` : '0',
         '--width': block.widthResponsive?.widthDesktop ? `calc(var(--spacing-col) * ${block.widthResponsive.widthDesktop})` : '100%',
         '--width-m': block.widthResponsive?.widthMobile ? `calc(var(--spacing-col) * ${block.widthResponsive.widthMobile})` : '100%',
+        'borderRadius': block.borderRadius ? `6px` : '0',
       } as React.CSSProperties }
       data-speed={`clamp(${block.scrollSpeed})`}
       data-lag={`clamp(${block.scrollDelay})`}
@@ -42,7 +43,7 @@ export default function ImageBlock({ block, i }) {
           sizes={`${6.015625 * block.width}vw`}
         />
       }
-    </div>
+    </figure>
   ]
   if (block.breakAfter) {
     imageBlockelements.push(

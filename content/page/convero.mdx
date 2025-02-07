@@ -1,16 +1,22 @@
 ---
 blocks:
   - _template: heroConvero
-  - spacing:
+  - _template: indexNav
+  - anchor: The-problem-with-sugar
+    spacing:
       padding:
+        top: 1.5
         bottom: 2
+      paddingMobile:
+        top: 2
     background:
       darkMode: true
       bgColor: beatle
     blocks:
       - name: The problem with Sugar
         blocks:
-          - color: mineral-white
+          - anchor: ''
+            color: mineral-white
             richtext: >
               ## The problem with sugar
 
@@ -43,6 +49,7 @@ blocks:
         widthResponsive:
           widthDesktop: 7.5
           widthMobile: 3.5
+        borderRadius: true
         _template: imageBlock
       - image: /media/Waffles.webp
         margins:
@@ -57,6 +64,7 @@ blocks:
         widthResponsive:
           widthDesktop: 8
           widthMobile: 3.5
+        borderRadius: true
         _template: imageBlock
       - name: Sugar - no substitue
         blocks:
@@ -126,7 +134,7 @@ blocks:
       - name: Quotes
         blocks:
           - color: fuchsia
-            richtext: "#### \"Sugar Substitute Poses Health Risks, Research Finds\"\_\n"
+            richtext: "#### [\"Sugar Substitute Poses Health Risks, Research Finds\"\_](https://newsroom.clevelandclinic.org/2024/08/12/sugar-substitute-poses-health-risks-research-finds%C2%A0%C2%A0%20%20Source:%20\\(dofollow%20link\\)%C2%A0%20https://www.health.harvard.edu/heart-health/sugar-substitutes-new-cardiovascular-concerns%C2%A0%20%C2%A0%20Source:%20\\(dofollow%20link\\)%20https://www.webmd.com/diet/what-to-know-about-aspartame%C2%A0)\n"
             _template: textBlock
           - color: mineral-white
             richtext: |
@@ -135,7 +143,7 @@ blocks:
               top: 0.15
             _template: textBlock
           - color: fuchsia
-            richtext: "#### \"Studies suggest that if you regularly eat or drink a lot of aspartame over a long period, it could harm your kidneys.\"\_\n"
+            richtext: "#### [\"Studies suggest that if you regularly eat or drink a lot of aspartame over a long period, it could harm your kidneys.\"\_](https://www.health.harvard.edu/heart-health/sugar-substitutes-new-cardiovascular-concerns)\n"
             margins:
               top: 1
             marginsMobile:
@@ -148,7 +156,7 @@ blocks:
               top: 0.15
             _template: textBlock
           - color: fuchsia
-            richtext: "#### \"Another study adds to the suspicion that artificial sweeteners may do more harm than good.\"\_\n"
+            richtext: "#### [\"Another study adds to the suspicion that artificial sweeteners may do more harm than good.\"\_](https://www.webmd.com/diet/what-to-know-about-aspartame)\n"
             margins:
               top: 1
             marginsMobile:
@@ -178,7 +186,7 @@ blocks:
         _template: textBlock
       - blocks:
           - color: fuchsia
-            richtext: "#### \"Nearly one third of consumers said they looked at terms such as ‘does not contain artificial sweeteners’ when shopping.\"\_\n"
+            richtext: "#### [\"Nearly one third of consumers said they looked at terms such as ‘does not contain artificial sweeteners’ when shopping.\"\_](https://www.foodnavigator.com/Article/2024/01/02/do-consumers-prefer-sugar-or-non-nutritive-sweeteners/)\n"
             margins:
               top: 0
               left: 0
@@ -187,6 +195,8 @@ blocks:
           - color: mineral-white
             richtext: |
               foodnavigator.com
+            margins:
+              top: 0.15
             _template: textBlock
           - color: mineral-white
             richtext: "## Sometimes it’s not a question of health, but of taste\_\n"
@@ -199,6 +209,8 @@ blocks:
             richtext: >
               #### When it comes to natural sweeteners like Stevia, people tend
               to prefer the taste of regular sugar. 4
+            margins:
+              top: 0.5
             width: 7
             _template: textBlock
         margins:
@@ -220,6 +232,7 @@ blocks:
             bottom: 1
         widthResponsive:
           widthDesktop: 8
+        borderRadius: true
         _template: imageBlock
       - color: fuchsia
         richtext: |
@@ -249,7 +262,8 @@ blocks:
         width: 6
         _template: textBlock
     _template: dynamicBlock
-  - spacing:
+  - anchor: convero
+    spacing:
       padding:
         top: 2
         bottom: 2
@@ -260,8 +274,12 @@ blocks:
     background:
       bgImage: /media/sunflowers_blurred.webp
     blocks:
-      - color: beatle
-        richtext: "# Redefining \Lhow we interact with sugar\n"
+      - anchor: ''
+        color: beatle
+        richtext: |
+          Redefining \
+          how we interact with sugar
+          ==========================
         margins:
           top: 0
           left: 1
@@ -270,6 +288,7 @@ blocks:
       - color: beatle
         richtext: "If enzymes are nature’s alchemists, then we’ve discovered one of the most special.\_\n"
         margins:
+          top: 0.5
           left: 1
         width: 5
         _template: textBlock
@@ -282,24 +301,29 @@ blocks:
           left: 0
         _template: textBlock
     _template: dynamicBlock
-  - spacing:
+  - anchor: the-process
+    spacing:
       padding:
-        top: 1
-        right: 1
-        bottom: 1
-        left: 1
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
       paddingMobile:
         top: 1
     background:
       bgColor: mineral-white
     blocks:
-      - color: beatle
+      - anchor: ''
+        color: beatle
         richtext: |
           #### How Convero works:
 
           Converting \
           sugar at the point of digestion
           ===============================
+        margins:
+          top: 1.5
+          left: 1
         width: 13
         _template: textBlock
       - color: beatle
@@ -310,28 +334,26 @@ blocks:
           beneficial bacteria.
         margins:
           top: 0.5
+          bottom: 1
+          left: 1
         width: 5
         _template: textBlock
+      - _template: conversionGraphic
+      - url: /media/video/Zya_Convero_Animation.mp4
+        _template: videoBlock
     _template: dynamicBlock
-  - _template: conversionGraphic
-  - blocks:
-      - color: fuchsia
-        richtext: |
-          Insert Video?
-        alignment: center
-        margins:
-          top: 1.5
-          bottom: 1.5
-        _template: textBlock
-    _template: dynamicBlock
-  - spacing:
+  - anchor: More-than-reduction
+    spacing:
+      padding:
+        bottom: -0.5
       paddingMobile:
         top: 1.5
     background:
       darkMode: true
       bgColor: beatle
     blocks:
-      - color: mineral-white
+      - anchor: ''
+        color: mineral-white
         richtext: |
           #### The health benefits of Convero:
 
@@ -357,6 +379,7 @@ blocks:
             left: -0.5
         widthResponsive:
           widthDesktop: 5.5
+        borderRadius: true
         _template: imageBlock
       - name: Checklist
         blocks:
@@ -451,28 +474,10 @@ blocks:
         widthResponsive:
           widthDesktop: 11
         _template: container
-    _template: dynamicBlock
-  - spacing:
-      padding:
-        top: 1
-        right: 1
-        bottom: 4.5
-        left: 1
-    background:
-      darkMode: true
-      bgGraphic:
-        image: /media/fibonacci-graphics/Fibonacci Scale Skipping 12.svg
-        layoutMobile:
-          width: 2
-        layoutDesktop:
-          width: 8
-          margins:
-            top: 1
-            left: 10
-      bgColor: beatle
-    blocks:
       - color: mineral-white
         richtext: "#### Safety and efficacy\_\n\n# Inulin is proven, trusted, and beneficial\_\n"
+        margins:
+          top: 2.5
         marginsMobile:
           top: 0.5
           bottom: 1
@@ -484,10 +489,42 @@ blocks:
           top: 1
         width: 6
         _template: textBlock
-      - color: mineral-white
+      - image: /media/fibonacci-graphics/Fibonacci Scale Skipping 12.svg
+        margins:
+          marginsDesktop:
+            top: -6
+            right: -2.5
+            bottom: -1
+            left: 3.5
+        widthResponsive:
+          widthDesktop: 9
+        _template: imageBlock
+    _template: dynamicBlock
+  - anchor: empowering
+    spacing:
+      padding:
+        top: 0
+        right: 1
+        bottom: 4.5
+        left: 1
+    background:
+      darkMode: true
+      bgGraphic:
+        image: ''
+        layoutMobile:
+          width: 2
+        layoutDesktop:
+          width: 8
+          margins:
+            top: 0
+            left: 10
+      bgColor: beatle
+    blocks:
+      - anchor: ''
+        color: mineral-white
         richtext: "#### Who is Convero for?\n\n# Empowering everyday food brands and consumers\_\n"
         margins:
-          top: 4
+          top: 0
         marginsMobile:
           top: 2
         width: 11
@@ -516,6 +553,7 @@ blocks:
         widthResponsive:
           widthDesktop: 5
           widthMobile: 4
+        borderRadius: true
         _template: imageBlock
       - image: /media/Dinner Party.webp
         margins:
@@ -529,6 +567,7 @@ blocks:
         widthResponsive:
           widthDesktop: 9
           widthMobile: 4
+        borderRadius: true
         _template: imageBlock
       - color: mineral-white
         richtext: "#### As explained above, modern consumers are increasingly dissatisfied with artificial and natural sugar substitutes. Converting sugar after eating, is the new way of sugar reduction that consumers can finally get excited about. Convero bridges this gap by offering a way to enjoy traditional foods with a nutritional boost.\_\n\nThis is especially important for the growing segment of consumers looking for reduced sugar products that still provide a satisfying experience.\_\_\n\nStarting with its launch in the US, Convero is set to expand globally. Our goal is to integrate this enzyme into food products around the world, reshaping the nutritional landscape and empowering consumers everywhere to make better choices.\_\n\nOur consumer reseach suggests we appeal to mainstream consumers that are conscious and concerned about the amount of sugar in their diet. Our ingredient has received broad excitement across consumers segments, even amongst those that would describe themselves as disengaged with their health.\n"
@@ -540,7 +579,8 @@ blocks:
         width: 6
         _template: textBlock
     _template: dynamicBlock
-  - spacing:
+  - anchor: How-is-convero-used
+    spacing:
       padding:
         bottom: 0
       paddingMobile:
@@ -548,7 +588,8 @@ blocks:
     background:
       bgColor: fuchsia
     blocks:
-      - color: beatle
+      - anchor: ''
+        color: beatle
         richtext: |
           #### How can Convero be added to food?
 
@@ -607,7 +648,7 @@ blocks:
       - name: Interested?
         blocks:
           - color: beatle
-            richtext: "#### Interested in seeing how Convero can enhance \Lyour products?\n\nReach out to us for a \Lconsultation or product trial.\_\n"
+            richtext: "#### Interested in seeing how Convero can enhance your products?\n\nReach out to us for a consultation or product trial.\_\n"
             width: 6
             _template: textBlock
           - richtext: |
@@ -642,7 +683,8 @@ blocks:
           widthMobile: 8
         _template: container
     _template: dynamicBlock
-  - spacing:
+  - anchor: The-future-of-sugar
+    spacing:
       padding:
         top: 0
         left: 0
@@ -650,7 +692,8 @@ blocks:
       darkMode: true
       bgColor: beatle
     blocks:
-      - color: mineral-white
+      - anchor: ''
+        color: mineral-white
         richtext: "#### Why Convero is the future of sugar reduction:\n\n## Balancing \Lhealth, taste, & sustainability in \La world hooked on sugar.\_\_\_\n\n### Consumers increasingly prioritize health and nutrition, but taste remains non-negotiable.\_\n"
         margins:
           top: 1

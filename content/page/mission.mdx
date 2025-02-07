@@ -16,7 +16,7 @@ blocks:
         layoutDesktop:
           width: 11
           margins:
-            top: 4
+            top: 4.5
             left: 5.5
         scrollSpeed: 1.1
       bgColor: beatle
@@ -44,12 +44,13 @@ blocks:
       darkMode: true
       bgColor: beatle
     blocks:
-      - image: /media/mission-01.jpg
+      - image: /media/KlippKroog.webp
         margins:
           marginsDesktop:
             left: 1
         widthResponsive:
           widthDesktop: 7
+        borderRadius: true
         _template: imageBlock
       - color: mineral-white
         richtext: "We believe that improved dietary choices should be a seamless part of life, not a compromise. Current food solutions often rely on synthetic methods and reformulated recipes, leading to consumer uncertainty and dissatisfaction.\_\n\nZya shifts the narrative from synthetic interventions to natural, science-driven transformations. By harnessing the inherent capability of enzymes, we empower the consumer to make better choices, whilst championing their taste preferences.\n"
@@ -70,16 +71,23 @@ blocks:
       darkMode: true
       bgColor: beatle
     blocks:
-      - color: fuchsia
-        richtext: "#### The problem with reformulated solutions:\n\n## Over-engineered products that don’t feel or taste right\_\n"
+      - color: mineral-white
+        richtext: |
+          #### The problem with reformulated solutions:
         margins:
-          top: 1
+          top: 1.5
+          left: 1
+        _template: textBlock
+      - color: fuchsia
+        richtext: "## Over-engineered products that don’t feel or taste right\_\n"
+        margins:
+          top: 0.5
           bottom: 1
           left: 1
         width: 10
         breakAfter: true
         _template: textBlock
-      - image: /media/Kid Eating Cereal.webp
+      - image: /media/Child Eating.webp
         margins:
           marginsDesktop:
             left: -0.5
@@ -88,6 +96,7 @@ blocks:
             bottom: 1
         widthResponsive:
           widthDesktop: 8.5
+        borderRadius: true
         _template: imageBlock
       - color: mineral-white
         richtext: "The market is saturated with ‘better-for-you’ options that fall short on flavor and rely heavily on fake ingredient substitutions.\n\nThis creates a dilemma where more nutritious choices are often less appealing in both form and taste.\n\nOn top of this, current nutritional offers are riddled with false claims and synthetic solutions, with conflicting information about what’s good for us. The result? Nutrition that fails to engage and benefit the wider public.\_\_\n"
@@ -128,8 +137,18 @@ blocks:
         width: 12
         _template: textBlock
       - color: beatle
+        richtext: |
+          #### Small changes that ripple into significant results.
+        margins:
+          top: 0.5
+          left: 1
+        width: 5
+        breakAfter: true
+        _template: textBlock
+      - color: beatle
         richtext: "[Enzymes](/convero) are nature’s powerful change agents. Their unique ability to catalyze reactions can be harnessed not just in food production, but at the point of digestion. At Zya, we harness these micro enzymes to create macro impacts. By introducing specific enzyme ingredients into food products, we can transform nutritional profiles while preserving taste.\_\n"
         margins:
+          top: 0.5
           left: 1
         width: 6
         breakAfter: true
@@ -168,6 +187,42 @@ blocks:
         marginsMobile:
           top: 1
         width: 8
+        _template: textBlock
+    _template: dynamicBlock
+  - spacing:
+      padding:
+        top: 3
+        bottom: 2.5
+        left: 0
+      paddingMobile:
+        top: 1
+        bottom: 2
+    background:
+      bgColor: mineral-white
+    blocks:
+      - image: /media/Esra Afsar Image (1).webp
+        margins:
+          marginsDesktop:
+            left: -0.5
+          marginsMobile:
+            bottom: 1
+        widthResponsive:
+          widthDesktop: 8.5
+        borderRadius: true
+        _template: imageBlock
+      - color: beatle
+        richtext: >
+          When restricted from eating a specific food, people tend to overeat it
+          later — by 133%. 71% of Brits who tried a fad diet did not achieve
+          their weight loss goals.
+
+
+          In other words, if you want lasting change, you need to change the way
+          food is digested, instead of expecting people to make dietary changes
+          that impact the foods they eat or how their favourite foods taste.
+        margins:
+          left: 1
+        width: 5
         _template: textBlock
     _template: dynamicBlock
   - items:
@@ -219,7 +274,7 @@ blocks:
     _template: dynamicBlock
   - spacing:
       padding:
-        bottom: 2
+        bottom: 2.5
     background:
       darkMode: true
       bgColor: beatle
@@ -323,7 +378,7 @@ blocks:
         widthResponsive:
           widthDesktop: 9
         _template: container
-      - image: /media/Squoosh E3f46ce6e451a8d201a39634f91c037a.jpg
+      - image: /media/Blur Unsplash 1.webp
         margins:
           marginsDesktop:
             top: 2
@@ -334,6 +389,7 @@ blocks:
             bottom: 1
         widthResponsive:
           widthDesktop: 7
+        borderRadius: true
         _template: imageBlock
       - name: 'Quote from Founders:'
         blocks:
@@ -399,9 +455,9 @@ blocks:
     _template: dynamicBlock
   - spacing:
       padding:
-        top: 4.5
+        top: 2
         right: 2.5
-        bottom: 3
+        bottom: 2
         left: 1
     background:
       bgImage: /media/Blur Ivan Rohovchenko.webp

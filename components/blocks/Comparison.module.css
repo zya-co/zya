@@ -138,4 +138,7 @@
   .comparisonItem:nth-child(3) .comparisonContentListItem__Yes:before  { 
     background-color: var(--color-morpho-teal); 
   }
+  .comparisonItem:nth-child(3) .comparisonContentListItem  { 
+    max-width: calc( 3 * var(--spacing-col) );
+  }
 }

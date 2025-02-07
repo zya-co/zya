@@ -1,6 +1,6 @@
 .articles {
   width: 100vw;
-  overflow: scroll;
+  overflow: hidden;
   background-color: var(--color-mineral-white);
 }
 .articlesContainer {

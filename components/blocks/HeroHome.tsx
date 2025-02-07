@@ -30,7 +30,6 @@ export const HeroHome = (props) => {
         </svg>
       </div>
         <h1 className={`headline1 ${styles.heroHeadline}`} data-tina-field={tinaField(data.heroHead, 'heroHeadline')}>
-          <span className={styles.heroHeadlineEyebrow}>Zya-</span>
           {data.heroHead.heroHeadline}
         </h1>
         <p className={`heroSubhead ${styles.heroSubhead}`} data-tina-field={tinaField(data.heroHead, 'heroSubhead')}>

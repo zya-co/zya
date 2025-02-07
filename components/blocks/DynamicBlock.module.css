@@ -68,8 +68,10 @@
     width: var(--width-m, 100%);
     flex-basis: var(--width, 100%);
     margin: var(--marginTop-m) var(--marginRight-m) var(--marginBottom-m) var(--marginLeft-m);
+    overflow: hidden;
   }
-  .imageBlock img{
+  .imageBlock img {
+    display: block;
     width: 100%;
     height: auto;
   }
@@ -185,8 +187,10 @@
     width: var(--width, 100%);
     flex-basis: var(--width, 100%);
     margin: var(--marginTop) var(--marginRight) var(--marginBottom) var(--marginLeft);
+    overflow: hidden;
   }
-  .imageBlock img{
+  .imageBlock img {
+    display: block;
     width: 100%;
     height: auto;
   }

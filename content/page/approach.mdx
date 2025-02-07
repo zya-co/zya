@@ -7,7 +7,7 @@ meta:
 blocks:
   - spacing:
       padding:
-        top: 2
+        top: 0
         bottom: 1
     background:
       darkMode: true
@@ -28,6 +28,7 @@ blocks:
       - color: mineral-white
         richtext: "#### Our Approach—\n\n# The natural power of enzymes\_\n"
         margins:
+          top: 1
           left: 1
         width: 9
         _template: textBlock
@@ -50,6 +51,7 @@ blocks:
         _template: textBlock
     _template: dynamicBlock
   - background:
+      darkMode: true
       bgColor: morpho-teal
     blocks:
       - color: mineral-white
@@ -152,6 +154,14 @@ blocks:
       bgColor: morpho-teal
     blocks:
       - color: mineral-white
+        richtext: "# How do enzymes actually work?\_\n"
+        margins:
+          top: 1
+          right: 1.5
+          bottom: 1.5
+          left: 1
+        _template: textBlock
+      - color: mineral-white
         richtext: "#### As biological catalysts, enzymes are facilitators\Lof reactions.\n\nMeaning that just one enzyme, all by itself, can repeatedly enable the same reaction to happen over, and over again, millions of times (per second).\n\n<customImage image=\"/media/fibonacci-graphics/Fibonacci Scale Skipping 7.svg\" widthMobile={2} widthDesktop={2} marginTop={1} marginBottom={0.5} />\n"
         margins:
           left: 1
@@ -176,6 +186,8 @@ blocks:
         margins:
           top: 4
           left: 0.5
+        marginsMobile:
+          top: 1
         width: 4.5
         _template: textBlock
     _template: dynamicBlock
@@ -204,6 +216,10 @@ blocks:
   - spacing:
       padding:
         top: 3
+      paddingMobile:
+        top: 1
+        bottom: 1
+        left: 0
     background:
       darkMode: false
       bgColor: mineral-white
@@ -216,7 +232,11 @@ blocks:
         _template: textBlock
       - richtext: "While enzymes have been used in food production for years—helping to craft bread, cheese, and more—Zya takes it a step further. We use enzymes not just to improve food before it’s consumed, but to change how it interacts with our bodies post-consumption.\_\n"
         margins:
+          bottom: 0
           left: 1
+        marginsMobile:
+          bottom: 1
+          left: 0
         width: 6
         _template: textBlock
       - image: /media/Person in Lab.webp
@@ -253,7 +273,7 @@ blocks:
           widthMobile: 6
         scrollSpeed: 0
         _template: imageBlock
-      - richtext: "#### By applying enzyme technology, Zya ensures that better nutrition is built into every bite, fostering a shift from high sugar consumption to increased dietary fiber intake.\n\nOur flagship enzyme, [Convero](/convero), transforms 30% of sugar into fiber during digestion, offering a nutritional boost that aligns with modern dietary needs. This approach means that your favorite foods retain their flavor, but with the added bonus of increasing pre-biotic fiber and reducing sugar absorption.\_\n\n<spacer colHeightDesktop={1} />\n\n<Cta label=\"Our mission\" link=\"/mission\" />\n"
+      - richtext: "#### By applying enzyme technology, Zya ensures that better nutrition is built into every bite, fostering a shift from high sugar consumption to increased dietary fiber intake.\n\nOur flagship enzyme, [Convero](/convero), transforms 30% of sugar into fiber during digestion, offering a nutritional boost that aligns with modern dietary needs. This approach means that your favorite foods retain their flavor, but with the added bonus of increasing pre-biotic fiber and reducing sugar absorption.\_\n\n<spacer colHeightDesktop={1} />\n\n<Cta label=\"Our Mission\" link=\"/mission\" />\n"
         margins:
           left: 1
         marginsMobile:
@@ -300,7 +320,7 @@ blocks:
         scrollSpeed: 0.9
         _template: imageBlock
       - color: mineral-white
-        richtext: "#### In summary, enzymes are the unsung heroes of biology, driving everything from cell metabolism to environmental sustainability.\_\_\n\nAt Zya, we believe in the power of small, natural changes to create macro impacts on health and well-being. By leveraging enzymes, we aim to make nutritional transformation accessible and seamless, fitting into everyday lifestyles without compromising taste or enjoyment.\_\n\n<spacer colHeightMobile={0} colHeightDesktop={1.5} />\n\n<Cta label=\"Our mission\" link=\"/mission\" color=\"mineral-white\" />\n"
+        richtext: "#### In summary, enzymes are the unsung heroes of biology, driving everything from cell metabolism to environmental sustainability.\_\_\n\nAt Zya, we believe in the power of small, natural changes to create macro impacts on health and well-being. By leveraging enzymes, we aim to make nutritional transformation accessible and seamless, fitting into everyday lifestyles without compromising taste or enjoyment.\_\n\n<spacer colHeightMobile={0} colHeightDesktop={1.5} />\n\n<Cta label=\"Our Mission\" link=\"/mission\" color=\"mineral-white\" />\n"
         margins:
           top: 1.5
           left: 3
@@ -309,8 +329,8 @@ blocks:
     _template: dynamicBlock
   - spacing:
       padding:
-        top: 4
-        bottom: 4
+        top: 2
+        bottom: 2
       paddingMobile:
         top: 2
         bottom: 2

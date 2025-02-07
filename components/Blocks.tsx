@@ -17,6 +17,7 @@ import HeroConvero from './blocks/HeroConvero'
 import Conversion_Graphic from './blocks/Conversion_Graphic'
 import { Footer } from './footer/Footer'
 import { ContactFormBlock } from './blocks/ContactFormBlock'
+import IndexNav from './blocks/IndexNav'
 
 export const Blocks = (props) => {
   return (
@@ -136,6 +137,12 @@ export const Blocks = (props) => {
             return (
               <React.Fragment key={i + block.__typename}>
                 <ContactFormBlock data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksIndexNav":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <IndexNav data={block} />
               </React.Fragment>
             )
           

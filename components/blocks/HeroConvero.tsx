@@ -1,7 +1,7 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
 import DarkElement from '../DarkElement';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import HeroConvero_Animation from './HeroConvero_Animation';
 
 export default function HeroConvero(props) {
@@ -23,6 +23,7 @@ export default function HeroConvero(props) {
         <div style={{
           'position': 'relative',
           'marginTop': '-100vh',
+          'marginBottom': '-1px',
           'height': '100vh',
           'width': '100%',
           'opacity': '1' 

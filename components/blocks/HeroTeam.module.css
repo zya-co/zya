@@ -6,11 +6,11 @@
     padding: var(--spacing-s);
   }
   .intro {
-    margin-top: calc(var(--heroTopSpace) - var(--spacing-s));
+    margin-top: var(--spacing-col);
   }
   .founders {
     position: relative;
-    margin: calc( 3 * var(--size-h1)) 0;
+    margin: calc( 3 * var(--size-h1)) 0 var(--spacing-col) 0;
   }
   .founder {
     position: relative;

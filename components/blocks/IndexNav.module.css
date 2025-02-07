@@ -1,0 +1,93 @@
+.indexNav {
+  position: fixed;
+  top: 80px;
+  right: calc(0.5 * var(--spacing-s));;
+  z-index: 1000;
+  padding: calc(0.5 * var(--spacing-s));
+  display: flex;
+  flex-direction: column;
+  gap: calc(0.15 * var(--spacing-s));
+  background-color: var(--color-beatle);
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateX(50%);
+  transition: all .3s ease;
+}
+:global(.heroConveroAnimationComplete) .indexNav {
+  opacity: 1;
+  transform: translateX(0);
+}
+.indexNavLink {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: inherit;
+  text-align: right;
+  font-size: var(--size-xs);
+  text-decoration: none;
+  counter-increment: step;
+  text-transform: uppercase;
+  overflow: hidden;
+  opacity: 0.5;
+  transition: all .3s ease;
+
+  & .indexNavLinkInner {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    transition: all .3s ease;
+    pointer-events: none;
+    position: relative;
+    padding-left: .5em;
+
+    &:before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+    }
+  }
+
+
+  &:after {
+    content: '';
+    margin-left: 0.5rem;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    transition: all .3s ease;
+  }
+}
+.indexNavLink:hover {
+  opacity: 1;
+
+  & .indexNavLinkInner {
+    width: auto;
+    padding-left: 1.33em;
+    
+    &:after {
+      content: '–';
+      position: absolute;
+      left: .6em;
+    }
+  }
+}
+.indexNavLink[data-inview="true"] {
+  opacity: 1;
+
+  & .indexNavLinkInner {
+    width: auto;
+    padding-left: 1.33em;
+    
+    &:after {
+      content: '–';
+      position: absolute;
+      left: .6em;
+    }
+  }
+  &:after {
+    width: 2em;
+    height: 2em;
+  }
+}

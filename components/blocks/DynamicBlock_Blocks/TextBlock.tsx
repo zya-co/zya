@@ -4,6 +4,7 @@ import RichText from '../../RichText';
 
 export default function TextBlock({ data, i }) {
   const classNames = [
+    'textBlock',
     styles.richtext,
     data.alignment === 'center' && styles.richtext_centerAligned,
     data.alignment === 'right' && styles.richtext_rightAligned,

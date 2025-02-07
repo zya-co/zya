@@ -19,6 +19,7 @@ import { heroConveroBlockSchema } from '../../components/blocks/HeroConvero';
 import { conversionGraphicSchema } from '../../components/blocks/Conversion_Graphic';
 import { footerSchema } from '../../components/footer/Footer';
 import { contactFormBlockSchema } from '../../components/blocks/ContactFormBlock';
+import { indexNavBlockSchema } from '../../components/blocks/IndexNav';
 
 export default {
   label: 'Pages',
@@ -75,6 +76,7 @@ export default {
         conversionGraphicSchema,
         footerSchema,
         contactFormBlockSchema,
+        indexNavBlockSchema,
       ],
     },
   ],

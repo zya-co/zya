@@ -22,10 +22,10 @@
 @media (max-width: 640px) {
  :root {
   --size-h1: 14vw;
-  --size-h2: 8.65vw;
-  --size-h3: 8.65vw;
-  --size-subhead: 5.3vw;
-  --size-body: 5.3vw;
+  --size-h2: 10vw;
+  --size-h3: 8vw;
+  --size-subhead: 6.5vw;
+  --size-body: 5.2vw;
   --size-s: 3vw;
   --size-xs: 2vw;
   --spacing-s: 5vw;
@@ -77,6 +77,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
   text-decoration: underline;
   text-underline-offset: .2em;
   text-decoration-thickness: .05em;
+}
+h4 a {
+  text-decoration: none;
 }
 ul, ol {
   padding: 0 0 0 3em;

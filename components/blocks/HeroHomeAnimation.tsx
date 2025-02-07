@@ -9,18 +9,15 @@ export default function heroHomeAnimation(container) {
     let isMobile = window.innerWidth < 641;
 
     const parent = container as HTMLElement;
-    const heroHomeInside = container.querySelector('.heroHomeInside') as HTMLElement;
     let fullHeight = parent?.getBoundingClientRect().height || 0;
     const h1coords = container.querySelector('.headline1')?.getBoundingClientRect() || {top: 0, height: 0};
     const shape1rect = container.querySelector('.shape1')?.getBoundingClientRect() || {height: 0};
     const shape2rect = container.querySelector('.shape2')?.getBoundingClientRect() || {height: 0};
     const shape3rect = container.querySelector('.shape3')?.getBoundingClientRect() || {height: 0};
-    const shape4rect = container.querySelector('.shape4')?.getBoundingClientRect() || {height: 0};
     const contentRect = container.querySelector('.heroContentWrapper')?.getBoundingClientRect() || {height: 0};
     const windowContentDiff = window.innerHeight - contentRect.height;
     const shapeBetween = shape2rect.height * 0.9;
     
-    // parent.style.height = `${fullHeight}px`;
     parent.style.height = `${window.innerHeight - windowContentDiff }px`;
 
     gsap.set('.heroHomeInside', { autoAlpha: 1, overflow: 'hidden'})
@@ -135,22 +132,7 @@ export default function heroHomeAnimation(container) {
 
     tl.addLabel('shape4');
     
-    // tl.to('.heroContent1, .heroContent2', {
-    //   autoAlpha: 1,
-    //   yPercent: 0,
-    //   ease: 'power2.out',
-    //   stagger: 0.1,
-    //   duration: .5,
-    // }, 'shape4-=.25')
-
-    // tl.addLabel('content');
-
-    // tl.to('.heroContentWrapper', {
-    //   yPercent: -100,
-    //   duration: 1,
-    //   ease: 'none',
-    // }, 'shape4')
-
     tl.addLabel('end');
+    
   }, 100);
 }

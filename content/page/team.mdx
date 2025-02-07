@@ -7,7 +7,7 @@ meta:
 blocks:
   - spacing:
       padding:
-        top: 3
+        top: 0
         bottom: 3
       paddingMobile:
         top: 2
@@ -26,6 +26,7 @@ blocks:
 
           # Science, innovation, and collaboration
         margins:
+          top: 1
           right: 1
           bottom: 3
           left: 1
@@ -35,7 +36,7 @@ blocks:
       - color: mineral-white
         richtext: >
           ## Building a foundation for better nutrition through strategic
-          partnerships and expertise
+          partnerships and expertise.
         margins:
           left: 1
         marginsMobile:
@@ -192,6 +193,49 @@ blocks:
     _template: advisoryTeam
   - spacing:
       padding:
+        bottom: 1.5
+    background:
+      darkMode: true
+      bgColor: earth-gray
+    blocks:
+      - name: CTA
+        blocks:
+          - color: earth-gray
+            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements? \n\nContact us to collaborate and be \Lpart of this transformative journey.\_\_\n"
+            width: 6
+            _template: textBlock
+          - richtext: |
+              <Cta label="Reach out" link="/contact" color="lichen" />
+            alignment: right_bottom
+            marginsMobile:
+              bottom: -0.5
+            width: 3
+            _template: textBlock
+        background:
+          bgColor: mineral-white
+        spacing:
+          padding:
+            top: 0.5
+            right: 0.5
+            bottom: 0.5
+            left: 0.5
+          paddingMobile:
+            top: 0.5
+            right: 0.5
+            bottom: 0
+            left: 0.5
+        margins:
+          marginsDesktop:
+            top: 0
+            right: 0
+            bottom: 0
+            left: 3
+        widthResponsive:
+          widthDesktop: 10
+        _template: container
+    _template: dynamicBlock
+  - spacing:
+      padding:
         top: 2
         bottom: 2
         left: 1
@@ -337,7 +381,7 @@ blocks:
         _template: textBlock
       - blocks:
           - color: earth-gray
-            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements?\n\nContact us to collaborate and be \Lpart of this transformative journey.\_\n"
+            richtext: "#### Are you a brand looking to innovate and lead in nutritional advancements?\n\nContact us to collaborate and be part of this transformative journey.\_\n"
             width: 6
             _template: textBlock
           - richtext: |
@@ -366,6 +410,7 @@ blocks:
             left: 0.5
         margins:
           marginsDesktop:
+            top: 2
             bottom: 2
             left: 3
         widthResponsive:
@@ -403,6 +448,7 @@ blocks:
             bottom: 1
         widthResponsive:
           widthDesktop: 8
+        borderRadius: true
         scrollSpeed: 0
         _template: imageBlock
     _template: dynamicBlock

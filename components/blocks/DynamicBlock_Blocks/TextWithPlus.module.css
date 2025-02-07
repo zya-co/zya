@@ -31,6 +31,11 @@
     align-items: center;
     border-radius: 6px;
     color: var(--color-morpho-teal);
+
+    & svg {
+      width: calc(0.6 * var(--size-subhead));
+      height: calc(0.6 * var(--size-subhead));
+    }
   }
   .collapsableTextWrapper {
     position: relative;
@@ -85,6 +90,12 @@
     align-items: center;
     border-radius: 6px;
     border: none;
+    color: var(--color-morpho-teal);
+
+    & svg {
+      width: calc(0.6 * var(--size-subhead));
+      height: calc(0.6 * var(--size-subhead));
+    }
   }
   .collapsableTextWrapper {
     position: absolute;

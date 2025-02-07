@@ -133,7 +133,12 @@
     background-color: var(--color-earth-gray);
     overflow: auto;
     color: var(--color-mineral-white);
-    padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col));
+    /* padding: var(--size-h1) calc(var(--spacing-s) + var(--spacing-col)); */
+    padding: 
+      0 
+      calc(var(--spacing-s) + var(--spacing-col)) 
+      var(--spacing-s)
+      calc(var(--spacing-s) + var(--spacing-col));
   }
   .intro {
     max-width: calc(10 * var(--spacing-col));

@@ -27,7 +27,7 @@ export default function NavigationHover(container){
     circleGroup.classList.add('mainNavHoverCircleGroup');
     document.querySelector('.mainNav')?.appendChild(circleGroup);
 
-    for (let i = 0; i < 6; i++ ) {
+    for (let i = 0; i < 7; i++ ) {
       const circle = document.createElement('div');
       circle.classList.add('mainNavHoverCircle');
       document.querySelector('.mainNavHoverCircleGroup')?.appendChild(circle);
@@ -39,7 +39,12 @@ export default function NavigationHover(container){
     const navBarHeight = () => { return document.querySelector('.mainNav')?.getBoundingClientRect().height || 0 }
 
     const circleGroupCoords = () => { 
-      let coords = {x: window.innerWidth/2, y: `${0.5 * navBarHeight()}`, height: 0, width: (maxgroupWidth/100*window.innerWidth)};
+      let coords = {
+        x: window.innerWidth/2, 
+        y: `${0.5 * navBarHeight()}`, 
+        height: 0, 
+        width: (maxgroupWidth/100*window.innerWidth)
+      };
       return coords;
     };
 
@@ -68,46 +73,123 @@ export default function NavigationHover(container){
     
     tlMorph.addLabel('null')
     
-    tlMorph.to('.mainNavHoverCircle:nth-child(even)', {
-      transformOrigin: `${50 + circdist}% 50%`,
-      xPercent: -circdist,
-      duration: 1
-    })
-    tlMorph.to('.mainNavHoverCircle:nth-child(odd)', {
-      transformOrigin: `${50 - circdist}% 50%`,
-      xPercent: circdist,
+    tlMorph.to('.mainNavHoverCircleGroup', {
+      rotate: 45,
+      y: `${0.125 * navBarHeight()}`,
       duration: 1
     }, 'null')
+    tlMorph.to('.mainNavHoverCircle:nth-child(1)', {
+      transformOrigin: `${50 + circdist}% 50%`,
+      xPercent: -circdist,
+      rotate: 0,
+      duration: 1
+    }, 'null')
+    tlMorph.to('.mainNavHoverCircle:not(:nth-child(1))', {
+      transformOrigin: `${50 + circdist}% 50%`,
+      xPercent: -circdist,
+      rotate: 90,
+      duration: 1
+    }, 'null')
+
     tlMorph.addLabel('two')
 
+    tlMorph.to('.mainNavHoverCircleGroup', {
+      y: 0,
+      rotate: 0,
+      duration: 1
+    }, 'two')
     tlMorph.to('.mainNavHoverCircle:nth-child(1)', {
-      rotate: -90,
+      rotate: 0,
       duration: 1,
     }, 'two')
     tlMorph.to('.mainNavHoverCircle:nth-child(2)', {
-      
-      rotate: -90,
+      rotate: 90,
       duration: 1,
     }, 'two')
+    tlMorph.to('.mainNavHoverCircle:nth-child(3)', {
+      rotate: 180,
+      duration: 1,
+    }, 'two')
+    tlMorph.to('.mainNavHoverCircle:nth-child(4)', {
+      rotate: 270,
+      duration: 1,
+    }, 'two')
+    tlMorph.to('.mainNavHoverCircle:nth-child(5)', {
+      rotate: 270,
+      duration: 1,
+    }, 'two')
+    tlMorph.to('.mainNavHoverCircle:nth-child(6)', {
+      rotate: 270,
+      duration: 1,
+    }, 'two')
+    tlMorph.to('.mainNavHoverCircle:nth-child(7)', {
+      rotate: 270,
+      duration: 1,
+    }, 'two')
+
     tlMorph.addLabel('four')
 
     tlMorph.to('.mainNavHoverCircle:nth-child(1)', {
-      rotate: -60,
+      rotate: 0,
       duration: 1
     }, 'four')
     tlMorph.to('.mainNavHoverCircle:nth-child(2)', {
-      rotate: -60,
+      rotate: 60,
       duration: 1
     }, 'four')
     tlMorph.to('.mainNavHoverCircle:nth-child(3)', {
-      rotate: 60,
+      rotate: 120,
       duration: 1
     }, 'four')
     tlMorph.to('.mainNavHoverCircle:nth-child(4)', {
-      rotate: 60,
+      rotate: 180,
       duration: 1
     }, 'four')
+    tlMorph.to('.mainNavHoverCircle:nth-child(5)', {
+      rotate: 240,
+      duration: 1
+    }, 'four')
+    tlMorph.to('.mainNavHoverCircle:nth-child(6)', {
+      rotate: 300,
+      duration: 1
+    }, 'four')
+    tlMorph.to('.mainNavHoverCircle:nth-child(7)', {
+      rotate: 300,
+      duration: 1
+    }, 'four')
+
     tlMorph.addLabel('six')
+
+    tlMorph.to('.mainNavHoverCircle:nth-child(1)', {
+      rotate: 0,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(2)', {
+      rotate: 51.4,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(3)', {
+      rotate: 102.8,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(4)', {
+      rotate: 154.3,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(5)', {
+      rotate: 205.7,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(6)', {
+      rotate: 257.1,
+      duration: 1
+    }, 'six')
+    tlMorph.to('.mainNavHoverCircle:nth-child(7)', {
+      rotate: 308.6,
+      duration: 1
+    }, 'six')
+    
+    tlMorph.addLabel('seven')
 
 
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
@@ -120,7 +202,12 @@ export default function NavigationHover(container){
 
     links.forEach((link: HTMLAnchorElement, i) => {
       const linkRect = () => { return link.getBoundingClientRect() }
-      const linkAnimLabel = i === 0 ? 'two' : i === 1 ? 'four' : i === 2 ? 'six' : 'null'
+      const linkAnimLabel = i === 0 ? 'null' 
+                            : i === 1 ? 'two' 
+                            : i === 2 ? 'four' 
+                            : i === 3 ? 'six' 
+                            : i === 4 ? 'seven' 
+                            : 'null'
       
       if (link.href === currentUri) {
         currentLink = i;
@@ -151,9 +238,14 @@ export default function NavigationHover(container){
             autoAlpha: currentLink === -1 ? 0 : 1,
             duration: 0.5
           })
-          tlMorph.tweenTo(currentLink === 0 ? 'two' : currentLink === 1 ? 'four' : currentLink === 2 ? 'six' : 'null', {
-            duration: 0.5
-          })
+          tlMorph.tweenTo(
+            currentLink === 0 ? 'null' 
+            : currentLink === 1 ? 'two' 
+            : currentLink === 2 ? 'four' 
+            : currentLink === 3 ? 'six' 
+            : currentLink === 4 ? 'seven' 
+            : 'null', 
+            { duration: 0.5})
         }
       })
     })

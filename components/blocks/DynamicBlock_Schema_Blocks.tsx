@@ -65,6 +65,11 @@ export const imageBlock = {
     },
     marginResponsive as any,
     widthResponsive as any,
+    {
+      label: 'Border Radius?',
+      name: 'borderRadius',
+      type: 'boolean',
+    },
     scrollSpeed as any,
     scrollDelay as any
   ]

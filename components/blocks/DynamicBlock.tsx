@@ -5,11 +5,15 @@ import { tinaField } from 'tinacms/dist/react';
 import styles from './DynamicBlock.module.css';
 import { margins, width, spacing, scrollDelay, scrollSpeed } from './DynamicBlock_Schema_Fields';
 import {imageBlock, textBlock, textWithPlus, container} from './DynamicBlock_Schema_Blocks';
+import { videoBlockSchema } from './DynamicBlock_Blocks/VideoBlock';
+import { conversionGraphicSchema } from './Conversion_Graphic';
+import Conversion_Graphic from './Conversion_Graphic';
 import DarkElement from '../DarkElement';
 import TextBlock from './DynamicBlock_Blocks/TextBlock';
 import ImageBlock from './DynamicBlock_Blocks/ImageBlock';
 import TextWithPlus from './DynamicBlock_Blocks/TextWithPlus';
 import Container from './DynamicBlock_Blocks/Container';
+import VideoBlock from './DynamicBlock_Blocks/VideoBlock';
 
 export function DynamicBlock({data}) {
 
@@ -30,7 +34,7 @@ export function DynamicBlock({data}) {
     <DarkElement ignore={!data.background?.darkMode}>
       <div 
         id={data.anchor || ''}
-        className={`${styles.dynamicBlock}`}
+        className={`dynamicBlock ${styles.dynamicBlock}`}
         style={{
           backgroundColor: data.background?.bgColor ? 'var(--color-'+data.background.bgColor+')' : 'transparent',
           '--padding-top': blockPadding.top,
@@ -117,6 +121,14 @@ export function DynamicBlock({data}) {
             case "PageBlocksDynamicBlockBlocksContainer":
               
               return <Container data={block} key={i+data.__typename} />
+
+            case "PageBlocksDynamicBlockBlocksVideoBlock":
+              
+              return <VideoBlock data={block} key={i+data.__typename} />
+
+            case "PageBlocksDynamicBlockBlocksConversionGraphic":
+              
+              return <Conversion_Graphic data={block} key={i+data.__typename} />
 
             default:
               return null
@@ -220,7 +232,9 @@ export const dynamicBlockSchema: Template = {
         imageBlock as any,
         textBlock as any,
         textWithPlus as any,
-        container as any
+        container as any,
+        videoBlockSchema as any,
+        conversionGraphicSchema as any
       ],
     }
   ],

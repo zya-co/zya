@@ -67,7 +67,7 @@
     padding: var(--spacing-s);
   }
   .heroContent h4 {
-    color: var(--color-fuchsia);
+    color: var(--color-mineral-white);
     font-size: var(--size-subhead);
     margin: 0;
   }
@@ -75,7 +75,7 @@
     margin-top: 0.25em;
   }
   .heroContent h2 {
-    color: var(--color-mineral-white);
+    color: var(--color-fuchsia);
     font-size: var(--size-h2);
     margin-bottom: 0.5em;
   }
@@ -164,7 +164,7 @@
     padding: var(--spacing-s);
   }
   .heroContent h4 {
-    color: var(--color-fuchsia);
+    color: var(--color-mineral-white);
     font-size: var(--size-subhead);
     margin: 0;
   }
@@ -172,7 +172,7 @@
     margin-top: 0.25em;
   }
   .heroContent h2 {
-    color: var(--color-mineral-white);
+    color: var(--color-fuchsia);
     font-size: var(--size-h2);
     margin-bottom: 0.5em;
   }

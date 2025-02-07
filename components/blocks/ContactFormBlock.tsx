@@ -1,7 +1,6 @@
 import styles from './ContactFormBlock.module.css';
 import Button from '../Button';
 import Link from 'next/link';
-import { marginResponsive, widthResponsive } from './DynamicBlock_Schema_Fields';
 
 export function ContactFormBlock({data}) {
 
