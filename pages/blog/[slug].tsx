@@ -28,7 +28,7 @@ export default function Page(props) {
       <Navigation navData={props.nav} current={props?.data?.blogpost._sys.filename} />
       <ScrollSmooth>
         <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />
-        {/* <pre>{JSON.stringify(data.blogpost, null, 2)}</pre> */}
+        <pre>{JSON.stringify(props, null, 2)}</pre>
         <Footer navData={props.nav} />
         <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>
@@ -37,7 +37,7 @@ export default function Page(props) {
 }
 
 export const getStaticPaths = async ({ preview = false }) => {
-  const blogpostsResponse = await getBlogposts({ preview: true });
+  const blogpostsResponse = await getBlogposts({ preview });
   
   const pageslugs = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return `/blog/${edge?.node?._sys.filename}`;
@@ -49,7 +49,7 @@ export const getStaticPaths = async ({ preview = false }) => {
   };
 }
 
-export const getStaticProps = async ({ params, preview = true }) => {
+export const getStaticProps = async ({ params, preview = false }) => {
 
   const { data, query, variables } = await client.queries.blogpost({
     relativePath: `/${params.slug}.mdx`,

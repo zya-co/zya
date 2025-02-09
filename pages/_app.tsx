@@ -34,22 +34,22 @@ const App = ({ Component, pageProps }) => {
           justifyContent: 'center',
           alignItems: 'center',
           gap: '0.25rem',
-          opacity: 0,
-          visibility: 'hidden',
-          pointerEvents: 'none',
+          // pointerEvents: 'none',
+          // opacity: 0,
+          // visibility: 'hidden',
         }}>
-          You are in preview-mode
+          You are in preview-mode {slug}
+          {/* <pre>{JSON.stringify(pageProps, null, 2)}</pre> */}
           {/* This link will logout of Tina and exit preview mode */}
           <a
             style={{ color: 'var(--color-beatle)' }}
-            href={`/api/preview/exit?slug=mission`}
+            href={`/api/preview/exit?slug=${slug}`}
           >
             Click here
           </a>{' '}
           to exit
         </div>
       )}
-
       <Component {...pageProps} />
     </main>
   );

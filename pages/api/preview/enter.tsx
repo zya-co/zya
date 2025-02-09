@@ -1,10 +1,10 @@
 import { isUserAuthorized } from '@tinacms/auth'
 
 const handler = async (req, res) => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.TINA_PUBLIC_IS_LOCAL === 'true') {
     // Enter preview-mode in local development
     res.setPreviewData({})
-    return res.redirect(req.query.slug)
+    return res.redirect(req.query.slug || '/')
   }
 
   // Check TinaCloud token
