@@ -6,6 +6,7 @@ import { Navigation } from '../components/navigation/Navigation'
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
 import FooterLinks from "../components/footer/FooterLinks";
+import { getBlogposts } from "../util/getBlogposts";
 
 export default function Home(props) {
 
@@ -37,8 +38,9 @@ export const getStaticProps = async () => {
     relativePath: "home.mdx",
   });
 
-  const pagesResponse = await client.queries.blogpostConnection();
-  let latestBlogPosts = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
+  const blogpostsResponse = await getBlogposts({ preview: false });
+  
+  let latestBlogPosts = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return {
       title: edge?.node?.meta?.title,
       description: edge?.node?.meta?.description,

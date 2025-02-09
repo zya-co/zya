@@ -102,7 +102,7 @@ export const textBlock = {
       label: 'Content',
       name: 'richtext',
       type: 'rich-text',
-      toolbarOverride: ['heading', 'link', 'ul', 'ol', 'table', 'embed', 'raw'],
+      toolbarOverride: ['heading', 'link', 'ul', 'ol', 'bold', 'italic', 'table', 'embed', 'raw'],
       templates: [ cta, customImage, spacer, inlineFormat ]
     },
     { 

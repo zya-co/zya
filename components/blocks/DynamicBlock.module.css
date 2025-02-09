@@ -39,6 +39,10 @@
     & :global(h4 + h2) {
       margin-top: 0.5em;
     }
+    & :global(p + h2), 
+    & :global(p + h3) {
+      margin-top: 0.75em;
+    }
     & :global(:first-child) {
       margin-top: 0;
     }
@@ -163,6 +167,10 @@
     }
     & :global(h4 + h2) {
       margin-top: 0.5em;
+    }
+    & :global(p + h2), 
+    & :global(p + h3) {
+      margin-top: 0.75em;
     }
     & :global(:first-child) {
       margin-top: 0;

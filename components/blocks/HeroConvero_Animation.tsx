@@ -6,18 +6,14 @@ export default function HeroHomeAnimation(container) {
 
   gsap.registerPlugin(ScrollTrigger);
   
-  useGSAP(() => {
+  useGSAP((context) => {
 
-    const vpHeight = () => {
-      return window.innerHeight;
-    }
-    
     let tl = gsap.timeline({ 
-      defaults: { ease: 'none' },
+      defaults: { duration: 1 },
       scrollTrigger: {
         trigger: container,
         start: 'top top',
-        end: '+=2000',
+        end: '+=3000',
         scrub: true,
         pin: true,
         // markers: true,
@@ -28,52 +24,50 @@ export default function HeroHomeAnimation(container) {
     });
 
     tl.set('.enzyme1',  {
-      y: -0.15 * vpHeight(),
+      y: '-15svh',
+    })
+    tl.set('.hero_payofftext', {
+      yPercent: -100,
+      autoAlpha: 0,
     })
 
-    tl.to('.enzyme1, .enzyme2, .enzyme3', {
-      y: -0.95 * vpHeight(),
-      rotateZ: 86,
-      stagger: 0.5,
-      duration: 1,
+    tl.to('.enzyme1, .enzyme2, .enzyme3, .enzyme4', {
+      rotateZ: -20,
+      y: '-95svh',
+      stagger: 0.25,
     }, 0)
 
-    
-    tl.to('.enzyme1, .enzyme2, .enzyme3', {
-      y: -2 * vpHeight(),
-      duration: 1,
-    }, 2)
-    
-    
-    tl.to('.enzyme4', {
-      y: -2 * vpHeight(),
-      duration: 1,
-    }, 1.85)
+    tl.to('.enzymes', {
+      yPercent: -50,
+    }, 1.75)
     
     tl.to('.enzyme4', {
       rotateZ: -60,
       scale: 6,
-      duration: 1,
-    }, 2.75)
-    
+    }, 2)
+
     tl.fromTo('.hero_introtext', {
       color: '#340E32',
     },{
       color: '#E681FF',
-      duration: 1
-    }, 2.25)
+    }, 1.75)
 
     tl.to('.hero_introtext', {
       y: '-50vh',
       opacity: 0,
-      duration: 1,
-    }, 3)
+    }, 2.25)
 
-    tl.to('.hero_payofftext', {
-      yPercent: -100,
+    tl.fromTo('.hero_payofftext', {
+      autoAlpha: 0
+    }, {
       autoAlpha: 1,
-      duration: 1,
-    }, 3)
+    }, 2.5)
+
+    tl.from('.hero_payofftext_main, .hero_payofftext_sub', {
+      yPercent: 100,
+    }, 2.25)
+
+    console.log("context", context.data.length);
 
   }, {scope: container, dependencies: [container]});
 }

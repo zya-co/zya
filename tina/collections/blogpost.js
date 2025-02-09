@@ -46,7 +46,7 @@ export default {
                   children: [
                     {
                       type: "text",
-                      text: "The Science behind headlines"
+                      text: "Headlines– "
                     }
                   ]
                 },
@@ -55,7 +55,7 @@ export default {
                   children: [
                     {
                       type: "text",
-                      text: "The are big and interesting"
+                      text: "They are big and interesting"
                     }
                   ]
                 }
@@ -185,6 +185,13 @@ export default {
     ],
   }),
   fields: [
+    {
+      name: 'isDraft',
+      label: 'Draft Version',
+      description: 'Drafts are not visible to the public',
+      type: 'boolean',
+      required: true,
+    },
     {
       name: 'meta',
       label: 'Meta/SEO',

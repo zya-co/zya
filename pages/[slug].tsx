@@ -6,6 +6,7 @@ import { Navigation } from '../components/navigation/Navigation'
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
 import FooterLinks from "../components/footer/FooterLinks";
+import { getBlogposts } from "../util/getBlogposts";
 
 export default function Page(props) {
 
@@ -18,9 +19,9 @@ export default function Page(props) {
 
   return (
     <Layout
-    description={data.page.meta?.description}
-    title={data.page.meta?.title}
-    metaimg={data.page.meta?.image}
+    description={data?.page?.meta?.description}
+    title={data?.page?.meta?.title}
+    metaimg={data?.page?.meta?.image}
   >
       <Navigation navData={props.nav} current={props.data.page._sys.filename} />
       <ScrollSmooth>
@@ -52,7 +53,7 @@ export const getStaticProps = async ({ params }) => {
     relativePath: `${params.slug}.mdx`,
   });
 
-  const pagesResponse = await client.queries.blogpostConnection();
+  const pagesResponse = await getBlogposts({ preview: false });
   let latestBlogPosts = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
     return {
       title: edge?.node?.meta?.title,

@@ -34,8 +34,8 @@ export default function RichText(props) {
           '--width-m': props.widthMobile ? `calc(var(--spacing-col) * ${props.widthMobile})` : '100%',
           '--height-d': props.heightDesktop ? `calc(var(--spacing-col) * ${props.heightDesktop})` : 'auto',
           '--height-m': props.heightMobile ? `calc(var(--spacing-col) * ${props.heightMobile})` : 'auto',
-          marginTop: props.marginTop ? `calc(var(--spacing-col) * ${props.marginTop})` : '0',
-          marginBottom: props.marginBottom ? `calc(var(--spacing-col) * ${props.marginBottom})` : '0',
+          marginTop: props.marginTop ? `calc(var(--spacing-col) * ${props.marginTop})` : 'calc(var(--spacing-col) * 0.5)',
+          marginBottom: props.marginBottom ? `calc(var(--spacing-col) * ${props.marginBottom})` : 'calc(var(--spacing-col) * 0.5)',
         } as React.CSSProperties }
       >
         {props.image && 
@@ -45,6 +45,9 @@ export default function RichText(props) {
             width={400}
             height={400}
           />
+        }
+        {props.caption &&
+          <figcaption className={styles.customImage_caption}>{props.caption}</figcaption>
         }
       </figure>
     )

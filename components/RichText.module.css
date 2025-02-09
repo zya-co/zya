@@ -57,7 +57,7 @@
   width: var(--width-d, 100%);
   height: var(--height-d, auto);
   position: relative;
-  margin: 0;
+  margin: 0 0 calc( 0.5 * var(--spacing-col)) 0;
 
   &.customImageCenterAligned {
     margin-left: auto;
@@ -73,7 +73,12 @@
     height: 100%;
     object-fit: contain;
     object-position: left;
+    display: block;
   }
+}
+.customImage_caption {
+  font-size: var(--size-s);
+  padding: 1em 0;
 }
 @media (max-width: 640px) {
   .customImage {

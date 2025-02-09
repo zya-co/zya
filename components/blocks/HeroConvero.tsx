@@ -22,9 +22,9 @@ export default function HeroConvero(props) {
       <DarkElement>
         <div style={{
           'position': 'relative',
-          'marginTop': '-100vh',
+          'marginTop': '-150vh',
           'marginBottom': '-1px',
-          'height': '100vh',
+          'height': '150vh',
           'width': '100%',
           'opacity': '1' 
         }}>

@@ -20,26 +20,31 @@
 .enzymes {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 5vh;
+  gap: 2rem;
   margin: 0 auto;
   width: 100vw;
   position: absolute;
 }
 .enzyme4 {
+  margin-top: 5svh;
   width: 600vw;
   transform: scale(0.16666);
 }
 .hero_payofftext {
   height: 100vh;
   width: 100%;
-  opacity: 0;
+  opacity: 0; 
   visibility: hidden;
   background-color: var(--color-beatle);
   color: var(--color-fuchsia);
   padding: var(--spacing-s) ;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 @media (min-width: 640.1px) {
   .hero_payofftext {
@@ -47,9 +52,10 @@
   }
 }
 .hero_payofftext_main {
-  margin-bottom: calc( 1.5 * var(--spacing-col));
+  margin: 0 0 var(--spacing-col) 0;
 }
 .hero_payofftext_sub {
+  margin: 0;
   max-width: calc( 6 * var(--spacing-col));
 }
 .enzyme01 {

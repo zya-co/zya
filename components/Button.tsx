@@ -1,9 +1,11 @@
 import React from "react"
 import styles from './Button.module.css'
+import Link from "next/link"
 
 export default function Button(props) {
 
   const classNames = [
+    'button',
     styles.button, 
     props.className && props.className, 
     props.variant === 'mini' && styles.button__mini,
@@ -27,12 +29,12 @@ export default function Button(props) {
     )
   } else {
     return (
-      <a 
-        href={props.href} 
+      <Link 
+        href={props.href || '#'} 
         className={classNames.join(' ')}
       >
         {props.children}
-      </a>
+      </Link>
     )
   }
   

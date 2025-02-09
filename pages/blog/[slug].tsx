@@ -7,6 +7,7 @@ import { Footer } from "../../components/footer/Footer";
 import FooterLinks from "../../components/footer/FooterLinks";
 import { Layout } from "../../components/Layout";
 import { ScrollSmooth } from "../../components/ScrollSmooth";
+import { getBlogposts } from "../../util/getBlogposts";
 
 export default function Page(props) {
 
@@ -19,14 +20,15 @@ export default function Page(props) {
 
   return (
     <Layout
-    description={data.blogpost.meta?.description}
-    title={data.blogpost.meta?.title}
-    metaimg={data.blogpost.meta?.image}
-  >
-      <Navigation navData={props.nav} current={props.data.blogpost._sys.filename} />
+      description={data?.blogpost?.meta?.description}
+      title={data?.blogpost?.meta?.title}Layout
+      metaimg={data?.blogpost?.meta?.image}
+      nofollow={data?.blogpost?.isDraft}
+    >
+      <Navigation navData={props.nav} current={props?.data?.blogpost._sys.filename} />
       <ScrollSmooth>
-        <Blocks blocks={data.blogpost.blocks} navData={props.nav} />
-        {/* <pre>{JSON.stringify(data.blogpost.blocks, null, 2)}</pre> */}
+        <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />
+        {/* <pre>{JSON.stringify(data.blogpost, null, 2)}</pre> */}
         <Footer navData={props.nav} />
         <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>
@@ -34,10 +36,10 @@ export default function Page(props) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const pagesResponse = await client.queries.blogpostConnection()
+export const getStaticPaths = async ({ preview = false }) => {
+  const blogpostsResponse = await getBlogposts({ preview: true });
   
-  const pageslugs = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
+  const pageslugs = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return `/blog/${edge?.node?._sys.filename}`;
   })
 
@@ -47,7 +49,7 @@ export const getStaticPaths = async () => {
   };
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params, preview = true }) => {
 
   const { data, query, variables } = await client.queries.blogpost({
     relativePath: `/${params.slug}.mdx`,
@@ -57,7 +59,10 @@ export const getStaticProps = async ({ params }) => {
   const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
 
   return {
+    // the post is not found if its a draft and the preview is false
+    notFound: data?.blogpost?.isDraft && !preview,
     props: {
+      preview,
       data,
       query,
       variables,

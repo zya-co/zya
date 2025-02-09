@@ -5,7 +5,8 @@ export const Layout = (props) => {
   const meta = {
     title: props.title || 'Zya Enzymes',
     description: props.description || 'The transformative power of enzymes',
-    metaimg: props.metaimg || '/opengraph.png'
+    metaimg: props.metaimg || '/opengraph.png',
+    nofollow: props.nofollow || false
   }
 
   return (
@@ -21,6 +22,7 @@ export const Layout = (props) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        {meta.nofollow && <meta name="robots" content="noindex, nofollow" />}
       </Head>
           {props.children}
     </>

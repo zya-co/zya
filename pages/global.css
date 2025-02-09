@@ -58,11 +58,10 @@ body.__tina-quick-editing-enabled:before {
   background-size: var(--spacing-col) 20px;
   background-image:  repeating-linear-gradient(to right, #FF0000, #FF0000 1px, transparent 1px, transparent);
 }
-
 main {
   font-family: var(--font-aeonik);
+  font-feature-settings: 'ss01' on, 'ss04' on, 'ss06' on, 'ss07' on;
 }
-
 p, li, input, textarea, button, td, th, label, select, option {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);
@@ -95,10 +94,6 @@ li > ul {
 table {
   border-collapse: collapse;
   width: 100%;
-  /* border: 1px solid var(--color-morpho-teal); */
-}
-tr {
-  /* border-bottom: 1px dotted var(--color-morpho-teal); */
 }
 tr:first-child {
   border-bottom: 2px solid var(--color-morpho-teal);
@@ -109,9 +104,6 @@ td {
 }
 h1, h2, h3, h4, h5 {
   font-family: var(--font-haben);
-  /* font-feature-settings: 'liga', 'kern', 'onum'; */
-  /* font-feature-settings: 'liga', 'kern', 'ss07' on, 'ss04' on, 'ss06' on, 'ss01' on; */
-  font-feature-settings: 'ss01' on, 'ss04' on, 'ss06' on, 'ss07' on, 'ss09' on;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.05em;
@@ -145,6 +137,9 @@ h5 {
   h4 {
     line-height: 1.2;
   }
+}
+p + h2 {
+  margin-top: 1em;
 }
 h4 + h1 {
   margin-top: .25em;

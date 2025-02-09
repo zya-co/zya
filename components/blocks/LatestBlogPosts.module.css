@@ -1,3 +1,7 @@
+.latestBlogPosts a:not(:global(.button)) {
+  text-decoration: none;
+  color: inherit;
+}
 @media (max-width: 640px) {
   .latestBlogPosts {
     padding: var(--spacing-s);
@@ -91,7 +95,7 @@
       justify-content: space-between;
       gap: calc(0.4 * var(--spacing-col));
 
-      & .title {
+      & .title, & .description {
         padding: 0;
         margin: 0;
       }
@@ -116,6 +120,7 @@
     margin: calc( 0.5 * var(--spacing-col)) auto;
     text-align: center;
     cursor: pointer;
+    color: var(--color-morpho-teal);
   }
   .morePosts {
     margin-top: calc(0.5 * var(--spacing-col));
@@ -172,6 +177,7 @@
   .cta_gotoblog {
     align-self: flex-start;
     margin: 1em auto;
+    color: var(--color-morpho-teal);
   }
 }
 @media (min-width: 640.1px) {
@@ -276,13 +282,17 @@
       justify-content: space-between;
       gap: calc(0.4 * var(--spacing-col));
 
-      & .title {
+      & .title, & .description {
         padding: 0;
         margin: 0;
       }
 
       & .footer {
         padding: 0;
+        
+        & :global(.button) {
+          margin: 0;
+        }
       }
 
     }
@@ -303,6 +313,7 @@
     margin: calc( 0.5 * var(--spacing-col)) auto;
     text-align: center;
     cursor: pointer;
+    color: var(--color-morpho-teal);
   }
   .morePosts {
     margin-top: calc(.5 * var(--spacing-col));
@@ -335,6 +346,10 @@
       }
       & .footer {
         padding: 0;
+
+        & :global(.button) {
+          margin: 0;
+        }
       }
       & .readbutton {
         background-color: var(--color-fuchsia);
@@ -364,6 +379,7 @@
   .cta_gotoblog {
     align-self: flex-start;
     margin: 0;
+    color: var(--color-morpho-teal);
   }
 }
 

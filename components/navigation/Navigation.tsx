@@ -10,7 +10,7 @@ export const Navigation = (props) => {
   const container = useRef<HTMLDivElement | null>(null);
   NavigationHover(container);
   
-  const navData = props.navData.data.navigation.navItem.map((navitem) => {
+  const navData = props.navData?.data.navigation.navItem.map((navitem) => {
     return {
       label: navitem.navItemLabel,
       link: navitem.navItemLink
@@ -20,8 +20,8 @@ export const Navigation = (props) => {
   const currentSlug = props.current;
 
   const ctaData = {
-    label: props.navData.data.navigation.cta.ctaLabel,
-    link: props.navData.data.navigation.cta.ctaLink
+    label: props.navData?.data.navigation.cta.ctaLabel,
+    link: props.navData?.data.navigation.cta.ctaLink
   }
 
   return (
@@ -70,7 +70,7 @@ export const Navigation = (props) => {
         </svg>
       </a>
       <div className={styles.mainNav__linkList}>
-        { navData.map((navitem, i) => {
+        { navData?.map((navitem, i) => {
           return (
             <a 
               key={'link_' + i} 

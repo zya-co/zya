@@ -16,6 +16,11 @@ export const customImage = {
       label: 'Alt Text'
     },
     {
+      name: 'caption',
+      label: 'Caption',
+      type: 'string',
+    },
+    {
       type: 'string',
       name: 'alignment',
       label: 'Alignment',
