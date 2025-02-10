@@ -17,19 +17,20 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.NEXT_PUBLIC_TINA_CLIENT_SECRET,
-  admin: {
-    auth: {
-      onLogin: async ({ token }) => {
-        //  When the user logs in enter preview mode
-        location.href =
-          `/api/preview/enter?token=${token.id_token}&slug=` + location
-      },
-      onLogout: async () => {
-        // When the user logs out exit preview mode
-        location.href = `/api/preview/exit?slug=` + location
-      },
-    } as any,
-  },
+  // admin: {
+  //   auth: {
+  //     onLogin: async ({ token }) => {
+  //       console.log("On Login");
+  //       location.href =
+  //         `/api/preview/enter?token=${token.id_token}&slug=` +
+  //         location?.pathname;
+  //     },
+  //     onLogout: async () => {
+  //       console.log("onLogout");
+  //       location.href = `/api/preview/exit?slug=` + location?.pathname;
+  //     },
+  //   },
+  // },
   build: {
     outputFolder: "admin",
     publicFolder: "public",
