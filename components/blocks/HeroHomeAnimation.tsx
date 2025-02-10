@@ -1,5 +1,6 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from "gsap";
+import { gsap } from "gsap/dist/gsap";
+// import { useGSAP } from "@gsap/react/dist";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function heroHomeAnimation(container) {
 

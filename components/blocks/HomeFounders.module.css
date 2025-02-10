@@ -136,7 +136,7 @@
     padding: 
       var(--spacing-col)
       calc(var(--spacing-s) + var(--spacing-col)) 
-      var(--spacing-s)
+      var(--spacing-col)
       calc(var(--spacing-s) + var(--spacing-col));
   }
   .intro {

@@ -1,15 +1,17 @@
 import styles from './Media_Articles.module.css';
 import Button from '../Button';
 import { useRef } from 'react';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react/dist";
 
 export default function Media_Articles({data}) {
+  
   const smoothRef = useRef(null);
+  
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
     
     function getDistance() {
       const articles = gsap.utils.toArray(`.${styles.article}`) as HTMLElement[];

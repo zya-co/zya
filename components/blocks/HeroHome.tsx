@@ -6,7 +6,7 @@ import styles from './HeroHome.module.css'
 import heroHomeAnimation from './HeroHomeAnimation';
 import RichText from '../RichText';
 import DarkElement from "../DarkElement";
-import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react/dist";
 
 export const HeroHome = (props) => {
   

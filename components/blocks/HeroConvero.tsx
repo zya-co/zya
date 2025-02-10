@@ -1,13 +1,18 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
 import DarkElement from '../DarkElement';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
+import { useGSAP } from "@gsap/react/dist";
 import HeroConvero_Animation from './HeroConvero_Animation';
 
 export default function HeroConvero(props) {
   const gsapRef = useRef(null);
 
-  HeroConvero_Animation(gsapRef.current);
+    useGSAP(() => {
+      if (gsapRef.current) {
+        HeroConvero_Animation(gsapRef.current);
+      }
+    }, {scope: gsapRef});
 
   return (
     <>
