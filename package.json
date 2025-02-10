@@ -14,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@tinacms/auth": "^1.0.10",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "next": "^15.1.4",
     "next-sitemap": "^4.2.3",
