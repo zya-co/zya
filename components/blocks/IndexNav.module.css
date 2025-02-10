@@ -14,6 +14,11 @@
   transform: translateX(50%);
   transition: all .3s ease;
 }
+@media (max-width: 640px) {
+  .indexNav {
+    display: none;
+  }
+}
 :global(.heroConveroAnimationComplete) .indexNav {
   opacity: 1;
   transform: translateX(0);
