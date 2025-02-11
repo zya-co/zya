@@ -17,20 +17,7 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.NEXT_PUBLIC_TINA_CLIENT_SECRET,
-  // admin: {
-  //   auth: {
-  //     onLogin: async ({ token }) => {
-  //       console.log("On Login");
-  //       location.href =
-  //         `/api/preview/enter?token=${token.id_token}&slug=` +
-  //         location?.pathname;
-  //     },
-  //     onLogout: async () => {
-  //       console.log("onLogout");
-  //       location.href = `/api/preview/exit?slug=` + location?.pathname;
-  //     },
-  //   },
-  // },
+
   build: {
     outputFolder: "admin",
     publicFolder: "public",
