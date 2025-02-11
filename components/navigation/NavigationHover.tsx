@@ -285,53 +285,23 @@ export default function NavigationHover(container, currentPage){
 
     const initNav = contextSafe(() => {
 
-      links.forEach((link: any, i) => {
-
-        if (link._mouseEnterHandler && link._mouseLeaveHandler) {
-          link.removeEventListener('mouseenter', link._mouseEnterHandler);
-          link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-        }
-
-        const linkRect = () => { return link.getBoundingClientRect() }
-        
-        if (!currentUri || currentUri === '' || currentUri === '/') {
-          currentLink = -1;
-          gsap.to('.mainNavHoverCircleGroup', {
-            x: 0,
-            autoAlpha: 0,
+      if (currentPage === '') {
+        gsap.to('.mainNavHoverCircleGroup', {
+          x: 0,
+          duration: 0.5,
+          autoAlpha: 0,
+          ease: 'power2.out',
+          overwrite: 'true'
+        })
+        if (timelineRef && timelineRef.current) {
+          const tlMorph = timelineRef.current as gsap.core.Timeline;
+          tlMorph.tweenTo(0, {
             duration: 0.5,
             ease: 'power2.out',
             overwrite: 'true'
           })
-          if (timelineRef && timelineRef.current) {
-            const tlMorph = timelineRef.current as gsap.core.Timeline;
-            tlMorph.tweenTo('null', {
-              duration: 0.5,
-              ease: 'power2.out',
-              overwrite: 'true'
-            })
-          }
         }
-        else if (link.href.includes(currentUri)) {
-          currentLink = i;
-          gsap.to('.mainNavHoverCircleGroup', {
-            x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
-            duration: 0.5,
-            autoAlpha: 1,
-            ease: 'power2.out',
-            overwrite: 'true'
-          })
-          if (timelineRef && timelineRef.current) {
-            const tlMorph = timelineRef.current as gsap.core.Timeline;
-            tlMorph.tweenTo(getLinkAnimLabel(i), {
-              duration: 0.5,
-              ease: 'power2.out',
-              overwrite: 'true'
-            })
-          }
-        }
-        
-        else {
+        links.forEach((link: any, i) => {
           const mouseEnter = mouseEnterHandler;
           const mouseLeave = mouseLeaveHandler;
           link.addEventListener('mouseenter', mouseEnter);
@@ -340,9 +310,51 @@ export default function NavigationHover(container, currentPage){
           // Store the handlers on the link element for later removal
           link._mouseEnterHandler = mouseEnter;
           link._mouseLeaveHandler = mouseLeave;
-        
-        }
-      })
+        })
+      }
+      else {
+
+        links.forEach((link: any, i) => {
+  
+          if (link._mouseEnterHandler && link._mouseLeaveHandler) {
+            link.removeEventListener('mouseenter', link._mouseEnterHandler);
+            link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+          }
+  
+          const linkRect = () => { return link.getBoundingClientRect() }
+          if (link.href.endsWith(`/${currentUri}`)) {
+            currentLink = i;
+            gsap.to('.mainNavHoverCircleGroup', {
+              x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
+              duration: 0.5,
+              autoAlpha: 1,
+              ease: 'power2.out',
+              overwrite: 'true'
+            })
+            if (timelineRef && timelineRef.current) {
+              const tlMorph = timelineRef.current as gsap.core.Timeline;
+              tlMorph.tweenTo(getLinkAnimLabel(i), {
+                duration: 0.5,
+                ease: 'power2.out',
+                overwrite: 'true'
+              })
+            }
+          }
+          
+          else {
+            const mouseEnter = mouseEnterHandler;
+            const mouseLeave = mouseLeaveHandler;
+            link.addEventListener('mouseenter', mouseEnter);
+            link.addEventListener('mouseleave', mouseLeave);
+  
+            // Store the handlers on the link element for later removal
+            link._mouseEnterHandler = mouseEnter;
+            link._mouseLeaveHandler = mouseLeave;
+          
+          }
+        })
+      }
+      
     })
 
     initNav();
