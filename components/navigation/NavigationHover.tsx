@@ -285,7 +285,13 @@ export default function NavigationHover(container, currentPage){
 
     const initNav = contextSafe(() => {
 
-      if (currentPage === '') {
+      const currentPageIsNotInNav = () => {
+        return !Array.from(links).some((link: HTMLAnchorElement) => {
+          return link.href.endsWith(`/${currentUri}`)
+        })
+      }
+
+      if (currentPage === '' || currentPageIsNotInNav()) {
         gsap.to('.mainNavHoverCircleGroup', {
           x: 0,
           duration: 0.5,

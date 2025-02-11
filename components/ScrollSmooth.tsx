@@ -3,7 +3,7 @@ import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
 import { useRef } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 export const ScrollSmooth = (props) => {
   
@@ -19,14 +19,15 @@ export const ScrollSmooth = (props) => {
       effects: true,
       normalizeScroll: true,
     });  
-
+    
     const handleRouteChange = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        smoother.scrollTo(hash, true, "top top");
-      }
-      
+
       setTimeout(() => {
+        const hash = window.location.hash;
+        
+        if (hash && smoother.scrollTo) {
+          smoother.scrollTo(hash, true, "top top");
+        }
         
         gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
           link.addEventListener("click", (e) => {
@@ -37,22 +38,17 @@ export const ScrollSmooth = (props) => {
         });
       }, 100);
     }
-    handleRouteChange();
-
-    // Initialize GSAP animations on initial render
-    handleRouteChange();
-
-    // Listen for route changes
+    
     router.events.on('routeChangeComplete', handleRouteChange);
+    handleRouteChange();
 
-    // Cleanup event listener on component unmount
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
-    };
+    }
 
   }, {
     scope: smoothRef, 
-    dependencies: [router],
+    dependencies: [smoothRef],
   });
   
   return (

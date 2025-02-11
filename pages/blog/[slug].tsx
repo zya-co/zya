@@ -2,7 +2,6 @@ import React from "react";
 import { useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import { Blocks } from "../../components/Blocks";
-// import { Navigation } from '../../components/navigation/Navigation'
 import { Footer } from "../../components/footer/Footer";
 import FooterLinks from "../../components/footer/FooterLinks";
 import { Layout } from "../../components/Layout";
@@ -24,10 +23,8 @@ export default function Page(props) {
       metaimg={data?.blogpost?.meta?.image}
       nofollow={data?.blogpost?.isDraft}
     >
-      {/* <Navigation navData={props.nav} current={props?.data?.blogpost._sys.filename} /> */}
       <ScrollSmooth>
         <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />
-        <pre>{JSON.stringify(props, null, 2)}</pre>
         <Footer navData={props.nav} />
         <FooterLinks navData={props.footerNav} />
       </ScrollSmooth>

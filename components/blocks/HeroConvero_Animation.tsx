@@ -5,13 +5,15 @@ import { useGSAP } from "@gsap/react/dist";
 export default function HeroHomeAnimation(container) {
 
   gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+  const windowH = window.innerHeight;
   
   let tl = gsap.timeline({ 
     defaults: { duration: 1, ease: 'none' },
     scrollTrigger: {
       trigger: container,
       start: 'top top',
-      end: '+=7000',
+      end: `+=${7 * windowH}`,
       scrub: true,
       pin: true,
       // markers: true,
@@ -48,20 +50,22 @@ export default function HeroHomeAnimation(container) {
     color: '#340E32',
   },{
     color: '#E681FF',
-  }, 1.75)
+  }, 1.25)
 
   tl.to('.hero_introtext', {
-    y: '-50vh',
+    y: '-100',
     opacity: 0,
+    duration: 0.5
   }, 2.25)
 
   tl.fromTo('.hero_payofftext', {
     autoAlpha: 0
   }, {
     autoAlpha: 1,
-  }, 2.5)
+    duration: 0.25
+  }, 2.6)
 
   tl.from('.hero_payofftext_main, .hero_payofftext_sub', {
-    yPercent: 100,
-  }, 2.25)
+    y: 100,
+  }, 2.6)
 }

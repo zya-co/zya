@@ -40,7 +40,11 @@
       margin-top: 0.5em;
     }
     & :global(p + h2), 
-    & :global(p + h3) {
+    & :global(p + h3), 
+    & :global(ol + h2), 
+    & :global(ol + h3), 
+    & :global(ul + h2), 
+    & :global(ul + h3) {
       margin-top: 0.75em;
     }
     & :global(:first-child) {
@@ -169,7 +173,11 @@
       margin-top: 0.5em;
     }
     & :global(p + h2), 
-    & :global(p + h3) {
+    & :global(p + h3), 
+    & :global(ol + h2), 
+    & :global(ol + h3), 
+    & :global(ul + h2), 
+    & :global(ul + h3) {
       margin-top: 0.75em;
     }
     & :global(:first-child) {
