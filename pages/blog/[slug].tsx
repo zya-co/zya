@@ -37,7 +37,7 @@ export default function Page(props) {
 }
 
 export const getStaticPaths = async ({ preview = false }) => {
-  const blogpostsResponse = await getBlogposts({ preview });
+  const blogpostsResponse = await client.queries.blogpostConnection();
   
   const pageslugs = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return `/blog/${edge?.node?._sys.filename}`;
@@ -60,7 +60,7 @@ export const getStaticProps = async ({ params, preview = false }) => {
 
   return {
     // the post is not found if its a draft and the preview is false
-    notFound: data?.blogpost?.isDraft && !preview,
+    // notFound: data?.blogpost?.isDraft && !preview,
     props: {
       preview,
       data,

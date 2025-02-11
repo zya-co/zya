@@ -38,7 +38,9 @@ export const getStaticProps = async () => {
     relativePath: "home.mdx",
   });
 
-  const blogpostsResponse = await getBlogposts({ preview: false });
+  const blogpostsResponse = await client.queries.blogpostConnection({ 
+    filter: { isDraft: { eq: false } }
+   });
   
   let latestBlogPosts = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return {
