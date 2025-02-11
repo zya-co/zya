@@ -6,7 +6,6 @@ import { Blocks } from "../components/Blocks";
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
 import FooterLinks from "../components/footer/FooterLinks";
-import { getBlogposts } from "../util/getBlogposts";
 
 export default function Page(props) {
 
@@ -53,7 +52,9 @@ export const getStaticProps = async ({ params }) => {
     relativePath: `${params.slug}.mdx`,
   });
 
-  const pagesResponse = await getBlogposts({ preview: false });
+  const pagesResponse = await client.queries.blogpostConnection({ 
+    filter: { isDraft: { eq: false } }
+   });
   let latestBlogPosts = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
     return {
       title: edge?.node?.meta?.title,

@@ -7,7 +7,6 @@ import { Footer } from "../../components/footer/Footer";
 import FooterLinks from "../../components/footer/FooterLinks";
 import { Layout } from "../../components/Layout";
 import { ScrollSmooth } from "../../components/ScrollSmooth";
-import { getBlogposts } from "../../util/getBlogposts";
 
 export default function Page(props) {
 

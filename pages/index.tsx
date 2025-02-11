@@ -6,7 +6,6 @@ import { Blocks } from "../components/Blocks";
 import { Layout } from "../components/Layout";
 import { ScrollSmooth } from "../components/ScrollSmooth";
 import FooterLinks from "../components/footer/FooterLinks";
-import { getBlogposts } from "../util/getBlogposts";
 
 export default function Home(props) {
 
