@@ -64,10 +64,10 @@ export default function LatestBlogPosts({data, posts}) {
             {posts && posts.length > 1 && posts.map((post, i: number) => (
                 i >= 1 && i <= 2 &&
                   <div key={i} className={styles.post}>
-                    <Link href={`/blog/${post.filename}`}>
+                    <Link href={`/blog/${post.filename} ?? '#'`}>
                       <h3 className={styles.title}>{post.title ? post.title : 'No title'}</h3>
                     </Link>
-                    <Link href={`/blog/${post.filename}`}>
+                    <Link href={`/blog/${post.filename} ?? '#'`}>
                       <p className={styles.description}>{post?.description ? post.description : 'No description'}</p>
                     </Link>
                     <div className={styles.footer}>
@@ -102,7 +102,7 @@ export default function LatestBlogPosts({data, posts}) {
           {data.showMore && !isCollapsed && posts.map((post, i: number) => (
               i >= 3 &&
                 <div key={i} className={styles.post}>
-                  <Link href={`/blog/${post.filename}`}>
+                  <Link href={`/blog/${post.filename} ?? '#'`}>
                     <h3 className={styles.title}>{post.title ? post.title : 'No title'}</h3>
                   </Link>
                   <div className={styles.footer}>

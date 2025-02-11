@@ -75,14 +75,14 @@ export const Navigation = (props) => {
             <Link 
               key={'link_' + i} 
               className={`mainNav__linkList__link ${styles.mainNav__linkList__link} ${navitem.link === '/'+currentSlug && styles.currentLink}`} 
-              href={navitem.link}
+              href={navitem.link ?? '#'}
               onClick={() => setNavOpen(false)}
             >
               {navitem.label}
             </Link>
           )
         })}
-        <Link className={styles.mainNav__cta} href={ctaData.link} onClick={() => setNavOpen(false)}>
+        <Link className={styles.mainNav__cta} href={ctaData.link ?? '#'} onClick={() => setNavOpen(false)}>
           {ctaData.label}
         </Link>
       </div>

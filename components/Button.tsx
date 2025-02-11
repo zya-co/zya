@@ -30,7 +30,7 @@ export default function Button(props) {
   } else {
     return (
       <Link 
-        href={props.href || '#'} 
+        href={props.href ?? '#'} 
         className={classNames.join(' ')}
       >
         {props.children}

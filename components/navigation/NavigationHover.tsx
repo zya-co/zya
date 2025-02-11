@@ -293,6 +293,7 @@ export default function NavigationHover(container, currentPage){
         }
 
         const linkRect = () => { return link.getBoundingClientRect() }
+        
         if (!currentUri || currentUri === '' || currentUri === '/') {
           currentLink = -1;
           gsap.to('.mainNavHoverCircleGroup', {
@@ -346,8 +347,6 @@ export default function NavigationHover(container, currentPage){
 
     initNav();
     
-    console.log('currentUri: -'+currentUri+'-')
-
     return () => {
       links.forEach((link: any) => {
         if (link._mouseEnterHandler && link._mouseLeaveHandler) {
