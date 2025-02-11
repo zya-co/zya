@@ -4,6 +4,7 @@ import { aeonik, haben } from '../styles/fonts';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Navigation } from '../components/navigation/Navigation';
+import { ScrollSmooth } from '../components/ScrollSmooth';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
@@ -40,7 +41,9 @@ const App = ({ Component, pageProps }) => {
             `}
           </style>
           <Navigation navData={pageProps.nav} current={currentRoute} />
-          <Component {...pageProps} />
+          <ScrollSmooth>
+            <Component {...pageProps} />
+          </ScrollSmooth>
         </main>
     </>
   );

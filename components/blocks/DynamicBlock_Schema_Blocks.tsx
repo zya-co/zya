@@ -262,14 +262,14 @@ export const container = {
 }
 
 function getFirstText(item) {
-  if (!item.richtext || !item.richtext.children ) {
+  if (!item.richtext || !item.richtext.children[0] ) {
     return 'Empty Block';
   }
-  else if (item.richtext.children[0].name === 'Cta') {
+  else if (item.richtext.children[0]?.name === 'Cta') {
     return 'CTA Button';
   } 
-  else if (item.richtext.children[0].name === 'customImage') {
-    const imageDescription = item.richtext.children[0].props.alt
+  else if (item.richtext.children[0]?.name === 'customImage') {
+    const imageDescription = item.richtext.children[0]?.props.alt
     if (imageDescription) {
       return 'Image: ' + imageDescription;
     } 
@@ -277,11 +277,11 @@ function getFirstText(item) {
       return 'Custom Image';
     }
   } 
-  else if (item.richtext.children[0].name === 'inlineFormat') {
+  else if (item.richtext.children[0]?.name === 'inlineFormat') {
     return item.richtext.children[0].props.text
   }
   else {
-    const fullText = item.richtext.children[0].children.map((child) => {
+    const fullText = item.richtext.children[0]?.children.map((child) => {
       if (child.type === 'text') {
         return child.text;
       }
