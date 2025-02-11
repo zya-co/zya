@@ -62,6 +62,11 @@ main {
   font-family: var(--font-aeonik);
   font-feature-settings: 'ss01' on, 'ss04' on, 'ss06' on, 'ss07' on;
 }
+#smooth-content {
+  will-change: transform !important;
+  width: 100vw!important;
+  overflow-x: hidden;
+}
 p, li, input, textarea, button, td, th, label, select, option {
   font-family: var(--font-aeonik);
   font-size: var(--size-body);

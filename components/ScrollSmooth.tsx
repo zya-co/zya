@@ -57,7 +57,7 @@ export const ScrollSmooth = (props) => {
   
   return (
     <div id="smooth-wrapper" ref={smoothRef}>
-      <div id="smooth-content" style={{'willChange': 'transform'}}>
+      <div id="smooth-content" style={{'willChange': 'transform', width: '100vw'}}>
         {props.children}
       </div>
     </div>
