@@ -8,7 +8,7 @@ import FooterLinks from "../components/footer/FooterLinks";
 
 export default function Page(props) {
 
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
+  // data passes through in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
@@ -17,10 +17,10 @@ export default function Page(props) {
 
   return (
     <Layout
-    description={data?.page?.meta?.description}
-    title={data?.page?.meta?.title}
-    metaimg={data?.page?.meta?.image}
-  >
+      description={data?.page?.meta?.description}
+      title={data?.page?.meta?.title}
+      metaimg={data?.page?.meta?.image}
+    >
       {/* <ScrollSmooth> */}
         <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
         <FooterLinks navData={props.footerNav} />
@@ -30,6 +30,7 @@ export default function Page(props) {
 }
 
 export const getStaticPaths = async () => {
+  
   const pagesResponse = await client.queries.pageConnection()
 
   const pageslugs = pagesResponse.data.pageConnection.edges?.map((edge) => {
@@ -48,10 +49,11 @@ export const getStaticProps = async ({ params }) => {
     relativePath: `${params.slug}.mdx`,
   });
 
-  const pagesResponse = await client.queries.blogpostConnection({ 
+  const blogpostsResponse = await client.queries.blogpostConnection({ 
     filter: { isDraft: { eq: false } }
    });
-  let latestBlogPosts = pagesResponse.data.blogpostConnection.edges?.map((edge) => {
+  
+  let latestBlogPosts = blogpostsResponse.data.blogpostConnection.edges?.map((edge) => {
     return {
       title: edge?.node?.meta?.title,
       description: edge?.node?.meta?.description,
@@ -81,7 +83,6 @@ export const getStaticProps = async ({ params }) => {
   
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
   const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
-
 
   return {
     props: {

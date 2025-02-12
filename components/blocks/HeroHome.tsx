@@ -16,7 +16,7 @@ export const HeroHome = (props) => {
     if (container.current) {
       heroHomeAnimation(container.current);
     }
-  }, {scope: container, dependencies: [container]});
+  }, {scope: container});
   
   const data = props.data
   

@@ -6,7 +6,7 @@ export default function heroHomeAnimation(container) {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  setTimeout(() => {
+  // setTimeout(() => {
     let isMobile = window.innerWidth < 641;
 
     const parent = container as HTMLElement;
@@ -142,5 +142,5 @@ export default function heroHomeAnimation(container) {
     
     tl.addLabel('end');
     
-  }, 100);
+  // }, 100);
 }
