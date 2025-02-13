@@ -285,14 +285,6 @@ export default function NavigationHover(container, currentPage){
 
     const initNav = contextSafe(() => {
 
-      console.log('cleaning up', links)
-      links.forEach((link: any) => {
-        if (link._mouseEnterHandler && link._mouseLeaveHandler) {
-          link.removeEventListener('mouseenter', link._mouseEnterHandler);
-          link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-        }
-      });
-
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
           return link.href.endsWith(`/${currentUri}`)
