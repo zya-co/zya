@@ -4,6 +4,7 @@ import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './HeroHome.module.css'
 import RichText from '../RichText';
+import DarkElement from '../DarkElement';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
@@ -72,8 +73,7 @@ export const HeroHome = (props) => {
         pin: true,
         scrub: true,
       },
-      defaults: { ease: 'none' },
-      paused: true,
+      defaults: { ease: 'none' }
     });
 
     tl.addLabel('start');
@@ -168,9 +168,9 @@ export const HeroHome = (props) => {
     
     tl.addLabel('end');
 
-  }, {scope: refcontainer, dependencies: [refcontainer], revertOnUpdate: true});
+  }, {scope: refcontainer, dependencies: [], revertOnUpdate: true});
   
-  const data = props.data
+  const data = props.data;
   
   return (
     <div className={`heroHome ${styles.heroHome}`} ref={refcontainer}>
@@ -212,6 +212,17 @@ export const HeroHome = (props) => {
             </div>
           </div>
       </div>
+      {/* The following is a hack to get the navigation color to change even though all the elements in the heroHome are fixed positioned and so on */}
+        <DarkElement>
+          <div style={{
+            'position': 'relative',
+            'marginTop': '-200vh',
+            'height': '200vh',
+            'width': '100%',
+            'opacity': '1' 
+          }}>
+          </div>
+        </DarkElement>
     </div>
   )
 }

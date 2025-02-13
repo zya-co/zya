@@ -1,5 +1,6 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
+import DarkElement from '../DarkElement';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react/dist";
@@ -18,7 +19,6 @@ export default function HeroConvero(props) {
       const windowH = window.innerHeight;
   
       let tl = gsap.timeline({ 
-        paused: true,
         defaults: { duration: 1, ease: 'none' },
         scrollTrigger: {
           trigger: gsapRef.current,
@@ -26,7 +26,6 @@ export default function HeroConvero(props) {
           end: `+=${7 * windowH}`,
           scrub: true,
           pin: true,
-          // markers: true,
         },
         onComplete: () => {
           document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
@@ -60,14 +59,6 @@ export default function HeroConvero(props) {
         color: '#340E32',
       },{
         color: '#E681FF',
-        onComplete: () => {
-          document.querySelector('.mobileHeader')?.setAttribute('data-isLight', 'true');
-          document.querySelector('.mainNav')?.setAttribute('data-isLight', 'true');
-        },
-        onReverseComplete: () => {
-          document.querySelector('.mobileHeader')?.removeAttribute('data-isLight');
-          document.querySelector('.mainNav')?.removeAttribute('data-isLight');
-        },
       }, 1.25)
 
       tl.to('.hero_introtext', {
@@ -88,7 +79,12 @@ export default function HeroConvero(props) {
       }, 2.6)
 
 
-    }, {scope: gsapRef, dependencies: [gsapRef.current], revertOnUpdate: true});
+
+      return () => {
+         
+      }
+
+    }, {scope: gsapRef, dependencies: [], revertOnUpdate: true});
 
   return (
     <>
@@ -100,6 +96,17 @@ export default function HeroConvero(props) {
             <h4 className={`hero_payofftext_sub ${styles.hero_payofftext_sub}`}>Introducing a groundbreaking approach to nutrition through enzymatic innovation: Convero.</h4>
           </div>
       </div>
+      <DarkElement>
+        <div style={{
+          'position': 'relative',
+          'marginTop': '-280vh',
+          'marginBottom': '-1px',
+          'height': '280vh',
+          'width': '100%',
+          'opacity': '1' 
+        }}>
+        </div>
+      </DarkElement>
     </>
   )
 }

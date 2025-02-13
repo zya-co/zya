@@ -1,6 +1,6 @@
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
@@ -8,11 +8,24 @@ export default function NavigationHover(container, currentPage){
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   
-  // runs once on initial render
+  // runs once on initial render, creating the animation timeline
   useGSAP((context, contextSafe) => {
-    
-    // console.log('init Nav useGSAP')
 
+    const circWidthVw = 2.3
+    const circdist = 45
+    const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
+    const navBarHeight = document.querySelector('.mainNav')?.getBoundingClientRect().height || 0;
+
+    const circleGroupOriginCoords = () => { 
+      let coords = {
+        x: window.innerWidth/2.5, 
+        y: `${0.5 * navBarHeight}`, 
+        height: 0, 
+        width: (maxgroupWidth/100*window.innerWidth)
+      };
+      return coords;
+    };
+    
     const linksCoords = () => {
       const links = Array.from(document.querySelectorAll('.mainNav__linkList__link'));
       const linkmap = links.map((link: HTMLAnchorElement) => {
@@ -49,21 +62,6 @@ export default function NavigationHover(container, currentPage){
       document.querySelector('.mainNavHoverCircleGroup')?.appendChild(circle);
     }
 
-    const circWidthVw = 2.3
-    const circdist = 45
-    const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
-    const navBarHeight = () => { return document.querySelector('.mainNav')?.getBoundingClientRect().height || 0 }
-
-    const circleGroupOriginCoords = () => { 
-      let coords = {
-        x: window.innerWidth/2, 
-        y: `${0.5 * navBarHeight()}`, 
-        height: 0, 
-        width: (maxgroupWidth/100*window.innerWidth)
-      };
-      return coords;
-    };
-
     setGroupOriginPos();
 
     gsap.set('.mainNavHoverCircle', {
@@ -73,6 +71,12 @@ export default function NavigationHover(container, currentPage){
       borderRadius: '50%',
       position: 'absolute',
     })
+
+    const null_x = linksCoords()[0].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[0].width - 0.5 * circleGroupOriginCoords().width;
+    const one_x = linksCoords()[1].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[1].width - 0.5 * circleGroupOriginCoords().width;
+    const two_x = linksCoords()[2].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[2].width - 0.5 * circleGroupOriginCoords().width;
+    const four_x = linksCoords()[3].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[3].width - 0.5 * circleGroupOriginCoords().width;
+    const six_x = linksCoords()[4].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[4].width - 0.5 * circleGroupOriginCoords().width;
 
     const tlMorphFunction = contextSafe(() => {
 
@@ -88,7 +92,6 @@ export default function NavigationHover(container, currentPage){
 
       tl.addLabel('null')
 
-      const null_x = linksCoords()[0].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[0].width - 0.5 * circleGroupOriginCoords().width;
 
       tl.to('.mainNavHoverCircleGroup', {
         rotate: 0,
@@ -111,11 +114,9 @@ export default function NavigationHover(container, currentPage){
       
       tl.addLabel('one')
 
-      const one_x = linksCoords()[1].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[1].width - 0.5 * circleGroupOriginCoords().width;
-      
       tl.to('.mainNavHoverCircleGroup', {
         rotate: 45,
-        y: `${0.125 * navBarHeight()}`,
+        y: `${0.125 * navBarHeight}`,
         x: `${one_x}px`,
         autoAlpha: 1,
         onStart: () => {
@@ -140,7 +141,7 @@ export default function NavigationHover(container, currentPage){
       tl.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
-        x: `${linksCoords()[2].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[2].width - 0.5 * circleGroupOriginCoords().width}px`,
+        x: `${two_x}px`,
         autoAlpha: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
@@ -170,7 +171,7 @@ export default function NavigationHover(container, currentPage){
       tl.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
-        x: `${linksCoords()[3].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[3].width - 0.5 * circleGroupOriginCoords().width}px`,
+        x: `${four_x}px`,
         autoAlpha: 1,
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
@@ -200,7 +201,7 @@ export default function NavigationHover(container, currentPage){
       tl.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
-        x: `${linksCoords()[4].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[4].width - 0.5 * circleGroupOriginCoords().width}px`,
+        x: `${six_x}px`,
         autoAlpha: 1,
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
@@ -232,8 +233,9 @@ export default function NavigationHover(container, currentPage){
 
     timelineRef.current = tlMorphFunction();
 
+    console.log('context 0: ', context.data)
+
     return () => {
-      // console.log('cleaning up first Nav useGSAP')
       window.removeEventListener('resize', setGroupOriginPos);
     }
 
