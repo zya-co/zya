@@ -69,12 +69,11 @@ export const HeroHome = (props) => {
         trigger: parent,
         start: 'top top',
         end: `+=${1.25 * fullHeight}px`,
-        // end: 'bottom top',
         pin: true,
         scrub: true,
-        // markers: true,
       },
-      defaults: { ease: 'none' }
+      defaults: { ease: 'none' },
+      paused: true,
     });
 
     tl.addLabel('start');

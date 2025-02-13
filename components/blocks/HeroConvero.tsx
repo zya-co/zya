@@ -1,6 +1,5 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
-import DarkElement from '../DarkElement';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react/dist";
@@ -19,6 +18,7 @@ export default function HeroConvero(props) {
       const windowH = window.innerHeight;
   
       let tl = gsap.timeline({ 
+        paused: true,
         defaults: { duration: 1, ease: 'none' },
         scrollTrigger: {
           trigger: gsapRef.current,
