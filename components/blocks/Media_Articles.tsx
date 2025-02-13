@@ -25,16 +25,15 @@ export default function Media_Articles({data}) {
       x: -distanceFirstToLastX,
       duration: 8,
     });
-    
-    window.addEventListener('resize', () => {
+
+    const resizeHandler = () => {
       distanceFirstToLastX = getDistance();
       tl.to(smoothRef.current, {
         x: -distanceFirstToLastX,
         duration: 8,
       });
-    });
+    }
     
-
     ScrollTrigger.create({
       trigger: smoothRef.current,
       start: '100% 80%',
@@ -46,8 +45,17 @@ export default function Media_Articles({data}) {
       toggleActions: 'play none none none',
     });
 
+    window.addEventListener('resize', resizeHandler);
 
-  }, {scope: smoothRef});
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    }
+
+  }, {
+    scope: smoothRef, 
+    dependencies: [data], 
+    revertOnUpdate : true
+  });
 
   return (
     <div className={styles.articles} >

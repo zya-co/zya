@@ -285,6 +285,13 @@ export default function NavigationHover(container, currentPage){
     const initNav = contextSafe(() => {
       
       console.log('initNav', currentPage);
+
+      const existingTweens = context.data;
+
+      console.log('existingTweens', existingTweens)
+      // existingTweens.forEach((tween) => {
+      //   tween.kill();
+      // })
       
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
@@ -316,12 +323,6 @@ export default function NavigationHover(container, currentPage){
 
         links.forEach((link: any, i) => {
 
-          if (link._mouseEnterHandler && link._mouseLeaveHandler) {
-            // console.log('removing event listeners')
-            link.removeEventListener('mouseenter', link._mouseEnterHandler);
-            link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-          }
-
           const mouseEnter = mouseEnterHandler;
           const mouseLeave = mouseLeaveHandler;
           link.addEventListener('mouseenter', mouseEnter);
@@ -337,12 +338,6 @@ export default function NavigationHover(container, currentPage){
       else {
 
         links.forEach((link: any, i) => {
-  
-          if (link._mouseEnterHandler && link._mouseLeaveHandler) {
-            // console.log('removing event listeners')
-            link.removeEventListener('mouseenter', link._mouseEnterHandler);
-            link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-          }
   
           const linkRect = () => { return link.getBoundingClientRect() }
 
@@ -385,8 +380,10 @@ export default function NavigationHover(container, currentPage){
 
     initNav();
     
+    // console.log('context:', context)
+
     return () => {
-      
+
       console.log('pre cleaning up')
       
       links.forEach((link: any) => {
@@ -402,6 +399,6 @@ export default function NavigationHover(container, currentPage){
       });
     }
 
-  }, { scope: container, dependencies: [currentPage] });
+  }, { scope: container, dependencies: [currentPage] , revertOnUpdate: true});
 
 }
