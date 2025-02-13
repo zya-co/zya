@@ -12,11 +12,15 @@ export default function HeroConvero(props) {
 
   const gsapRef = useRef(null);
 
-  useGSAP(() => {
+  useGSAP((context, contextSafe) => {
     
     if(!gsapRef.current) return;
     
     const windowH = window.innerHeight;
+
+    const showIndexNav = contextSafe(() => {
+      document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
+    })
 
     let tl = gsap.timeline({ 
       defaults: { duration: 1, ease: 'none' },
@@ -26,11 +30,8 @@ export default function HeroConvero(props) {
         end: `+=${7 * windowH}`,
         scrub: true,
         pin: true,
-        immediateRender:false,
       },
-      onComplete: () => {
-        document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
-      }
+      onComplete: showIndexNav,
     });
 
     tl.set('.enzyme1',  {
@@ -80,7 +81,10 @@ export default function HeroConvero(props) {
     }, 2.6)
 
     return () => {
-      console.log('cleanup heroConvero');
+      console.log('cleaning up', context);
+      context.clear();
+      console.log('cleaning up after', context);
+      tl.clear();
       tl.kill();
     }
     

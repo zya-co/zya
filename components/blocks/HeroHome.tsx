@@ -126,18 +126,18 @@ export const HeroHome = (props) => {
       rotate: -30,
       ease: 'power2.in',
       duration: .25,
-      onComplete: () => {
-        const nav = document.querySelector('.mainNav') as HTMLElement;
-        const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
-        mobileHeader?.setAttribute('data-isLight', 'true');
-        nav?.setAttribute('data-isLight', 'true');
-      },
-      onReverseComplete: () => {
-        const nav = document.querySelector('.mainNav') as HTMLElement;
-        const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
-        mobileHeader?.removeAttribute('data-isLight');
-        nav?.removeAttribute('data-isLight');
-      }
+      // onComplete: () => {
+      //   const nav = document.querySelector('.mainNav') as HTMLElement;
+      //   const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
+      //   mobileHeader?.setAttribute('data-isLight', 'true');
+      //   nav?.setAttribute('data-isLight', 'true');
+      // },
+      // onReverseComplete: () => {
+      //   const nav = document.querySelector('.mainNav') as HTMLElement;
+      //   const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
+      //   mobileHeader?.removeAttribute('data-isLight');
+      //   nav?.removeAttribute('data-isLight');
+      // }
     }, 'shape3+=.25')
     tl.to('.heroContentWrapper', {
       zIndex: 5,
@@ -168,6 +168,7 @@ export const HeroHome = (props) => {
     tl.addLabel('end');
 
     return () => {
+      tl.clear();
       tl.kill();
     }
 
