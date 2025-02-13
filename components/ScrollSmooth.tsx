@@ -20,7 +20,7 @@ export const ScrollSmooth = (props) => {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
-      // smoothTouch: true,
+      smoothTouch: 0.1,
       wrapper: smoothRef.current,
       content: smoothContent,
     });  
