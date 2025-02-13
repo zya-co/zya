@@ -60,6 +60,14 @@ export default function HeroConvero(props) {
         color: '#340E32',
       },{
         color: '#E681FF',
+        onComplete: () => {
+          document.querySelector('.mobileHeader')?.setAttribute('data-isLight', 'true');
+          document.querySelector('.mainNav')?.setAttribute('data-isLight', 'true');
+        },
+        onReverseComplete: () => {
+          document.querySelector('.mobileHeader')?.removeAttribute('data-isLight');
+          document.querySelector('.mainNav')?.removeAttribute('data-isLight');
+        },
       }, 1.25)
 
       tl.to('.hero_introtext', {
@@ -92,17 +100,6 @@ export default function HeroConvero(props) {
             <h4 className={`hero_payofftext_sub ${styles.hero_payofftext_sub}`}>Introducing a groundbreaking approach to nutrition through enzymatic innovation: Convero.</h4>
           </div>
       </div>
-      <DarkElement>
-        <div style={{
-          'position': 'relative',
-          'marginTop': '-150vh',
-          'marginBottom': '-1px',
-          'height': '150vh',
-          'width': '100%',
-          'opacity': '1' 
-        }}>
-        </div>
-      </DarkElement>
     </>
   )
 }

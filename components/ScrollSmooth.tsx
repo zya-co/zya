@@ -20,7 +20,7 @@ export const ScrollSmooth = (props) => {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
-      smoothTouch: true,
+      // smoothTouch: true,
       wrapper: smoothRef.current,
       content: smoothContent,
     });  
@@ -40,7 +40,7 @@ export const ScrollSmooth = (props) => {
     }, 300);
 
     return () => {
-      // clearTimeout(delayedInitFunction);
+      clearTimeout(delayedInitFunction);
     }
 
   }, {

@@ -13,7 +13,6 @@ export const HeroHome = (props) => {
   gsap.registerPlugin(useGSAP, ScrollTrigger);
   const refcontainer = useRef<HTMLDivElement | null>(null);
 
-  
   useGSAP(() => {
 
     if(!refcontainer.current) return;
@@ -134,6 +133,12 @@ export const HeroHome = (props) => {
         const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
         mobileHeader?.setAttribute('data-isLight', 'true');
         nav?.setAttribute('data-isLight', 'true');
+      },
+      onReverseComplete: () => {
+        const nav = document.querySelector('.mainNav') as HTMLElement;
+        const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
+        mobileHeader?.removeAttribute('data-isLight');
+        nav?.removeAttribute('data-isLight');
       }
     }, 'shape3+=.25')
     tl.to('.heroContentWrapper', {
@@ -164,7 +169,7 @@ export const HeroHome = (props) => {
     
     tl.addLabel('end');
 
-  }, {scope: refcontainer, revertOnUpdate: true});
+  }, {scope: refcontainer, dependencies: [refcontainer], revertOnUpdate: true});
   
   const data = props.data
   
