@@ -2,13 +2,13 @@ import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
 import DarkElement from '../DarkElement';
 import { useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function HeroConvero(props) {
 
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
   const gsapRef = useRef(null);
 
@@ -26,6 +26,7 @@ export default function HeroConvero(props) {
         end: `+=${7 * windowH}`,
         scrub: true,
         pin: true,
+        immediateRender:false,
       },
       onComplete: () => {
         document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
@@ -79,6 +80,7 @@ export default function HeroConvero(props) {
     }, 2.6)
 
     return () => {
+      console.log('cleanup heroConvero');
       tl.kill();
     }
     

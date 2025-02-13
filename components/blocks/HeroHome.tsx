@@ -5,13 +5,13 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './HeroHome.module.css'
 import RichText from '../RichText';
 import DarkElement from '../DarkElement';
-import gsap from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
 
 export const HeroHome = (props) => {
   
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
   const refcontainer = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
@@ -20,8 +20,6 @@ export const HeroHome = (props) => {
 
     const container = refcontainer.current;
     
-    gsap.registerPlugin(ScrollTrigger);
-
   // setTimeout(() => {
     let isMobile = window.innerWidth < 641;
 
@@ -72,6 +70,7 @@ export const HeroHome = (props) => {
         end: `+=${1.25 * fullHeight}px`,
         pin: true,
         scrub: true,
+        immediateRender:false,
       },
       defaults: { ease: 'none' }
     });

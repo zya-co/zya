@@ -1,9 +1,10 @@
 import { useRef, useEffect, useState } from "react";
 import styles from './IndexNav.module.css';
-import gsap from "gsap";
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollSmoother from "gsap/dist/ScrollSmoother";
 
-gsap.registerPlugin(ScrollSmoother);
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 export default function IndexNav(props) {
   const indexNav = useRef<HTMLDivElement | null>(null);
