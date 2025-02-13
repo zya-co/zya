@@ -55,12 +55,6 @@ export const Blocks = (props) => {
                 <HomeFounders data={block} />
               </React.Fragment>
             )
-          case "PageBlocksHeroMission":
-            return (
-              <React.Fragment key={i + block.__typename}>
-                <HeroMission data={block} />
-              </React.Fragment>
-            )
           case "PageBlocksHeroApproach":
             return (
               <React.Fragment key={i + block.__typename}>

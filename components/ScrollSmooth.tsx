@@ -28,19 +28,19 @@ export const ScrollSmooth = (props) => {
     const delayedInitFunction = setTimeout(() => {
       
       const hash = window.location.hash;
-      console.log('hash', hash);
+      // console.log('hash', hash);
       
       if (hash) {
         const hashElement = document.querySelector(`${hash}`);
         if (!hashElement) return;
         smoother.scrollTo(hashElement, true, "top top");
-        console.log('hashElement', hashElement);
+        // console.log('hashElement', hashElement);
       }
 
-    }, 500);
+    }, 300);
 
     return () => {
-      clearTimeout(delayedInitFunction);
+      // clearTimeout(delayedInitFunction);
     }
 
   }, {

@@ -5,7 +5,6 @@ import { heroHome } from './pageblocks/heroHome';
 import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
 import { contentTextAndImg } from './pageblocks/contentTextAndImg';
 import { homeFounders } from './pageblocks/homeFounders';
-import { heroMission } from './pageblocks/heroMission';
 import { heroApproach } from './pageblocks/heroApproach';
 import { contentText } from './pageblocks/contentText';
 import { comparison } from './pageblocks/comparison';
@@ -59,7 +58,6 @@ export default {
       label: 'Sections',
       templates: [ 
         heroHome,
-        heroMission,
         heroApproach,
         heroTeam,
         contentFullSizeImgBg,

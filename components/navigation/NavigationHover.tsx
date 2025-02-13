@@ -1,22 +1,33 @@
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
 
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
+  
   // runs once on initial render
   useGSAP((context, contextSafe) => {
+    
+    // console.log('init Nav useGSAP')
 
-    function setGroupPos() {
+    const linksCoords = () => {
+      const links = Array.from(document.querySelectorAll('.mainNav__linkList__link'));
+      const linkmap = links.map((link: HTMLAnchorElement) => {
+        return link.getBoundingClientRect()
+      });
+      return linkmap;
+    }
+
+    function setGroupOriginPos() {
       gsap.set('.mainNavHoverCircleGroup', {
         position: 'absolute',
-        left: circleGroupCoords().x,
-        top: circleGroupCoords().y,
+        left: circleGroupOriginCoords().x,
+        top: circleGroupOriginCoords().y,
         autoAlpha: 0,
-        width: circleGroupCoords().width,
+        width: circleGroupOriginCoords().width,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -25,7 +36,7 @@ export default function NavigationHover(container, currentPage){
       })
     }
     
-    window.addEventListener('resize', setGroupPos)
+    window.addEventListener('resize', setGroupOriginPos)
 
     // add circles and style them with gsap
     const circleGroup = document.createElement('div');
@@ -43,7 +54,7 @@ export default function NavigationHover(container, currentPage){
     const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
     const navBarHeight = () => { return document.querySelector('.mainNav')?.getBoundingClientRect().height || 0 }
 
-    const circleGroupCoords = () => { 
+    const circleGroupOriginCoords = () => { 
       let coords = {
         x: window.innerWidth/2, 
         y: `${0.5 * navBarHeight()}`, 
@@ -53,7 +64,7 @@ export default function NavigationHover(container, currentPage){
       return coords;
     };
 
-    setGroupPos();
+    setGroupOriginPos();
 
     gsap.set('.mainNavHoverCircle', {
       backgroundColor: 'var(--color-fuchsia)',
@@ -66,128 +77,152 @@ export default function NavigationHover(container, currentPage){
     const tlMorphFunction = contextSafe(() => {
 
       const tl = gsap.timeline({
-        paused: true, 
-        defaults: { ease: 'none'},
+        paused: false,
+        repeat: -1,
+        repeatDelay: 0, 
+        defaults: { 
+          ease: 'none',
+          duration: 1,
+        },
       })
-      
+
       tl.addLabel('null')
+
+      const null_x = linksCoords()[0].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[0].width - 0.5 * circleGroupOriginCoords().width;
+
+      tl.to('.mainNavHoverCircleGroup', {
+        rotate: 0,
+        y: 0,
+        x: `${null_x}px`,
+        autoAlpha: 1,
+      }, 'null')
+
+      tl.to('.mainNavHoverCircle:nth-child(1)', {
+        transformOrigin: `${50 + circdist}% 50%`,
+        xPercent: 0,
+        rotate: 0,
+      }, 'null')
+
+      tl.to('.mainNavHoverCircle:not(:nth-child(1))', {
+        transformOrigin: `${50 + circdist}% 50%`,
+        xPercent: 0,
+        rotate: 0,
+      }, 'null')
+      
+      tl.addLabel('one')
+
+      const one_x = linksCoords()[1].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[1].width - 0.5 * circleGroupOriginCoords().width;
       
       tl.to('.mainNavHoverCircleGroup', {
         rotate: 45,
         y: `${0.125 * navBarHeight()}`,
-        duration: 1
-      }, 'null')
-      
+        x: `${one_x}px`,
+        autoAlpha: 1,
+        onStart: () => {
+          // console.log('one')
+        }
+      }, 'one')
+
       tl.to('.mainNavHoverCircle:nth-child(1)', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
         rotate: 0,
-        duration: 1
-      }, 'null')
+      }, 'one')
 
       tl.to('.mainNavHoverCircle:not(:nth-child(1))', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
         rotate: 90,
-        duration: 1
-      }, 'null')
+      }, 'one')
   
       tl.addLabel('two')
   
       tl.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
-        duration: 1
+        x: `${linksCoords()[2].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[2].width - 0.5 * circleGroupOriginCoords().width}px`,
+        autoAlpha: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 90,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 180,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 270,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 270,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 270,
-        duration: 1,
       }, 'two')
       tl.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 270,
-        duration: 1,
       }, 'two')
   
       tl.addLabel('four')
   
+      tl.to('.mainNavHoverCircleGroup', {
+        y: 0,
+        rotate: 0,
+        x: `${linksCoords()[3].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[3].width - 0.5 * circleGroupOriginCoords().width}px`,
+        autoAlpha: 1,
+      }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 60,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 120,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 180,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 240,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 300,
-        duration: 1
       }, 'four')
       tl.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 300,
-        duration: 1
       }, 'four')
   
       tl.addLabel('six')
   
+      tl.to('.mainNavHoverCircleGroup', {
+        y: 0,
+        rotate: 0,
+        x: `${linksCoords()[4].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[4].width - 0.5 * circleGroupOriginCoords().width}px`,
+        autoAlpha: 1,
+      }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 51.4,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 102.8,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 154.3,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 205.7,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 257.1,
-        duration: 1
       }, 'six')
       tl.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 308.6,
-        duration: 1
       }, 'six')
       
       tl.addLabel('seven')
@@ -198,8 +233,8 @@ export default function NavigationHover(container, currentPage){
     timelineRef.current = tlMorphFunction();
 
     return () => {
-      console.log('cleaning up first Nav useGSAP')
-      window.removeEventListener('resize', setGroupPos);
+      // console.log('cleaning up first Nav useGSAP')
+      window.removeEventListener('resize', setGroupOriginPos);
     }
 
   }, { scope: container, dependencies: [] });
@@ -208,20 +243,34 @@ export default function NavigationHover(container, currentPage){
   // runs on every nav update
   useGSAP((context, contextSafe) => {
 
+    console.log('context 0: ', context.data)
+
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
     const links = Array.from(document.querySelectorAll('.mainNav__linkList__link'))
+
+    links.forEach((link: any, i) => {
+
+      if (link._mouseEnterHandler && link._mouseLeaveHandler && link._clickHandler) {
+        link.removeEventListener('mouseenter', link._mouseEnterHandler);
+        link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+        link.removeEventListener('click', link._clickHandler);
+        // console.log('cleaned up', link)
+      }
+    })
+
+    const tweenArrayForCleanup = context.data;
+
+    tweenArrayForCleanup.forEach((tween) => {
+      tween.revert();
+    })
+
+    context.data = [];
+
     const currentUri = currentPage;
-    const circWidthVw = 2.3
-    const circdist = 45
-    const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
     let currentLink = -1;
-    function getcurrentLinkRect(){
-      return links[currentLink].getBoundingClientRect()
-    }
-    const navBarHeight = () => { return document.querySelector('.mainNav')?.getBoundingClientRect().height || 0 }
 
     const getLinkAnimLabel = (i) => {
-      const linkAnimLabel = i === 0 ? 'null' 
+      const linkAnimLabel = i === 0 ? 'one' 
                           : i === 1 ? 'two' 
                           : i === 2 ? 'four' 
                           : i === 3 ? 'six' 
@@ -230,26 +279,22 @@ export default function NavigationHover(container, currentPage){
       return linkAnimLabel;
     }
 
-    const circleGroupCoords = () => { 
-      let coords = {
-        x: window.innerWidth/2, 
-        y: `${0.5 * navBarHeight()}`, 
-        height: 0, 
-        width: (maxgroupWidth/100*window.innerWidth)
-      };
-      return coords;
-    };
+    const onEnterClickHandler = contextSafe((event) => {
+      const link = event.target;
+      link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+      if (timelineRef && timelineRef.current) {
+        const i = Array.from(links).indexOf(link);
+        const tlMorph = timelineRef.current as gsap.core.Timeline;
+        tlMorph.tweenTo(getLinkAnimLabel(i), {
+          duration: 0,
+        })
+      }
+    })
 
     const mouseEnterHandler = contextSafe((event) => {
       const link = event.target;
       const i = Array.from(links).indexOf(link);
-      const linkRect = () => { return link.getBoundingClientRect() }
-      gsap.to('.mainNavHoverCircleGroup', {
-        x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
-        duration: 0.5,
-        autoAlpha: 1,
-        ease: 'power2.out'
-      })
+      
       if (timelineRef && timelineRef.current) {
         const tlMorph = timelineRef.current as gsap.core.Timeline;
         tlMorph.tweenTo(getLinkAnimLabel(i), {
@@ -265,32 +310,24 @@ export default function NavigationHover(container, currentPage){
         return
       } 
       else {
-        gsap.to('.mainNavHoverCircleGroup', {
-          x : currentLink === -1 ? 0 : getcurrentLinkRect().x - circleGroupCoords().x + 0.5 * getcurrentLinkRect().width - 0.5 * circleGroupCoords().width,
-          autoAlpha: currentLink === -1 ? 0 : 1,
-          duration: 0.5
-        })
         if (timelineRef && timelineRef.current) {
           const tlMorph = timelineRef.current as gsap.core.Timeline;
           tlMorph.tweenTo(
-              currentLink === 0 ? 'null' 
+              currentLink === 0 ? 'one' 
             : currentLink === 1 ? 'two' 
             : currentLink === 2 ? 'four' 
             : currentLink === 3 ? 'six' 
             : currentLink === 4 ? 'seven' 
             : 'null', 
-            { duration: 0.5})
+            { 
+              duration: 0.5,
+              ease: 'power2.out'
+            })
           }
       }
     })
 
     const initNav = contextSafe(() => {
-      
-      console.log('initNav', currentPage);
-
-      const existingTweens = context.data;
-
-      console.log('existingTweens', existingTweens)
       
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
@@ -301,16 +338,6 @@ export default function NavigationHover(container, currentPage){
       // initNav: IF the current page is home or the currentpage is not a nav item
       if (currentPage === '' || currentPageIsNotInNav()) {
        
-        console.log('page is home or not in nav:', currentPage)
-        
-        // gsap.to('.mainNavHoverCircleGroup', {
-        //   x: 0,
-        //   duration: 0.5,
-        //   autoAlpha: 0,
-        //   ease: 'power2.out',
-        //   overwrite: true
-        // })
-
         if (timelineRef && timelineRef.current) {
           const tlMorph = timelineRef.current as gsap.core.Timeline;
           tlMorph.tweenTo(0, {
@@ -324,12 +351,15 @@ export default function NavigationHover(container, currentPage){
 
           const mouseEnter = mouseEnterHandler;
           const mouseLeave = mouseLeaveHandler;
+          const click = onEnterClickHandler;
           link.addEventListener('mouseenter', mouseEnter);
           link.addEventListener('mouseleave', mouseLeave);
+          link.addEventListener('click', click);
 
           // Store the handlers on the link element for later removal
           link._mouseEnterHandler = mouseEnter;
           link._mouseLeaveHandler = mouseLeave;
+          link._clickHandler = click;
         })
         
       }
@@ -338,18 +368,8 @@ export default function NavigationHover(container, currentPage){
 
         links.forEach((link: any, i) => {
   
-          const linkRect = () => { return link.getBoundingClientRect() }
-
           if (link.href.endsWith(`/${currentUri}`)) {
-            // console.log('current page is in nav', currentUri)
             currentLink = i;
-            gsap.to('.mainNavHoverCircleGroup', {
-              x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
-              duration: 0.5,
-              autoAlpha: 1,
-              ease: 'power2.out',
-              // overwrite: true
-            })
             if (timelineRef && timelineRef.current) {
               const tlMorph = timelineRef.current as gsap.core.Timeline;
               tlMorph.tweenTo(getLinkAnimLabel(i), {
@@ -359,18 +379,19 @@ export default function NavigationHover(container, currentPage){
               })
             }
           }
-          
           else {
             // console.log('else')
-            const mouseEnter = mouseEnterHandler;
-            const mouseLeave = mouseLeaveHandler;
-            link.addEventListener('mouseenter', mouseEnter);
-            link.addEventListener('mouseleave', mouseLeave);
-  
-            // Store the handlers on the link element for later removal
-            link._mouseEnterHandler = mouseEnter;
-            link._mouseLeaveHandler = mouseLeave;
-          
+          const mouseEnter = mouseEnterHandler;
+          const mouseLeave = mouseLeaveHandler;
+          const click = onEnterClickHandler;
+          link.addEventListener('mouseenter', mouseEnter);
+          link.addEventListener('mouseleave', mouseLeave);
+          link.addEventListener('click', click);
+
+          // Store the handlers on the link element for later removal
+          link._mouseEnterHandler = mouseEnter;
+          link._mouseLeaveHandler = mouseLeave;
+          link._clickHandler = click;
           }
         })
       }
@@ -379,25 +400,24 @@ export default function NavigationHover(container, currentPage){
 
     initNav();
     
-    // console.log('context:', context)
-
     return () => {
 
-      console.log('pre cleaning up')
+      // console.log('pre cleaning up')
       
       links.forEach((link: any) => {
 
-        console.log('cleaning up', link)
+        // console.log('cleaning up', link)
         
-        if (link._mouseEnterHandler && link._mouseLeaveHandler) {
+        if (link._mouseEnterHandler && link._mouseLeaveHandler && link._clickHandler) {
           link.removeEventListener('mouseenter', link._mouseEnterHandler);
           link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-          console.log('cleaned up', link)
+          link.removeEventListener('click', link._clickHandler);
+          // console.log('cleaned up', link)
         }
 
       });
     }
 
-  }, { scope: container, dependencies: [currentPage] , revertOnUpdate: true});
+  }, { scope: container, dependencies: [currentPage] , revertOnUpdate: false});
 
 }
