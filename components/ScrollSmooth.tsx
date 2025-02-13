@@ -10,7 +10,7 @@ export const ScrollSmooth = (props) => {
   
   gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
 
-  useGSAP(()=> {
+  useGSAP((context)=> {
 
     if(!smoothRef.current) return;
 
@@ -40,6 +40,7 @@ export const ScrollSmooth = (props) => {
     }, 300);
 
     return () => {
+      // console.log('cleanup scrollsmooth', context);
       clearTimeout(delayedInitFunction);
     }
 

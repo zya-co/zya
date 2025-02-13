@@ -168,6 +168,10 @@ export const HeroHome = (props) => {
     
     tl.addLabel('end');
 
+    return () => {
+      tl.kill();
+    }
+
   }, {scope: refcontainer, dependencies: [], revertOnUpdate: true});
   
   const data = props.data;

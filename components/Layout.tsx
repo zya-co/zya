@@ -14,8 +14,8 @@ export const Layout = (props) => {
     const darkElements = Array.from(document.querySelectorAll('.darkElement')) as HTMLElement[];
     const lightElements = Array.from(document.querySelectorAll('.lightElement')) as HTMLElement[];
 
-    console.log('darkElements', darkElements);
-    console.log('lightElements', lightElements);
+    // console.log('darkElements', darkElements);
+    // console.log('lightElements', lightElements);
 
     function isMobile() { 
       // console.log('isMobile!'); 
@@ -43,7 +43,7 @@ export const Layout = (props) => {
           const timeoutId = setTimeout(() => {
             nav?.setAttribute('data-isLight', 'true');
             mobileHeader?.setAttribute('data-isLight', 'true');
-            console.log('light added from', entry.target);
+            // console.log('light added from', entry.target);
           }, 10);
           // Store the timeout ID on the entry for cleanup
           (entry.target as any)._timeoutId = timeoutId;
