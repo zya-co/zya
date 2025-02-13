@@ -1,22 +1,16 @@
 import { useRef, useEffect, useState } from "react";
 import styles from './IndexNav.module.css';
-import { useRouter } from "next/router";
+import gsap from "gsap";
+import ScrollSmoother from "gsap/dist/ScrollSmoother";
+
+gsap.registerPlugin(ScrollSmoother);
 
 export default function IndexNav(props) {
-  const router = useRouter();
   const indexNav = useRef<HTMLDivElement | null>(null);
   const [pageAnchors, setPageAnchors] = useState<{ id: string, name: string }[]>([]);
 
-  
   useEffect(() => {
-    
-    router.events.on('routeChangeComplete', () => {
-      const navClone = document.querySelector('.indexNav--clone') as HTMLElement;
-      if (navClone) {
-        navClone.remove();
-      }
-    });
-    
+
     const anchors = Array.from(document.querySelectorAll('.dynamicBlock[id]:not([id=""])')).map((anchor) => {
       return {
         id: anchor.id,
@@ -25,61 +19,100 @@ export default function IndexNav(props) {
     });
 
     setPageAnchors(anchors);
+    console.log('pageAnchors', anchors);
 
-    const root = document.querySelector('#smooth-wrapper');
+  }, []);
+  
+  useEffect(() => {
+
+    let previouslyCreatedSmoother = ScrollSmoother.get();
+    
+    const navClone = document.querySelector('.indexNav--clone') as HTMLElement;
+    if (navClone) {
+      navClone.remove();
+    }
+    
+    const root = document.querySelector('main');
     const nav = indexNav.current as HTMLElement;
 
-    const delayedFunction = setTimeout(() => {
-      if (nav) {
-        const clone = nav.cloneNode(true) as HTMLElement;
-        clone.classList.add('indexNav--clone');
-        root?.appendChild(clone);
+    if (!nav) return;
 
-        // add an intersectionObserver that will add a class to the link in the indexnav when the section is in view
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            const id = entry.target.id;
-            const link = clone.querySelector(`a[href="#${id}"]`);
-            if (entry.isIntersecting) {
-              link?.setAttribute('data-inview', 'true');
-            } else {
-              link?.removeAttribute('data-inview');
-            }
-          });
-        }, {
-          rootMargin: '0px',
-          threshold: 0.1
-        });
+    const clone = nav.cloneNode(true) as HTMLElement;
+    clone.classList.add('indexNav--clone');
+    root?.appendChild(clone);
 
-        // Observe each section
-        anchors.forEach(anchor => {
-          const section = document.getElementById(anchor.id);
-          if (section) {
-            observer.observe(section);
+    const cloneLinks = clone.querySelectorAll('a');
+    cloneLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = e.target as HTMLElement;
+        if (targetElement) {
+          const id = targetElement.getAttribute('href') as string;
+          const target = document.querySelector(id);
+          if (target) {
+            previouslyCreatedSmoother?.scrollTo(target, true, 'top top');
           }
-        });
+        }
+      });
+    });
 
-        // Cleanup function
-        return () => {
-          
-          anchors.forEach(anchor => {
-            const section = document.getElementById(anchor.id);
-            if (section) {
-              observer.unobserve(section);
-            }
-          });
+    // add an intersectionObserver that will add a class to the link in the indexnav when the section is in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = clone.querySelector(`a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          link?.setAttribute('data-inview', 'true');
+        } else {
+          link?.removeAttribute('data-inview');
+        }
+      });
+    }, {
+      rootMargin: '0px',
+      threshold: 0.1
+    });
 
-          if (document.querySelector('.indexNav')) {
-            const indexNavs = document.querySelectorAll('.indexNav') as NodeListOf<HTMLElement>;
-            indexNavs.forEach( nav => nav.remove() )
-          }
-
-          clearTimeout(delayedFunction);
-        };
+    // Observe each section
+    pageAnchors.forEach(anchor => {
+      const section = document.getElementById(anchor.id);
+      if (section) {
+        observer.observe(section);
       }
-    }
-    , 100);
-  }, [indexNav]);
+    });
+
+    // Cleanup function
+    return () => {
+
+      cloneLinks.forEach(link => {
+        link.removeEventListener('click', (e) => {
+          e.preventDefault();
+          const targetElement = e.target as HTMLElement;
+          if (targetElement) {
+            const id = targetElement.getAttribute('href') as string;
+            const target = document.querySelector(id);
+            if (target) {
+              previouslyCreatedSmoother?.scrollTo(target, true, 'top top');
+            }
+          }
+        });
+      });
+      
+      pageAnchors.forEach(anchor => {
+        const section = document.getElementById(anchor.id);
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+      observer.disconnect();
+
+      if (document.querySelector('.indexNav--clone')) {
+        const indexNavs = document.querySelectorAll('.indexNav--clone') as NodeListOf<HTMLElement>;
+        indexNavs.forEach( nav => nav.remove() )
+      }
+
+    };
+
+  }, [pageAnchors]);
 
   return (
     <div

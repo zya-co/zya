@@ -59,6 +59,11 @@ export const imageBlock = {
       type: 'string',
     },
     {
+      label: 'Fill Container?',
+      name: 'fillContainer',
+      type: 'boolean',
+    },
+    {
       label: 'Break after?',
       name: 'breakAfter',
       type: 'boolean'              

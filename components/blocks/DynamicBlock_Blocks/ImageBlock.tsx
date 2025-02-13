@@ -32,6 +32,10 @@ export default function ImageBlock({ block, i }) {
             width={400} 
             height={400}
             sizes={`${6.015625 * block.width}vw`}
+            style={{
+              objectFit: `${block.fillContainer ? 'cover' : 'contain'}`,
+              height: `${block.fillContainer ? '100%' : 'auto'}`
+            }}
           />
         </a>
         :
@@ -41,6 +45,10 @@ export default function ImageBlock({ block, i }) {
           width={400} 
           height={400}
           sizes={`${6.015625 * block.width}vw`}
+          style={{
+            objectFit: `${block.fillContainer ? 'cover' : 'contain'}`,
+            height: `${block.fillContainer ? '100%' : 'auto'}`
+          }}
         />
       }
     </figure>

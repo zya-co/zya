@@ -28,38 +28,43 @@ export const ScrollSmooth = (props) => {
       e.preventDefault();
       const id = e.target.getAttribute("href");
       smoother.scrollTo(id, true, "top top");
+      console.log('clicked', e.target);
     }
 
-    const hash = window.location.hash;
+
+
     
-    if (hash && smoother.scrollTop) {
-      const hashElement = document.querySelector(`${hash}`);
-      if (!hashElement) return;
-      smoother.scrollTo(hashElement, true, "top top");
-    }
-    else {
-      smoother.scrollTop(0);
-    }
-
+    
     const delayedInitFunction = setTimeout(() => {
+      
+      // gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement) {
+      //   link.addEventListener("click", (e) => clickHandler);
+      // });
 
-      gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
-        link.addEventListener("click", (e) => clickHandler);
-      });
+      const hash = window.location.hash;
+      console.log('hash', hash);
+      
+      if (hash) {
+        const hashElement = document.querySelector(`${hash}`);
+        if (!hashElement) return;
+        smoother.scrollTo(hashElement, true, "top top");
+        console.log('hashElement', hashElement);
+      }
 
-    }, 100);
+
+    }, 500);
 
     return () => {
+      // gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
+      //   link.removeEventListener("click", (e) => clickHandler);
+      // });
       clearTimeout(delayedInitFunction);
-      gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
-        link.removeEventListener("click", (e) => clickHandler);
-      });
-      smoother.kill();
     }
 
   }, {
     scope: smoothRef, 
     dependencies: [props.children],
+    revertOnUpdate: true
   });
   
   return (

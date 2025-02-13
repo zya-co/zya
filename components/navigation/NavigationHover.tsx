@@ -309,7 +309,7 @@ export default function NavigationHover(container, currentPage){
           duration: 0.5,
           autoAlpha: 0,
           ease: 'power2.out',
-          overwrite: 'true'
+          overwrite: true
         })
 
         if (timelineRef && timelineRef.current) {
@@ -317,7 +317,7 @@ export default function NavigationHover(container, currentPage){
           tlMorph.tweenTo(0, {
             duration: 0.5,
             ease: 'power2.out',
-            overwrite: 'true'
+            overwrite: true
           })
         }
 
@@ -349,14 +349,14 @@ export default function NavigationHover(container, currentPage){
               duration: 0.5,
               autoAlpha: 1,
               ease: 'power2.out',
-              overwrite: 'true'
+              overwrite: true
             })
             if (timelineRef && timelineRef.current) {
               const tlMorph = timelineRef.current as gsap.core.Timeline;
               tlMorph.tweenTo(getLinkAnimLabel(i), {
                 duration: 0.5,
                 ease: 'power2.out',
-                overwrite: 'true'
+                overwrite: true
               })
             }
           }
