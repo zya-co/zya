@@ -20,27 +20,13 @@ export const ScrollSmooth = (props) => {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
+      smoothTouch: true,
       wrapper: smoothRef.current,
       content: smoothContent,
     });  
 
-    const clickHandler = (e) => {
-      e.preventDefault();
-      const id = e.target.getAttribute("href");
-      smoother.scrollTo(id, true, "top top");
-      console.log('clicked', e.target);
-    }
-
-
-
-    
-    
     const delayedInitFunction = setTimeout(() => {
       
-      // gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement) {
-      //   link.addEventListener("click", (e) => clickHandler);
-      // });
-
       const hash = window.location.hash;
       console.log('hash', hash);
       
@@ -51,13 +37,9 @@ export const ScrollSmooth = (props) => {
         console.log('hashElement', hashElement);
       }
 
-
     }, 500);
 
     return () => {
-      // gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
-      //   link.removeEventListener("click", (e) => clickHandler);
-      // });
       clearTimeout(delayedInitFunction);
     }
 

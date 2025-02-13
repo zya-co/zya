@@ -77,12 +77,14 @@ export default function NavigationHover(container, currentPage){
         y: `${0.125 * navBarHeight()}`,
         duration: 1
       }, 'null')
+      
       tl.to('.mainNavHoverCircle:nth-child(1)', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
         rotate: 0,
         duration: 1
       }, 'null')
+
       tl.to('.mainNavHoverCircle:not(:nth-child(1))', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
@@ -207,7 +209,7 @@ export default function NavigationHover(container, currentPage){
   useGSAP((context, contextSafe) => {
 
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
-    const links = document.querySelectorAll('.mainNav__linkList__link')
+    const links = Array.from(document.querySelectorAll('.mainNav__linkList__link'))
     const currentUri = currentPage;
     const circWidthVw = 2.3
     const circdist = 45
@@ -289,13 +291,10 @@ export default function NavigationHover(container, currentPage){
       const existingTweens = context.data;
 
       console.log('existingTweens', existingTweens)
-      // existingTweens.forEach((tween) => {
-      //   tween.kill();
-      // })
       
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
-          return link.href.endsWith(`/${currentUri}`)
+          return link.href.endsWith(`${currentUri}`)
         })
       }
 
@@ -304,13 +303,13 @@ export default function NavigationHover(container, currentPage){
        
         console.log('page is home or not in nav:', currentPage)
         
-        gsap.to('.mainNavHoverCircleGroup', {
-          x: 0,
-          duration: 0.5,
-          autoAlpha: 0,
-          ease: 'power2.out',
-          overwrite: true
-        })
+        // gsap.to('.mainNavHoverCircleGroup', {
+        //   x: 0,
+        //   duration: 0.5,
+        //   autoAlpha: 0,
+        //   ease: 'power2.out',
+        //   overwrite: true
+        // })
 
         if (timelineRef && timelineRef.current) {
           const tlMorph = timelineRef.current as gsap.core.Timeline;
@@ -349,7 +348,7 @@ export default function NavigationHover(container, currentPage){
               duration: 0.5,
               autoAlpha: 1,
               ease: 'power2.out',
-              overwrite: true
+              // overwrite: true
             })
             if (timelineRef && timelineRef.current) {
               const tlMorph = timelineRef.current as gsap.core.Timeline;
