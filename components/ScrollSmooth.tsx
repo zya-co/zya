@@ -3,54 +3,58 @@ import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
 import { useRef } from "react";
-import { useRouter } from "next/router";
 
 export const ScrollSmooth = (props) => {
   
-  const router = useRouter();
-  const smoothRef = useRef(null);
+  const smoothRef = useRef<HTMLDivElement>(null);
   
   gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
 
   useGSAP(()=> {
+
+    if(!smoothRef.current) return;
+
+    let smoothContent = smoothRef.current.querySelector("#smooth-content");
     
     let smoother = ScrollSmoother.create({
       smooth: 1,
       effects: true,
       normalizeScroll: true,
-      wrapper: smoothRef.current
+      wrapper: smoothRef.current,
+      content: smoothContent,
     });  
 
-    const timeouts: NodeJS.Timeout[] = [];
-    
-    const handleRouteChange = () => {
-
-      const tout = setTimeout(() => {
-
-        const hash = window.location.hash;
-        
-        if (hash && smoother.scrollTo) {
-          smoother.scrollTo(hash, true, "top top");
-        }
-        
-        gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
-          link.addEventListener("click", (e) => {
-            var id = (e.target as HTMLAnchorElement)?.getAttribute("href");
-            smoother.scrollTo(id, true, "top top");
-            e.preventDefault();
-          });
-        });
-      }, 100);
-
-      timeouts.push(tout);
+    const clickHandler = (e) => {
+      e.preventDefault();
+      const id = e.target.getAttribute("href");
+      smoother.scrollTo(id, true, "top top");
     }
+
+    const hash = window.location.hash;
     
-    router.events.on('routeChangeComplete', handleRouteChange);
-    handleRouteChange();
+    if (hash && smoother.scrollTop) {
+      const hashElement = document.querySelector(`${hash}`);
+      if (!hashElement) return;
+      smoother.scrollTo(hashElement, true, "top top");
+    }
+    else {
+      smoother.scrollTop(0);
+    }
+
+    const delayedInitFunction = setTimeout(() => {
+
+      gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
+        link.addEventListener("click", (e) => clickHandler);
+      });
+
+    }, 100);
 
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-      timeouts.forEach((timeout) => clearTimeout(timeout));
+      clearTimeout(delayedInitFunction);
+      gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
+        link.removeEventListener("click", (e) => clickHandler);
+      });
+      smoother.kill();
     }
 
   }, {

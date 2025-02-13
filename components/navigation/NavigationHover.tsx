@@ -1,10 +1,9 @@
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
-  const [timeline, setTimeline] = useState<gsap.core.Timeline | null>(null);
 
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -197,6 +196,7 @@ export default function NavigationHover(container, currentPage){
     timelineRef.current = tlMorphFunction();
 
     return () => {
+      console.log('cleaning up first Nav useGSAP')
       window.removeEventListener('resize', setGroupPos);
     }
 
@@ -205,7 +205,6 @@ export default function NavigationHover(container, currentPage){
 
   // runs on every nav update
   useGSAP((context, contextSafe) => {
-    
 
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
     const links = document.querySelectorAll('.mainNav__linkList__link')
@@ -284,15 +283,20 @@ export default function NavigationHover(container, currentPage){
     })
 
     const initNav = contextSafe(() => {
-
+      
+      console.log('initNav', currentPage);
+      
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
           return link.href.endsWith(`/${currentUri}`)
         })
       }
 
+      // initNav: IF the current page is home or the currentpage is not a nav item
       if (currentPage === '' || currentPageIsNotInNav()) {
-
+       
+        console.log('page is home or not in nav:', currentPage)
+        
         gsap.to('.mainNavHoverCircleGroup', {
           x: 0,
           duration: 0.5,
@@ -300,6 +304,7 @@ export default function NavigationHover(container, currentPage){
           ease: 'power2.out',
           overwrite: 'true'
         })
+
         if (timelineRef && timelineRef.current) {
           const tlMorph = timelineRef.current as gsap.core.Timeline;
           tlMorph.tweenTo(0, {
@@ -308,7 +313,15 @@ export default function NavigationHover(container, currentPage){
             overwrite: 'true'
           })
         }
+
         links.forEach((link: any, i) => {
+
+          if (link._mouseEnterHandler && link._mouseLeaveHandler) {
+            // console.log('removing event listeners')
+            link.removeEventListener('mouseenter', link._mouseEnterHandler);
+            link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+          }
+
           const mouseEnter = mouseEnterHandler;
           const mouseLeave = mouseLeaveHandler;
           link.addEventListener('mouseenter', mouseEnter);
@@ -320,6 +333,7 @@ export default function NavigationHover(container, currentPage){
         })
         
       }
+      // initNav: else: the current page is not home and is in the nav
       else {
 
         links.forEach((link: any, i) => {
@@ -372,15 +386,22 @@ export default function NavigationHover(container, currentPage){
     initNav();
     
     return () => {
-      console.log('cleaning up', links)
+      
+      console.log('pre cleaning up')
+      
       links.forEach((link: any) => {
+
+        console.log('cleaning up', link)
+        
         if (link._mouseEnterHandler && link._mouseLeaveHandler) {
           link.removeEventListener('mouseenter', link._mouseEnterHandler);
           link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+          console.log('cleaned up', link)
         }
+
       });
     }
 
-  }, { scope: container, dependencies: [currentPage, timeline] });
+  }, { scope: container, dependencies: [currentPage] });
 
 }

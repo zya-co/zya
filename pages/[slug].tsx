@@ -21,10 +21,8 @@ export default function Page(props) {
       title={data?.page?.meta?.title}
       metaimg={data?.page?.meta?.image}
     >
-      {/* <ScrollSmooth> */}
         <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
         <FooterLinks navData={props.footerNav} />
-      {/* </ScrollSmooth> */}
     </Layout>
   );
 }
