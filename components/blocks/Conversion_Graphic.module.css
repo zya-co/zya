@@ -94,6 +94,10 @@
       margin: 0 auto;
     }
   }
+  .step:last-child .stepGraphic {
+    padding-bottom: 0;
+    margin-bottom: calc( -2 * var(--spacing-col) );
+  }
   .stepText {
     position: relative;
     padding-left: calc( 1.333 * var(--spacing-col) );

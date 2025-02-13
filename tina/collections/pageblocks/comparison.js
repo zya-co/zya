@@ -47,6 +47,23 @@ export const comparison = {
               }
             }
           },
+        },
+        {
+          label: 'CTA',
+          name: 'cta',
+          type: 'object',
+          fields: [
+            {
+              type: 'string',
+              name: 'label',
+              label: 'Label'
+            },
+            {
+              type: 'string',
+              name: 'link',
+              label: 'Link'
+            }
+          ]
         }
       ],
       ui: {

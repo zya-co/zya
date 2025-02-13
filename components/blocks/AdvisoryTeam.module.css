@@ -49,6 +49,13 @@
   .advisorInfo__otherTitle {
     margin: .5em 0 0 0;
   }
+  .introHead {
+    margin-bottom: 0.5em;
+  }
+  .introSubhead {
+    margin-top: 0;
+    margin-bottom: var(--spacing-col);
+  }
   .advisorInfo__contact {
     display: flex;
     gap: .5em;
@@ -161,8 +168,12 @@
   .advisorInfo__otherTitle {
     margin: .5em 0 .25em 0;
   }
+  .introHead {
+    margin-bottom: 0.25em;
+  }
   .introSubhead {
-    max-width: calc( 7.5 * var(--spacing-col));
+    margin-top: 0;
+    max-width: calc( 12 * var(--spacing-col));
     margin-bottom: calc( 1.5 * var(--spacing-col));
   }
   .advisorInfo__contact {

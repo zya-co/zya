@@ -1,6 +1,6 @@
 .indexNav {
   position: fixed;
-  top: 80px;
+  top: 110px;
   right: calc(0.5 * var(--spacing-s));;
   z-index: 1000;
   padding: calc(0.5 * var(--spacing-s));

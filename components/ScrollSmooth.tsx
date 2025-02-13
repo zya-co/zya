@@ -18,11 +18,15 @@ export const ScrollSmooth = (props) => {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
+      wrapper: smoothRef.current
     });  
+
+    const timeouts: NodeJS.Timeout[] = [];
     
     const handleRouteChange = () => {
 
-      setTimeout(() => {
+      const tout = setTimeout(() => {
+
         const hash = window.location.hash;
         
         if (hash && smoother.scrollTo) {
@@ -37,6 +41,8 @@ export const ScrollSmooth = (props) => {
           });
         });
       }, 100);
+
+      timeouts.push(tout);
     }
     
     router.events.on('routeChangeComplete', handleRouteChange);
@@ -44,11 +50,12 @@ export const ScrollSmooth = (props) => {
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
+      timeouts.forEach((timeout) => clearTimeout(timeout));
     }
 
   }, {
     scope: smoothRef, 
-    dependencies: [smoothRef],
+    dependencies: [props.children],
   });
   
   return (

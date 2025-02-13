@@ -16,7 +16,7 @@ export default function LatestBlogPosts({data, posts}) {
   }
   
   return (
-    <DarkElement ignore={data.backgroundColor === 'mineral-white' || data.backgroundColor === 'white' || data.backgroundColor === 'earth-gray' || data.backgroundColor === 'lichen'}>
+    <DarkElement ignore={!data.darkElement}>
       <div 
         data-tina-field={tinaField(data)} 
         className={styles.latestBlogPosts}
@@ -126,6 +126,11 @@ export const latestBlogPostsSchema: Template = {
   name: 'latestBlogPosts',
   label: 'Latest Blog Posts',
   fields: [
+    {
+      label: 'Dark Element?',
+      name: 'darkElement',
+      type: 'boolean',
+    },
     {
       name: 'intro',
       label: 'Title',

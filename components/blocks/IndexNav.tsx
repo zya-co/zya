@@ -29,7 +29,7 @@ export default function IndexNav(props) {
     const root = document.querySelector('#smooth-wrapper');
     const nav = indexNav.current as HTMLElement;
 
-    setTimeout(() => {
+    const delayedFunction = setTimeout(() => {
       if (nav) {
         const clone = nav.cloneNode(true) as HTMLElement;
         clone.classList.add('indexNav--clone');
@@ -73,6 +73,8 @@ export default function IndexNav(props) {
             const indexNavs = document.querySelectorAll('.indexNav') as NodeListOf<HTMLElement>;
             indexNavs.forEach( nav => nav.remove() )
           }
+
+          clearTimeout(delayedFunction);
         };
       }
     }

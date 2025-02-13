@@ -61,7 +61,7 @@ export const HeroHome = (props) => {
           </div>
       </div>
       {/* The following is a hack to get the navigation color to change even though all the elements in the heroHome are fixed positioned and so on */}
-        <DarkElement>
+        {/* <DarkElement>
           <div style={{
             'position': 'relative',
             'marginTop': '-200vh',
@@ -70,7 +70,7 @@ export const HeroHome = (props) => {
             'opacity': '1' 
           }}>
           </div>
-        </DarkElement>
+        </DarkElement> */}
     </div>
   )
 }

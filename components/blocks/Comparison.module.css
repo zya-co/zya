@@ -58,6 +58,9 @@
   .comparisonItem:nth-child(3) .comparisonContentListItem__Yes:before  { 
     background-color: var(--color-morpho-teal); 
   }
+  .comparisonCta {
+    margin-left: var(--spacing-col);
+  }
 }
 
 @media (min-width: 641px) {
@@ -140,5 +143,9 @@
   }
   .comparisonItem:nth-child(3) .comparisonContentListItem  { 
     max-width: calc( 3 * var(--spacing-col) );
+  }
+  .comparisonCta {
+    position: absolute;
+    bottom: calc( .25 * var(--spacing-col) );
   }
 }

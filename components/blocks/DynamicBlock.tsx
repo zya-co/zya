@@ -31,7 +31,7 @@ export function DynamicBlock({data}) {
   }
 
   return (
-    <DarkElement ignore={!data.background?.darkMode}>
+    <DarkElement ignore={ !data.background || !data.background.darkMode || false }>
       <div 
         id={data.anchor || ''}
         className={`dynamicBlock ${styles.dynamicBlock}`}

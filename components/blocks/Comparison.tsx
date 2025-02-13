@@ -1,5 +1,6 @@
 import styles from './Comparison.module.css';
 import { tinaField } from 'tinacms/dist/react';
+import Button from '../Button';
 
 export default function Comparison(props) {
   return (
@@ -24,6 +25,14 @@ export default function Comparison(props) {
                 })
               }
             </ul>
+            {item.cta && item.cta.link &&
+              <Button 
+                href={item.cta.link} 
+                data-tina-field={tinaField(item.cta, 'label')}
+                color='mineral-white'
+                className={styles.comparisonCta}
+              >{item.cta.label}</Button>
+            }
           </div>
         )
       })

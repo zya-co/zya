@@ -285,6 +285,14 @@ export default function NavigationHover(container, currentPage){
 
     const initNav = contextSafe(() => {
 
+      console.log('cleaning up', links)
+      links.forEach((link: any) => {
+        if (link._mouseEnterHandler && link._mouseLeaveHandler) {
+          link.removeEventListener('mouseenter', link._mouseEnterHandler);
+          link.removeEventListener('mouseleave', link._mouseLeaveHandler);
+        }
+      });
+
       const currentPageIsNotInNav = () => {
         return !Array.from(links).some((link: HTMLAnchorElement) => {
           return link.href.endsWith(`/${currentUri}`)
@@ -292,6 +300,7 @@ export default function NavigationHover(container, currentPage){
       }
 
       if (currentPage === '' || currentPageIsNotInNav()) {
+
         gsap.to('.mainNavHoverCircleGroup', {
           x: 0,
           duration: 0.5,
@@ -317,18 +326,22 @@ export default function NavigationHover(container, currentPage){
           link._mouseEnterHandler = mouseEnter;
           link._mouseLeaveHandler = mouseLeave;
         })
+        
       }
       else {
 
         links.forEach((link: any, i) => {
   
           if (link._mouseEnterHandler && link._mouseLeaveHandler) {
+            // console.log('removing event listeners')
             link.removeEventListener('mouseenter', link._mouseEnterHandler);
             link.removeEventListener('mouseleave', link._mouseLeaveHandler);
           }
   
           const linkRect = () => { return link.getBoundingClientRect() }
+
           if (link.href.endsWith(`/${currentUri}`)) {
+            // console.log('current page is in nav', currentUri)
             currentLink = i;
             gsap.to('.mainNavHoverCircleGroup', {
               x: `${linkRect().x - circleGroupCoords().x + 0.5 * linkRect().width - 0.5 * circleGroupCoords().width}px`,
@@ -348,6 +361,7 @@ export default function NavigationHover(container, currentPage){
           }
           
           else {
+            // console.log('else')
             const mouseEnter = mouseEnterHandler;
             const mouseLeave = mouseLeaveHandler;
             link.addEventListener('mouseenter', mouseEnter);
@@ -366,6 +380,7 @@ export default function NavigationHover(container, currentPage){
     initNav();
     
     return () => {
+      console.log('cleaning up', links)
       links.forEach((link: any) => {
         if (link._mouseEnterHandler && link._mouseLeaveHandler) {
           link.removeEventListener('mouseenter', link._mouseEnterHandler);

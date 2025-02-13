@@ -113,6 +113,12 @@ export default function heroHomeAnimation(container) {
       rotate: -30,
       ease: 'power2.in',
       duration: .25,
+      onComplete: () => {
+        const nav = document.querySelector('.mainNav') as HTMLElement;
+        const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
+        mobileHeader?.setAttribute('data-isLight', 'true');
+        nav?.setAttribute('data-isLight', 'true');
+      }
     }, 'shape3+=.25')
     tl.to('.heroContentWrapper', {
       zIndex: 5,

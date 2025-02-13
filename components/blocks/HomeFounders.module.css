@@ -140,10 +140,12 @@
       calc(var(--spacing-s) + var(--spacing-col));
   }
   .intro {
-    max-width: calc(10 * var(--spacing-col));
+    max-width: calc(12 * var(--spacing-col));
   }
   .intro h4 {
-    max-width: calc(6 * var(--spacing-col));
+    max-width: calc(12 * var(--spacing-col));
+    column-count: 2;
+    column-gap: var(--spacing-col);
   }
   .intro p {
     max-width: calc(6 * var(--spacing-col));
