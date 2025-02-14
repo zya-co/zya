@@ -31,7 +31,7 @@ export const Layout = (props) => {
         -1 * (window.innerHeight - 0.5 * header?.offsetHeight)
       }px 0px`,
       threshold: 0,
-      root: document.querySelector('#smooth-wrapper')
+      root: isMobile() ? document : document.querySelector('#smooth-wrapper')
     };
 
     const nav = document.querySelector('.mainNav') as HTMLElement;

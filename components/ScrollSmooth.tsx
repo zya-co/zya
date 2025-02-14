@@ -4,8 +4,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import { r } from "../public/admin/assets/mode-indent.es-057a4f6a";
-
 
 export const ScrollSmooth = (props) => {
   
@@ -25,7 +23,6 @@ export const ScrollSmooth = (props) => {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
-      smoothTouch: 0.1,
       wrapper: smoothRef.current,
       content: smoothContent,
     });  
@@ -42,8 +39,13 @@ export const ScrollSmooth = (props) => {
     //   console.log('routeChangeStart', e);
     //   smoothScrollerRef.current.scrollTo(0, true, "top top");
     // })
+
+    const isMobile = () => { 
+      return window.matchMedia('(max-width: 640px)').matches;
+    }
     
     const handleRouteChangeComplete = contextSafe((e) => {
+
       smoothScrollerRef.current.scrollTop(0);
       if (e.includes('#')) {
         const hash = e.split('#').pop();
@@ -56,6 +58,8 @@ export const ScrollSmooth = (props) => {
           timeouts.push(to);
         }
       }
+
+
     });
 
     // const handleHashChange = contextSafe((e) => {
