@@ -63,6 +63,15 @@ export default function Media_Articles({data}) {
         {data.articles &&
 
           data.articles.map((article, index) => {
+
+            let logoSrc = article.sourceLogo.src;
+            if (logoSrc.startsWith('https://assets.tina.io')) {
+              const parts = logoSrc.split('/');
+              parts.splice(0, 4); // Remove 'https:', '', 'assets.tina.io', and the next part
+              logoSrc = '/' + parts.join('/');
+              logoSrc = '/media' + logoSrc;
+            }
+
             return (
               <div key={index} className={styles.article}>
                 <div className={styles.articleContent}>
@@ -77,7 +86,7 @@ export default function Media_Articles({data}) {
                         <div
                           className={styles.articleSourceLogo}
                           style={{
-                            maskImage: `url(${article.sourceLogo.src})`,
+                            maskImage: `url(${logoSrc})`,
                           }}
                         >
                         </div>
