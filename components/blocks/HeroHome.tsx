@@ -11,10 +11,10 @@ import { useGSAP } from "@gsap/react/dist";
 
 export const HeroHome = (props) => {
   
-  gsap.registerPlugin(ScrollTrigger);
   const refcontainer = useRef<HTMLDivElement | null>(null);
-
+  
   useGSAP((context) => {
+    gsap.registerPlugin(ScrollTrigger);
 
     if(!refcontainer.current) return;
 
@@ -69,7 +69,6 @@ export const HeroHome = (props) => {
         end: `+=${1.25 * fullHeight}px`,
         pin: true,
         scrub: true,
-        immediateRender:false,
       },
       defaults: { ease: 'none' }
     });

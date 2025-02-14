@@ -8,11 +8,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function HeroConvero(props) {
 
-  gsap.registerPlugin(ScrollTrigger);
-
+  
   const gsapRef = useRef(null);
-
+  
   useGSAP((context, contextSafe) => {
+    gsap.registerPlugin(ScrollTrigger);
     
     if(!gsapRef.current) return;
     
