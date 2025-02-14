@@ -14,13 +14,12 @@ export const HeroHome = (props) => {
   gsap.registerPlugin(ScrollTrigger);
   const refcontainer = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(() => {
+  useGSAP((context) => {
 
     if(!refcontainer.current) return;
 
     const container = refcontainer.current;
     
-  // setTimeout(() => {
     let isMobile = window.innerWidth < 641;
 
     const parent = container as HTMLElement;
@@ -126,18 +125,6 @@ export const HeroHome = (props) => {
       rotate: -30,
       ease: 'power2.in',
       duration: .25,
-      // onComplete: () => {
-      //   const nav = document.querySelector('.mainNav') as HTMLElement;
-      //   const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
-      //   mobileHeader?.setAttribute('data-isLight', 'true');
-      //   nav?.setAttribute('data-isLight', 'true');
-      // },
-      // onReverseComplete: () => {
-      //   const nav = document.querySelector('.mainNav') as HTMLElement;
-      //   const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
-      //   mobileHeader?.removeAttribute('data-isLight');
-      //   nav?.removeAttribute('data-isLight');
-      // }
     }, 'shape3+=.25')
     tl.to('.heroContentWrapper', {
       zIndex: 5,
@@ -167,12 +154,15 @@ export const HeroHome = (props) => {
     
     tl.addLabel('end');
 
+    console.log(context);
+
     return () => {
       tl.clear();
+      context.clear();
       tl.kill();
     }
 
-  }, {scope: refcontainer, dependencies: [], revertOnUpdate: true});
+  }, {scope: refcontainer, dependencies: [], revertOnUpdate: false});
   
   const data = props.data;
   
