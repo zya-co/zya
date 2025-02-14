@@ -1,11 +1,11 @@
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
-import { useRef } from "react";
+import React, { useLayoutEffect, useRef } from 'react';
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
 
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
 
   // runs once on initial render, creating the animation timeline
   useGSAP((context, contextSafe) => {
@@ -86,9 +86,8 @@ export default function NavigationHover(container, currentPage){
       position: 'absolute',
     })
 
-    const tlMorphFunction = contextSafe(() => {
 
-      const tl = gsap.timeline({
+    tlRef.current = gsap.timeline({
         paused: false,
         repeat: -1,
         repeatDelay: 0, 
@@ -98,31 +97,31 @@ export default function NavigationHover(container, currentPage){
         },
       })
 
-      tl.addLabel('null')
+      tlRef.current.addLabel('null')
 
 
-      tl.to('.mainNavHoverCircleGroup', {
+      tlRef.current.to('.mainNavHoverCircleGroup', {
         rotate: 0,
         y: 0,
         x: `${null_x}px`,
         autoAlpha: 1,
       }, 'null')
 
-      tl.to('.mainNavHoverCircle:nth-child(1)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(1)', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: 0,
         rotate: 0,
       }, 'null')
 
-      tl.to('.mainNavHoverCircle:not(:nth-child(1))', {
+      tlRef.current.to('.mainNavHoverCircle:not(:nth-child(1))', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: 0,
         rotate: 0,
       }, 'null')
       
-      tl.addLabel('one')
+      tlRef.current.addLabel('one')
 
-      tl.to('.mainNavHoverCircleGroup', {
+      tlRef.current.to('.mainNavHoverCircleGroup', {
         rotate: 45,
         y: `${0.125 * navBarHeight()}`,
         x: `${one_x}px`,
@@ -132,114 +131,110 @@ export default function NavigationHover(container, currentPage){
         }
       }, 'one')
 
-      tl.to('.mainNavHoverCircle:nth-child(1)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(1)', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
         rotate: 0,
       }, 'one')
 
-      tl.to('.mainNavHoverCircle:not(:nth-child(1))', {
+      tlRef.current.to('.mainNavHoverCircle:not(:nth-child(1))', {
         transformOrigin: `${50 + circdist}% 50%`,
         xPercent: -circdist,
         rotate: 90,
       }, 'one')
   
-      tl.addLabel('two')
+      tlRef.current.addLabel('two')
   
-      tl.to('.mainNavHoverCircleGroup', {
+      tlRef.current.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
         x: `${two_x}px`,
         autoAlpha: 1,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(1)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(2)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 90,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(3)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 180,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(4)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 270,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(5)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 270,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(6)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 270,
       }, 'two')
-      tl.to('.mainNavHoverCircle:nth-child(7)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 270,
       }, 'two')
   
-      tl.addLabel('four')
+      tlRef.current.addLabel('four')
   
-      tl.to('.mainNavHoverCircleGroup', {
+      tlRef.current.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
         x: `${four_x}px`,
         autoAlpha: 1,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(1)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(2)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 60,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(3)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 120,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(4)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 180,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(5)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 240,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(6)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 300,
       }, 'four')
-      tl.to('.mainNavHoverCircle:nth-child(7)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 300,
       }, 'four')
   
-      tl.addLabel('six')
+      tlRef.current.addLabel('six')
   
-      tl.to('.mainNavHoverCircleGroup', {
+      tlRef.current.to('.mainNavHoverCircleGroup', {
         y: 0,
         rotate: 0,
         x: `${six_x}px`,
         autoAlpha: 1,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(1)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(1)', {
         rotate: 0,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(2)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(2)', {
         rotate: 51.4,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(3)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(3)', {
         rotate: 102.8,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(4)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(4)', {
         rotate: 154.3,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(5)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(5)', {
         rotate: 205.7,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(6)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(6)', {
         rotate: 257.1,
       }, 'six')
-      tl.to('.mainNavHoverCircle:nth-child(7)', {
+      tlRef.current.to('.mainNavHoverCircle:nth-child(7)', {
         rotate: 308.6,
       }, 'six')
       
-      tl.addLabel('seven')
+      tlRef.current.addLabel('seven')
 
-      return tl;
-    })
-
-    timelineRef.current = tlMorphFunction();
 
     console.log('context 0: ', context.data)
 
@@ -292,9 +287,9 @@ export default function NavigationHover(container, currentPage){
     const onEnterClickHandler = contextSafe((event) => {
       const link = event.target;
       link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-      if (timelineRef && timelineRef.current) {
+      if (tlRef.current) {
         const i = Array.from(links).indexOf(link);
-        const tlMorph = timelineRef.current as gsap.core.Timeline;
+        const tlMorph = tlRef.current as gsap.core.Timeline;
         tlMorph.tweenTo(getLinkAnimLabel(i), {
           duration: 0,
         })
@@ -305,8 +300,8 @@ export default function NavigationHover(container, currentPage){
       const link = event.target;
       const i = Array.from(links).indexOf(link);
       
-      if (timelineRef && timelineRef.current) {
-        const tlMorph = timelineRef.current as gsap.core.Timeline;
+      if (tlRef.current) {
+        const tlMorph = tlRef.current as gsap.core.Timeline;
         tlMorph.tweenTo(getLinkAnimLabel(i), {
           duration: 0.5,
           ease: 'power2.out'
@@ -320,8 +315,8 @@ export default function NavigationHover(container, currentPage){
         return
       } 
       else {
-        if (timelineRef && timelineRef.current) {
-          const tlMorph = timelineRef.current as gsap.core.Timeline;
+        if (tlRef.current) {
+          const tlMorph = tlRef.current as gsap.core.Timeline;
           tlMorph.tweenTo(
               currentLink === 0 ? 'one' 
             : currentLink === 1 ? 'two' 
@@ -348,8 +343,8 @@ export default function NavigationHover(container, currentPage){
       // initNav: IF the current page is home or the currentpage is not a nav item
       if (currentPage === '' || currentPageIsNotInNav()) {
        
-        if (timelineRef && timelineRef.current) {
-          const tlMorph = timelineRef.current as gsap.core.Timeline;
+        if (tlRef.current) {
+          const tlMorph = tlRef.current as gsap.core.Timeline;
           tlMorph.tweenTo(0, {
             duration: 0.5,
             ease: 'power2.out',
@@ -380,8 +375,8 @@ export default function NavigationHover(container, currentPage){
   
           if (link.href.endsWith(`/${currentUri}`)) {
             currentLink = i;
-            if (timelineRef && timelineRef.current) {
-              const tlMorph = timelineRef.current as gsap.core.Timeline;
+            if (tlRef.current) {
+              const tlMorph = tlRef.current as gsap.core.Timeline;
               tlMorph.tweenTo(getLinkAnimLabel(i), {
                 duration: 0.5,
                 ease: 'power2.out',

@@ -1,20 +1,19 @@
-import React from 'react'
-import { useRef } from "react";
+import React, { useLayoutEffect, useRef } from 'react';
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import styles from './HeroHome.module.css'
 import RichText from '../RichText';
 import DarkElement from '../DarkElement';
 import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export const HeroHome = (props) => {
   
   const refcontainer = useRef<HTMLDivElement | null>(null);
+  const timeline = useRef<gsap.core.Timeline | null>(null);
   
   useGSAP((context) => {
-    gsap.registerPlugin(ScrollTrigger);
 
     if(!refcontainer.current) return;
 
@@ -62,7 +61,7 @@ export const HeroHome = (props) => {
       els[element.classList[0]] = element.getBoundingClientRect();
     });
 
-    const tl = gsap.timeline({ 
+    timeline.current = gsap.timeline({ 
       scrollTrigger: {
         trigger: parent,
         start: 'top top',
@@ -73,95 +72,87 @@ export const HeroHome = (props) => {
       defaults: { ease: 'none' }
     });
 
-    tl.addLabel('start');
+    timeline.current.addLabel('start');
     
-    tl.to('.heroSubhead, .scrollIndicator', {
+    timeline.current.to('.heroSubhead, .scrollIndicator', {
       yPercent: -50,
       duration: .5,
       autoAlpha: 0,
     })
     
-    tl.addLabel('subHead');
+    timeline.current.addLabel('subHead');
 
-    tl.to('.shape1', {
+    timeline.current.to('.shape1', {
       y: 0,
       duration: 1,
       ease: 'power2.out',
     }, 'start')
     
-    tl.addLabel('shape1');
+    timeline.current.addLabel('shape1');
 
-    tl.to('.shape2', {
+    timeline.current.to('.shape2', {
       y: 0,
       duration: .75,
       rotate: 45,
       ease: 'power2.out',
     }, 'shape1-=.5')
 
-    tl.addLabel('shape2');
+    timeline.current.addLabel('shape2');
     
-    tl.to('.shape3, .shape4', {
+    timeline.current.to('.shape3, .shape4', {
       y: 0,
       duration: .75,
       ease: 'none',
       rotate: 45,
     }, 'shape2-=.25')
 
-    tl.addLabel('shape3');
+    timeline.current.addLabel('shape3');
     
-    tl.to('.shape1, .shape2, .shape3, .shape4, .headline1, .headline2', {
+    timeline.current.to('.shape1, .shape2, .shape3, .shape4, .headline1, .headline2', {
       y: isMobile ? '-=80vh' : '-=120vh',
       duration: 1,
       ease: 'power2.out',
     }, 'shape3')
-    tl.to('.shape1, .shape2, .shape3, .headline1, .headline2', {
+    timeline.current.to('.shape1, .shape2, .shape3, .headline1, .headline2', {
       y: isMobile ? '-=40vh' : '-=0vh',
       duration: .5,
       ease: 'power2.out',
     }, 'shape3+=.5')
-    tl.to('.shape4', {
+    timeline.current.to('.shape4', {
       scale: isMobile ? 6 : 3.5,
       rotate: -30,
       ease: 'power2.in',
       duration: .25,
     }, 'shape3+=.25')
-    tl.to('.heroContentWrapper', {
+    timeline.current.to('.heroContentWrapper', {
       zIndex: 5,
       duration: 1,
     }, 'shape3' )
-    tl.set('.heroHomeInside', {
+    timeline.current.set('.heroHomeInside', {
       backgroundColor: 'var(--color-morpho-teal)',
       height: '100%',
       width: '100%',
     }, 'shape3+=.5')
-    tl.set('.heroContentWrapper', {
+    timeline.current.set('.heroContentWrapper', {
       yPercent: 0,
       backgroundColor: 'var(--color-morpho-teal)',
     })
-    tl.to('.heroContent1, .heroContent2', {
+    timeline.current.to('.heroContent1, .heroContent2', {
       autoAlpha: 1,
       yPercent: 0,
       ease: 'power4.out',
       stagger: 0.1,
       duration: .5,
     } , 'shape3+=.5')
-    tl.set('.shape4', {
+    timeline.current.set('.shape4', {
       display: 'none',
     })
 
-    tl.addLabel('shape4');
+    timeline.current.addLabel('shape4');
     
-    tl.addLabel('end');
+    timeline.current.addLabel('end');
 
-    console.log(context);
-
-    return () => {
-      tl.clear();
-      context.clear();
-      tl.kill();
-    }
-
-  }, {scope: refcontainer, dependencies: [], revertOnUpdate: false});
+  }, {scope: refcontainer});
   
   const data = props.data;
   

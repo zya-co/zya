@@ -1,7 +1,7 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
 import DarkElement from '../DarkElement';
-import { useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -9,10 +9,10 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function HeroConvero(props) {
 
   
-  const gsapRef = useRef(null);
+  const gsapRef = useRef<HTMLDivElement | null>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
   
   useGSAP((context, contextSafe) => {
-    gsap.registerPlugin(ScrollTrigger);
     
     if(!gsapRef.current) return;
     
@@ -22,7 +22,7 @@ export default function HeroConvero(props) {
       document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
     })
 
-    let tl = gsap.timeline({ 
+    tlRef.current = gsap.timeline({ 
       defaults: { duration: 1, ease: 'none' },
       scrollTrigger: {
         trigger: gsapRef.current,
@@ -34,61 +34,61 @@ export default function HeroConvero(props) {
       onComplete: showIndexNav,
     });
 
-    tl.set('.enzyme1',  {
+    tlRef.current.set('.enzyme1',  {
       y: '-15svh',
     })
-    tl.set('.hero_payofftext', {
+    tlRef.current.set('.hero_payofftext', {
       yPercent: -100,
       autoAlpha: 0,
     })
 
-    tl.to('.enzyme1, .enzyme2, .enzyme3, .enzyme4', {
+    tlRef.current.to('.enzyme1, .enzyme2, .enzyme3, .enzyme4', {
       rotateZ: -20,
       y: '-95svh',
       stagger: 0.25,
     }, 0)
 
-    tl.to('.enzymes', {
+    tlRef.current.to('.enzymes', {
       yPercent: -50,
     }, 1.75)
     
-    tl.to('.enzyme4', {
+    tlRef.current.to('.enzyme4', {
       rotateZ: -60,
       scale: 6,
     }, 2)
 
-    tl.fromTo('.hero_introtext', {
+    tlRef.current.fromTo('.hero_introtext', {
       color: '#340E32',
     },{
       color: '#E681FF',
     }, 1.25)
 
-    tl.to('.hero_introtext', {
+    tlRef.current.to('.hero_introtext', {
       y: '-100',
       opacity: 0,
       duration: 0.5
     }, 2.25)
 
-    tl.fromTo('.hero_payofftext', {
+    tlRef.current.fromTo('.hero_payofftext', {
       autoAlpha: 0
     }, {
       autoAlpha: 1,
       duration: 0.25
     }, 2.6)
 
-    tl.from('.hero_payofftext_main, .hero_payofftext_sub', {
+    tlRef.current.from('.hero_payofftext_main, .hero_payofftext_sub', {
       y: 100,
     }, 2.6)
 
-    return () => {
-      console.log('cleaning up', context);
-      context.clear();
-      console.log('cleaning up after', context);
-      tl.clear();
-      tl.kill();
-    }
+    // return () => {
+    //   console.log('cleaning up', context);
+    //   context.clear();
+    //   console.log('cleaning up after', context);
+    //   tlRef.current.clear();
+    //   tlRef.current.kill();
+    // }
     
-  }, {scope: gsapRef, dependencies: [], revertOnUpdate: false});
+  }, {scope: gsapRef});
 
   return (
     <>

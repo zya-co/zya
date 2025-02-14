@@ -4,7 +4,15 @@ import { aeonik, haben } from '../styles/fonts';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Navigation } from '../components/navigation/Navigation';
-import { ScrollSmooth } from '../components/ScrollSmooth';
+// import { ScrollSmooth } from '../components/ScrollSmooth';
+import { gsap } from 'gsap/dist/gsap';
+import { useGSAP } from "@gsap/react/dist";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
+}
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
@@ -41,9 +49,9 @@ const App = ({ Component, pageProps }) => {
             `}
           </style>
           <Navigation navData={pageProps.nav} current={currentRoute} />
-          <ScrollSmooth>
+          {/* <ScrollSmooth> */}
             <Component {...pageProps} />
-          </ScrollSmooth>
+          {/* </ScrollSmooth> */}
         </main>
     </>
   );
