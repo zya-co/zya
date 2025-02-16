@@ -4,15 +4,12 @@ import React, { useRef, useState } from 'react';
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
-
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const [windowWidth, setWindowWidth] = useState(1000);
 
   // runs once on initial render, creating the animation timeline
   useGSAP((context, contextSafe) => {
-
-    setWindowWidth(window.innerWidth);
-
+    
     const circWidthVw = 2.3
     const circdist = 45
     const maxgroupWidth = circWidthVw + circWidthVw * circdist * 2 / 100
@@ -244,7 +241,7 @@ export default function NavigationHover(container, currentPage){
       tlRef.current.addLabel('seven')
 
 
-    console.log('context 0: ', context.data)
+    console.log('contexts: ', context.length)
 
     return () => {
       tlRef.current?.clear();
@@ -257,10 +254,13 @@ export default function NavigationHover(container, currentPage){
   // Update window width on resize
   useGSAP(() => {
     const handleResize = () => {
+      if (window.innerWidth === windowWidth || window.innerWidth <= 640 ) return;
       setWindowWidth(window.innerWidth);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -280,7 +280,7 @@ export default function NavigationHover(container, currentPage){
         link.removeEventListener('mouseenter', link._mouseEnterHandler);
         link.removeEventListener('mouseleave', link._mouseLeaveHandler);
         link.removeEventListener('click', link._clickHandler);
-        // console.log('cleaned up', link)
+        console.log('cleaned up', link)
       }
     })
 
@@ -366,11 +366,7 @@ export default function NavigationHover(container, currentPage){
        
         if (tlRef.current) {
           const tlMorph = tlRef.current as gsap.core.Timeline;
-          tlMorph.tweenTo(0, {
-            duration: 0.5,
-            ease: 'power2.out',
-            overwrite: true
-          })
+          tlMorph.seek(0)
         }
 
         links.forEach((link: any, i) => {
@@ -399,11 +395,7 @@ export default function NavigationHover(container, currentPage){
             
             if (tlRef.current) {
               const tlMorph = tlRef.current as gsap.core.Timeline;
-              tlMorph.tweenTo(getLinkAnimLabel(i), {
-                duration: 0.5,
-                ease: 'power2.out',
-                overwrite: true
-              })
+              tlMorph.seek(getLinkAnimLabel(i))
             }
           }
           else {

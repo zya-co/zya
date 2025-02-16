@@ -2,6 +2,7 @@ import React from "react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import Button from "./Button"
 import Image from "next/image"
+import Link from "next/link"
 import styles from './RichText.module.css'
 
 export default function RichText(props) {
@@ -92,7 +93,14 @@ export default function RichText(props) {
       <TinaMarkdown 
         content={props.content} 
         components={
-          {Cta, enzyme, spacer, customImage, inlineFormat}
+          {
+            Cta, 
+            enzyme, 
+            spacer, 
+            customImage, 
+            inlineFormat,
+            a: (props) => <Link href={props?.url || '#'} {...props} />,
+          }
         }
       />
     </>

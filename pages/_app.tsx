@@ -4,7 +4,6 @@ import { aeonik, haben } from '../styles/fonts';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Navigation } from '../components/navigation/Navigation';
-// import { ScrollSmooth } from '../components/ScrollSmooth';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -23,14 +22,9 @@ const App = ({ Component, pageProps }) => {
       const slug = url.split('/').pop();
       setCurrentRoute(slug || '');
     };
-
-    // Listen for route changes
     router.events.on('routeChangeComplete', handleRouteChange);
-
-    // Set initial route
     handleRouteChange(router.query.slug || '');
 
-    // Cleanup event listener on component unmount
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -49,9 +43,7 @@ const App = ({ Component, pageProps }) => {
             `}
           </style>
           <Navigation navData={pageProps.nav} current={currentRoute} />
-          {/* <ScrollSmooth> */}
-            <Component {...pageProps} />
-          {/* </ScrollSmooth> */}
+          <Component {...pageProps} />
         </main>
     </>
   );

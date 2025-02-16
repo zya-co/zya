@@ -34,55 +34,35 @@ export const ScrollSmooth = (props) => {
   useGSAP((context, contextSafe) => {
 
     const timeouts: NodeJS.Timeout[] = [];
+    const isMobile = () => {  return window.matchMedia('(max-width: 640px)').matches; }
 
-    // const handleRouteStart = contextSafe((e) => {
-    //   console.log('routeChangeStart', e);
-    //   smoothScrollerRef.current.scrollTo(0, true, "top top");
-    // })
-
-    const isMobile = () => { 
-      return window.matchMedia('(max-width: 640px)').matches;
-    }
+    const handleRouteChangeStart = contextSafe((e) => {
+    });
     
     const handleRouteChangeComplete = contextSafe((e) => {
 
-      smoothScrollerRef.current.scrollTop(0);
       if (e.includes('#')) {
         const hash = e.split('#').pop();
-        if (hash) {
+          smoothScrollerRef.current.scrollTop(0);
           const to = setTimeout(() => {
             const hashElement = document.querySelector(`#${hash}`);
             if (!hashElement) return;
-            smoothScrollerRef.current.scrollTo(hashElement, true, "top top");
+            smoothScrollerRef.current.scrollTo(hashElement, true, 0, 0);
           }, 500);
           timeouts.push(to);
-        }
       }
-
-
+      else {
+        smoothScrollerRef.current.scrollTop(0);
+      }
     });
 
-    // const handleHashChange = contextSafe((e) => {
-    //   console.log('hashchange', e);
-    //   const hash = e;
-    //   if (hash) {
-    //     const hashElement = document.querySelector(`${hash}`);
-    //     if (!hashElement) return;
-    //     smoothScrollerRef.current.scrollTo(hashElement, true, "top top");
-    //   }
-    // });
-
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    // router.events.on('hashChangeComplete', handleHashChange);
-    // router.events.on('routeChangeStart', handleRouteStart);
+    router.events.on('routeChangeStart', handleRouteChangeStart);
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
-      // router.events.off('hashChangeComplete', handleHashChange);
-      // router.events.off('routeChangeStart', handleRouteStart);
-      timeouts.forEach((to) => {
-        clearTimeout(to);
-      });
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+      timeouts.forEach((to) => { clearTimeout(to) });
     }
   }, {
     scope: smoothRef,

@@ -64,7 +64,6 @@ export const getStaticProps = async ({ params }) => {
       filename: edge?.node?._sys.filename,
     };
   });
-
   
   latestBlogPosts?.sort((a, b) => {
     if (a.date && b.date) {
