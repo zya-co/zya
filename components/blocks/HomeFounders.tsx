@@ -1,7 +1,5 @@
 import styles from './HomeFounders.module.css'
 import RichText from '../RichText'
-import Image from 'next/image'
-import Button from '../Button'
 import { tinaField } from 'tinacms/dist/react'
 import DarkElement from '../DarkElement'
 import HomeFounders_Founder from './HomeFounders_Founder'

@@ -241,7 +241,7 @@ export default function NavigationHover(container, currentPage){
       tlRef.current.addLabel('seven')
 
 
-    console.log('contexts: ', context.length)
+    // console.log('contexts: ', context.length)
 
     return () => {
       tlRef.current?.clear();
@@ -269,7 +269,7 @@ export default function NavigationHover(container, currentPage){
   // runs on every nav update
   useGSAP((context, contextSafe) => {
 
-    console.log('context 0: ', context.data)
+    // console.log('context 0: ', context.data)
 
     //create an array of all .mainNav__linkList__link elements and for each create a hover eventlistener
     const links = Array.from(document.querySelectorAll('.mainNav__linkList__link'))
@@ -280,7 +280,7 @@ export default function NavigationHover(container, currentPage){
         link.removeEventListener('mouseenter', link._mouseEnterHandler);
         link.removeEventListener('mouseleave', link._mouseLeaveHandler);
         link.removeEventListener('click', link._clickHandler);
-        console.log('cleaned up', link)
+        // console.log('cleaned up', link)
       }
     })
 

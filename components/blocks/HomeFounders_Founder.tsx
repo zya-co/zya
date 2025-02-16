@@ -47,10 +47,20 @@ export default function HomeFonders_Founder({founder, index}) {
             <button 
               className={!expanded ? styles.expandableContent_toggle : `${styles.expandableContent_toggle} ${styles.expandableContent_toggle__expanded}`}
               onClick={toggleExpand}
-              >+</button>
-              <span className={expanded ? `${styles.expandableContent_cta}` : `${styles.expandableContent_cta} ${styles.expandableContent_cta__hidden}`}>
-                <Button color="lichen" href={founder.expandableContent?.cta?.link}>{founder.expandableContent?.cta?.label}</Button>
-              </span>
+            >
+              {!expanded &&
+                <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 14.958V9.73707C7 8.75452 7.79651 7.95801 8.77906 7.95801H14" stroke="currentColor" strokeWidth="1.48255"/>
+                  <path d="M7 0.958058V6.17895C7 7.1615 6.20349 7.95801 5.22094 7.95801H-1.22522e-05" stroke="currentColor" strokeWidth="1.48255"/>
+                </svg>
+              }
+              {expanded &&
+              <span>-</span>
+              }
+            </button>
+            <span className={expanded ? `${styles.expandableContent_cta}` : `${styles.expandableContent_cta} ${styles.expandableContent_cta__hidden}`}>
+              <Button color="lichen" href={founder.expandableContent?.cta?.link}>{founder.expandableContent?.cta?.label}</Button>
+            </span>
           </div>
         </div>
       }

@@ -37,19 +37,20 @@ export const ScrollSmooth = (props) => {
     const isMobile = () => {  return window.matchMedia('(max-width: 640px)').matches; }
 
     const handleRouteChangeStart = contextSafe((e) => {
+      // timeouts.forEach((to) => { clearTimeout(to) });
     });
     
     const handleRouteChangeComplete = contextSafe((e) => {
-
-      if (e.includes('#')) {
+      
+      if ( e.includes('#') ) {
         const hash = e.split('#').pop();
-          smoothScrollerRef.current.scrollTop(0);
-          const to = setTimeout(() => {
-            const hashElement = document.querySelector(`#${hash}`);
-            if (!hashElement) return;
-            smoothScrollerRef.current.scrollTo(hashElement, true, 0, 0);
-          }, 500);
-          timeouts.push(to);
+        smoothScrollerRef.current.scrollTop(0);
+        const to = setTimeout(() => {
+          const hashElement = document.querySelector(`#${hash}`);
+          if (!hashElement) return;
+          smoothScrollerRef.current.scrollTo(hashElement, true, 0, 0);
+        }, 500);
+        timeouts.push(to);
       }
       else {
         smoothScrollerRef.current.scrollTop(0);
@@ -66,14 +67,16 @@ export const ScrollSmooth = (props) => {
     }
   }, {
     scope: smoothRef,
-    dependencies: [props.children]
+    dependencies: []
   });
 
   return (
-    <div id="smooth-wrapper" ref={smoothRef}>
-      <div id="smooth-content" style={{'willChange': 'transform', width: '100vw'}}>
-        {props.children}
+    <>
+      <div id="smooth-wrapper" ref={smoothRef}>
+        <div id="smooth-content" style={{'willChange': 'transform', width: '100vw'}}>
+          {props.children}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

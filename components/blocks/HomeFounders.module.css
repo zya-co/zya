@@ -83,7 +83,7 @@
     text-decoration: none;
     display: inline-block;
     background-color: var(--color-lichen);
-    color: transparent;
+    color: var(--color-morpho-teal);
     transition: background-color 0.3s ease;
     position: relative;
     cursor: pointer;
@@ -92,24 +92,8 @@
     &:hover {
       background-color: var(--color-mineral-white);
     }
-
-    &:after {
-      position: absolute;
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' fill='none' viewBox='0 0 35 35'%3E%3Cpath stroke='%2300394C' stroke-width='3.6' d='M17.286 34.538v-12.68a4.32 4.32 0 0 1 4.32-4.32h12.68M17.286.538v12.68a4.32 4.32 0 0 1-4.32 4.32H.286'/%3E%3C/svg%3E");
-      width: 35px;
-      height: 35px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
     &.expandableContent_toggle__expanded {
       background-color: var(--color-mineral-white);
-
-      &:after {
-        content: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.2617 17.5H17.5419H5.73793' stroke='%2300394C' stroke-width='2.5'/%3E%3C/svg%3E%0A");;
-        color: black;
-        font-size: 35px;
-      }
     }
   }
   .expandableContent_cta {
