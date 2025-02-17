@@ -171,7 +171,8 @@ input[type="checkbox"]:checked {
   background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg width='15' height='11' viewBox='0 0 15 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.1612 1.45082L5.97069 9.64137C5.18964 10.4224 3.92331 10.4224 3.14227 9.64137L0.523438 7.02254L1.96791 5.57807L4.55648 8.16664L12.7168 0.00634766L14.1612 1.45082Z' fill='%2300394C'/%3E%3C/svg%3E%0A");
 }
-.darkElement + .darkElement {
+/* Stupid smooth-scroll visual but creates gaps, and even the will-change CSS setting doesn't seem to help, so we do this: */
+#smooth-content > div, #smooth-content > section {
   margin-top: -0.5px;
 }
 @media (min-width: 641px) {
