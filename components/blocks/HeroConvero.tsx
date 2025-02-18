@@ -18,10 +18,6 @@ export default function HeroConvero(props) {
     
     const windowH = window.innerHeight;
 
-    const showIndexNav = contextSafe(() => {
-      document.querySelector('.indexNav--clone')?.classList.add('heroConveroAnimationComplete');
-    })
-
     tlRef.current = gsap.timeline({ 
       defaults: { duration: 1, ease: 'none' },
       scrollTrigger: {
@@ -31,7 +27,6 @@ export default function HeroConvero(props) {
         scrub: true,
         pin: true,
       },
-      onComplete: showIndexNav,
     });
 
     tlRef.current.set('.enzyme1',  {

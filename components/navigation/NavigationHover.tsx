@@ -1,6 +1,6 @@
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function NavigationHover(container, currentPage){
   gsap.registerPlugin(useGSAP);
@@ -63,8 +63,6 @@ export default function NavigationHover(container, currentPage){
       six_x = linksCoords()[4].x - circleGroupOriginCoords().x + 0.5 * linksCoords()[4].width - 0.5 * circleGroupOriginCoords().width;
     })
     
-    window.addEventListener('resize', setGroupOriginPos)
-
     // add circles and style them with gsap
     if (!document.querySelector('.mainNavHoverCircleGroup ')) {
       const circleGroup = document.createElement('div');
@@ -240,12 +238,8 @@ export default function NavigationHover(container, currentPage){
       
       tlRef.current.addLabel('seven')
 
-
-    // console.log('contexts: ', context.length)
-
     return () => {
       tlRef.current?.clear();
-      window.removeEventListener('resize', setGroupOriginPos);
     }
 
   }, { scope: container, dependencies: [windowWidth], revertOnUpdate: true });
@@ -314,6 +308,7 @@ export default function NavigationHover(container, currentPage){
         tlMorph.tweenTo(getLinkAnimLabel(i), {
           duration: 0,
         })
+        setWindowWidth(window.innerWidth);
       }
     })
 
@@ -325,7 +320,7 @@ export default function NavigationHover(container, currentPage){
         const tlMorph = tlRef.current as gsap.core.Timeline;
         tlMorph.tweenTo(getLinkAnimLabel(i), {
           duration: 0.5,
-          ease: 'power2.out'
+          ease: 'power2.inOut'
         })
       }
     })
@@ -347,7 +342,7 @@ export default function NavigationHover(container, currentPage){
             : 'null', 
             { 
               duration: 0.5,
-              ease: 'power2.out'
+              ease: 'power2.inOut'
             })
           }
       }

@@ -45,7 +45,11 @@
     background-color: var(--color-earth-gray);
     color: var(--color-mineral-white);
     overflow: hidden;
-    padding: calc( var(--spacing-s) + var(--spacing-col) );
+    padding:
+      calc( var(--spacing-s) + var(--spacing-col) ) 
+      calc( var(--spacing-s) + var(--spacing-col) )
+      0
+      calc( var(--spacing-s) + var(--spacing-col) );
   }
   .inroHeadColumns {
     display: flex;
@@ -118,6 +122,5 @@
   .ctaButton {
     margin-left: calc( 7 * var(--spacing-col) );
     margin-top: 0;
-    margin-bottom: var(--size-h1);
   }
 }

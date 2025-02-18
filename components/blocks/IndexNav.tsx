@@ -2,60 +2,38 @@ import { useRef, useEffect, useState } from "react";
 import styles from './IndexNav.module.css';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import ScrollSmoother from "gsap/dist/ScrollSmoother";
+import page from "../../tina/collections/page";
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function IndexNav(props) {
   const indexNav = useRef<HTMLDivElement | null>(null);
   const [pageAnchors, setPageAnchors] = useState<{ id: string, name: string }[]>([]);
 
+  // Runs once:
   useEffect(() => {
-
     const anchors = Array.from(document.querySelectorAll('.dynamicBlock[id]:not([id=""])')).map((anchor) => {
       return {
         id: anchor.id,
         name: anchor.id.replace(/-/g, ' '),
       };
     });
-
+    console.log('setpageanchors', anchors);
     setPageAnchors(anchors);
-    console.log('pageAnchors', anchors);
-
   }, []);
   
+  // Runs when pageAnchors changes:
   useEffect(() => {
+    if (!pageAnchors.length) return;
 
-    let previouslyCreatedSmoother = ScrollSmoother.get();
-    
     const navClone = document.querySelector('.indexNav--clone') as HTMLElement;
-    if (navClone) {
-      navClone.remove();
-    }
-    
+    if (navClone) { navClone.remove(); }
     const root = document.querySelector('main');
     const nav = indexNav.current as HTMLElement;
-
     if (!nav) return;
-
     const clone = nav.cloneNode(true) as HTMLElement;
     clone.classList.add('indexNav--clone');
     root?.appendChild(clone);
-
-    const cloneLinks = clone.querySelectorAll('a');
-    cloneLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetElement = e.target as HTMLElement;
-        if (targetElement) {
-          const id = targetElement.getAttribute('href') as string;
-          const target = document.querySelector(id);
-          if (target) {
-            previouslyCreatedSmoother?.scrollTo(target, true, 'top top');
-          }
-        }
-      });
-    });
 
     // add an intersectionObserver that will add a class to the link in the indexnav when the section is in view
     const observer = new IntersectionObserver((entries) => {
@@ -83,21 +61,6 @@ export default function IndexNav(props) {
 
     // Cleanup function
     return () => {
-
-      cloneLinks.forEach(link => {
-        link.removeEventListener('click', (e) => {
-          e.preventDefault();
-          const targetElement = e.target as HTMLElement;
-          if (targetElement) {
-            const id = targetElement.getAttribute('href') as string;
-            const target = document.querySelector(id);
-            if (target) {
-              previouslyCreatedSmoother?.scrollTo(target, true, 'top top');
-            }
-          }
-        });
-      });
-      
       pageAnchors.forEach(anchor => {
         const section = document.getElementById(anchor.id);
         if (section) {
@@ -105,14 +68,52 @@ export default function IndexNav(props) {
         }
       });
       observer.disconnect();
-
       if (document.querySelector('.indexNav--clone')) {
         const indexNavs = document.querySelectorAll('.indexNav--clone') as NodeListOf<HTMLElement>;
-        indexNavs.forEach( nav => nav.remove() )
+        indexNavs.forEach(nav => nav.remove());
       }
+    };
+  }, [pageAnchors]);
 
+  // Scroll event listener logic
+  useEffect(() => {
+    const navClone = document.querySelector('.indexNav--clone') as HTMLElement;
+    if (!navClone) return;
+
+    const scrollIsMoreThanFirstAnchor = () => {
+      const firstAnchor = document.getElementById(pageAnchors[0]?.id);
+      if (!firstAnchor) return false;
+      return window.scrollY > firstAnchor.getBoundingClientRect().top;
     };
 
+    const scrollHandler = () => {
+      if (scrollIsMoreThanFirstAnchor()) {
+        navClone.classList.add('indexNav--clone--visible');
+      } else {
+        navClone.classList.remove('indexNav--clone--visible');
+      }
+    };
+
+    const debounce = (func, wait) => {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    };
+
+    const debouncedScrollHandler = debounce(scrollHandler, 10);
+
+    window.addEventListener('scroll', debouncedScrollHandler);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('scroll', debouncedScrollHandler);
+    };
   }, [pageAnchors]);
 
   return (

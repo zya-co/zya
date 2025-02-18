@@ -19,7 +19,7 @@
     display: none;
   }
 }
-:global(.heroConveroAnimationComplete).indexNav {
+.indexNav:global(.indexNav--clone--visible) {
   opacity: 1;
   transform: translateX(0);
 }

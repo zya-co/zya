@@ -7,10 +7,9 @@ import { Navigation } from '../components/navigation/Navigation';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 const App = ({ Component, pageProps }) => {
@@ -43,7 +42,9 @@ const App = ({ Component, pageProps }) => {
             `}
           </style>
           <Navigation navData={pageProps.nav} current={currentRoute} />
-          <Component {...pageProps} />
+          <div id='contentWrapper'>
+            <Component {...pageProps} />
+          </div>
         </main>
     </>
   );

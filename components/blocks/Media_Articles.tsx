@@ -64,8 +64,8 @@ export default function Media_Articles({data}) {
 
           data.articles.map((article, index) => {
 
-            let logoSrc = article.sourceLogo.src;
-            if (logoSrc.startsWith('https://assets.tina.io')) {
+            let logoSrc = article.sourceLogo?.src || '';
+            if (logoSrc && logoSrc.startsWith('https://assets.tina.io')) {
               const parts = logoSrc.split('/');
               parts.splice(0, 4); // Remove 'https:', '', 'assets.tina.io', and the next part
               logoSrc = '/' + parts.join('/');
