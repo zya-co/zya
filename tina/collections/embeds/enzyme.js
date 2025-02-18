@@ -11,6 +11,16 @@ export const enzyme = {
       type: 'string',
       name: 'alt',
       label: 'Alt Text'
+    },
+    {
+      type: 'string',
+      name: 'alignment',
+      label: 'Alignment',
+      options: [
+        { label: 'Left', value: 'left' },
+        { label: 'Center', value: 'center' },
+        { label: 'Right', value: 'right' }
+      ]
     }
   ]
 }

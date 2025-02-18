@@ -1,0 +1,63 @@
+.hero {
+  color: var(--color-beatle);
+  background-color: var(--color-mineral-white);
+  height: 100vh;
+  overflow: hidden;
+}
+.hero_introtext {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 2em;
+  position: relative;
+  z-index: 100;
+  color: var(--color-beatle);
+}
+.enzymes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 100vw;
+  position: absolute;
+}
+.enzyme4 {
+  margin-top: 5svh;
+  width: 600vw;
+  transform: scale(0.16666);
+}
+.hero_payofftext {
+  height: 100vh;
+  width: 100%;
+  opacity: 0; 
+  visibility: hidden;
+  background-color: var(--color-beatle);
+  color: var(--color-fuchsia);
+  padding: var(--spacing-s) ;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (min-width: 640.1px) {
+  .hero_payofftext {
+    padding: calc(var(--spacing-s) + var(--spacing-col));
+  }
+}
+.hero_payofftext_main {
+  margin: 0 0 var(--spacing-col) 0;
+}
+.hero_payofftext_sub {
+  margin: 0;
+  max-width: calc( 6 * var(--spacing-col));
+}
+.enzyme01 {
+  position: relative;
+}

@@ -94,7 +94,19 @@ export const contentTextAndImg = {
       type: 'rich-text',
       name: 'content',
       label: 'Content',
-      templates: [ cta, enzyme ]
+      templates: [ 
+        cta, 
+        enzyme, 
+        {
+          name: "underline",
+          label: "underline",
+          fields: [{
+            name: "heading",
+            label: "Heading",
+            type: "string"
+          }
+        ]}
+      ]
     }
   ]
 }

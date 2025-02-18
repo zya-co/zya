@@ -10,7 +10,7 @@ export default function ContentFullSizeImgBg(props) {
   return (
     <DarkElement>
       <div className={styles.contentFullSizeImgBg}>
-        <figure data-tina-field={tinaField(props.data, 'bgImage')} className={styles.backgroundImageWrapper}>
+        <figure className={styles.backgroundImageWrapper}>        
           <Image
             src={props.data.bgImage?.image}
             alt={props.data.bgImage?.alt}
@@ -19,16 +19,17 @@ export default function ContentFullSizeImgBg(props) {
             className={styles.backgroundImage}
           />
         </figure>
-        <div className={styles.content} data-tina-field={tinaField(props.data, 'content')}>
+        {/* {JSON.stringify(props.data.content)} */}
+        <div className={styles.content} data-tina-field={tinaField(props.data)}>
           <RichText content={props.data.content} />
-        </div>
-        {
-          props.data.button && (
-            <Button href={props.data.button?.link} color={props.data.button?.color} className={styles.button} data-tina-field={tinaField(props.data, 'button')}>
+          { props.data.button && (
+            <Button href={props.data.button?.link} color={props.data.button?.color} className={styles.button}>
+              <div data-tina-field={tinaField(props.data, 'button')}>
               {props.data.button?.label}
+              </div>
             </Button>
-          )
-        }
+          )}
+        </div>
       </div>
     </DarkElement>
   )

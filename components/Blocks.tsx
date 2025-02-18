@@ -10,6 +10,14 @@ import Comparison from './blocks/Comparison'
 import HeroTeam from './blocks/HeroTeam'
 import AdvisoryTeam from './blocks/AdvisoryTeam'
 import Affiliation from './blocks/Affiliation'
+import {DynamicBlock} from './blocks/DynamicBlock'
+import LatestBlogPosts from './blocks/LatestBlogPosts'
+import Media_Articles from './blocks/Media_Articles'
+import HeroConvero from './blocks/HeroConvero'
+import Conversion_Graphic from './blocks/Conversion_Graphic'
+import { Footer } from './footer/Footer'
+import { ContactFormBlock } from './blocks/ContactFormBlock'
+import IndexNav from './blocks/IndexNav'
 
 export const Blocks = (props) => {
   return (
@@ -47,12 +55,6 @@ export const Blocks = (props) => {
                 <HomeFounders data={block} />
               </React.Fragment>
             )
-          case "PageBlocksHeroMission":
-            return (
-              <React.Fragment key={i + block.__typename}>
-                <HeroMission data={block} />
-              </React.Fragment>
-            )
           case "PageBlocksHeroApproach":
             return (
               <React.Fragment key={i + block.__typename}>
@@ -83,6 +85,61 @@ export const Blocks = (props) => {
                 <Affiliation data={block} />
               </React.Fragment>
             )
+          case "PageBlocksDynamicBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <DynamicBlock data={block} />
+              </React.Fragment>
+            )
+          case "BlogpostBlocksDynamicBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <DynamicBlock data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksLatestBlogPosts":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <LatestBlogPosts data={block} posts={props.latestposts ? props.latestposts : []} />
+              </React.Fragment>
+            )
+          case "PageBlocksMediaArticles":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Media_Articles data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksHeroConvero":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <HeroConvero data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksConversionGraphic":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Conversion_Graphic data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksFooter":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <Footer data={block} navdata={props.navdata} />
+              </React.Fragment>
+            )
+          case "PageBlocksContactFormBlock":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <ContactFormBlock data={block} />
+              </React.Fragment>
+            )
+          case "PageBlocksIndexNav":
+            return (
+              <React.Fragment key={i + block.__typename}>
+                <IndexNav data={block} />
+              </React.Fragment>
+            )
+          
         }
       }) 
       : null

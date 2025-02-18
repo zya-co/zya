@@ -5,16 +5,23 @@ import { heroHome } from './pageblocks/heroHome';
 import { contentFullSizeImgBg } from './pageblocks/contentFullSizeImgBg';
 import { contentTextAndImg } from './pageblocks/contentTextAndImg';
 import { homeFounders } from './pageblocks/homeFounders';
-import { heroMission } from './pageblocks/heroMission';
 import { heroApproach } from './pageblocks/heroApproach';
 import { contentText } from './pageblocks/contentText';
 import { comparison } from './pageblocks/comparison';
 import { heroTeam } from './pageblocks/heroTeam';
 import { advisoryTeam } from './pageblocks/advisoryTeam';
 import { affiliation } from './pageblocks/affiliation';
+import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock';
+import { latestBlogPostsSchema } from '../../components/blocks/LatestBlogPosts';
+import { media_ArticlesBlockSchema } from '../../components/blocks/Media_Articles';
+import { heroConveroBlockSchema } from '../../components/blocks/HeroConvero';
+import { conversionGraphicSchema } from '../../components/blocks/Conversion_Graphic';
+import { footerSchema } from '../../components/footer/Footer';
+import { contactFormBlockSchema } from '../../components/blocks/ContactFormBlock';
+import { indexNavBlockSchema } from '../../components/blocks/IndexNav';
 
 export default {
-  label: 'Page Content',
+  label: 'Pages',
   name: 'page',
   path: 'content/page',
   format: 'mdx',
@@ -51,7 +58,6 @@ export default {
       label: 'Sections',
       templates: [ 
         heroHome,
-        heroMission,
         heroApproach,
         heroTeam,
         contentFullSizeImgBg,
@@ -60,7 +66,15 @@ export default {
         homeFounders,
         comparison,
         advisoryTeam,
-        affiliation
+        affiliation,
+        dynamicBlockSchema,
+        latestBlogPostsSchema,
+        media_ArticlesBlockSchema,
+        heroConveroBlockSchema,
+        conversionGraphicSchema,
+        footerSchema,
+        contactFormBlockSchema,
+        indexNavBlockSchema,
       ],
     },
   ],
@@ -72,7 +86,6 @@ export default {
       else {
         return `/${document._sys.filename}`;
       }
-      return undefined;
     },
   },
 };

@@ -1,39 +1,79 @@
-import { gsap } from "gsap";
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react/dist";
+import { useRef } from "react";
+import { useRouter } from "next/router";
 
 export const ScrollSmooth = (props) => {
+  
+  const router = useRouter();
+  const smoothRef = useRef<HTMLDivElement>(null);
+  const smoothScrollerRef = useRef<ScrollSmoother | null>(null);
+  
+  gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
 
-  useGSAP(()=> {
-    gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
+  useGSAP((context, contextSafe)=> {
+
+    if(!smoothRef.current) return;
+
+    let smoothContent = smoothRef.current.querySelector("#smooth-content");
     
-    let smoother = ScrollSmoother.create({
+    smoothScrollerRef.current = ScrollSmoother.create({
       smooth: 1,
       effects: true,
       normalizeScroll: true,
+      wrapper: smoothRef.current,
+      content: smoothContent,
     });  
+  }, {
+    scope: smoothRef, 
+    // revertOnUpdate: true
+  });
 
-    gsap.utils.toArray("a[href^='#']").forEach(function (link: HTMLAnchorElement, i) {
-      link.addEventListener("click", (e) => {
-        var id = (e.target as HTMLAnchorElement)?.getAttribute("href");
-        smoother.scrollTo(id, true, "top top");
-        e.preventDefault();
-      });
+  useGSAP((context, contextSafe) => {
+
+    const timeouts: NodeJS.Timeout[] = [];
+    const isMobile = () => {  return window.matchMedia('(max-width: 640px)').matches; }
+
+    const handleRouteChangeStart = contextSafe((e) => {
+      // timeouts.forEach((to) => { clearTimeout(to) });
+    });
+    
+    const handleRouteChangeComplete = contextSafe((e) => {
+      
+      if ( e.includes('#') ) {
+        const hash = e.split('#').pop();
+        smoothScrollerRef.current.scrollTop(0);
+        const to = setTimeout(() => {
+          const hashElement = document.querySelector(`#${hash}`);
+          if (!hashElement) return;
+          smoothScrollerRef.current.scrollTo(hashElement, true, 0, 0);
+        }, 500);
+        timeouts.push(to);
+      }
+      else {
+        smoothScrollerRef.current.scrollTop(0);
+      }
     });
 
-  })
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    router.events.on('routeChangeStart', handleRouteChangeStart);
 
-  const meta = {
-    title: props.title || 'Zya Enzymes',
-    description: props.description || 'The transformative power of enzymes',
-    metaimg: props.metaimg || '/favicon.ico'
-  }
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+      timeouts.forEach((to) => { clearTimeout(to) });
+    }
+  }, {
+    scope: smoothRef,
+    dependencies: []
+  });
 
   return (
     <>
-      <div id="smooth-wrapper">
-        <div id="smooth-content" style={{'willChange': 'transform'}}>
+      <div id="smooth-wrapper" ref={smoothRef}>
+        <div id="smooth-content" style={{'willChange': 'transform', width: '100vw'}}>
           {props.children}
         </div>
       </div>

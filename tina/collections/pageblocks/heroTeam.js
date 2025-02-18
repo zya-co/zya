@@ -61,6 +61,23 @@ export const heroTeam = {
           ]
         },
         {
+          type: 'object',
+          name: 'biolink',
+          label: 'Science Bio Link',
+          fields: [
+            {
+              type: 'string',
+              name: 'label',
+              label: 'Label'
+            },
+            {
+              type: 'string',
+              name: 'link',
+              label: 'Link'
+            }
+          ]
+        },
+        {
           type: 'image',
           name: 'image',
           label: 'Image'
@@ -78,6 +95,23 @@ export const heroTeam = {
           }
         }
       },
+    },
+    {
+      name: 'cta',
+      label: 'CTA',
+      type: 'object',
+      fields: [
+        {
+          type: 'string',
+          name: 'label',
+          label: 'Label'
+        },
+        {
+          type: 'string',
+          name: 'link',
+          label: 'Link'
+        }
+      ]
     }
   ]
 }

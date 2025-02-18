@@ -65,9 +65,13 @@
   .footer__legal {
     padding: var(--spacing-s) 0;
     font-family: var(--font-aeonik);
-    font-size: 1em;
+    font-size: var(--size-s);
     color: var(--color-morpho-teal); 
     opacity: 0.2;
+    text-align: center;
+  }
+  .footer__legal__copyright {
+    margin-bottom: 1em;
   }
   .footer__legal__text {
     display: flex;
@@ -81,6 +85,9 @@
   }
   .footer__legal__claim {
     display: none; 
+  }
+  .contactform__extraText {
+    margin-bottom: var(--spacing-col);
   }
 }
 
@@ -155,13 +162,31 @@
   .contactform__submit__button:before {
     transform: rotate(0deg);
   }
-
+  .footer__linklist {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-col);
+  }
   .footer__nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 calc( 10 * var(--spacing-col));
+    align-items: flex-start;
     gap: var(--spacing-col);
     font-family: var(--font-aeonik);
+  }
+  .footer__nav__column {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+  .footer__nav__column__header {
+    font-size: var(--size-s);
+    margin-top: 0;
+    & a {
+      text-decoration: none;
+    }
   }
   .footer__navlink {
     text-decoration: none;
@@ -173,18 +198,36 @@
     justify-content: center;
     align-items: center;
     color: var(--color-morpho-teal);
-    padding: calc( .75 * var(--spacing-col) ) 0 calc( .33 * var(--spacing-col) ) 0 ;
+    /* padding: calc( .75 * var(--spacing-col) ) 0 calc( .33 * var(--spacing-col) ) 0 ; */
+  }
+  .footer__nav__column__button {
+    margin-top: -0.8em;
+    font-size: var(--size-s);
+    padding: .8em 1.15em;
+
+    &:after, &:before {
+      content: none;
+    }
+    &:hover {
+      background-color: var(--color-mineral-white);
+    }
   }
   .footer__legal {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: var(--spacing-col);
     font-family: var(--font-aeonik);
-    font-size: 0.9vw;
+    font-size: var(--size-s);
     color: var(--color-morpho-teal); 
     opacity: 0.2;
   }
+  .footer__legal__copyright {
+    flex: 1 1 calc( 2 * var(--spacing-col));
+  }
   .footer__legal__text {
+    flex: 1 1 calc( 14 * var(--spacing-col));
     display: flex;
+    justify-content: space-between;
     gap: var(--spacing-col);
     font-size: var(--size-s);
   }
@@ -192,5 +235,8 @@
     text-decoration: none;
     color: var(--color-morpho-teal);
     font-size: var(--size-s);
+  }
+  .contactform__extraText {
+    max-width: calc( 5 * var(--spacing-col));
   }
 }

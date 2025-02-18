@@ -24,8 +24,8 @@ export default function ContentTextAndImage(props) {
     if (props.data.bgColor === 'beatle' || props.data.bgColor === 'earth-gray' || props.data.bgColor === 'morpho-teal') {
       return (
         <DarkElement>
-          <div className={classNames}>
-            <div className={styles.content} data-tina-field={tinaField(props.data, "content")}>
+          <div className={classNames} data-tina-field={tinaField(props, "data")}>
+            <div className={styles.content}>
               <RichText content={props.data.content} />
             </div>
             { props.data.image && (
@@ -51,8 +51,8 @@ export default function ContentTextAndImage(props) {
     )}
     else {
       return (
-        <div className={classNames}>
-          <div className={styles.content} data-tina-field={tinaField(props.data, "content")}>
+        <div className={classNames} data-tina-field={tinaField(props.data)}>
+          <div className={styles.content}>
             <RichText content={props.data.content} />
           </div>
           { props.data.image && (

@@ -1,6 +1,7 @@
 import styles from './404.module.css'
-import { Navigation } from '../components/navigation/Navigation'
+// import { Navigation } from '../components/navigation/Navigation'
 import { Footer } from "../components/footer/Footer";
+import FooterLinks from "../components/footer/FooterLinks";
 import Button from '../components/Button';
 import Image from 'next/image';
 import { client } from "../tina/__generated__/client";
@@ -9,7 +10,7 @@ import { Layout } from "../components/Layout";
 export default function Page(props) {
   return (
     <Layout>
-      <Navigation navData={props.nav} />
+      {/* <Navigation navData={props.nav} /> */}
         <div className={styles.body}>
           <h1>404</h1>
           <h4>The page you're trying to reach does not exist.</h4>
@@ -23,6 +24,7 @@ export default function Page(props) {
           </figure>
         </div>
       <Footer navData={props.nav} />
+      <FooterLinks navData={props.footerNav} />
     </Layout>
   );
 }
@@ -30,10 +32,12 @@ export default function Page(props) {
 export const getStaticProps = async () => {
 
   const mainNav = await client.queries.navigation({ relativePath: 'mainnav.mdx'})
+  const footerNav = await client.queries.navigation({ relativePath: 'footer.mdx'})
 
   return {
     props: {
-      nav: mainNav
+      nav: mainNav,
+      footerNav: footerNav,
       //myOtherProp: 'some-other-data',
     },
   };

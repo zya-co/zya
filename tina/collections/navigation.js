@@ -26,6 +26,31 @@ export default {
           type: 'string',
           name: 'navItemLink',
           label: 'Link'
+        },
+        {
+          name: 'subNavItems',
+          label: 'Subnav Items',
+          type: 'object',
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return {
+                label: `${item.subNavItemLabel}`,
+              }
+            }
+          },
+          fields: [
+            {
+              type: 'string',
+              name: 'subNavItemLabel',
+              label: 'Label'
+            },
+            {
+              type: 'string',
+              name: 'subNavItemLink',
+              label: 'Link'
+            }
+          ]
         }
       ]
     },
@@ -42,6 +67,31 @@ export default {
         {
           type: 'string',
           name: 'ctaLink',
+          label: 'Link'
+        }
+      ]
+    },
+    {
+      name: 'hygiene',
+      label: 'Footer Hygiene',
+      type: 'object',
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return {
+            label: `${item.hygieneLabel}`,
+          }
+        }
+      },
+      fields: [
+        {
+          type: 'string',
+          name: 'hygieneLabel',
+          label: 'Label'
+        },
+        {
+          type: 'string',
+          name: 'hygieneLink',
           label: 'Link'
         }
       ]
