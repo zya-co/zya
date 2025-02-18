@@ -30,7 +30,7 @@ export default function ImageBlock({ block, i }) {
             src={block.image} 
             alt={block.alt || 'Sorry no alt text provided'} 
             width={400} 
-            height={400}
+            height={block.aspectRatio ? 400 / block.aspectRatio : 400}
             sizes={`${6.015625 * block.width}vw`}
             style={{
               objectFit: `${block.fillContainer ? 'cover' : 'contain'}`,

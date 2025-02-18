@@ -23,12 +23,12 @@ export default function FooterLinks({ navData }) {
           { navitems && navitems.map((item, i) => (
             <div key={i} className={styles.footer__nav__column}>
               {item.navItemLink ? 
-                <h4 className={styles.footer__nav__column__header}><Link href={item.navItemLink ?? '#'}>{item.navItemLabel}</Link></h4>
+                <h4 className={styles.footer__nav__column__header}><Link scroll={false} href={item.navItemLink ?? '#'}>{item.navItemLabel}</Link></h4>
                 :  
                 <h4 className={styles.footer__nav__column__header}>{item.navItemLabel}</h4>
               }
               {item.subNavItems && item.subNavItems.map((subitem, j) => (
-                <Link key={j} href={subitem.subNavItemLink ?? '#'} className={styles.footer__navlink}>{subitem.subNavItemLabel}</Link>
+                <Link scroll={false} key={j} href={subitem.subNavItemLink ?? '#'} className={styles.footer__navlink}>{subitem.subNavItemLabel}</Link>
               ))}
             </div>
           ))}
@@ -49,7 +49,7 @@ export default function FooterLinks({ navData }) {
         <div className={styles.footer__legal__text}>
           { hygiene && hygiene.map((item, i) => (
             item.hygieneLink ? (
-              <div key={i}><Link href={item.hygieneLink ?? '#'}>{item.hygieneLabel}</Link></div>
+              <div key={i}><Link scroll={false} href={item.hygieneLink ?? '#'}>{item.hygieneLabel}</Link></div>
             ) : (
               <div key={i}>{item.hygieneLabel}</div>
             )

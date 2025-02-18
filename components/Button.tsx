@@ -29,7 +29,7 @@ export default function Button(props) {
     )
   } else {
     return (
-      <Link 
+      <Link scroll={false} 
         href={props.href ?? '#'} 
         className={classNames.join(' ')}
       >

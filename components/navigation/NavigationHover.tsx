@@ -327,7 +327,7 @@ export default function NavigationHover(container, currentPage){
     
     const mouseLeaveHandler = contextSafe((event) => {
       const link = event.target;
-      if (link.href.includes(currentUri)) {
+      if (link.href.includes(currentUri) && currentLink !== -1) {
         return
       } 
       else {

@@ -54,6 +54,11 @@ export const imageBlock = {
       type: 'string',
     },   
     {
+      name: 'aspectRatio',
+      label: 'Aspect Ratio',
+      type: 'string'
+    },
+    {
       name: 'link',
       label: 'Link',
       type: 'string',

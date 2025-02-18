@@ -55,7 +55,7 @@ export const Footer = (props) => {
                   variant="mini"
                   className={styles.contactform__submit__button}
                 />
-                <label htmlFor="agree" className={styles.contactform__field__row__ppcheck}><input type="checkbox" name="agree" id="agree" required /> <span>Agree to our <Link href='/privacy-policy'>privacy policy</Link></span></label>
+                <label htmlFor="agree" className={styles.contactform__field__row__ppcheck}><input type="checkbox" name="agree" id="agree" required /> <span>Agree to our <Link scroll={false} href='/privacy-policy'>privacy policy</Link></span></label>
               </div>
             </form>
           </div>

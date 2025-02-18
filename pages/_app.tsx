@@ -17,7 +17,11 @@ const App = ({ Component, pageProps }) => {
   const [currentRoute, setCurrentRoute] = useState(router.query.slug || '');
 
   useEffect(() => {
+
+    if (typeof window === 'undefined') return
+
     const handleRouteChange = (url) => {
+      console.log('route change', url);
       const slug = url.split('/').pop();
       const slugWithoutHash = slug.split('#')[0];
       setCurrentRoute(slugWithoutHash || '');
@@ -26,31 +30,65 @@ const App = ({ Component, pageProps }) => {
         const hash = slug.split('#').pop();
         const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
         if (!hashElement) {
+          console.log('waiting for hash');
           // Wait for the element to be in the DOM
+          let timeoutId;
           const observer = new MutationObserver((mutations, observer) => {
-            const mainNav = document.querySelector('.mainNav') as HTMLElement;
-            const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
-            if (hashElement) {
-              window.scrollTo(0, hashElement.offsetTop - mainNav.offsetHeight);
-              observer.disconnect();
-            }
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+              const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
+              if (hashElement) {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'instant'
+                });
+                // Use ResizeObserver to ensure the element's size is final
+                const resizeObserver = new ResizeObserver(() => {
+                  window.scrollTo(0, hashElement.getBoundingClientRect().top);
+                  console.log('no hash, scrolling to', hashElement.getBoundingClientRect().top);
+                  resizeObserver.disconnect();
+                });
+                resizeObserver.observe(hashElement);
+                observer.disconnect();
+              }
+            }, 100); // Adjust the debounce delay as needed
           });
           observer.observe(document.body, { childList: true, subtree: true });
-        } else {
-          window.scrollTo(0, hashElement.offsetTop);
         }
-      } else {
-        window.scrollTo(0, 0);
+        else {
+          console.log('there was a hash');
+          // Use ResizeObserver to ensure the element's size is final
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant'
+          });
+          const resizeObserver = new ResizeObserver(() => {
+            window.scrollTo(0, hashElement.getBoundingClientRect().top);
+            console.log('was hash, scrolling to', hashElement.getBoundingClientRect().top);
+            resizeObserver.disconnect();
+          });
+          resizeObserver.observe(document.body);
+        }
+      } 
+      else {
+        console.log('no hash, jumping to top');
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant'
+        });
       }
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
-    handleRouteChange(router.query.slug || '');
+    handleRouteChange(currentRoute || '');
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router.query.slug]);
+  }, []);
 
   return (
     <>

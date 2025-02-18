@@ -14,6 +14,7 @@ import ImageBlock from './DynamicBlock_Blocks/ImageBlock';
 import TextWithPlus from './DynamicBlock_Blocks/TextWithPlus';
 import Container from './DynamicBlock_Blocks/Container';
 import VideoBlock from './DynamicBlock_Blocks/VideoBlock';
+import { useEffect } from 'react';
 
 export function DynamicBlock({data}) {
 
@@ -29,6 +30,8 @@ export function DynamicBlock({data}) {
     bottom: data.spacing?.paddingMobile?.bottom ? `calc(var(--spacing-col) * ${data.spacing.paddingMobile.bottom})` : 'var(--spacing-s)',
     left: data.spacing?.paddingMobile?.left ? `calc(var(--spacing-s) + var(--spacing-col) * ${data.spacing.paddingMobile.left})` : 'var(--spacing-s)',
   }
+
+  
 
   return (
     <DarkElement ignore={ !data.background || !data.background.darkMode || false }>
@@ -82,7 +85,7 @@ export function DynamicBlock({data}) {
               src={data.background.bgGraphic.image} 
               alt="Decorative background graphic" 
               width={400} 
-              height={400}
+              height={data.background.bgGraphic.aspectRatio ? 400 / data.background.bgGraphic.aspectRatio : 400}
               sizes={`(min-width: 640.1px) ${6.015625 * data.background.bgGraphic.width}vw, 100vw`}
               className={styles.bgGraphicImg}
             />
@@ -184,6 +187,11 @@ export const dynamicBlockSchema: Template = {
               name: 'image',
               label: 'Image',
               type: 'image',
+            },
+            {
+              name: 'aspectRatio',
+              label: 'Aspect Ratio',
+              type: 'number',
             },
             {
               label: 'Layout Mobile',

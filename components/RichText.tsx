@@ -99,7 +99,7 @@ export default function RichText(props) {
             spacer, 
             customImage, 
             inlineFormat,
-            a: (props) => <Link href={props?.url || '#'} {...props} />,
+            a: (props) => <Link scroll={false} href={props?.url || '#'} {...props} />,
           }
         }
       />

@@ -31,7 +31,7 @@ export default function LatestBlogPosts({data, posts}) {
         <div className={styles.posts}>
           {posts[0] &&
               <div key={0} className={styles.post_first}>
-                <Link href={`/blog/${posts[0]?.filename}`}>
+                <Link scroll={false} href={`/blog/${posts[0]?.filename}`}>
                   {posts[0]?.image &&
                     <figure className={styles.image}>
                       <Image 
@@ -44,10 +44,10 @@ export default function LatestBlogPosts({data, posts}) {
                     </figure>
                   }
                 </Link>
-                <Link href={`/blog/${posts[0]?.filename}`}>
+                <Link scroll={false} href={`/blog/${posts[0]?.filename}`}>
                   <h3 className={styles.title}>{posts[0]?.title ? posts[0].title : 'No title'}</h3>
                 </Link>
-                <Link href={`/blog/${posts[0]?.filename}`}>
+                <Link scroll={false} href={`/blog/${posts[0]?.filename}`}>
                   <p className={styles.description}>{posts[0]?.description ? posts[0].description : 'No description'}</p>
                 </Link>
                 <div className={styles.footer}>
@@ -64,10 +64,10 @@ export default function LatestBlogPosts({data, posts}) {
             {posts && posts.length > 1 && posts.map((post, i: number) => (
                 i >= 1 && i <= 2 &&
                   <div key={i} className={styles.post}>
-                    <Link href={`/blog/${post.filename ?? '#'}`}>
+                    <Link scroll={false} href={`/blog/${post.filename ?? '#'}`}>
                       <h3 className={styles.title}>{post.title ? post.title : 'No title'}</h3>
                     </Link>
-                    <Link href={`/blog/${post.filename ?? '#'}`}>
+                    <Link scroll={false} href={`/blog/${post.filename ?? '#'}`}>
                       <p className={styles.description}>{post?.description ? post.description : 'No description'}</p>
                     </Link>
                     <div className={styles.footer}>
@@ -102,7 +102,7 @@ export default function LatestBlogPosts({data, posts}) {
           {data.showMore && !isCollapsed && posts.map((post, i: number) => (
               i >= 3 &&
                 <div key={i} className={styles.post}>
-                  <Link href={`/blog/${post.filename ?? '#'}`}>
+                  <Link scroll={false} href={`/blog/${post.filename ?? '#'}`}>
                     <h3 className={styles.title}>{post.title ? post.title : 'No title'}</h3>
                   </Link>
                   <div className={styles.footer}>
