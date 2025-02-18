@@ -28,9 +28,10 @@ const App = ({ Component, pageProps }) => {
         if (!hashElement) {
           // Wait for the element to be in the DOM
           const observer = new MutationObserver((mutations, observer) => {
+            const mainNav = document.querySelector('.mainNav') as HTMLElement;
             const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
             if (hashElement) {
-              window.scrollTo(0, hashElement.offsetTop);
+              window.scrollTo(0, hashElement.offsetTop - mainNav.offsetHeight);
               observer.disconnect();
             }
           });
