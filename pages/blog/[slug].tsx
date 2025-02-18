@@ -5,7 +5,6 @@ import { Blocks } from "../../components/Blocks";
 import { Footer } from "../../components/footer/Footer";
 import FooterLinks from "../../components/footer/FooterLinks";
 import { Layout } from "../../components/Layout";
-// import { ScrollSmooth } from "../../components/ScrollSmooth";
 
 export default function Page(props) {
 
@@ -23,11 +22,9 @@ export default function Page(props) {
       metaimg={data?.blogpost?.meta?.image}
       nofollow={data?.blogpost?.isDraft}
     >
-      {/* <ScrollSmooth> */}
         <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />
         <Footer navData={props.nav} />
         <FooterLinks navData={props.footerNav} />
-      {/* </ScrollSmooth> */}
     </Layout>
   );
 }

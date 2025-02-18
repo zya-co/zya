@@ -3,7 +3,6 @@ import { useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import { Blocks } from "../components/Blocks";
 import { Layout } from "../components/Layout";
-// import { ScrollSmooth } from "../components/ScrollSmooth";
 import FooterLinks from "../components/footer/FooterLinks";
 
 export default function Page(props) {
@@ -21,10 +20,8 @@ export default function Page(props) {
       title={data?.page?.meta?.title}
       metaimg={data?.page?.meta?.image}
     >
-      {/* <ScrollSmooth> */}
         <Blocks blocks={data.page.blocks} latestposts={props.latestposts} />
         <FooterLinks navData={props.footerNav} />
-      {/* </ScrollSmooth> */}
     </Layout>
   );
 }

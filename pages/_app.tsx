@@ -1,5 +1,5 @@
-import React from 'react'
-import './global.css'
+import React from 'react';
+import './global.css';
 import { aeonik, haben } from '../styles/fonts';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -13,39 +13,60 @@ if (typeof window !== 'undefined') {
 }
 
 const App = ({ Component, pageProps }) => {
-  const router = useRouter()
+  const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState(router.query.slug || '');
-  
+
   useEffect(() => {
     const handleRouteChange = (url) => {
       const slug = url.split('/').pop();
-      setCurrentRoute(slug || '');
+      const slugWithoutHash = slug.split('#')[0];
+      setCurrentRoute(slugWithoutHash || '');
+
+      if (slug.includes('#')) {
+        const hash = slug.split('#').pop();
+        const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
+        if (!hashElement) {
+          // Wait for the element to be in the DOM
+          const observer = new MutationObserver((mutations, observer) => {
+            const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
+            if (hashElement) {
+              window.scrollTo(0, hashElement.offsetTop);
+              observer.disconnect();
+            }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        } else {
+          window.scrollTo(0, hashElement.offsetTop);
+        }
+      } else {
+        window.scrollTo(0, 0);
+      }
     };
+
     router.events.on('routeChangeComplete', handleRouteChange);
     handleRouteChange(router.query.slug || '');
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router]);
-
+  }, [router.query.slug]);
 
   return (
     <>
-        <main className={`${aeonik.variable} ${haben.variable}`}>
-          <style>
-            {`
-              :root {
-                --font-haben: ${haben.variable};
-                --font-aeonik: ${aeonik.variable};
-              }
-            `}
-          </style>
-          <Navigation navData={pageProps.nav} current={currentRoute} />
-          <div id='contentWrapper'>
-            <Component {...pageProps} />
-          </div>
-        </main>
+      <main className={`${aeonik.variable} ${haben.variable}`}>
+        <style>
+          {`
+            :root {
+              --font-haben: ${haben.variable};
+              --font-aeonik: ${aeonik.variable};
+            }
+          `}
+        </style>
+        <Navigation navData={pageProps.nav} current={currentRoute} />
+        <div id='contentWrapper'>
+          <Component {...pageProps} />
+        </div>
+      </main>
     </>
   );
 };
@@ -60,7 +81,7 @@ if (typeof Node === 'function' && Node.prototype) {
       return child;
     }
     return originalRemoveChild.apply(this, arguments);
-  }
+  };
 
   const originalInsertBefore = Node.prototype.insertBefore;
   Node.prototype.insertBefore = function(newNode, referenceNode) {
@@ -71,7 +92,7 @@ if (typeof Node === 'function' && Node.prototype) {
       return newNode;
     }
     return originalInsertBefore.apply(this, arguments);
-  }
+  };
 }
 
 export default App;
