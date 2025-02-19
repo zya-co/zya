@@ -1,22 +1,22 @@
 import styles from './HeroConvero.module.css';
 import HeroConvero_Enzymes from './HeroConvero_Enzymes';
 import DarkElement from '../DarkElement';
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { normalize } from 'path';
 
 export default function HeroConvero(props) {
 
-  
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+
   const gsapRef = useRef<HTMLDivElement | null>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   
   useGSAP((context, contextSafe) => {
     
     if(!gsapRef.current) return;
-    
+
     const windowH = window.innerHeight;
 
     tlRef.current = gsap.timeline({ 
