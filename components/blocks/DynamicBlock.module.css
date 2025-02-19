@@ -161,6 +161,9 @@
     text-align: right;
     align-self: flex-end;
   }
+  .richtext_noUnderlineLinks a {
+    text-decoration: none;
+  }
   .richtext {
     width: var(--width, 100%);
     flex-basis: var(--width, 100%);

@@ -13,6 +13,7 @@ export default function TextBlock({ data, i }) {
     styles[`richtext_width_${data.width}`],      
     data.breakAfter && styles.richtext_breakAfter,        
     data.backgroundColor && styles[`richtext_bg_${data.backgroundColor}`],
+    data.noUnderlineLinks && styles.richtext_noUnderlineLinks,
   ].filter(Boolean).join(' ')
   
   const textBlockElements = [

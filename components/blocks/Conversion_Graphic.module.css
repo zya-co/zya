@@ -115,9 +115,9 @@
     }
   
     &:before {
-      content: counter(step);
+      content: '➊';
       position: absolute;
-      font-size: .8rem;
+      font-size: var(--size-body);
       top: calc( -0.125rem);
       left: 0;
       width: 1rem;
@@ -125,12 +125,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--color-fuchsia);
+      color: var(--color-mineral-white);
       border: .75rem solid var(--color-fuchsia);
       border-radius: 50%;
-      background-color: var(--color-mineral-white);
+      background-color: var(--color-fuchsia);
       z-index: 1;
     }
+  }
+  .step:nth-child(2) .stepText:before {
+    content: '➋';
+  }
+  .step:nth-child(3) .stepText:before {
+    content: '➌';
+  }
+  .step:nth-child(4) .stepText:before {
+    content: '➍';
+  }
+  .step:nth-child(5) .stepText:before {
+    content: '➎';
   }
   .step:last-child .stepText:after {
     display: none;

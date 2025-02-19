@@ -125,6 +125,11 @@ export const textBlock = {
       toolbarOverride: ['heading', 'link', 'ul', 'ol', 'bold', 'italic', 'table', 'embed', 'raw'],
       templates: [ cta, customImage, spacer, inlineFormat ]
     },
+    {
+      label: 'Links without underline',
+      name: 'noUnderlineLinks',
+      type: 'boolean',
+    },
     { 
       label: 'alignment',
       name: 'alignment',
