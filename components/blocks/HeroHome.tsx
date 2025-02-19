@@ -61,16 +61,15 @@ export const HeroHome = (props) => {
       els[element.classList[0]] = element.getBoundingClientRect();
     });
 
+
     timeline.current = gsap.timeline({ 
       scrollTrigger: {
         trigger: parent,
         start: 'top top',
         end: `+=${1.25 * fullHeight}px`,
         pin: true,
-        pinType: 'fixed',
         scrub: true,
-        scroller: document.querySelector('#contentWrapper'),
-        normalizeScroll: true,
+        // normalizeScroll: true,
       },
       defaults: { ease: 'none' }
     });

@@ -12,6 +12,8 @@ export default function HeroConvero(props) {
 
   const gsapRef = useRef<HTMLDivElement | null>(null);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+  const isMobile = () => window.innerWidth < 641;
   
   useGSAP((context, contextSafe) => {
     
@@ -27,9 +29,9 @@ export default function HeroConvero(props) {
         end: `+=${7 * windowH}`,
         scrub: true,
         pin: true,
-        pinType: 'fixed',
-        scroller: document.querySelector('#contentWrapper'),
-        normalizeScroll: true,
+        // pinType: isMobile() ? 'fixed' : 'transform',
+        // scroller: isMobile() ? document.querySelector('#contentWrapper') : document.body,
+        // normalizeScroll: true,
       },
     });
 

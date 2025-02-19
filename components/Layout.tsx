@@ -25,7 +25,7 @@ export const Layout = (props) => {
       const options = {
         rootMargin: `${ header.offsetHeight * -0.5 }px 0px ${ -1 * vvph + header.offsetHeight * 0.5 + 1}px 0px`, // Fixed rootMargin to always check against the top 100px of the viewport
         threshold: 0,
-        root: document.querySelector('#contentWrapper') as HTMLElement,
+        root: document,
       };
 
       const observer = new IntersectionObserver((entries) => {

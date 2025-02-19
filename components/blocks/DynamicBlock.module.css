@@ -131,7 +131,7 @@
               var(--padding-right, 0) 
               var(--padding-bottom, 0) 
               var(--padding-left, 0);
-    will-change: transform;
+    /* will-change: transform; */
   }
   .bgImage {
     position: absolute;

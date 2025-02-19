@@ -1,7 +1,7 @@
 .hero {
   color: var(--color-beatle);
   background-color: var(--color-mineral-white);
-  height: 100svh;
+  height: 100vh;
   overflow: hidden;
 }
 .hero_introtext {
@@ -33,7 +33,7 @@
   transform: scale(0.16666);
 }
 .hero_payofftext {
-  height: 100svh;
+  height: 100vh;
   width: 100%;
   opacity: 0; 
   visibility: hidden;
@@ -61,22 +61,3 @@
 .enzyme01 {
   position: relative;
 }
-
-/* :global(body.__tina-quick-editing-enabled) .hero {
-  
-  height: 50svh;
-
-  &:after {
-    position: absolute;
-    content: 'Convero Hero';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 100;
-  }
-} */
