@@ -11,56 +11,112 @@ export const Layout = (props) => {
 
   useEffect(() => {
     const darkElements = Array.from(document.querySelectorAll('.darkElement')) as HTMLElement[];
-    const lightElements = Array.from(document.querySelectorAll('.lightElement')) as HTMLElement[];
+    const lightElements = Array.from(document.querySelectorAll('#contentWrapper > :not(.darkElement)')) as HTMLElement[];
 
     function isMobile() { return window.innerWidth < 641 }
 
-    const header = isMobile()
-      ? (document.querySelector('.mobileHeader') as HTMLElement)
-      : (document.querySelector('.mainNav') as HTMLElement);
+    const createObserver = (elements, callback) => {
+      const header = isMobile()
+        ? (document.querySelector('.mobileHeader') as HTMLElement)
+        : (document.querySelector('.mainNav') as HTMLElement);
 
-    const options = {
-      rootMargin: `${header?.offsetHeight * -0.5}px 0px ${ -1 * (window.innerHeight - 0.5 * header?.offsetHeight)}px 0px`,
-      threshold: 0,
-      root: isMobile() ? document : document.querySelector('#smooth-wrapper')
+      const vvph = window.visualViewport?.height || window.innerHeight;
+
+      const options = {
+        rootMargin: `${ header.offsetHeight * -0.5 }px 0px ${ -1 * vvph + header.offsetHeight * 0.5 + 1}px 0px`, // Fixed rootMargin to always check against the top 100px of the viewport
+        threshold: 0,
+        root: document.querySelector('#contentWrapper') as HTMLElement,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          callback(entry);
+        });
+      }, options);
+
+      elements.forEach((element) => {
+        observer.observe(element);
+      });
+
+      return observer;
     };
 
     const nav = document.querySelector('.mainNav') as HTMLElement;
     const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
 
-    let observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const darkObserver = createObserver(darkElements, (entry) => {
+      if (entry.isIntersecting) {
+        const timeoutId = setTimeout(() => {
+          nav?.setAttribute('data-isLight', 'true');
+          mobileHeader?.setAttribute('data-isLight', 'true');
+        }, 100);
+        (entry.target as any)._timeoutId = timeoutId;
+      }
+    });
+
+    const lightObserver = createObserver(lightElements, (entry) => {
+      if (entry.isIntersecting) {
+        const timeoutId = setTimeout(() => {
+          nav?.removeAttribute('data-isLight');
+          mobileHeader?.removeAttribute('data-isLight');
+        }, 100);
+        (entry.target as any)._timeoutId = timeoutId;
+      }
+    });
+
+    const debounce = (func, wait) => {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    };
+
+    const handleResize = debounce(() => {
+      darkObserver.disconnect();
+      lightObserver.disconnect();
+      createObserver(darkElements, (entry) => {
         if (entry.isIntersecting) {
           const timeoutId = setTimeout(() => {
             nav?.setAttribute('data-isLight', 'true');
             mobileHeader?.setAttribute('data-isLight', 'true');
-          }, 10);
+          }, 100);
           (entry.target as any)._timeoutId = timeoutId;
-        } else {
-          nav?.removeAttribute('data-isLight');
-          mobileHeader?.removeAttribute('data-isLight');
         }
       });
-    }, options);
+      createObserver(lightElements, (entry) => {
+        if (entry.isIntersecting) {
+          const timeoutId = setTimeout(() => {
+            nav?.removeAttribute('data-isLight');
+            mobileHeader?.removeAttribute('data-isLight');
+          }, 100);
+          (entry.target as any)._timeoutId = timeoutId;
+        }
+      });
+    }, 100); // Adjust the debounce delay as needed
 
-    darkElements.forEach((element) => {
-      observer.observe(element);
-    });
-
-    lightElements.forEach((element) => {
-      observer.unobserve(element);
-    });
+    window.visualViewport?.addEventListener('resize', handleResize);
 
     return () => {
-      
+      window.visualViewport?.removeEventListener('resize', handleResize);
       darkElements.forEach((entry) => {
         if ((entry as any)._timeoutId) {
           clearTimeout((entry as any)._timeoutId);
         }
-        observer.unobserve(entry);
+        darkObserver.unobserve(entry);
       });
-
-      observer.disconnect();
+      lightElements.forEach((entry) => {
+        if ((entry as any)._timeoutId) {
+          clearTimeout((entry as any)._timeoutId);
+        }
+        lightObserver.unobserve(entry);
+      });
+      darkObserver.disconnect();
+      lightObserver.disconnect();
     };
   }, [props.children]);
 

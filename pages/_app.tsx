@@ -18,6 +18,7 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
 
+    const scroller = document.querySelector('#contentWrapper');
     if (typeof window === 'undefined') return
 
     const handleRouteChange = (url) => {
@@ -38,14 +39,14 @@ const App = ({ Component, pageProps }) => {
             timeoutId = setTimeout(() => {
               const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
               if (hashElement) {
-                window.scrollTo({
+                scroller?.scrollTo({
                   top: 0,
                   left: 0,
                   behavior: 'instant'
                 });
                 // Use ResizeObserver to ensure the element's size is final
                 const resizeObserver = new ResizeObserver(() => {
-                  window.scrollTo(0, hashElement.getBoundingClientRect().top);
+                  scroller?.scrollTo(0, hashElement.getBoundingClientRect().top);
                   console.log('no hash, scrolling to', hashElement.getBoundingClientRect().top);
                   resizeObserver.disconnect();
                 });
@@ -59,13 +60,13 @@ const App = ({ Component, pageProps }) => {
         else {
           console.log('there was a hash');
           // Use ResizeObserver to ensure the element's size is final
-          window.scrollTo({
+          scroller?.scrollTo({
             top: 0,
             left: 0,
             behavior: 'instant'
           });
           const resizeObserver = new ResizeObserver(() => {
-            window.scrollTo(0, hashElement.getBoundingClientRect().top);
+            scroller?.scrollTo(0, hashElement.getBoundingClientRect().top);
             console.log('was hash, scrolling to', hashElement.getBoundingClientRect().top);
             resizeObserver.disconnect();
           });
@@ -74,7 +75,7 @@ const App = ({ Component, pageProps }) => {
       } 
       else {
         console.log('no hash, jumping to top');
-        window.scrollTo({
+        scroller?.scrollTo({
           top: 0,
           left: 0,
           behavior: 'instant'

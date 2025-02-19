@@ -7,7 +7,7 @@ export default function ImageBlock({ block, i }) {
     <figure 
       key={i+block.__typename}
       data-tina-field={tinaField(block)}
-      className={styles.imageBlock}
+      className={`${styles.imageBlock} ${block.hideOn === 'mobile' ? styles.hideOnMobile : ''} ${block.hideOn === 'desktop' ? styles.hideOnDesktop : ''}`}
       style={{
         '--marginLeft': block.margins?.marginsDesktop?.left ? `calc(var(--spacing-col) * ${block.margins.marginsDesktop.left})` : '0',
         '--marginTop': block.margins?.marginsDesktop?.top ? `calc(var(--spacing-col) * ${block.margins.marginsDesktop.top})` : '0',

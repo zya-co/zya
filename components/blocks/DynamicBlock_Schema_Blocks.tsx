@@ -64,6 +64,16 @@ export const imageBlock = {
       type: 'string',
     },
     {
+      label: 'Hide on',
+      name: 'hideOn',
+      type: 'string',
+      options: [
+        { label: 'None', value: 'none' },
+        { label: 'Mobile', value: 'mobile' },
+        { label: 'Desktop', value: 'desktop' },
+      ]
+    },
+    {
       label: 'Fill Container?',
       name: 'fillContainer',
       type: 'boolean',

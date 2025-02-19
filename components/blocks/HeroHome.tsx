@@ -34,7 +34,7 @@ export const HeroHome = (props) => {
     parent.style.height = `${window.innerHeight - windowContentDiff }px`;
 
     gsap.set('.heroHomeInside', { autoAlpha: 1, overflow: 'hidden'})
-    gsap.set('.heroSubhead, .shape', { position: 'fixed', y: '100vh' } )
+    gsap.set('.heroSubhead, .shape', { position: 'fixed', y: '100svh' } )
     gsap.set('.heroContentWrapper', { position: 'absolute', bottom: '0' } )
     gsap.set('.headline1', { 
       display: 'block',
@@ -67,7 +67,10 @@ export const HeroHome = (props) => {
         start: 'top top',
         end: `+=${1.25 * fullHeight}px`,
         pin: true,
+        pinType: 'fixed',
         scrub: true,
+        scroller: document.querySelector('#contentWrapper'),
+        normalizeScroll: true,
       },
       defaults: { ease: 'none' }
     });
@@ -109,12 +112,12 @@ export const HeroHome = (props) => {
     timeline.current.addLabel('shape3');
     
     timeline.current.to('.shape1, .shape2, .shape3, .shape4, .headline1, .headline2', {
-      y: isMobile ? '-=80vh' : '-=120vh',
+      y: isMobile ? '-=80svh' : '-=120svh',
       duration: 1,
       ease: 'power2.out',
     }, 'shape3')
     timeline.current.to('.shape1, .shape2, .shape3, .headline1, .headline2', {
-      y: isMobile ? '-=40vh' : '-=0vh',
+      y: isMobile ? '-=40svh' : '-=0svh',
       duration: .5,
       ease: 'power2.out',
     }, 'shape3+=.5')
@@ -200,8 +203,8 @@ export const HeroHome = (props) => {
         <DarkElement>
           <div style={{
             'position': 'relative',
-            'marginTop': '-200vh',
-            'height': '200vh',
+            'marginTop': '-200svh',
+            'height': '200svh',
             'width': '100%',
             'opacity': '1' 
           }}>

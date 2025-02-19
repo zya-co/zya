@@ -5,6 +5,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { normalize } from 'path';
 
 export default function HeroConvero(props) {
 
@@ -26,6 +27,9 @@ export default function HeroConvero(props) {
         end: `+=${7 * windowH}`,
         scrub: true,
         pin: true,
+        pinType: 'fixed',
+        scroller: document.querySelector('#contentWrapper'),
+        normalizeScroll: true,
       },
     });
 
