@@ -14,7 +14,6 @@ import ImageBlock from './DynamicBlock_Blocks/ImageBlock';
 import TextWithPlus from './DynamicBlock_Blocks/TextWithPlus';
 import Container from './DynamicBlock_Blocks/Container';
 import VideoBlock from './DynamicBlock_Blocks/VideoBlock';
-import { useEffect } from 'react';
 
 export function DynamicBlock({data}) {
 
@@ -97,13 +96,17 @@ export function DynamicBlock({data}) {
               
               return <TextBlock data={block} i={i} key={i+data.__typename} />
             
-            case "BlogPostBlocksDynamicBlockBlocksImageBlock":
+            case "BlogpostBlocksDynamicBlockBlocksImageBlock":
               
               return <ImageBlock block={block} i={i} key={i+data.__typename} />
 
-            case "BlogPostBlocksDynamicBlockBlocksTextWithPlus":
+            case "BlogpostBlocksDynamicBlockBlocksTextWithPlus":
               
               return <TextWithPlus data={block} key={i+data.__typename} />
+            
+            case "BlogpostBlocksDynamicBlockBlocksVideoBlock":
+              
+              return <VideoBlock data={block} key={i+data.__typename} />
 
             case "PageBlocksDynamicBlockBlocksContainer":
               

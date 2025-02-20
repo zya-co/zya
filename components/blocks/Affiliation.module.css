@@ -46,12 +46,12 @@
   .backers {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--spacing-col);
+    justify-content: flex-start;
+    gap: calc( 0.576 * var(--spacing-col) );
   }
   .backer {
     position: relative;
-    flex: 0 1 calc( 2 * var(--spacing-col));
+    flex: 0 1 14%;
     height: var(--spacing-col);
   }
   .backerLogo {
@@ -122,7 +122,7 @@
   }
   .backer {
     position: relative;
-    flex: 0 1 calc( 2 * var(--spacing-col));
+    flex: 0 1 14%;
     height: var(--spacing-col);
   }
   .backerLogo {

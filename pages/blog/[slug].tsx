@@ -22,6 +22,7 @@ export default function Page(props) {
       metaimg={data?.blogpost?.meta?.image}
       nofollow={data?.blogpost?.isDraft}
     >
+        {/* <pre>{JSON.stringify(data?.blogpost?.blocks, null, 2)}</pre> */}
         <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />
         <Footer navData={props.nav} />
         <FooterLinks navData={props.footerNav} />
