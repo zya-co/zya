@@ -21,6 +21,7 @@ export default function Page(props) {
       title={data?.blogpost?.meta?.title}Layout
       metaimg={data?.blogpost?.meta?.image}
       nofollow={data?.blogpost?.isDraft}
+      noSmooth
     >
         {/* <pre>{JSON.stringify(data?.blogpost?.blocks, null, 2)}</pre> */}
         <Blocks blocks={data?.blogpost?.blocks} navData={props.nav} />

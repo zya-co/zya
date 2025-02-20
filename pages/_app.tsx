@@ -102,9 +102,7 @@ const App = ({ Component, pageProps }) => {
           `}
         </style>
         <Navigation navData={pageProps.nav} current={currentRoute} />
-        <div id='contentWrapper'>
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </main>
     </>
   );

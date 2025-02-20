@@ -12,7 +12,7 @@ export const Layout = (props) => {
 
   useEffect(() => {
     const darkElements = Array.from(document.querySelectorAll('.darkElement')) as HTMLElement[];
-    const lightElements = Array.from(document.querySelectorAll('#smooth-content > :not(.darkElement)')) as HTMLElement[];
+    const lightElements = Array.from(document.querySelectorAll('#smooth-content > :not(.darkElement), .noSmooth > :not(.darkElement)')) as HTMLElement[];
 
     function isMobile() { return window.innerWidth < 641 }
 
@@ -136,9 +136,15 @@ export const Layout = (props) => {
         <link rel="manifest" href="/site.webmanifest" />
         {meta.nofollow && <meta name="robots" content="noindex, nofollow" />}
       </Head>
-      <ScrollSmooth>
-        {props.children}
-      </ScrollSmooth>
+      { props.noSmooth 
+        ? <div className='noSmooth'>
+            {props.children }
+          </div>
+        
+        : <ScrollSmooth>
+            {props.children}
+          </ScrollSmooth>
+      }
     </>
   );
 };

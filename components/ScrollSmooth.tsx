@@ -22,6 +22,7 @@ export const ScrollSmooth = (props) => {
     smoothScrollerRef.current = ScrollSmoother.create({
       smooth: 1,
       effects: true,
+      smoothTouch: 1,
       normalizeScroll: true,
       wrapper: smoothRef.current,
       content: smoothContent,
