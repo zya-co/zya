@@ -191,8 +191,8 @@ input[type="checkbox"]:checked {
   }
 } */
 /* Stupid smooth-scroll visual but creates gaps, and even the will-change CSS setting doesn't seem to help, so we do this: */
-#contentWrapper > div, #contentWrapper > section {
-  margin-top: -0.5px;
+#smooth-content > div, #smooth-content > section {
+  margin-top: -2px;
 }
 @media (min-width: 641px) {
   .hideOnDesktop {

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
+import { ScrollSmooth } from './ScrollSmooth';
 
 export const Layout = (props) => {
   const meta = {
@@ -11,7 +12,7 @@ export const Layout = (props) => {
 
   useEffect(() => {
     const darkElements = Array.from(document.querySelectorAll('.darkElement')) as HTMLElement[];
-    const lightElements = Array.from(document.querySelectorAll('#contentWrapper > :not(.darkElement)')) as HTMLElement[];
+    const lightElements = Array.from(document.querySelectorAll('#smooth-content > :not(.darkElement)')) as HTMLElement[];
 
     function isMobile() { return window.innerWidth < 641 }
 
@@ -25,7 +26,7 @@ export const Layout = (props) => {
       const options = {
         rootMargin: `${ header.offsetHeight * -0.5 }px 0px ${ -1 * vvph + header.offsetHeight * 0.5 + 1}px 0px`, // Fixed rootMargin to always check against the top 100px of the viewport
         threshold: 0,
-        root: document,
+        root: document.querySelector('#smooth-wrapper'),
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -135,7 +136,9 @@ export const Layout = (props) => {
         <link rel="manifest" href="/site.webmanifest" />
         {meta.nofollow && <meta name="robots" content="noindex, nofollow" />}
       </Head>
-      {props.children}
+      <ScrollSmooth>
+        {props.children}
+      </ScrollSmooth>
     </>
   );
 };
