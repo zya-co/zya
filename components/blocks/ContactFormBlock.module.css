@@ -225,3 +225,34 @@
     max-width: calc( 5 * var(--spacing-col));
   }
 }
+
+.alert {
+  background-color: #376e37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  padding: 1rem;
+  border-radius: 6px;
+  position: absolute;
+  color: var(--color-mineral-white);
+
+  @media (max-width:839.9px) {
+    & {
+      margin-top: .15em;
+    }
+  }
+
+  & > svg {
+    height: 1.5em;
+    width: auto;
+    
+    & path {
+      stroke: white;
+    }
+  }
+
+  &.alert_error {
+    background-color: red;
+  }
+}
