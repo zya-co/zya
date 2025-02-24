@@ -27,6 +27,9 @@ export default function RichText(props) {
   }
   const customImage = (props) => {
 
+    const sizesDesktop = props.widthDesktop ? `${props.widthDesktop * 6 }vw` : '100vw'
+    const sizesMobile = props.widthMobile ? `${props.widthMobile * 11.25 }vw` : '100vw'
+
     return (
       <figure 
         className={`customImage ${styles.customImage} ${props.alignment === 'center' && styles.customImageCenterAligned} ${props.alignment === 'right' && styles.customImageRightAligned}`}
@@ -43,8 +46,9 @@ export default function RichText(props) {
           <Image 
             src={props.image} 
             alt={props.alt || 'Sorry no alt text provided'}
-            width={400}
-            height={400}
+            width={1000}
+            height={props.aspectRatio ? Math.round(1000 / props.aspectRatio) : 1000}
+            sizes={`(min-width: 641px) ${sizesDesktop}, ${sizesMobile}`}
           />
         }
         {props.caption &&

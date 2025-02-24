@@ -21,6 +21,11 @@ export const customImage = {
       type: 'string',
     },
     {
+      label: 'Aspect Ratio',
+      name: 'aspectRatio',
+      type: 'number',
+    },
+    {
       type: 'string',
       name: 'alignment',
       label: 'Alignment',
