@@ -40,7 +40,7 @@ export const getStaticPaths = async ({ preview = false }) => {
 
   return {
     paths: pageslugs,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
