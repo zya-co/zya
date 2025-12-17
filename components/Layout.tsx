@@ -45,24 +45,59 @@ export const Layout = (props) => {
     const nav = document.querySelector('.mainNav') as HTMLElement;
     const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
 
-    const darkObserver = createObserver(darkElements, (entry) => {
-      if (entry.isIntersecting) {
-        const timeoutId = setTimeout(() => {
+    // Track intersecting elements
+    const intersectingDarkElements = new Set<HTMLElement>();
+    const intersectingLightElements = new Set<HTMLElement>();
+
+    // Helper function to update nav state based on currently intersecting elements
+    const updateNavState = () => {
+      // Clear any existing global timeout
+      if ((window as any)._navStateTimeout) {
+        clearTimeout((window as any)._navStateTimeout);
+      }
+
+      (window as any)._navStateTimeout = setTimeout(() => {
+        // If any dark element is intersecting, nav should be light
+        if (intersectingDarkElements.size > 0) {
           nav?.setAttribute('data-isLight', 'true');
           mobileHeader?.setAttribute('data-isLight', 'true');
-        }, 100);
-        (entry.target as any)._timeoutId = timeoutId;
+        } else {
+          // No dark elements intersecting, nav should be dark (default)
+          nav?.removeAttribute('data-isLight');
+          mobileHeader?.removeAttribute('data-isLight');
+        }
+      }, 100);
+    };
+
+    const darkObserver = createObserver(darkElements, (entry) => {
+      // Clear any existing timeout on this element
+      if ((entry.target as any)._timeoutId) {
+        clearTimeout((entry.target as any)._timeoutId);
       }
+      
+      if (entry.isIntersecting) {
+        intersectingDarkElements.add(entry.target as HTMLElement);
+      } else {
+        intersectingDarkElements.delete(entry.target as HTMLElement);
+      }
+      
+      updateNavState();
     });
 
     const lightObserver = createObserver(lightElements, (entry) => {
-      if (entry.isIntersecting) {
-        const timeoutId = setTimeout(() => {
-          nav?.removeAttribute('data-isLight');
-          mobileHeader?.removeAttribute('data-isLight');
-        }, 100);
-        (entry.target as any)._timeoutId = timeoutId;
+      // Clear any existing timeout on this element
+      if ((entry.target as any)._timeoutId) {
+        clearTimeout((entry.target as any)._timeoutId);
       }
+      
+      if (entry.isIntersecting) {
+        intersectingLightElements.add(entry.target as HTMLElement);
+      } else {
+        intersectingLightElements.delete(entry.target as HTMLElement);
+      }
+      
+      // Light elements don't directly control the state, but we update to ensure consistency
+      updateNavState();
     });
 
     const debounce = (func, wait) => {
@@ -78,32 +113,56 @@ export const Layout = (props) => {
     };
 
     const handleResize = debounce(() => {
+      // Clear tracking sets
+      intersectingDarkElements.clear();
+      intersectingLightElements.clear();
+      
       darkObserver.disconnect();
       lightObserver.disconnect();
-      createObserver(darkElements, (entry) => {
-        if (entry.isIntersecting) {
-          const timeoutId = setTimeout(() => {
-            nav?.setAttribute('data-isLight', 'true');
-            mobileHeader?.setAttribute('data-isLight', 'true');
-          }, 100);
-          (entry.target as any)._timeoutId = timeoutId;
+      
+      const newDarkObserver = createObserver(darkElements, (entry) => {
+        if ((entry.target as any)._timeoutId) {
+          clearTimeout((entry.target as any)._timeoutId);
         }
-      });
-      createObserver(lightElements, (entry) => {
+        
         if (entry.isIntersecting) {
-          const timeoutId = setTimeout(() => {
-            nav?.removeAttribute('data-isLight');
-            mobileHeader?.removeAttribute('data-isLight');
-          }, 100);
-          (entry.target as any)._timeoutId = timeoutId;
+          intersectingDarkElements.add(entry.target as HTMLElement);
+        } else {
+          intersectingDarkElements.delete(entry.target as HTMLElement);
         }
+        
+        updateNavState();
       });
+      
+      const newLightObserver = createObserver(lightElements, (entry) => {
+        if ((entry.target as any)._timeoutId) {
+          clearTimeout((entry.target as any)._timeoutId);
+        }
+        
+        if (entry.isIntersecting) {
+          intersectingLightElements.add(entry.target as HTMLElement);
+        } else {
+          intersectingLightElements.delete(entry.target as HTMLElement);
+        }
+        
+        updateNavState();
+      });
+      
+      // Update references (though they're not used elsewhere, this is for consistency)
+      (window as any).darkObserver = newDarkObserver;
+      (window as any).lightObserver = newLightObserver;
     }, 100); // Adjust the debounce delay as needed
 
     window.visualViewport?.addEventListener('resize', handleResize);
 
     return () => {
       window.visualViewport?.removeEventListener('resize', handleResize);
+      
+      // Clear global timeout
+      if ((window as any)._navStateTimeout) {
+        clearTimeout((window as any)._navStateTimeout);
+      }
+      
       darkElements.forEach((entry) => {
         if ((entry as any)._timeoutId) {
           clearTimeout((entry as any)._timeoutId);
