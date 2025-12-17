@@ -11,13 +11,16 @@ export const ScrollSmooth = (props) => {
   const smoothRef = useRef<HTMLDivElement>(null);
   const smoothScrollerRef = useRef<ScrollSmoother | null>(null);
   
-  gsap.registerPlugin(ScrollSmoother, ScrollTrigger, useGSAP);
-
   useGSAP((context, contextSafe)=> {
 
-    if(!smoothRef.current) return;
+    if(!smoothRef.current || typeof window === 'undefined') return;
+
+    // Register plugins on client side only
+    gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
     let smoothContent = smoothRef.current.querySelector("#smooth-content");
+    
+    if (!smoothContent) return;
     
     smoothScrollerRef.current = ScrollSmoother.create({
       smooth: 1,
@@ -26,6 +29,7 @@ export const ScrollSmooth = (props) => {
       normalizeScroll: true,
       wrapper: smoothRef.current,
       content: smoothContent,
+      ignoreMobileResize: true,
     });  
   }, {
     scope: smoothRef, 

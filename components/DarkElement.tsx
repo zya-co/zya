@@ -1,13 +1,15 @@
 export default function DarkElement({
   children, 
-  ignore
+  ignore,
+  style,
 }: {
   children: any,
   ignore?: boolean
+  style?: React.CSSProperties
 }) {
 
   return (
-    <div className={`${ignore ? 'lightElement' : 'darkElement'}`}>
+    <div className={`${ignore ? 'lightElement' : 'darkElement'}`} style={style}>
       {children}
     </div>
   )
