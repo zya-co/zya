@@ -40,5 +40,6 @@ export const getStaticProps = async () => {
       footerNav: footerNav,
       //myOtherProp: 'some-other-data',
     },
+    revalidate: 60,
   };
 };

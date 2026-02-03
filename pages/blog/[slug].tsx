@@ -64,5 +64,6 @@ export const getStaticProps = async ({ params, preview = false }) => {
       footerNav: footerNav,
       nav: mainNav,
     },
+    revalidate: 60, // ISR: refresh in background; use webhook for instant updates
   };
 };

@@ -89,5 +89,6 @@ export const getStaticProps = async ({ params }) => {
       footerNav: footerNav,
       latestposts: latestBlogPosts,
     },
+    revalidate: 60, // ISR: refresh in background (min 60s on Netlify); use webhook for instant updates
   };
 };
