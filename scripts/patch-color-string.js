@@ -8,8 +8,6 @@ const colorStringPath = path.join(
   __dirname,
   '..',
   'node_modules',
-  'tinacms',
-  'node_modules',
   'color-string',
   'index.js'
 );

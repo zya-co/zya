@@ -29,7 +29,7 @@ module.exports = {
     // The package has been patched to include direct exports, so we just need
     // to ensure webpack properly handles the CommonJS -> ESM interop
     config.module.rules.push({
-      test: /node_modules[\\/]tinacms[\\/]node_modules[\\/]color-string[\\/]index\.js$/,
+      test: /node_modules[\\/]color-string[\\/]index\.js$/,
       type: 'javascript/auto',
       resolve: {
         fullySpecified: false,
