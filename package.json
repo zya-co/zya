@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tinacms dev -c \"NODE_OPTIONS='--inspect' next dev\"",
-    "build": "tinacms build && next build",
+    "build": "tinacms build --skip-cloud-checks && next build",
     "postbuild": "next-sitemap",
     "postinstall": "node scripts/patch-color-string.js"
   },
