@@ -127,36 +127,60 @@ blocks:
     _template: heroTeam
   - spacing:
       padding:
-        bottom: -0.5
+        top: 1
+        right: 1
+        bottom: 1
+        left: 1
+      paddingMobile:
+        top: 1
+        right: 0
+        bottom: 1
+        left: 0
     blocks:
       - color: ''
         richtext: |
           ### Would you like to join our team?
         alignment: left
         margins:
-          top: 1
+          top: 0
           right: 0
-          bottom: 1
-          left: 1
+          bottom: 0.5
+          left: 0
+        marginsMobile:
+          bottom: 0.5
         _template: textBlock
       - richtext: |
           At Zya, we're on a mission to improve consumer health using the power of enzymes.
 
           We're a small, but growing team and are particularly intentional about cultivating a thriving company culture.
         margins:
-          top: -0.5
-          right: 10
-          left: 1
+          top: 0
+          right: 2
+          bottom: 0
+          left: 0
+        marginsMobile:
+          bottom: 0.5
+        width: 5
         _template: textBlock
       - richtext: |
           At Zya, revolutionizing the food industry is more than a job - it’s a career-defining journey, unlike anything you’ve experienced before.
-
-          <Cta link="https://zya.recruit.charliehr.com/careers" label="Check out our job openings" color="lichen" />
+        alignment: left_bottom
         margins:
-          top: -1.5
-          right: 3
-          bottom: 1.5
-          left: 8
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+        marginsMobile:
+          bottom: 0.5
+        width: 5
+        breakAfter: true
+        _template: textBlock
+      - richtext: |
+          <Cta color="lichen" label="Check out our job openings" link="https://zya.recruit.charliehr.com/careers" />
+        margins:
+          top: 0.5
+          left: 7
+        width: 5
         _template: textBlock
     _template: dynamicBlock
   - advisoryHead: Our advisory team
