@@ -14,19 +14,27 @@ if (typeof window !== 'undefined') {
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
-  const [currentRoute, setCurrentRoute] = useState(router?.query?.slug || '');
+  const getRouteSlug = (url?: string) => {
+    const path = url ?? (typeof window !== 'undefined' ? window.location.pathname : '');
+    const slug = path.split('/').filter(Boolean).pop() ?? '';
+    return slug.split('#')[0];
+  };
+
+  const [currentRoute, setCurrentRoute] = useState(() =>
+    typeof window !== 'undefined'
+      ? getRouteSlug(window.location.pathname)
+      : (router?.query?.slug as string) || '',
+  );
 
   useEffect(() => {
     if (typeof window === 'undefined' || !router) return
 
     const handleRouteChange = (url) => {
       console.log('route change', url);
-      const slug = url.split('/').pop();
-      const slugWithoutHash = slug.split('#')[0];
-      setCurrentRoute(slugWithoutHash || '');
+      setCurrentRoute(getRouteSlug(url));
 
-      if (slug.includes('#')) {
-        const hash = slug.split('#').pop();
+      if (url.includes('#')) {
+        const hash = url.split('#').pop();
         const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
         if (!hashElement) {
           console.log('waiting for hash');
@@ -82,7 +90,7 @@ const App = ({ Component, pageProps }) => {
     };
 
     router.events.on('routeChangeComplete', handleRouteChange);
-    handleRouteChange(currentRoute || '');
+    handleRouteChange(window.location.pathname + window.location.hash);
 
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
