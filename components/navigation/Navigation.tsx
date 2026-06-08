@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './Navigation.module.css';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
-import NavigationHover from './NavigationHover';
+import { useNavigationHover } from './NavigationHover';
 
 export const Navigation = (props) => {
 
   const [navOpen, setNavOpen] = useState(false);
 
   const container = useRef<HTMLDivElement | null>(null);
-  NavigationHover(container, props.current);
+
+  useNavigationHover(container, props.current ?? '');
   
   const navData = props.navData?.data.navigation.navItem.map((navitem) => {
     return {
