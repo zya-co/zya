@@ -1,6 +1,8 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  # Skip full rebuild for content-only commits (handled by /api/revalidate webhook).
+  ignore = "bash scripts/should-skip-build.sh"
 
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=4096"
