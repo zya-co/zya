@@ -220,6 +220,11 @@ export const container = {
           description: 'This is for atmospheric background photographs'
         },
         {
+          name: 'bgImgPriority',
+          label: 'Enable preloading of Background Image?',
+          type: 'boolean',
+        },
+        {
           name: 'bgGraphic',
           label: 'Background Graphic',
           type: 'object',

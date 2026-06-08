@@ -58,6 +58,8 @@ export default function Container({data}) {
               alt="Atmospheric background image" 
               fill={true}
               sizes="100vw"
+              priority={!!data.background.bgImgPriority}
+              fetchPriority={data.background.bgImgPriority ? 'high' : undefined}
               className={styles.bgImageImg}
             />
           </figure>
