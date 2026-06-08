@@ -9,6 +9,23 @@ const MOBILE_BREAKPOINT = 640;
 
 const LINK_LABELS = ['one', 'two', 'four', 'six', 'seven'] as const;
 
+type NavLinkHandlers = {
+  mouseEnter: (event: MouseEvent) => void;
+  mouseLeave: (event: MouseEvent) => void;
+  click: (event: MouseEvent) => void;
+};
+
+const linkHandlers = new WeakMap<HTMLAnchorElement, NavLinkHandlers>();
+
+function removeNavLinkHandlers(link: HTMLAnchorElement) {
+  const handlers = linkHandlers.get(link);
+  if (!handlers) return;
+  link.removeEventListener('mouseenter', handlers.mouseEnter);
+  link.removeEventListener('mouseleave', handlers.mouseLeave);
+  link.removeEventListener('click', handlers.click);
+  linkHandlers.delete(link);
+}
+
 function getLinkAnimLabel(i: number) {
   return LINK_LABELS[i] ?? 'null';
 }
@@ -214,7 +231,7 @@ export function useNavigationHover(
       const getLabelEndTime = (label: string) => {
         const labelTime = tl.labels[label];
         if (labelTime === undefined) return 0;
-        const nextLabelTime = Object.values(tl.labels)
+        const nextLabelTime = (Object.values(tl.labels) as number[])
           .filter((time) => time > labelTime)
           .sort((a, b) => a - b)[0];
         return nextLabelTime !== undefined ? nextLabelTime - 0.001 : labelTime + 0.999;
@@ -250,10 +267,11 @@ export function useNavigationHover(
       });
 
       const onEnterClickHandler = contextSafe((event: MouseEvent) => {
-        const link = event.currentTarget as HTMLAnchorElement & {
-          _mouseLeaveHandler?: (event: MouseEvent) => void;
-        };
-        link.removeEventListener('mouseleave', link._mouseLeaveHandler!);
+        const link = event.currentTarget as HTMLAnchorElement;
+        const handlers = linkHandlers.get(link);
+        if (handlers) {
+          link.removeEventListener('mouseleave', handlers.mouseLeave);
+        }
         const i = links.indexOf(link);
         if (i >= 0) seekToLabel(getLinkAnimLabel(i));
       });
@@ -278,44 +296,31 @@ export function useNavigationHover(
         );
       });
 
-      links.forEach((link) => {
-        if (link._mouseEnterHandler && link._mouseLeaveHandler && link._clickHandler) {
-          link.removeEventListener('mouseenter', link._mouseEnterHandler);
-          link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-          link.removeEventListener('click', link._clickHandler);
-        }
-      });
+      const attachNavLinkHandlers = (link: HTMLAnchorElement) => {
+        removeNavLinkHandlers(link);
+        link.addEventListener('mouseenter', mouseEnterHandler);
+        link.addEventListener('mouseleave', mouseLeaveHandler);
+        link.addEventListener('click', onEnterClickHandler);
+        linkHandlers.set(link, {
+          mouseEnter: mouseEnterHandler,
+          mouseLeave: mouseLeaveHandler,
+          click: onEnterClickHandler,
+        });
+      };
+
+      links.forEach(removeNavLinkHandlers);
 
       if (!currentUri || !pageInNav) {
-        links.forEach((link) => {
-          link.addEventListener('mouseenter', mouseEnterHandler);
-          link.addEventListener('mouseleave', mouseLeaveHandler);
-          link.addEventListener('click', onEnterClickHandler);
-          link._mouseEnterHandler = mouseEnterHandler;
-          link._mouseLeaveHandler = mouseLeaveHandler;
-          link._clickHandler = onEnterClickHandler;
-        });
+        links.forEach(attachNavLinkHandlers);
       } else {
         links.forEach((link) => {
           if (linkMatchesPage(link, currentUri)) return;
-
-          link.addEventListener('mouseenter', mouseEnterHandler);
-          link.addEventListener('mouseleave', mouseLeaveHandler);
-          link.addEventListener('click', onEnterClickHandler);
-          link._mouseEnterHandler = mouseEnterHandler;
-          link._mouseLeaveHandler = mouseLeaveHandler;
-          link._clickHandler = onEnterClickHandler;
+          attachNavLinkHandlers(link);
         });
       }
 
       return () => {
-        links.forEach((link) => {
-          if (link._mouseEnterHandler && link._mouseLeaveHandler && link._clickHandler) {
-            link.removeEventListener('mouseenter', link._mouseEnterHandler);
-            link.removeEventListener('mouseleave', link._mouseLeaveHandler);
-            link.removeEventListener('click', link._clickHandler);
-          }
-        });
+        links.forEach(removeNavLinkHandlers);
         tlRef.current?.kill();
         tlRef.current = null;
       };
