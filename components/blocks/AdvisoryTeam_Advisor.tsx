@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import { useState, useRef, useEffect, use } from 'react';
 
-export default function AdvisoryTeam({advisor}) {
+export default function AdvisoryTeam_Advisor({ advisor, advisorImageCircleFrame = true }) {
   const bioRef = useRef(null);
   const button = useRef(null);
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -48,7 +48,7 @@ export default function AdvisoryTeam({advisor}) {
     <>
     {/* <pre>{JSON.stringify(advisor, null, 2)}</pre> */}
     { advisor.image && (
-      <div className={styles.advisorImage}>
+      <div className={`${styles.advisorImage} ${advisorImageCircleFrame ? styles.advisorImageCircle : ''}`}>
         <Image
           src={advisor.image}
           alt={`Portrait of ${advisor.name}`}
@@ -94,8 +94,13 @@ export default function AdvisoryTeam({advisor}) {
           </div>
         }
         { advisor.button?.link && (
-          <Button href={advisor.button.link} className={styles.advisorButton} variant="arrowRightMini" color="lichen">
+          <Button href={advisor.button.link} className={styles.advisorButton} variant="arrowRightMini">
             { advisor.button.label || 'Connect' }
+          </Button>
+        )}
+        { advisor.secondaryButton?.link && (
+          <Button href={advisor.secondaryButton.link} className={styles.secondaryButton} variant="arrowRightMini">
+            { advisor.secondaryButton.label || 'Learn More' }
           </Button>
         )}
       </div>

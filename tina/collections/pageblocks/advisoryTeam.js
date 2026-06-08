@@ -1,7 +1,38 @@
+const colorOptions = [
+  { value: 'earth-gray', label: 'Earth Gray' },
+  { value: 'morpho-teal', label: 'Morpho Teal (Dark Blue)' },
+  { value: 'mineral-white', label: 'Mineral White' },
+  { value: 'lichen', label: 'Lichen' },
+  { value: 'fuchsia', label: 'Fuchsia (Pink)' },
+  { value: 'beatle', label: 'Beatle (Dark Purple)' },
+  { value: 'amber', label: 'Amber' },
+]
+
 export const advisoryTeam = {
   name: 'advisoryTeam',
   label: 'Advisory Team',
   fields: [
+    {
+      type: 'string',
+      name: 'bgColor',
+      label: 'Background Color',
+      description: 'Background color for the section',
+      options: colorOptions,
+    },
+    {
+      type: 'string',
+      name: 'highlightColor',
+      label: 'Highlight Color',
+      description: 'Color for advisor titles and connect buttons',
+      options: colorOptions,
+    },
+    {
+      type: 'boolean',
+      name: 'advisorImageCircleFrame',
+      label: 'Circle-Crop Advisor Images',
+      description: 'Display advisor portraits in a circular frame',
+      default: true,
+    },
     {
       type: 'string',
       name: 'advisoryHead',
@@ -50,6 +81,23 @@ export const advisoryTeam = {
           type: 'object',
           name: 'button',
           label: 'Connect Button',
+          fields: [
+            {
+              type: 'string',
+              name: 'label',
+              label: 'Label'
+            },
+            {
+              type: 'string',
+              name: 'link',
+              label: 'Link'
+            }
+          ]
+        },
+        {
+          type: 'object',
+          name: 'secondaryButton',
+          label: 'Secondary Button',
           fields: [
             {
               type: 'string',
