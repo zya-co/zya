@@ -1,7 +1,6 @@
 import styles from './ContentText.module.css';
 import RichText from '../RichText';
 import DarkElement from '../DarkElement';
-import { TinaField } from 'tinacms';
 import { tinaField } from 'tinacms/dist/react';
 
 export default function ContentText(props) {

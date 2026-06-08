@@ -1,7 +1,7 @@
 /**
  * @type {import('tinacms').Collection}
  */
-import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock';
+import { dynamicBlockSchema } from '../../components/blocks/DynamicBlock_Schema';
 
 export default {
   label: 'Blog Posts',

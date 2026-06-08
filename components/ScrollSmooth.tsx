@@ -3,7 +3,7 @@ import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react/dist";
 import { useRef } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/compat/router";
 
 export const ScrollSmooth = (props) => {
   
@@ -37,9 +37,9 @@ export const ScrollSmooth = (props) => {
   });
 
   useGSAP((context, contextSafe) => {
+    if (!router) return;
 
     const timeouts: NodeJS.Timeout[] = [];
-    const isMobile = () => {  return window.matchMedia('(max-width: 640px)').matches; }
 
     const handleRouteChangeStart = contextSafe((e) => {
       // timeouts.forEach((to) => { clearTimeout(to) });
@@ -49,16 +49,16 @@ export const ScrollSmooth = (props) => {
       
       if ( e.includes('#') ) {
         const hash = e.split('#').pop();
-        smoothScrollerRef.current.scrollTop(0);
+        smoothScrollerRef.current?.scrollTop(0);
         const to = setTimeout(() => {
           const hashElement = document.querySelector(`#${hash}`);
           if (!hashElement) return;
-          smoothScrollerRef.current.scrollTo(hashElement, true, 0, 0);
+          smoothScrollerRef.current?.scrollTo(hashElement, true, 0, 0);
         }, 500);
         timeouts.push(to);
       }
       else {
-        smoothScrollerRef.current.scrollTop(0);
+        smoothScrollerRef.current?.scrollTop(0);
       }
     });
 
@@ -72,7 +72,7 @@ export const ScrollSmooth = (props) => {
     }
   }, {
     scope: smoothRef,
-    dependencies: []
+    dependencies: [router]
   });
 
   return (

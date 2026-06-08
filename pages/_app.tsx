@@ -2,7 +2,7 @@ import React from 'react';
 import './global.css';
 import { aeonik, haben } from '../styles/fonts';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import { Navigation } from '../components/navigation/Navigation';
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from "@gsap/react/dist";
@@ -14,11 +14,10 @@ if (typeof window !== 'undefined') {
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
-  const [currentRoute, setCurrentRoute] = useState(router.query.slug || '');
+  const [currentRoute, setCurrentRoute] = useState(router?.query?.slug || '');
 
   useEffect(() => {
-
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined' || !router) return
 
     const handleRouteChange = (url) => {
       console.log('route change', url);
@@ -88,7 +87,7 @@ const App = ({ Component, pageProps }) => {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []);
+  }, [router]);
 
   return (
     <>

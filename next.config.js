@@ -1,4 +1,5 @@
 module.exports = {
+  bundlePagesRouterDependencies: true,
   async rewrites() {
     return [
       {
@@ -11,7 +12,7 @@ module.exports = {
       },
     ]
   },
-  transpilePackages: ['gsap', 'color-string'],
+  transpilePackages: ['gsap', 'color-string', 'tinacms'],
   images: {
     // domains: ['assets.tina.io'],
     remotePatterns: [
@@ -26,8 +27,6 @@ module.exports = {
   },
   webpack: (config) => {
     // Fix for color-string CommonJS module compatibility with ESM imports
-    // The package has been patched to include direct exports, so we just need
-    // to ensure webpack properly handles the CommonJS -> ESM interop
     config.module.rules.push({
       test: /node_modules[\\/]color-string[\\/]index\.js$/,
       type: 'javascript/auto',
@@ -35,7 +34,14 @@ module.exports = {
         fullySpecified: false,
       },
     });
-    
+
+    // TinaCMS imports @heroicons/react subpaths as directory imports (invalid in Node ESM)
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@heroicons/react/solid': '@heroicons/react/solid/index.js',
+      '@heroicons/react/outline': '@heroicons/react/outline/index.js',
+    };
+
     return config;
   },
 }
