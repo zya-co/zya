@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { tinaField } from 'tinacms/dist/react';
 import styles from './DynamicBlock.module.css';
+import BackgroundImage from './BackgroundImage';
 import Conversion_Graphic from './Conversion_Graphic';
 import DarkElement from '../DarkElement';
 import TextBlock from './DynamicBlock_Blocks/TextBlock';
@@ -46,16 +47,10 @@ export function DynamicBlock({data}) {
         data-tina-field={tinaField(data)}
       >
         {data.background?.bgImage && (
-          <figure className={styles.bgImage}>
-            <Image 
-              src={data.background.bgImage} 
-              alt="Atmospheric background image" 
-              fill={true}
-              sizes="100vw"
-              preload={!!data.background.bgImgPriority}
-              className={styles.bgImageImg}
-            />
-          </figure>
+          <BackgroundImage
+            src={data.background.bgImage}
+            preload={!!data.background.bgImgPriority}
+          />
         )}
         {data.background?.bgGraphic?.image && (
           <figure 

@@ -3,6 +3,7 @@ import styles from './Navigation.module.css';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useNavigationHover } from './NavigationHover';
+import { getHeroPrefetchHandlers } from '../../lib/prefetchPriorityHeroImage';
 
 export const Navigation = (props) => {
 
@@ -72,12 +73,14 @@ export const Navigation = (props) => {
       </Link>
       <div className={styles.mainNav__linkList}>
         { navData?.map((navitem, i) => {
+          const href = navitem.link ?? '#';
           return (
             <Link scroll={false} 
               key={'link_' + i} 
               className={`mainNav__linkList__link ${styles.mainNav__linkList__link} ${navitem.link === '/'+currentSlug && styles.currentLink}`} 
-              href={navitem.link ?? '#'}
+              href={href}
               onClick={() => setNavOpen(false)}
+              {...getHeroPrefetchHandlers(href)}
             >
               {navitem.label}
             </Link>

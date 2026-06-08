@@ -1,6 +1,7 @@
 import { gsap } from 'gsap/dist/gsap';
 import { useGSAP } from '@gsap/react/dist';
 import { RefObject, useLayoutEffect, useRef, useState } from 'react';
+import { prefetchPriorityHeroImage } from '../../lib/prefetchPriorityHeroImage';
 
 gsap.registerPlugin(useGSAP);
 
@@ -259,6 +260,8 @@ export function useNavigationHover(
 
       const mouseEnterHandler = contextSafe((event: MouseEvent) => {
         const link = event.currentTarget as HTMLAnchorElement;
+        const href = link.getAttribute('href');
+        if (href) prefetchPriorityHeroImage(href);
         const i = links.indexOf(link);
         if (i >= 0) {
           tweenToLabel(getLinkAnimLabel(i), { duration: 0.5, ease: 'power2.inOut' });

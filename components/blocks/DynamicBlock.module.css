@@ -22,6 +22,16 @@
   }
   .bgImageImg {
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .bgImageLoaded {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bgImageImg {
+      transition: none;
+    }
   }
   .richtext {
     /* margin: var(--marginTop) auto var(--marginBottom) auto; */
@@ -146,6 +156,16 @@
   }
   .bgImageImg {
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .bgImageLoaded {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bgImageImg {
+      transition: none;
+    }
   }
   .richtext_rightAligned {
     text-align: right;
