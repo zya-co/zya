@@ -55,9 +55,35 @@ export const advisoryTeam = {
           label: 'Name'
         },
         {
-          type: 'image',
+          type: 'object',
           name: 'image',
-          label: 'Portrait'
+          label: 'Portrait',
+          fields: [
+            {
+              type: 'image',
+              name: 'image',
+              label: 'Image'
+            },
+            {
+              type: 'boolean',
+              name: 'monochrome',
+              label: 'Monochrome',
+              description: 'Display the portrait in grayscale',
+              default: false,
+            },
+            {
+              type: 'boolean',
+              name: 'fullWidth',
+              label: 'Full Width',
+              description: 'Span the portrait across the full advisor column width',
+              default: false,
+            },
+          ],
+        },
+        {
+          type: 'string',
+          name: 'degree',
+          label: 'Degree'
         },
         {
           type: 'string',

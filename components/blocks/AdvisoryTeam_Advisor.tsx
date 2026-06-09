@@ -3,10 +3,27 @@ import Image from 'next/image';
 import Button from '../Button';
 import { useState, useRef, useEffect, use } from 'react';
 
+function getAdvisorImage(advisor) {
+  if (!advisor.image) {
+    return { src: null, monochrome: false, fullWidth: false };
+  }
+
+  if (typeof advisor.image === 'string') {
+    return { src: advisor.image, monochrome: false, fullWidth: false };
+  }
+
+  return {
+    src: advisor.image.image || null,
+    monochrome: advisor.image.monochrome === true,
+    fullWidth: advisor.image.fullWidth === true,
+  };
+}
+
 export default function AdvisoryTeam_Advisor({ advisor, advisorImageCircleFrame = true }) {
   const bioRef = useRef(null);
   const button = useRef(null);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const { src: imageSrc, monochrome, fullWidth } = getAdvisorImage(advisor);
   const toggleCollapsed = () => {
     setIsCollapsed(!isCollapsed);
   }
@@ -47,10 +64,15 @@ export default function AdvisoryTeam_Advisor({ advisor, advisorImageCircleFrame 
   return (
     <>
     {/* <pre>{JSON.stringify(advisor, null, 2)}</pre> */}
-    { advisor.image && (
-      <div className={`${styles.advisorImage} ${advisorImageCircleFrame ? styles.advisorImageCircle : ''}`}>
+    { imageSrc && (
+      <div className={[
+        styles.advisorImage,
+        advisorImageCircleFrame ? styles.advisorImageCircle : '',
+        monochrome ? styles.advisorImageMonochrome : '',
+        fullWidth ? styles.advisorImageFullWidth : '',
+      ].filter(Boolean).join(' ')}>
         <Image
-          src={advisor.image}
+          src={imageSrc}
           alt={`Portrait of ${advisor.name}`}
           sizes='(min-width: 641px) 17vw, 33vw'
           fill={true}
@@ -58,7 +80,10 @@ export default function AdvisoryTeam_Advisor({ advisor, advisorImageCircleFrame 
       </div>
     )}
     <div className={styles.advisorInfo}>
-      <h3 className={styles.advisorInfo__name}>{advisor.name}</h3>
+      <h3 className={styles.advisorInfo__name}>
+        {advisor.name}
+        {advisor.degree && <sub className={styles.advisorInfo__degree}>{advisor.degree}</sub>}
+      </h3>
       <h4 className={styles.advisorInfo__title}>{advisor.title}</h4>
       <p className={styles.advisorInfo__otherTitle}>{advisor.otherTitle}</p>
       <div className={styles.advisorInfo__contact}>
