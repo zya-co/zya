@@ -85,7 +85,11 @@ blocks:
           top: 0.5
         _template: textBlock
     _template: dynamicBlock
-  - background:
+  - spacing:
+      padding:
+        top: 1.5
+        bottom: 1
+    background:
       darkMode: true
       bgColor: earth-gray
     blocks:
@@ -93,16 +97,22 @@ blocks:
         richtext: |
           #### Visionaries with a purpose:
 
-          # Meet the founders
-
-          Cut!
+          # Meet the team
         margins:
           top: 0
           right: 0
           left: 1
-        width: 8
+        width: 11
         _template: textBlock
     _template: dynamicBlock
+  - advisoryHead: ''
+    advisorySubhead: ''
+    advisors:
+      - name: Joshua Sauer
+        image: /media/founders/josh-masked.png
+        title: PhD
+        otherTitle: Co-Founder & CEO
+    _template: advisoryTeam
   - introHead: |
       #### Visionaries with a purpose:
 
