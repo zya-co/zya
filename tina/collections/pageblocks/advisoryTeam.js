@@ -10,7 +10,7 @@ const colorOptions = [
 
 export const advisoryTeam = {
   name: 'advisoryTeam',
-  label: 'Advisory Team',
+  label: 'People Grid',
   fields: [
     {
       type: 'string',
@@ -25,13 +25,6 @@ export const advisoryTeam = {
       label: 'Highlight Color',
       description: 'Color for advisor titles and connect buttons',
       options: colorOptions,
-    },
-    {
-      type: 'boolean',
-      name: 'advisorImageCircleFrame',
-      label: 'Circle-Crop Advisor Images',
-      description: 'Display advisor portraits in a circular frame',
-      default: true,
     },
     {
       type: 'string',
@@ -63,6 +56,13 @@ export const advisoryTeam = {
               type: 'image',
               name: 'image',
               label: 'Image'
+            },
+            {
+              type: 'boolean',
+              name: 'circleFrame',
+              label: 'Circle-Crop Image',
+              description: 'Display the portrait in a circular frame',
+              default: false,
             },
             {
               type: 'boolean',

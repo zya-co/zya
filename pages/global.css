@@ -6,13 +6,13 @@
   --color-fuchsia: #E681FF;
   --color-beatle: #340E32;
   --color-amber: #CA8F1B;
-  --size-h1: 11.25vw;
-  --size-h2: 6.95vw;
-  --size-h3: 4.29vw;
-  --size-subhead: 2.65vw;
   --size-body: 1.64vw;
-  --size-s: 1.17vw;
-  --size-xs: 0.78vw;
+  --size-s: calc(var(--size-body) * 0.71);
+  --size-xs: calc(var(--size-body) * 0.5);
+  --size-subhead: calc(var(--size-body) * 1.62);
+  --size-h3: calc(var(--size-body) * 2.62);
+  --size-h2: calc(var(--size-body) * 4.27);
+  --size-h1: calc(var(--size-body) * 6.85);
   --spacing-s: 1.875vw;
   --spacing-col: 6.015625vw;
 

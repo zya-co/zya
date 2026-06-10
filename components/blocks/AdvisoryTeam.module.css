@@ -1,7 +1,7 @@
 @media (max-width: 640px) {
   .advisoryTeam {
-    overflow: hidden;
-    padding: 0 var(--spacing-s) var(--spacing-col) var(--spacing-s);
+    /* overflow: hidden; */
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-col) var(--spacing-s);
   }
   .introHead {
     max-width: calc( 10 * var(--spacing-col));
@@ -32,15 +32,10 @@
     height: 100%;
     object-fit: cover;
   }
-  .advisorImageFullWidth {
-    flex: 0 0 100%;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
-  }
   .advisorInfo {
     position: relative;
     z-index: 1;
+    width: 100%;
   }
   .advisorInfo__name {
     margin: 1.25em 0 0 0;
@@ -65,12 +60,21 @@
     display: flex;
     gap: .5em;
     align-items: flex-start;
+    justify-content: stretch;
     line-height: 1.1;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    
+    & > *, & > * > .advisorInfo__bio__toggle {
+      margin: 0!important;
+      flex: 1 1 30%;
+    }
   }
   .advisorInfo__bio {
     display: inline;
     position: relative;
     transition: margin 0.3s cubic-bezier(.95,.15,.33,.73);
+    flex: 0 1 33.1px;
   }
   .advisorInfo__bio__toggle {
       background-color: var(--highlight-color, var(--color-lichen));
@@ -96,7 +100,7 @@
     left: calc( -3 * var(--spacing-col) );
     top: 100%;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(.95,.15,.33,.73);
+    transition: width 0.4s cubic-bezier(.95,.15,.33,.73), height 0.4s cubic-bezier(.95,.15,.33,.73);
     z-index: 3;
     background-color: var(--color-mineral-white);
     box-shadow: 0px 4px 69.5px 0px rgba(0, 0, 0, 0.75);
@@ -107,7 +111,7 @@
     opacity: 1;
   }
   .advisorInfo__bio__content__text {
-    font-size: var(--size-s);
+    font-size: var(--size-body);
     color: var(--color-beatle);
     width: calc( 100vw - 2 * var(--spacing-s));
     padding: 2em;
@@ -137,6 +141,9 @@
   }
   .advisor {
     flex: 0 0 calc( 4 * var(--spacing-col) - 1px); 
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
   }
   .advisorImage {
     position: relative;
@@ -161,13 +168,11 @@
   .advisorInfo {
     position: relative;
     z-index: 1;
-    margin-top: 4.5em;
   }
   .advisorInfo__name {
     margin: 0;
     white-space: nowrap;
-    position: absolute;
-    bottom: 100%;
+    width: calc( 4 * var(--spacing-col) - 1px);
   }
   .advisorInfo__title {
     margin: 0;
@@ -245,11 +250,13 @@
 }
 
 .advisorInfo__degree {
-  display: block;
-  font-size: 0.65em;
-  font-weight: normal;
-  margin-top: 0.25em;
-  white-space: normal;
+  font-size: 0.4em;
+  vertical-align: super;
+  position: relative;
+  top: -0.55em;
+  margin-left: 0.5em;
+  font-family: var(--font-aeonik);
+  letter-spacing: 0;
 }
 
 .advisorButton {

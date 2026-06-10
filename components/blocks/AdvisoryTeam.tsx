@@ -9,7 +9,6 @@ const darkHighlights = ['morpho-teal', 'earth-gray', 'beatle'];
 export default function AdvisoryTeam(props) {
   const bgColor = props.data.bgColor || 'earth-gray';
   const highlightColor = props.data.highlightColor || 'lichen';
-  const advisorImageCircleFrame = props.data.advisorImageCircleFrame !== false;
   const isDarkBg = darkBackgrounds.includes(bgColor);
   const textColor = isDarkBg ? 'mineral-white' : 'morpho-teal';
   const highlightTextColor = darkHighlights.includes(highlightColor) ? 'mineral-white' : 'morpho-teal';
@@ -28,10 +27,7 @@ export default function AdvisoryTeam(props) {
       <div className={styles.advisors}>
         {props.data.advisors?.map((advisor, index) => (
           <div key={index} className={styles.advisor} data-tina-field={tinaField(advisor)}>
-            <AdvisoryTeam_Advisor
-              advisor={advisor}
-              advisorImageCircleFrame={advisorImageCircleFrame}
-            />
+            <AdvisoryTeam_Advisor advisor={advisor} />
           </div>
         ))}
       </div>
