@@ -29,63 +29,13 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     if (typeof window === 'undefined' || !router) return
 
-    const handleRouteChange = (url) => {
-      console.log('route change', url);
+    const handleRouteChange = (url: string) => {
       setCurrentRoute(getRouteSlug(url));
 
-      if (url.includes('#')) {
-        const hash = url.split('#').pop();
-        const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
-        if (!hashElement) {
-          console.log('waiting for hash');
-          // Wait for the element to be in the DOM
-          let timeoutId;
-          const observer = new MutationObserver((mutations, observer) => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-              const hashElement = document.querySelector(`#${hash}`) as HTMLElement;
-              if (hashElement) {
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'instant'
-                });
-                // Use ResizeObserver to ensure the element's size is final
-                const resizeObserver = new ResizeObserver(() => {
-                  window.scrollTo(0, hashElement.getBoundingClientRect().top);
-                  console.log('no hash, scrolling to', hashElement.getBoundingClientRect().top);
-                  resizeObserver.disconnect();
-                });
-                resizeObserver.observe(hashElement);
-                observer.disconnect();
-              }
-            }, 100); // Adjust the debounce delay as needed
-          });
-          observer.observe(document.body, { childList: true, subtree: true });
-        }
-        else {
-          console.log('there was a hash');
-          // Use ResizeObserver to ensure the element's size is final
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'instant'
-          });
-          const resizeObserver = new ResizeObserver(() => {
-            window.scrollTo(0, hashElement.getBoundingClientRect().top);
-            console.log('was hash, scrolling to', hashElement.getBoundingClientRect().top);
-            resizeObserver.disconnect();
-          });
-          resizeObserver.observe(document.body);
-        }
-      } 
-      else {
-        console.log('no hash, jumping to top');
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'instant'
-        });
+      // noSmooth pages (e.g. /blog/*) sit outside ScrollSmoother; Links use
+      // scroll={false}, so native scroll must be reset here on non-hash navigations.
+      if (!url.includes('#')) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     };
 

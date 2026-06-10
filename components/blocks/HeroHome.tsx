@@ -231,6 +231,11 @@ export const HeroHome = (props) => {
         zIndex: 5,
         duration: 1,
       }, 'shape3')
+      .to('.shape4 path[fill="#FFFBF3"]', {
+        fill: '#00394C',
+        duration: 0.05,
+        ease: 'none',
+      }, 'shape3+=.25')
       .set('.heroHomeInside', {
         backgroundColor: 'var(--color-morpho-teal)',
         height: '100%',
@@ -243,7 +248,7 @@ export const HeroHome = (props) => {
       .to('.heroContent1, .heroContent2', {
         autoAlpha: 1,
         yPercent: 0,
-        ease: 'power1.out',
+        ease: 'none',
         stagger: 0.1,
         duration: 0.5,
       }, 'shape3+=.5')
