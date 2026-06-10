@@ -9,30 +9,6 @@
               var(--padding-bottom-m) 
               var(--padding-left-m);
   }
-  .bgImage {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .bgImageImg {
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .bgImageLoaded {
-    opacity: 1;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .bgImageImg {
-      transition: none;
-    }
-  }
   .richtext {
     /* margin: var(--marginTop) auto var(--marginBottom) auto; */
     margin-top: var( --marginTop-m, var(--marginTop) );
@@ -144,30 +120,6 @@
               var(--padding-bottom, 0) 
               var(--padding-left, 0);
     /* will-change: transform; */
-  }
-  .bgImage {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .bgImageImg {
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .bgImageLoaded {
-    opacity: 1;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .bgImageImg {
-      transition: none;
-    }
   }
   .richtext_rightAligned {
     text-align: right;

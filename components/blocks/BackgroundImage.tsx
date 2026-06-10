@@ -1,21 +1,24 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
-import styles from './DynamicBlock.module.css';
+import { getBackgroundBlurImageProps } from '../../lib/backgroundImageProps';
+import styles from './BackgroundImage.module.css';
 
 type BackgroundImageProps = {
   src: string;
   preload?: boolean;
+  behind?: boolean;
 };
 
-export default function BackgroundImage({ src, preload = false }: BackgroundImageProps) {
+export default function BackgroundImage({ src, preload = false, behind = false }: BackgroundImageProps) {
   const [loaded, setLoaded] = useState(false);
   const figureRef = useRef<HTMLElement>(null);
+  const blurProps = useMemo(() => getBackgroundBlurImageProps(src), [src]);
 
   useEffect(() => {
     setLoaded(false);
     const frame = requestAnimationFrame(() => {
-      const img = figureRef.current?.querySelector('img');
-      if (img?.complete && img.naturalWidth > 0) {
+      const img = figureRef.current?.querySelector(`.${styles.image}`);
+      if (img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0) {
         setLoaded(true);
       }
     });
@@ -26,8 +29,21 @@ export default function BackgroundImage({ src, preload = false }: BackgroundImag
     setLoaded(true);
   }, []);
 
+  const figureClassName = [
+    styles.figure,
+    behind ? styles.figureBehind : '',
+  ].filter(Boolean).join(' ');
+
   return (
-    <figure ref={figureRef} className={styles.bgImage}>
+    <figure ref={figureRef} className={figureClassName}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        {...blurProps}
+        alt=""
+        aria-hidden="true"
+        className={styles.blur}
+        decoding="async"
+      />
       <Image
         src={src}
         alt="Atmospheric background image"
@@ -35,7 +51,7 @@ export default function BackgroundImage({ src, preload = false }: BackgroundImag
         sizes="100vw"
         preload={preload}
         onLoad={handleLoad}
-        className={`${styles.bgImageImg} ${loaded ? styles.bgImageLoaded : ''}`}
+        className={`${styles.image} ${loaded ? styles.loaded : ''}`}
       />
     </figure>
   );

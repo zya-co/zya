@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { tinaField } from 'tinacms/dist/react';
 import styles from './Container.module.css';
+import BackgroundImage from '../BackgroundImage';
 import DarkElement from '../../DarkElement';
 import TextBlock from '../DynamicBlock_Blocks/TextBlock';
 import ImageBlock from '../DynamicBlock_Blocks/ImageBlock';
@@ -52,15 +53,7 @@ export default function Container({data}) {
         data-tina-field={tinaField(data)}
       >
         {data.background?.bgImage && (
-          <figure className={styles.bgImage}>
-            <Image 
-              src={data.background.bgImage} 
-              alt="Atmospheric background image" 
-              fill={true}
-              sizes="100vw"
-              className={styles.bgImageImg}
-            />
-          </figure>
+          <BackgroundImage src={data.background.bgImage} behind />
         )}
         {data.background?.bgGraphic?.image && (
           <figure 

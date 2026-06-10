@@ -1,4 +1,7 @@
-import { getImageProps } from 'next/image';
+import {
+  getBackgroundBlurImageProps,
+  getBackgroundImageProps,
+} from './backgroundImageProps';
 
 /** Routes whose first dynamic block uses bgImgPriority + bgImage */
 const PRIORITY_HERO_IMAGES: Record<string, string> = {
@@ -6,6 +9,15 @@ const PRIORITY_HERO_IMAGES: Record<string, string> = {
 };
 
 const prefetched = new Set<string>();
+
+function prefetchImage(props: { src: string; srcSet?: string; sizes?: string }) {
+  const img = new window.Image();
+  if (props.srcSet) {
+    img.sizes = props.sizes ?? '100vw';
+    img.srcset = props.srcSet;
+  }
+  img.src = props.src;
+}
 
 export function prefetchPriorityHeroImage(href: string) {
   if (typeof window === 'undefined') return;
@@ -16,19 +28,8 @@ export function prefetchPriorityHeroImage(href: string) {
 
   prefetched.add(path);
 
-  const { props } = getImageProps({
-    src: imageSrc,
-    alt: '',
-    fill: true,
-    sizes: '100vw',
-  });
-
-  const img = new window.Image();
-  if (props.srcSet) {
-    img.sizes = props.sizes ?? '100vw';
-    img.srcset = props.srcSet;
-  }
-  img.src = props.src;
+  prefetchImage(getBackgroundBlurImageProps(imageSrc));
+  prefetchImage(getBackgroundImageProps(imageSrc));
 }
 
 export function getHeroPrefetchHandlers(href: string) {

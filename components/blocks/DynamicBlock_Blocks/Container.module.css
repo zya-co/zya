@@ -8,20 +8,6 @@
     width: var(--width-m, 100%);
     border-radius: 6px;
   }
-  .bgImage {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-  }
-  .bgImageImg {
-    object-fit: cover;
-  }
   .richtext {
     margin-top: var( --marginTop-m, var(--marginTop) );
     margin-right: var(--marginRight-m, auto);
@@ -105,20 +91,6 @@
     width: var(--width-d, 100%);
     border-radius: 6px;
     align-self: flex-start;
-  }
-  .bgImage {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-  }
-  .bgImageImg {
-    object-fit: cover;
   }
   .richtext_rightAligned {
     text-align: right;
