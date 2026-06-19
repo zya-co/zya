@@ -18,6 +18,7 @@
     color: var(--color-morpho-teal);
     width: 19vw;
     display: block;
+    transition: color 0.3s ease;
   }
   .mobileHeader[data-isLight="true"] .mobileHeader__logo {
     color: var(--color-mineral-white);
@@ -32,28 +33,32 @@
   .mobileHeader[data-isLight="true"] .mobileHeader__hamburger__icon {
     color: var(--color-mineral-white);
   }
-  .mainNav[data-nav-open='false'] {
-    /* display: none; */
-  }
   .mainNav {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 101;
     width: 100vw;
-    height: 100vh;
-    transform: translateY(100vh);
+    height: 100dvh;
+    transform: translateY(100%);
     overflow: hidden;
     box-sizing: border-box;
     padding: calc( 1.5 * var(--spacing-s) ) var(--spacing-s);
     font-family: var(--font-aeonik);
     background-color: var(--color-beatle);
     color: var(--color-mineral-white);
+    transition: none;
+    pointer-events: none;
+  }
+  .mainNav:not([data-nav-ready]) {
+    visibility: hidden;
+  }
+  .mainNav[data-nav-ready] {
     transition: transform .75s cubic-bezier(.13,1,.54,1);
   }
   .mainNav[data-nav-open='true'] {
     transform: translateY(0);
-    transition: transform .75s cubic-bezier(.13,1,.54,1);
+    pointer-events: auto;
   }
   .mainNav__logo {
     color: var(--color-mineral-white);
@@ -76,12 +81,33 @@
     text-decoration: none;
     color: var(--color-mineral-white);
     font-family: var(--font-haben);
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
     padding: .125em 0;
     position: relative;
     transition: color 0.3s ease;
     font-size: 6vh;
     letter-spacing: -0.05em;
+  }
+  .navLinkSpinner {
+    flex-shrink: 0;
+    width: 0.35em;
+    height: 0.35em;
+    border: 0.06em solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: navLinkSpin 0.7s linear infinite;
+    color: var(--color-fuchsia);
+  }
+  @keyframes navLinkSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .mainNav__linkList__link:has( > .navLinkSpinner),
+  .mainNav__linkList__link:active {
+    color: var(--color-fuchsia);
   }
   .currentLink {
     color: var(--color-fuchsia);

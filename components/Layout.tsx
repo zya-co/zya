@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { ScrollSmooth } from './ScrollSmooth';
+import { applyNavLightState, clearPendingNavStateTimeout } from '../lib/syncNavLightState';
 
 export const Layout = (props) => {
   const meta = {
@@ -42,29 +43,19 @@ export const Layout = (props) => {
       return observer;
     };
 
-    const nav = document.querySelector('.mainNav') as HTMLElement;
-    const mobileHeader = document.querySelector('.mobileHeader') as HTMLElement;
-
     // Track intersecting elements
     const intersectingDarkElements = new Set<HTMLElement>();
     const intersectingLightElements = new Set<HTMLElement>();
 
     // Helper function to update nav state based on currently intersecting elements
     const updateNavState = () => {
-      // Clear any existing global timeout
-      if ((window as any)._navStateTimeout) {
-        clearTimeout((window as any)._navStateTimeout);
-      }
+      clearPendingNavStateTimeout();
 
-      (window as any)._navStateTimeout = setTimeout(() => {
-        // If any dark element is intersecting, nav should be light
+      (window as Window & { _navStateTimeout?: ReturnType<typeof setTimeout> })._navStateTimeout = setTimeout(() => {
         if (intersectingDarkElements.size > 0) {
-          nav?.setAttribute('data-isLight', 'true');
-          mobileHeader?.setAttribute('data-isLight', 'true');
+          applyNavLightState(true);
         } else {
-          // No dark elements intersecting, nav should be dark (default)
-          nav?.removeAttribute('data-isLight');
-          mobileHeader?.removeAttribute('data-isLight');
+          applyNavLightState(false);
         }
       }, 100);
     };
@@ -159,9 +150,7 @@ export const Layout = (props) => {
       window.visualViewport?.removeEventListener('resize', handleResize);
       
       // Clear global timeout
-      if ((window as any)._navStateTimeout) {
-        clearTimeout((window as any)._navStateTimeout);
-      }
+      clearPendingNavStateTimeout();
       
       darkElements.forEach((entry) => {
         if ((entry as any)._timeoutId) {
