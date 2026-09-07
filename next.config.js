@@ -15,6 +15,7 @@ module.exports = {
   transpilePackages: ['gsap', 'color-string', 'tinacms'],
   images: {
     // domains: ['assets.tina.io'],
+    qualities: [20, 75],
     remotePatterns: [
       {
         hostname: 'assets.tina.io',
