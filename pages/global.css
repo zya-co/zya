@@ -32,7 +32,7 @@
   --spacing-col: 11.25vw;
   --heroTopSpace: calc(2 * var(--size-h1) + 2 * var(--spacing-s));
   --scroll-behavior: smooth;
- } 
+ }
 }
 
 html, body {
@@ -172,6 +172,8 @@ input[type="checkbox"] {
   border-radius: 5px;
   background-color: var(--color-mineral-white);
   -webkit-appearance: none ;
+  appearance: none;
+  cursor: pointer;
 }
 input[type="checkbox"]:checked {
   background-position: center;
@@ -206,4 +208,7 @@ input[type="checkbox"]:checked {
   .mainNavHoverCircleGroup {
     display: none!important;
   }
+}
+svg {
+    will-change: transform;
 }
